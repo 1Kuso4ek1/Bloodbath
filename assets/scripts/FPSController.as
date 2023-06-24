@@ -1,0 +1,90 @@
+funcdef void EventFunction();
+
+float Dot(const Vector3& in vec1, const Vector3& in vec2)
+{
+    return vec1.x * vec2.x +
+           vec1.y * vec2.y +
+           vec1.z * vec2.z;
+}
+
+class FPSController
+{
+    FPSController(Model@ playerModel, ModelGroup ground, float speed = 2.0)
+    {
+        @this.playerModel = @playerModel;
+        this.ground = ground;
+        @playerRB = @playerModel.GetRigidBody();
+        this.speed = speed;
+
+        PhysicalMaterial mat;
+        mat.setBounciness(0.01);
+        mat.setFrictionCoefficient(0.6);
+        playerRB.setMaterial(mat);
+        for(uint i = 0; i < ground.Size(); i++)
+            ground[i].GetRigidBody().setMaterial(mat);
+    }
+
+    void AddCustomEvent(EventFunction@ func)
+    {
+        customEvents.insertLast(func);
+    }
+
+    void Update()
+    {
+        auto v = Game::camera.Move(1, true); v.y = 0; v *= 300;
+        moving = v.length() > 0;
+        if(!Keyboard::isKeyPressed(Keyboard::LControl) || !onGround)
+            playerRB.applyWorldForceAtCenterOfMass((onGround && bhopDelay.getElapsedTime().asSeconds() >= 0.3) ? v : v / (Dot(v / 50, playerRB.getLinearVelocity()) < 0 ? 10 : 80));
+
+        auto vel = playerRB.getLinearVelocity();
+        if(vel.x > speed) vel.x = speed; if(vel.z > speed) vel.z = speed;
+        if(vel.x < -speed) vel.x = -speed; if(vel.z < -speed) vel.z = -speed;
+        if(onGround && bhopDelay.getElapsedTime().asSeconds() >= 0.3 && !Keyboard::isKeyPressed(Keyboard::LControl))
+            playerRB.setLinearVelocity(vel);
+
+        if(v == Vector3(0, 0, 0) && onGround && !Keyboard::isKeyPressed(Keyboard::LControl)/* && bhopDelay.getElapsedTime().asSeconds() >= 0.3*/)
+            playerRB.setLinearVelocity(
+                Vector3(playerRB.getLinearVelocity().x / 1.1,
+                        playerRB.getLinearVelocity().y,
+                        playerRB.getLinearVelocity().z / 1.1));
+
+        for(uint i = 0; i < customEvents.length(); i++)
+            customEvents[i]();
+
+        Ray ray(playerModel.GetPosition(), playerModel.GetPosition() - Vector3(0, playerModel.GetSize().y + 0.05, 0));
+        RaycastInfo info;
+        for(uint i = 0; i < ground.Size(); i++)
+        {
+            onGround = ground[i].GetRigidBody().raycast(ray, info);
+            if(onGround) break;
+        }
+
+        if(!onGround) bhopDelay.restart();
+
+        if(Keyboard::isKeyPressed(Keyboard::Space))
+            if(onGround)
+                playerModel.GetRigidBody().applyWorldForceAtCenterOfMass(Vector3(0, 100, 0) + Game::camera.GetOrientation() * Vector3(0, 0, -20));
+        /*if(playerRB.getLinearVelocity().length() == 0)
+            playerRB.setAngularVelocity(Vector3(0, 0, 0));
+        else */playerModel.SetOrientation(Quaternion(0, 0, 0, 1));
+    }
+
+    bool IsMoving()
+    {
+        return moving;
+    }
+
+    bool IsOnGround()
+    {
+        return onGround;
+    }
+    
+    private array<EventFunction@> customEvents;
+    private Model@ playerModel;
+    private ModelGroup ground;
+    private RigidBody@ playerRB;
+    private float speed;
+    private bool moving;
+    private bool onGround;
+    private Clock bhopDelay;
+};

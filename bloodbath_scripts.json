@@ -1,0 +1,7 @@
+{
+	"scripts" : 
+	[
+		"assets/scripts/main.as",
+		"assets/scripts/FPSController.as"
+	]
+}

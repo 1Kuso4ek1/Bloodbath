@@ -1,0 +1,65 @@
+ChatBox.ChatBox1 {
+    LinesStartFromTop = false;
+    NewLinesBelowOthers = true;
+    Position = (10, 820);
+    Size = (290, 212);
+    TextColor = white;
+    TextSize = 13;
+
+    Renderer {
+        BackgroundColor = transparent;
+        BorderColor = rgba(240, 240, 240, 215);
+        Borders = (0, 0, 0, 0);
+        TextureBackground = None;
+
+        Scrollbar {
+            ArrowBackgroundColor = rgba(160, 160, 160, 215);
+            ArrowBackgroundColorHover = rgba(170, 170, 170, 215);
+            ArrowColor = rgba(200, 200, 200, 215);
+            ArrowColorHover = rgba(225, 225, 225, 215);
+            TextureArrowDown = None;
+            TextureArrowDownHover = None;
+            TextureArrowUp = None;
+            TextureArrowUpHover = None;
+            TextureThumb = None;
+            TextureThumbHover = None;
+            TextureTrack = None;
+            TextureTrackHover = None;
+            ThumbColor = rgba(185, 185, 185, 215);
+            ThumbColorHover = rgba(195, 195, 195, 215);
+            TrackColor = rgba(160, 160, 160, 215);
+            TrackColorHover = rgba(170, 170, 170, 215);
+        }
+    }
+}
+
+ProgressBar.ProgressBar1 {
+    Maximum = 100;
+    Minimum = 0;
+    Position = (10, 1050);
+    Size = (290, 22);
+    TextSize = 13;
+    Value = 10;
+
+    Renderer {
+        BackgroundColor = rgba(180, 180, 180, 215);
+        BorderColor = rgba(240, 240, 240, 215);
+        Borders = (0, 0, 0, 0);
+        FillColor = #FF000082;
+        TextColor = rgba(255, 255, 255, 215);
+        TextColorFilled = rgba(255, 255, 255, 245);
+        TextureBackground = None;
+        TextureFill = None;
+    }
+}
+
+Picture.Picture1 {
+    Position = (950, 524);
+    Size = (18, 18);
+
+    Renderer {
+        Opacity = 0.8;
+        Texture = "textures/crosshair.png" Smooth;
+        TransparentTexture = false;
+    }
+}

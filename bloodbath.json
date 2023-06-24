@@ -1,0 +1,1073 @@
+{
+	"animations" : 
+	[
+		{
+			"duration" : 13.0,
+			"keyframes" : 
+			[
+				{
+					"name" : "rifle",
+					"posStamps" : 
+					[
+						0.0,
+						3.9000000953674316,
+						6.0,
+						8.0,
+						10.40000057220459,
+						13.0
+					],
+					"positions" : 
+					[
+						{
+							"x" : 0.69999998807907104,
+							"y" : -1.0,
+							"z" : -1.0
+						},
+						{
+							"x" : 0.69999998807907104,
+							"y" : -0.80000001192092896,
+							"z" : -1.0
+						},
+						{
+							"x" : 0.69999998807907104,
+							"y" : -0.80000001192092896,
+							"z" : -1.0
+						},
+						{
+							"x" : 0.69999998807907104,
+							"y" : -1.0,
+							"z" : -1.0
+						},
+						{
+							"x" : 0.69999998807907104,
+							"y" : -1.0,
+							"z" : -1.0
+						},
+						{
+							"x" : 0.69999998807907104,
+							"y" : -1.0,
+							"z" : -1.0
+						}
+					],
+					"rotStamps" : 
+					[
+						0.0,
+						3.9000000953674316,
+						6.0,
+						8.0,
+						10.40000057220459,
+						13.0
+					],
+					"rotations" : 
+					[
+						{
+							"w" : 0.5,
+							"x" : -0.5,
+							"y" : 0.5,
+							"z" : 0.5
+						},
+						{
+							"w" : 0.29883626103401184,
+							"x" : -0.061628434807062149,
+							"y" : 0.70441603660583496,
+							"z" : 0.64085638523101807
+						},
+						{
+							"w" : 0.29883626103401184,
+							"x" : -0.061628434807062149,
+							"y" : 0.70441603660583496,
+							"z" : 0.64085638523101807
+						},
+						{
+							"w" : 0.16773125529289246,
+							"x" : -0.25488704442977905,
+							"y" : 0.044943422079086304,
+							"z" : 0.95125126838684082
+						},
+						{
+							"w" : 0.16773125529289246,
+							"x" : -0.25488704442977905,
+							"y" : 0.044943422079086304,
+							"z" : 0.95125126838684082
+						},
+						{
+							"w" : 0.5,
+							"x" : -0.5,
+							"y" : 0.5,
+							"z" : 0.5
+						}
+					],
+					"scaleStamps" : 
+					[
+						0.0,
+						3.9000000953674316,
+						6.0,
+						8.0,
+						10.40000057220459,
+						13.0
+					],
+					"scales" : 
+					[
+						{
+							"x" : 1.0,
+							"y" : 1.0,
+							"z" : 1.0
+						},
+						{
+							"x" : 1.0,
+							"y" : 1.0,
+							"z" : 1.0
+						},
+						{
+							"x" : 1.0,
+							"y" : 1.0,
+							"z" : 1.0
+						},
+						{
+							"x" : 1.0,
+							"y" : 1.0,
+							"z" : 1.0
+						},
+						{
+							"x" : 1.0,
+							"y" : 1.0,
+							"z" : 1.0
+						},
+						{
+							"x" : 1.0,
+							"y" : 1.0,
+							"z" : 1.0
+						}
+					]
+				}
+			],
+			"name" : "lookAtRifle",
+			"repeat" : false,
+			"tps" : 4.0
+		},
+		{
+			"duration" : 5.0,
+			"keyframes" : 
+			[
+				{
+					"name" : "rifle",
+					"posStamps" : 
+					[
+						0.0,
+						2.5,
+						5.0
+					],
+					"positions" : 
+					[
+						{
+							"x" : 0.81135916709899902,
+							"y" : -1.0886409282684326,
+							"z" : -1.0
+						},
+						{
+							"x" : 0.8113589882850647,
+							"y" : -1.0886399745941162,
+							"z" : -0.80000001192092896
+						},
+						{
+							"x" : 0.8113589882850647,
+							"y" : -1.0886399745941162,
+							"z" : -1.0
+						}
+					],
+					"rotStamps" : 
+					[
+						0.0,
+						2.5,
+						5.0
+					],
+					"rotations" : 
+					[
+						{
+							"w" : 0.5,
+							"x" : -0.5,
+							"y" : 0.5,
+							"z" : 0.5
+						},
+						{
+							"w" : 0.5,
+							"x" : -0.5,
+							"y" : 0.5,
+							"z" : 0.5
+						},
+						{
+							"w" : 0.5,
+							"x" : -0.5,
+							"y" : 0.5,
+							"z" : 0.5
+						}
+					],
+					"scaleStamps" : 
+					[
+						0.0,
+						2.5,
+						5.0
+					],
+					"scales" : 
+					[
+						{
+							"x" : 1.0,
+							"y" : 1.0,
+							"z" : 1.0
+						},
+						{
+							"x" : 1.0,
+							"y" : 1.0,
+							"z" : 1.0
+						},
+						{
+							"x" : 1.0,
+							"y" : 1.0,
+							"z" : 1.0
+						}
+					]
+				}
+			],
+			"name" : "shoot",
+			"repeat" : false,
+			"tps" : 50.0
+		},
+		{
+			"duration" : 10.0,
+			"keyframes" : 
+			[
+				{
+					"name" : "node",
+					"posStamps" : 
+					[
+						0.0,
+						2.5,
+						5.0,
+						7.5,
+						10.0
+					],
+					"positions" : 
+					[
+						{
+							"x" : 0.0,
+							"y" : 0.0,
+							"z" : 0.0
+						},
+						{
+							"x" : 0.10000000149011612,
+							"y" : 0.10000000149011612,
+							"z" : 0.0
+						},
+						{
+							"x" : 0.0,
+							"y" : 0.0,
+							"z" : 0.0
+						},
+						{
+							"x" : -0.10000000149011612,
+							"y" : 0.10000000149011612,
+							"z" : 0.0
+						},
+						{
+							"x" : 0.0,
+							"y" : 0.0,
+							"z" : 0.0
+						}
+					],
+					"rotStamps" : 
+					[
+						0.0,
+						2.5,
+						5.0,
+						7.5,
+						10.0
+					],
+					"rotations" : 
+					[
+						{
+							"w" : 1.0,
+							"x" : 0.0,
+							"y" : 0.0,
+							"z" : 0.0
+						},
+						{
+							"w" : 1.0,
+							"x" : 0.0,
+							"y" : 0.0,
+							"z" : 0.0
+						},
+						{
+							"w" : 1.0,
+							"x" : 0.0,
+							"y" : 0.0,
+							"z" : 0.0
+						},
+						{
+							"w" : 1.0,
+							"x" : 0.0,
+							"y" : 0.0,
+							"z" : 0.0
+						},
+						{
+							"w" : 1.0,
+							"x" : 0.0,
+							"y" : 0.0,
+							"z" : 0.0
+						}
+					],
+					"scaleStamps" : 
+					[
+						0.0,
+						2.5,
+						5.0,
+						7.5,
+						10.0
+					],
+					"scales" : 
+					[
+						{
+							"x" : 1.0,
+							"y" : 1.0,
+							"z" : 1.0
+						},
+						{
+							"x" : 1.0,
+							"y" : 1.0,
+							"z" : 1.0
+						},
+						{
+							"x" : 1.0,
+							"y" : 1.0,
+							"z" : 1.0
+						},
+						{
+							"x" : 1.0,
+							"y" : 1.0,
+							"z" : 1.0
+						},
+						{
+							"x" : 1.0,
+							"y" : 1.0,
+							"z" : 1.0
+						}
+					]
+				}
+			],
+			"name" : "walk",
+			"repeat" : true,
+			"tps" : 10.0
+		}
+	],
+	"camera" : 
+	{
+		"alwaysUp" : true,
+		"children" : 
+		[
+			"node"
+		],
+		"far" : 1000.0,
+		"fov" : 80.000091552734375,
+		"near" : 0.0099999997764825821,
+		"orientation" : 
+		{
+			"w" : 0.93071049451828003,
+			"x" : 0.020027020946145058,
+			"y" : -0.36660963296890259,
+			"z" : 0.0078891133889555931
+		},
+		"position" : 
+		{
+			"x" : -9.4365854263305664,
+			"y" : 4.8752408027648926,
+			"z" : 3.3064990043640137
+		},
+		"speed" : 1.0
+	},
+	"lights" : 
+	[
+		{
+			"attenuation" : 
+			{
+				"constant" : 0.0,
+				"linear" : 5.0,
+				"quadratic" : 20.0
+			},
+			"castShadows" : false,
+			"color" : 
+			{
+				"b" : 0.0,
+				"g" : 0.0,
+				"r" : 0.0
+			},
+			"cutoff" : 360.0,
+			"direction" : 
+			{
+				"x" : 0.0,
+				"y" : 0.0,
+				"z" : 0.0
+			},
+			"name" : "light",
+			"outerCutoff" : 0.0,
+			"parent" : "rifle",
+			"perspectiveShadows" : true,
+			"position" : 
+			{
+				"x" : 3.0,
+				"y" : 0.0,
+				"z" : 0.5
+			}
+		},
+		{
+			"attenuation" : 
+			{
+				"constant" : 1.0,
+				"linear" : 0.0,
+				"quadratic" : 0.0
+			},
+			"castShadows" : true,
+			"color" : 
+			{
+				"b" : 0.0,
+				"g" : 0.0,
+				"r" : 0.0
+			},
+			"cutoff" : 360.0,
+			"direction" : 
+			{
+				"x" : 0.0,
+				"y" : -1.0,
+				"z" : 0.0
+			},
+			"name" : "shadowSource",
+			"outerCutoff" : 0.0,
+			"perspectiveShadows" : true,
+			"position" : 
+			{
+				"x" : 80.099998474121094,
+				"y" : 150.0,
+				"z" : -80.099998474121094
+			}
+		}
+	],
+	"materials" : 
+	[
+		{
+			"color" : 
+			{
+				"b" : 1.0,
+				"g" : 1.0,
+				"r" : 1.0
+			},
+			"emission" : 
+			{
+				"b" : 0.0,
+				"g" : 0.0,
+				"r" : 0.0
+			},
+			"metalness" : 
+			{
+				"value" : 0.5
+			},
+			"name" : "material",
+			"opacity" : 
+			{
+				"value" : 1.0
+			},
+			"roughness" : 
+			{
+				"value" : 0.5
+			}
+		},
+		{
+			"color" : 
+			{
+				"filename" : "assets/textures/Metall_ak-47_Base_Color.png"
+			},
+			"emission" : 
+			{
+				"b" : 0.0,
+				"g" : 0.0,
+				"r" : 0.0
+			},
+			"metalness" : 
+			{
+				"filename" : "assets/textures/Metall_ak-47_Metallic.png"
+			},
+			"name" : "rifleMat1",
+			"normal" : 
+			{
+				"filename" : "assets/textures/Metall_ak-47_Normal_OpenGL.png"
+			},
+			"opacity" : 
+			{
+				"value" : 1.0
+			},
+			"roughness" : 
+			{
+				"filename" : "assets/textures/Metall_ak-47_Roughness.png"
+			}
+		},
+		{
+			"color" : 
+			{
+				"filename" : "assets/textures/Wood_ak-47_Base_Color.png"
+			},
+			"emission" : 
+			{
+				"b" : 0.0,
+				"g" : 0.0,
+				"r" : 0.0
+			},
+			"metalness" : 
+			{
+				"filename" : "assets/textures/Wood_ak-47_Metallic.png"
+			},
+			"name" : "rifleMat",
+			"normal" : 
+			{
+				"filename" : "assets/textures/Wood_ak-47_Normal_OpenGL.png"
+			},
+			"opacity" : 
+			{
+				"value" : 1.0
+			},
+			"roughness" : 
+			{
+				"filename" : "assets/textures/Wood_ak-47_Roughness.png"
+			}
+		},
+		{
+			"color" : 
+			{
+				"b" : 0.0,
+				"g" : 0.0,
+				"r" : 1.0
+			},
+			"emission" : 
+			{
+				"b" : 0.0,
+				"g" : 0.0,
+				"r" : 1.0
+			},
+			"metalness" : 
+			{
+				"value" : 0.0
+			},
+			"name" : "material4",
+			"opacity" : 
+			{
+				"value" : 1.0
+			},
+			"roughness" : 
+			{
+				"value" : 1.0
+			}
+		},
+		{
+			"color" : 
+			{
+				"filename" : "assets/textures/map_color.jpg"
+			},
+			"emission" : 
+			{
+				"b" : 0.0,
+				"g" : 0.0,
+				"r" : 0.0
+			},
+			"metalness" : 
+			{
+				"filename" : "assets/textures/map_metalness.jpg"
+			},
+			"name" : "cityMat",
+			"normal" : 
+			{
+				"filename" : "assets/textures/map_normal.jpg"
+			},
+			"opacity" : 
+			{
+				"value" : 1.0
+			},
+			"roughness" : 
+			{
+				"filename" : "assets/textures/map_roughness.jpg"
+			}
+		},
+		{
+			"color" : 
+			{
+				"filename" : "assets/textures/Plaster001_2K_Color.jpg"
+			},
+			"emission" : 
+			{
+				"b" : 0.0,
+				"g" : 0.0,
+				"r" : 0.0
+			},
+			"metalness" : 
+			{
+				"value" : 0.0
+			},
+			"name" : "material3",
+			"normal" : 
+			{
+				"filename" : "assets/textures/Plaster001_2K_NormalGL.jpg"
+			},
+			"opacity" : 
+			{
+				"value" : 1.0
+			},
+			"roughness" : 
+			{
+				"filename" : "assets/textures/Plaster001_2K_Roughness.jpg"
+			}
+		},
+		{
+			"color" : 
+			{
+				"filename" : "assets/textures/Concrete044D_2K_Color.jpg"
+			},
+			"emission" : 
+			{
+				"b" : 0.0,
+				"g" : 0.0,
+				"r" : 0.0
+			},
+			"metalness" : 
+			{
+				"value" : 0.0
+			},
+			"name" : "material1",
+			"normal" : 
+			{
+				"filename" : "assets/textures/Concrete044D_2K_NormalGL.jpg"
+			},
+			"opacity" : 
+			{
+				"value" : 1.0
+			},
+			"roughness" : 
+			{
+				"filename" : "assets/textures/Concrete044D_2K_Roughness.jpg"
+			}
+		},
+		{
+			"color" : 
+			{
+				"filename" : "assets/textures/DiamondPlate008C_2K_Color.jpg"
+			},
+			"emission" : 
+			{
+				"b" : 0.0,
+				"g" : 0.0,
+				"r" : 0.0
+			},
+			"metalness" : 
+			{
+				"filename" : "assets/textures/DiamondPlate008C_2K_Metalness.jpg"
+			},
+			"name" : "material2",
+			"normal" : 
+			{
+				"filename" : "assets/textures/DiamondPlate008C_2K_NormalGL.jpg"
+			},
+			"opacity" : 
+			{
+				"value" : 1.0
+			},
+			"roughness" : 
+			{
+				"filename" : "assets/textures/DiamondPlate008C_2K_Roughness.jpg"
+			}
+		}
+	],
+	"objects" : 
+	{
+		"models" : 
+		[
+			{
+				"children" : 
+				[
+					"rifle"
+				],
+				"drawable" : false,
+				"filename" : "",
+				"immediateLoad" : true,
+				"material" : 
+				[
+					{
+						"name" : "material"
+					}
+				],
+				"name" : "node",
+				"orientation" : 
+				{
+					"w" : 1.0,
+					"x" : 0.0,
+					"y" : 0.0,
+					"z" : 0.0
+				},
+				"parent" : "camera",
+				"position" : 
+				{
+					"x" : 0.079199604690074921,
+					"y" : 0.079199604690074921,
+					"z" : 0.0
+				},
+				"rigidBody" : 
+				{
+					"active" : true,
+					"collider" : 1,
+					"type" : 2
+				},
+				"size" : 
+				{
+					"x" : 1.0,
+					"y" : 1.0,
+					"z" : 1.0
+				}
+			},
+			{
+				"drawable" : true,
+				"filename" : "assets/models/map.obj",
+				"immediateLoad" : true,
+				"material" : 
+				[
+					{
+						"name" : "cityMat"
+					}
+				],
+				"name" : "city1:ground",
+				"orientation" : 
+				{
+					"w" : 1.910685465164705e-15,
+					"x" : -4.3711388286737929e-08,
+					"y" : 1.0,
+					"z" : -4.3711388286737929e-08
+				},
+				"position" : 
+				{
+					"x" : 0.0,
+					"y" : 0.0,
+					"z" : 224.0
+				},
+				"rigidBody" : 
+				{
+					"active" : true,
+					"collider" : 4,
+					"type" : 0
+				},
+				"size" : 
+				{
+					"x" : 1.0,
+					"y" : 1.0,
+					"z" : 1.0
+				}
+			},
+			{
+				"drawable" : true,
+				"filename" : "assets/models/map.obj",
+				"immediateLoad" : true,
+				"material" : 
+				[
+					{
+						"name" : "cityMat"
+					}
+				],
+				"name" : "city:ground",
+				"orientation" : 
+				{
+					"w" : 1.0,
+					"x" : 0.0,
+					"y" : 0.0,
+					"z" : 0.0
+				},
+				"position" : 
+				{
+					"x" : 0.0,
+					"y" : 0.0,
+					"z" : 0.0
+				},
+				"rigidBody" : 
+				{
+					"active" : true,
+					"collider" : 4,
+					"type" : 0
+				},
+				"size" : 
+				{
+					"x" : 1.0,
+					"y" : 1.0,
+					"z" : 1.0
+				}
+			},
+			{
+				"children" : 
+				[
+					"light"
+				],
+				"drawable" : true,
+				"filename" : "assets/models/ak-47.fbx",
+				"immediateLoad" : true,
+				"material" : 
+				[
+					{
+						"name" : "rifleMat"
+					},
+					{
+						"name" : "rifleMat1"
+					}
+				],
+				"name" : "rifle",
+				"orientation" : 
+				{
+					"w" : 0.5,
+					"x" : -0.5,
+					"y" : 0.5,
+					"z" : 0.5
+				},
+				"parent" : "node",
+				"position" : 
+				{
+					"x" : 0.8113589882850647,
+					"y" : -1.0886399745941162,
+					"z" : -0.99919998645782471
+				},
+				"rigidBody" : 
+				{
+					"active" : false,
+					"collider" : 0,
+					"type" : 0
+				},
+				"size" : 
+				{
+					"x" : 1.0,
+					"y" : 1.0,
+					"z" : 1.0
+				}
+			},
+			{
+				"drawable" : false,
+				"filename" : "",
+				"immediateLoad" : true,
+				"material" : 
+				[
+					{
+						"name" : "cityMat"
+					}
+				],
+				"name" : "player",
+				"orientation" : 
+				{
+					"w" : 0.9998278021812439,
+					"x" : -0.017256924882531166,
+					"y" : 2.1827872842550278e-11,
+					"z" : -0.0068288841284811497
+				},
+				"position" : 
+				{
+					"x" : -0.65113800764083862,
+					"y" : 6.3888897895812988,
+					"z" : 30.02910041809082
+				},
+				"rigidBody" : 
+				{
+					"active" : true,
+					"collider" : 3,
+					"type" : 2
+				},
+				"size" : 
+				{
+					"x" : 1.0,
+					"y" : 2.7000000476837158,
+					"z" : 1.0
+				}
+			},
+			{
+				"drawable" : true,
+				"filename" : "",
+				"immediateLoad" : true,
+				"material" : 
+				[
+					{
+						"name" : "material"
+					}
+				],
+				"name" : "enemy",
+				"orientation" : 
+				{
+					"w" : 0.99996906518936157,
+					"x" : -4.3687316065188497e-05,
+					"y" : -0.007868373766541481,
+					"z" : -0.00010448748798808083
+				},
+				"position" : 
+				{
+					"x" : 9.9911699295043945,
+					"y" : 2.6995000839233398,
+					"z" : -0.010221400298178196
+				},
+				"rigidBody" : 
+				{
+					"active" : true,
+					"collider" : 1,
+					"type" : 2
+				},
+				"size" : 
+				{
+					"x" : 1.0,
+					"y" : 2.7000000476837158,
+					"z" : 1.0
+				}
+			},
+			{
+				"drawable" : true,
+				"filename" : "",
+				"immediateLoad" : true,
+				"material" : 
+				[
+					{
+						"name" : "material1"
+					}
+				],
+				"name" : "cube-copy:ground",
+				"orientation" : 
+				{
+					"w" : 0.93969267606735229,
+					"x" : 0.34202015399932861,
+					"y" : 0.0,
+					"z" : 0.0
+				},
+				"position" : 
+				{
+					"x" : 0.0,
+					"y" : 10.0,
+					"z" : 153.0
+				},
+				"rigidBody" : 
+				{
+					"active" : true,
+					"collider" : 1,
+					"type" : 0
+				},
+				"size" : 
+				{
+					"x" : 10.0,
+					"y" : 1.0,
+					"z" : 20.0
+				}
+			},
+			{
+				"drawable" : true,
+				"filename" : "",
+				"immediateLoad" : true,
+				"material" : 
+				[
+					{
+						"name" : "material2"
+					}
+				],
+				"name" : "cube2-copy:ground",
+				"orientation" : 
+				{
+					"w" : 1.0,
+					"x" : 0.0,
+					"y" : 0.0,
+					"z" : 0.0
+				},
+				"position" : 
+				{
+					"x" : 45.0,
+					"y" : 23.5,
+					"z" : 112.0
+				},
+				"rigidBody" : 
+				{
+					"active" : true,
+					"collider" : 1,
+					"type" : 0
+				},
+				"size" : 
+				{
+					"x" : 45.0,
+					"y" : 1.0,
+					"z" : 25.5
+				}
+			},
+			{
+				"drawable" : true,
+				"filename" : "",
+				"immediateLoad" : true,
+				"material" : 
+				[
+					{
+						"name" : "material2"
+					}
+				],
+				"name" : "cube2:ground",
+				"orientation" : 
+				{
+					"w" : 1.0,
+					"x" : 0.0,
+					"y" : 0.0,
+					"z" : 0.0
+				},
+				"position" : 
+				{
+					"x" : -45.0,
+					"y" : 23.5,
+					"z" : 112.0
+				},
+				"rigidBody" : 
+				{
+					"active" : true,
+					"collider" : 1,
+					"type" : 0
+				},
+				"size" : 
+				{
+					"x" : 45.0,
+					"y" : 1.0,
+					"z" : 25.5
+				}
+			},
+			{
+				"drawable" : true,
+				"filename" : "",
+				"immediateLoad" : true,
+				"material" : 
+				[
+					{
+						"name" : "material1"
+					}
+				],
+				"name" : "cube:ground",
+				"orientation" : 
+				{
+					"w" : 0.93969267606735229,
+					"x" : -0.34202015399932861,
+					"y" : 0.0,
+					"z" : 0.0
+				},
+				"position" : 
+				{
+					"x" : 0.0,
+					"y" : 10.0,
+					"z" : 70.0
+				},
+				"rigidBody" : 
+				{
+					"active" : true,
+					"collider" : 1,
+					"type" : 0
+				},
+				"size" : 
+				{
+					"x" : 10.0,
+					"y" : 1.0,
+					"z" : 20.0
+				}
+			}
+		]
+	},
+	"sounds" : null
+}

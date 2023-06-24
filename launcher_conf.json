@@ -1,0 +1,32 @@
+{
+    "scenePath" : "./bloodbath.json",
+    "window" :
+    {
+        "title" : "Bloodbath",
+        "width" : 1920,
+        "height" : 1080,
+        "fullscreen" : true,
+        "vsync" : false,
+        "maxFps" : 200
+    },
+    "gui" :
+    {
+        "width" : 1920,
+        "height" : 1080
+    },
+    "renderer" :
+    {
+    	"shadersDir" : "assets/shaders/",
+        "hdriPath" : "assets/textures/sky1.hdr",
+        "skyboxSideSize" : 1024,
+        "irradianceSideSize" : 128,
+        "prefilteredSideSize" : 1024,
+        "shadowMapResolution" : 4096,
+        "exposure" : 1.0
+    },
+    "log" :
+    {
+    	"init" : true,
+    	"silent" : false
+    }
+}
