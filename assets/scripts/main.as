@@ -3,7 +3,8 @@ Clock delay;
 TcpSocket socket;
 tgui::Gui@ hud;
 int fps = 0;
-Clock fpsClock;
+//Clock fpsClock, bleedingClock;
+bool pause = false;
 
 float lerp(float x, float y, float t)
 {
@@ -12,9 +13,12 @@ float lerp(float x, float y, float t)
 
 void Start()
 {   
-    Game::bloomStrength = 1.0;
-    Game::brightnessThreshold = 5.0;
+    Game::bloomStrength = 0.5;
+    Game::brightnessThreshold = 2.1;
     Game::blurIterations = 3;
+
+    Game::scene.GetModel("rifle").SetShadowBias(0.6);
+    Game::scene.GetModel("map:ground").SetShadowBias(0.0);
 
     int status = socket.connect(ResolveIp("localhost"), 6969, seconds(5));
     socket.setBlocking(false);
@@ -28,13 +32,14 @@ void Start()
 
     Game::manageCameraMovement = false;
 	
-    @player = @FPSController(Game::scene.GetModel("player"), Game::scene.GetModelGroup("ground"), 4.0);
+    @player = @FPSController(Game::scene.GetModel("player"), Game::scene.GetModelGroup("ground"), 6.0);
     player.AddCustomEvent(function()
     {
-        if(Mouse::isButtonPressed(Mouse::Left) && delay.getElapsedTime().asSeconds() > 0.1)
+        if(Mouse::isButtonPressed(Mouse::Left) && delay.getElapsedTime().asSeconds() > 0.1 && !pause)
         {
+            Game::scene.GetModel("flash").SetIsDrawable(true);
             Game::scene.GetAnimation("shoot").Play();
-            //Game::scene.GetLight("light").SetColor(Vector3(25, 10, 2));
+            Game::scene.GetLight("light").SetColor(Vector3(25, 10, 2));
             RaycastInfo info;
             Ray ray(Game::camera.GetPosition(true), Game::camera.GetPosition(true) + (Game::camera.GetOrientation() * Vector3(0, 0, -1000)));
             if(Game::scene.GetModel("enemy").GetRigidBody().raycast(ray, info))
@@ -83,13 +88,27 @@ void Start()
 
 void Loop()
 {
-    if(fpsClock.getElapsedTime().asSeconds() >= 1)
+    /*if(fpsClock.getElapsedTime().asSeconds() >= 1)
     {
         //hud.getChatBox("ChatBox1").addLine(to_string(fps));
         Game::scene.GetPhysicsManager().SetTimeStep(1.0 / float(fps));
         fps = 0;
         fpsClock.restart();
-    }
+    }*/
+
+    /*if(bleedingClock.getElapsedTime().asSeconds() >= 0.2)
+    {
+        auto pos = Game::camera.GetPosition();
+        pos.y = 0.01;
+        Game::scene.CloneModel(Game::scene.GetModel("blood"), true).SetPosition(pos);
+        bleedingClock.restart();
+    }*/
+
+    if(Keyboard::isKeyPressed(Keyboard::Escape)) pause = !pause;
+
+    Game::mouseCursorGrabbed = !pause;
+    Game::mouseCursorVisible = pause;
+    Game::manageCameraMouse = !pause;
 
     Game::scene.GetLight("light").SetColor(Vector3(0, 0, 0));
 
@@ -112,7 +131,7 @@ void Loop()
                 break;
             }
     }
-
+    Game::scene.GetModel("flash").SetIsDrawable(false);
     player.Update();
     Game::camera.SetPosition(Game::scene.GetModel("player").GetPosition() + Vector3(0, 2.6, 0));
     auto l = Game::scene.GetModel("player").GetRigidBody().getLinearVelocity().length();
@@ -129,5 +148,5 @@ void Loop()
     socket.send(p);
     p.clear();
 
-    fps++;
+    //fps++;
 }

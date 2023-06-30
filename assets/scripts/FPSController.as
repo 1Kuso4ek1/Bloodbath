@@ -14,11 +14,12 @@ class FPSController
         @this.playerModel = @playerModel;
         this.ground = ground;
         @playerRB = @playerModel.GetRigidBody();
+        playerRB.setAngularLockAxisFactor(Vector3(0, 1, 0));
         this.speed = speed;
 
         PhysicalMaterial mat;
         mat.setBounciness(0.01);
-        mat.setFrictionCoefficient(0.6);
+        mat.setFrictionCoefficient(0.0);
         playerRB.setMaterial(mat);
         for(uint i = 0; i < ground.Size(); i++)
             ground[i].GetRigidBody().setMaterial(mat);
@@ -31,7 +32,8 @@ class FPSController
 
     void Update()
     {
-        auto v = Game::camera.Move(1, true); v.y = 0; v *= 300;
+        auto v = Game::camera.Move(1, true); v.y = 0.0; v *= 300;
+        if(pause) v = Vector3(0, 0, 0);
         moving = v.length() > 0;
         if(!Keyboard::isKeyPressed(Keyboard::LControl) || !onGround)
             playerRB.applyWorldForceAtCenterOfMass((onGround && bhopDelay.getElapsedTime().asSeconds() >= 0.3) ? v : v / (Dot(v / 50, playerRB.getLinearVelocity()) < 0 ? 10 : 80));
@@ -41,12 +43,13 @@ class FPSController
         if(vel.x < -speed) vel.x = -speed; if(vel.z < -speed) vel.z = -speed;
         if(onGround && bhopDelay.getElapsedTime().asSeconds() >= 0.3 && !Keyboard::isKeyPressed(Keyboard::LControl))
             playerRB.setLinearVelocity(vel);
+        //Log::Write(vel.to_string());
 
-        if(v == Vector3(0, 0, 0) && onGround && !Keyboard::isKeyPressed(Keyboard::LControl)/* && bhopDelay.getElapsedTime().asSeconds() >= 0.3*/)
+        if(onGround && !Keyboard::isKeyPressed(Keyboard::LControl) && bhopDelay.getElapsedTime().asSeconds() >= 0.3)
             playerRB.setLinearVelocity(
-                Vector3(playerRB.getLinearVelocity().x / 1.1,
+                Vector3(playerRB.getLinearVelocity().x / 1.3,
                         playerRB.getLinearVelocity().y,
-                        playerRB.getLinearVelocity().z / 1.1));
+                        playerRB.getLinearVelocity().z / 1.3));
 
         for(uint i = 0; i < customEvents.length(); i++)
             customEvents[i]();
@@ -66,7 +69,7 @@ class FPSController
                 playerModel.GetRigidBody().applyWorldForceAtCenterOfMass(Vector3(0, 100, 0) + Game::camera.GetOrientation() * Vector3(0, 0, -20));
         /*if(playerRB.getLinearVelocity().length() == 0)
             playerRB.setAngularVelocity(Vector3(0, 0, 0));
-        else */playerModel.SetOrientation(Quaternion(0, 0, 0, 1));
+        else *///playerModel.SetOrientation(Quaternion(0, 0, 0, 1));
     }
 
     bool IsMoving()
