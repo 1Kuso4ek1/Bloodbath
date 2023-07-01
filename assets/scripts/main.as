@@ -13,7 +13,7 @@ float lerp(float x, float y, float t)
 
 void Start()
 {   
-    Game::bloomStrength = 0.5;
+    Game::bloomStrength = 0;
     Game::brightnessThreshold = 2.1;
     Game::blurIterations = 3;
 
@@ -40,10 +40,20 @@ void Start()
             Game::scene.GetModel("flash").SetIsDrawable(true);
             Game::scene.GetAnimation("shoot").Play();
             Game::scene.GetLight("light").SetColor(Vector3(25, 10, 2));
+
+            Game::scene.GetSoundManager().PlayMono("ak47-shot");
+            
             RaycastInfo info;
             Ray ray(Game::camera.GetPosition(true), Game::camera.GetPosition(true) + (Game::camera.GetOrientation() * Vector3(0, 0, -1000)));
             if(Game::scene.GetModel("enemy").GetRigidBody().raycast(ray, info))
+            {
                 Game::scene.GetModel("enemy").GetRigidBody().applyWorldForceAtWorldPosition(Game::camera.GetOrientation() * Vector3(0, 0, -100), info.worldPoint);
+                auto pos = Game::scene.GetModel("enemy").GetPosition();
+                pos.y = 0.01;
+                auto model = Game::scene.CloneModel(Game::scene.GetModel("blood"), true);
+                model.SetPosition(pos + Vector3(rnd(-5, 5), 0, rnd(-5, 5)));
+                model.SetIsDrawable(true);
+            }
             Game::camera.SetOrientation(Game::camera.GetOrientation() * QuaternionFromEuler(Vector3(0.03, 0, 0)));
             delay.restart();
         }

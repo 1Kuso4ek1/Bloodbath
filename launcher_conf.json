@@ -27,6 +27,6 @@
     "log" :
     {
     	"init" : false,
-    	"silent" : false
+    	"silent" : true
     }
 }

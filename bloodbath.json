@@ -366,20 +366,20 @@
 			"node"
 		],
 		"far" : 1000.0,
-		"fov" : 80.000015258789062,
+		"fov" : 84.324989318847656,
 		"near" : 0.0099999997764825821,
 		"orientation" : 
 		{
-			"w" : -0.91424095630645752,
-			"x" : 0.10318586975336075,
-			"y" : 0.39279422163963318,
-			"z" : 0.044323470443487167
+			"w" : -0.74439007043838501,
+			"x" : 0.063517875969409943,
+			"y" : 0.66440057754516602,
+			"z" : 0.05668119341135025
 		},
 		"position" : 
 		{
-			"x" : -6.0319318771362305,
-			"y" : 6.7828378677368164,
-			"z" : 17.89714241027832
+			"x" : -13.329314231872559,
+			"y" : 9.3977622985839844,
+			"z" : 0.21708926558494568
 		},
 		"speed" : 1.0
 	},
@@ -758,43 +758,6 @@
 		"models" : 
 		[
 			{
-				"drawable" : false,
-				"filename" : "",
-				"immediateLoad" : true,
-				"material" : 
-				[
-					{
-						"name" : "material5"
-					}
-				],
-				"name" : "player",
-				"orientation" : 
-				{
-					"w" : 1.0,
-					"x" : 0.0,
-					"y" : 0.0,
-					"z" : 0.0
-				},
-				"position" : 
-				{
-					"x" : 0.0,
-					"y" : 10.0,
-					"z" : 0.0
-				},
-				"rigidBody" : 
-				{
-					"active" : true,
-					"collider" : 3,
-					"type" : 2
-				},
-				"size" : 
-				{
-					"x" : 1.0,
-					"y" : 2.7000000476837158,
-					"z" : 1.0
-				}
-			},
-			{
 				"children" : 
 				[
 					"light",
@@ -841,49 +804,7 @@
 				}
 			},
 			{
-				"children" : 
-				[
-					"rifle"
-				],
 				"drawable" : false,
-				"filename" : "",
-				"immediateLoad" : true,
-				"material" : 
-				[
-					{
-						"name" : "material"
-					}
-				],
-				"name" : "node",
-				"orientation" : 
-				{
-					"w" : 1.0,
-					"x" : 0.0,
-					"y" : 0.0,
-					"z" : 0.0
-				},
-				"parent" : "camera",
-				"position" : 
-				{
-					"x" : -0.0074868001975119114,
-					"y" : 0.0074868001975119114,
-					"z" : 0.0
-				},
-				"rigidBody" : 
-				{
-					"active" : true,
-					"collider" : 1,
-					"type" : 2
-				},
-				"size" : 
-				{
-					"x" : 1.0,
-					"y" : 1.0,
-					"z" : 1.0
-				}
-			},
-			{
-				"drawable" : true,
 				"filename" : "assets/models/plane.fbx",
 				"immediateLoad" : true,
 				"material" : 
@@ -914,22 +835,64 @@
 				},
 				"size" : 
 				{
-					"x" : 5.0,
-					"y" : 5.0,
+					"x" : 2.0,
+					"y" : 2.0,
 					"z" : 1.0
 				}
 			},
 			{
-				"drawable" : true,
-				"filename" : "assets/models/map.obj",
+				"children" : 
+				[
+					"rifle"
+				],
+				"drawable" : false,
+				"filename" : "",
 				"immediateLoad" : true,
 				"material" : 
 				[
 					{
-						"name" : "cityMat"
+						"name" : "material"
 					}
 				],
-				"name" : "map:ground",
+				"name" : "node",
+				"orientation" : 
+				{
+					"w" : 1.0,
+					"x" : 0.0,
+					"y" : 0.0,
+					"z" : 0.0
+				},
+				"parent" : "camera",
+				"position" : 
+				{
+					"x" : 0.089385204017162323,
+					"y" : 0.089385204017162323,
+					"z" : 0.0
+				},
+				"rigidBody" : 
+				{
+					"active" : true,
+					"collider" : 1,
+					"type" : 2
+				},
+				"size" : 
+				{
+					"x" : 1.0,
+					"y" : 1.0,
+					"z" : 1.0
+				}
+			},
+			{
+				"drawable" : false,
+				"filename" : "",
+				"immediateLoad" : true,
+				"material" : 
+				[
+					{
+						"name" : "material5"
+					}
+				],
+				"name" : "player",
 				"orientation" : 
 				{
 					"w" : 1.0,
@@ -940,24 +903,24 @@
 				"position" : 
 				{
 					"x" : 0.0,
-					"y" : 0.0,
+					"y" : 10.0,
 					"z" : 0.0
 				},
 				"rigidBody" : 
 				{
 					"active" : true,
-					"collider" : 4,
-					"type" : 0
+					"collider" : 3,
+					"type" : 2
 				},
 				"size" : 
 				{
 					"x" : 1.0,
-					"y" : 1.0,
+					"y" : 2.7000000476837158,
 					"z" : 1.0
 				}
 			},
 			{
-				"drawable" : true,
+				"drawable" : false,
 				"filename" : "assets/models/plane.fbx",
 				"immediateLoad" : true,
 				"material" : 
@@ -1030,8 +993,167 @@
 					"y" : 2.7000000476837158,
 					"z" : 1.0
 				}
+			},
+			{
+				"drawable" : true,
+				"filename" : "assets/models/map.obj",
+				"immediateLoad" : true,
+				"material" : 
+				[
+					{
+						"name" : "cityMat"
+					}
+				],
+				"name" : "map:ground",
+				"orientation" : 
+				{
+					"w" : 1.0,
+					"x" : 0.0,
+					"y" : 0.0,
+					"z" : 0.0
+				},
+				"position" : 
+				{
+					"x" : 0.0,
+					"y" : 0.0,
+					"z" : 0.0
+				},
+				"rigidBody" : 
+				{
+					"active" : true,
+					"collider" : 4,
+					"type" : 0
+				},
+				"size" : 
+				{
+					"x" : 1.0,
+					"y" : 1.0,
+					"z" : 1.0
+				}
 			}
 		]
 	},
-	"sounds" : null
+	"sounds" : 
+	[
+		{
+			"attenuation" : 1.0,
+			"filename" : "assets/sounds/zheleznaia-palka-padaet-metal-pipe-falling.mp3",
+			"loop" : false,
+			"minDistance" : 0.0,
+			"name" : "metal-pipe",
+			"position" : 
+			{
+				"x" : 0.0,
+				"y" : 0.0,
+				"z" : 0.0
+			},
+			"relativeToListener" : false,
+			"volume" : 100.0
+		},
+		{
+			"attenuation" : 1.0,
+			"filename" : "assets/sounds/footstep1.ogg",
+			"loop" : false,
+			"minDistance" : 0.0,
+			"name" : "footstep1",
+			"position" : 
+			{
+				"x" : -72.632652282714844,
+				"y" : 2.8591580390930176,
+				"z" : -5.132967472076416
+			},
+			"relativeToListener" : false,
+			"volume" : 21.0
+		},
+		{
+			"attenuation" : 1.0,
+			"filename" : "assets/sounds/footstep2.ogg",
+			"loop" : false,
+			"minDistance" : 0.0,
+			"name" : "footstep2",
+			"position" : 
+			{
+				"x" : -72.681785583496094,
+				"y" : 2.4875268936157227,
+				"z" : 30.218662261962891
+			},
+			"relativeToListener" : false,
+			"volume" : 21.0
+		},
+		{
+			"attenuation" : 1.0,
+			"filename" : "assets/sounds/footstep3.ogg",
+			"loop" : false,
+			"minDistance" : 0.0,
+			"name" : "footstep3",
+			"position" : 
+			{
+				"x" : 0.56083947420120239,
+				"y" : 2.3399994373321533,
+				"z" : -5.3054580688476562
+			},
+			"relativeToListener" : false,
+			"volume" : 21.0
+		},
+		{
+			"attenuation" : 1.0,
+			"filename" : "assets/sounds/footstep4.ogg",
+			"loop" : false,
+			"minDistance" : 0.0,
+			"name" : "footstep4",
+			"position" : 
+			{
+				"x" : 0.0,
+				"y" : 0.0,
+				"z" : 0.0
+			},
+			"relativeToListener" : false,
+			"volume" : 23.0
+		},
+		{
+			"attenuation" : 1.0,
+			"filename" : "assets/sounds/jump.mp3",
+			"loop" : false,
+			"minDistance" : 0.0,
+			"name" : "jump",
+			"position" : 
+			{
+				"x" : -39.214889526367188,
+				"y" : 2.7049260139465332,
+				"z" : 1.5099542140960693
+			},
+			"relativeToListener" : false,
+			"volume" : 200.0
+		},
+		{
+			"attenuation" : 1.0,
+			"filename" : "assets/sounds/land.mp3",
+			"loop" : false,
+			"minDistance" : 0.0,
+			"name" : "land",
+			"position" : 
+			{
+				"x" : -42.61993408203125,
+				"y" : 2.6961562633514404,
+				"z" : 1.0103979110717773
+			},
+			"relativeToListener" : false,
+			"volume" : 100.0
+		},
+		{
+			"attenuation" : 1.0,
+			"filename" : "assets/sounds/ak47-shot.mp3",
+			"loop" : false,
+			"minDistance" : 0.0,
+			"name" : "ak47-shot",
+			"position" : 
+			{
+				"x" : 65.875083923339844,
+				"y" : 4.9399995803833008,
+				"z" : -3.2679684162139893
+			},
+			"relativeToListener" : false,
+			"volume" : 100.0
+		}
+	]
 }

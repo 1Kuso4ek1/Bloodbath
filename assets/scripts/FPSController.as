@@ -1,3 +1,6 @@
+random_device dev;
+default_random_engine rnd(dev());
+
 funcdef void EventFunction();
 
 float Dot(const Vector3& in vec1, const Vector3& in vec2)
@@ -32,9 +35,19 @@ class FPSController
 
     void Update()
     {
+        if(prevVel - playerRB.getLinearVelocity().y <= -30)
+            Game::scene.GetSoundManager().Play("metal-pipe");
+        prevVel = playerRB.getLinearVelocity().y;
         auto v = Game::camera.Move(1, true); v.y = 0.0; v *= 300;
         if(pause) v = Vector3(0, 0, 0);
         moving = v.length() > 0;
+        if(moving && footstepDelay.getElapsedTime().asSeconds() >= (Game::camera.GetSpeed() == 1 ? 0.5 : 0.35) && onGround && bhopDelay.getElapsedTime().asSeconds() >= 0.3)
+        {
+            auto soundNum = to_string(int(rnd(1, 4)));
+            Game::scene.GetSoundManager().SetPosition(playerModel.GetPosition(), "footstep" + soundNum, 0);
+            Game::scene.GetSoundManager().Play("footstep" + soundNum);
+            footstepDelay.restart();
+        }
         if(!Keyboard::isKeyPressed(Keyboard::LControl) || !onGround)
             playerRB.applyWorldForceAtCenterOfMass((onGround && bhopDelay.getElapsedTime().asSeconds() >= 0.3) ? v : v / (Dot(v / 50, playerRB.getLinearVelocity()) < 0 ? 10 : 80));
 
@@ -58,7 +71,20 @@ class FPSController
         RaycastInfo info;
         for(uint i = 0; i < ground.Size(); i++)
         {
-            onGround = ground[i].GetRigidBody().raycast(ray, info);
+            /*onGround = ground[i].GetRigidBody().raycast(ray, info);
+            if(onGround) break;*/
+            bool tmp = ground[i].GetRigidBody().raycast(ray, info);
+
+            if(!onGround && tmp)
+            {
+                onGround = true;
+                Game::scene.GetSoundManager().SetPosition(playerModel.GetPosition(), "land", 0);
+                Game::scene.GetSoundManager().Play("land");
+                jumpSound = true;
+                break;
+            }
+            
+            onGround = tmp;
             if(onGround) break;
         }
 
@@ -66,7 +92,13 @@ class FPSController
 
         if(Keyboard::isKeyPressed(Keyboard::Space))
             if(onGround)
-                playerModel.GetRigidBody().applyWorldForceAtCenterOfMass(Vector3(0, 100, 0) + Game::camera.GetOrientation() * Vector3(0, 0, -20));
+            {
+                playerModel.GetRigidBody().applyWorldForceAtCenterOfMass(Vector3(0, 100 * (Keyboard::isKeyPressed(Keyboard::Q) ? 10 : 1), 0) + Game::camera.GetOrientation() * Vector3(0, 0, -20));
+                Game::scene.GetSoundManager().SetPosition(playerModel.GetPosition(), "jump", 0);
+                if(jumpSound)
+                    Game::scene.GetSoundManager().Play("jump", 0);
+                jumpSound = false;
+            }
         /*if(playerRB.getLinearVelocity().length() == 0)
             playerRB.setAngularVelocity(Vector3(0, 0, 0));
         else *///playerModel.SetOrientation(Quaternion(0, 0, 0, 1));
@@ -89,5 +121,7 @@ class FPSController
     private float speed;
     private bool moving;
     private bool onGround;
-    private Clock bhopDelay;
+    private bool jumpSound;
+    private Clock bhopDelay, footstepDelay;
+    private float prevVel = 0.0;
 };
