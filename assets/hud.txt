@@ -1,4 +1,4 @@
-ChatBox.ChatBox1 {
+ChatBox.chat {
     LinesStartFromTop = false;
     NewLinesBelowOthers = true;
     Position = (10, 820);
@@ -33,7 +33,7 @@ ChatBox.ChatBox1 {
     }
 }
 
-ProgressBar.ProgressBar1 {
+ProgressBar.health {
     Maximum = 100;
     Minimum = 0;
     Position = (10, 1050);

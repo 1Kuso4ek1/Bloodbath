@@ -2,6 +2,7 @@
 	"scripts" : 
 	[
 		"assets/scripts/main.as",
-		"assets/scripts/FPSController.as"
+		"assets/scripts/FPSController.as",
+		"assets/scripts/Start.as"
 	]
 }

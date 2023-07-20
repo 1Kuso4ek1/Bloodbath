@@ -35,21 +35,26 @@ class FPSController
 
     void Update()
     {
-        if(prevVel - playerRB.getLinearVelocity().y <= -30)
-            Game::scene.GetSoundManager().Play("metal-pipe");
-        prevVel = playerRB.getLinearVelocity().y;
-        auto v = Game::camera.Move(1, true); v.y = 0.0; v *= 300;
+        Game::scene.GetSoundManager().SetPosition(Game::scene.GetModel("enemy:enemy").GetPosition(), "metal-pipe", 0);
+        if(abs(prevVel - /*playerRB*/Game::scene.GetModel("enemy:enemy").GetRigidBody().getLinearVelocity().length()) >= 1.3)
+        {
+            Game::scene.GetSoundManager().Play("metal-pipe", 0);
+        }
+        prevVel = /*playerRB*/Game::scene.GetModel("enemy:enemy").GetRigidBody().getLinearVelocity().length();
+        auto v = Game::camera.Move(1, true); v.y = 0.0; v *= 250;
         if(pause) v = Vector3(0, 0, 0);
         moving = v.length() > 0;
         if(moving && footstepDelay.getElapsedTime().asSeconds() >= (Game::camera.GetSpeed() == 1 ? 0.5 : 0.35) && onGround && bhopDelay.getElapsedTime().asSeconds() >= 0.3)
         {
             auto soundNum = to_string(int(rnd(1, 4)));
             Game::scene.GetSoundManager().SetPosition(playerModel.GetPosition(), "footstep" + soundNum, 0);
-            Game::scene.GetSoundManager().Play("footstep" + soundNum);
+            Game::scene.GetSoundManager().PlayMono("footstep" + soundNum, 0);
             footstepDelay.restart();
         }
-        if(!Keyboard::isKeyPressed(Keyboard::LControl) || !onGround)
-            playerRB.applyWorldForceAtCenterOfMass((onGround && bhopDelay.getElapsedTime().asSeconds() >= 0.3) ? v : v / (Dot(v / 50, playerRB.getLinearVelocity()) < 0 ? 10 : 80));
+        if((!Keyboard::isKeyPressed(Keyboard::LControl) || !onGround) && serverConfig.allowBhop > 0)
+            playerRB.applyWorldForceAtCenterOfMass((onGround && bhopDelay.getElapsedTime().asSeconds() >= 0.3) ? v : v / (Dot(v / 50, playerRB.getLinearVelocity()) < 0 ? 10 : (serverConfig.allowBhop == 0 ? 50 : 80)));
+        else if(serverConfig.allowBhop == 0 && onGround)
+            playerRB.applyWorldForceAtCenterOfMass(v);
 
         auto vel = playerRB.getLinearVelocity();
         if(vel.x > speed) vel.x = speed; if(vel.z > speed) vel.z = speed;
@@ -58,7 +63,7 @@ class FPSController
             playerRB.setLinearVelocity(vel);
         //Log::Write(vel.to_string());
 
-        if(onGround && !Keyboard::isKeyPressed(Keyboard::LControl) && bhopDelay.getElapsedTime().asSeconds() >= 0.3)
+        if((onGround && !Keyboard::isKeyPressed(Keyboard::LControl) && bhopDelay.getElapsedTime().asSeconds() >= 0.3))
             playerRB.setLinearVelocity(
                 Vector3(playerRB.getLinearVelocity().x / 1.3,
                         playerRB.getLinearVelocity().y,
@@ -79,7 +84,7 @@ class FPSController
             {
                 onGround = true;
                 Game::scene.GetSoundManager().SetPosition(playerModel.GetPosition(), "land", 0);
-                Game::scene.GetSoundManager().Play("land");
+                Game::scene.GetSoundManager().PlayMono("land", 0);
                 jumpSound = true;
                 break;
             }
@@ -88,12 +93,12 @@ class FPSController
             if(onGround) break;
         }
 
-        if(!onGround) bhopDelay.restart();
+        if(!onGround && serverConfig.allowBhop > 0) bhopDelay.restart();
 
         if(Keyboard::isKeyPressed(Keyboard::Space))
             if(onGround)
             {
-                playerModel.GetRigidBody().applyWorldForceAtCenterOfMass(Vector3(0, 100 * (Keyboard::isKeyPressed(Keyboard::Q) ? 10 : 1), 0) + Game::camera.GetOrientation() * Vector3(0, 0, -20));
+                playerModel.GetRigidBody().applyWorldForceAtCenterOfMass(Vector3(0, serverConfig.allowBhop == 0 ? 60 : 100, 0) + Game::camera.GetOrientation() * Vector3(0, 0, -20));
                 Game::scene.GetSoundManager().SetPosition(playerModel.GetPosition(), "jump", 0);
                 if(jumpSound)
                     Game::scene.GetSoundManager().Play("jump", 0);

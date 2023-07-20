@@ -39,9 +39,8 @@ out vec4 color;
 
 struct Shadow
 {
-	//sampler2DShadow shadowmap; Doesn't work on Windows?
 	vec3 sourcepos;
-	sampler2D shadowmap;
+	sampler2DShadow shadowmap;
     bool perspective;
 };
 
@@ -79,22 +78,9 @@ float CalcShadow()
     pcoord = pcoord * 0.5 + 0.5;
     if(pcoord.z > 1.0)
         return 0.0;
-    /* Doesn't work on Windows?
-    pcoord.z -= bias;
-    return 1.0 - texture(shadows.shadowmap, pcoord);
-    */
-    float current = LinearizeDepth(pcoord.z);
-    float ret = 0.0;
-    vec2 pixelsize = 1.0 / textureSize(shadow.shadowmap, 0);
-	for(int x = -0; x <= 1; ++x)
-	{
-		for(int y = -0; y <= 1; ++y)
-		{
-		    float pcf = LinearizeDepth(texture(shadow.shadowmap, pcoord.xy + vec2(x, y) * pixelsize).x);
-		    ret += float(current - (shadow.perspective ? shadowBias : 0.00001) > pcf);
-		}
-	}
-    return ret / 4.0;//float(currentcc > LinearizeDepth(texture(shadow.shadowmap, pcoord.xy).x));
+    
+    pcoord.z -= shadowBias;
+    return 1.0 - texture(shadow.shadowmap, pcoord);
 }
 
 float GGX(float ndoth, float rough)
@@ -175,7 +161,7 @@ void main()
         return;
     if(drawTransparency && alpha == 1.0)
     {
-        color = vec4(0.0, 0.0, 0.0, 1.0);
+        color = vec4(-1.0, 0.0, 0.0, 1.0);
         return;
     }
 
@@ -215,5 +201,5 @@ void main()
     vec3 ambient = ((kdif * diffuse) + spc) * ao;
 
     total += ambient / 2;
-    color = vec4((total * (length(emission) > 0.0 ? 1.0 : (1.0 - shadow)) + ambient / 2) + (emission * 5) + totalNoShadow, (alpha < 1.0 ? alpha + ((total.x + total.y, + total.z) / 3.0) * alpha : 1.0));
+    color = vec4((total * (length(emission) > 0.0 ? 1.0 : (1.0 - shadow)) + ambient / 2) + (emission * 5) + totalNoShadow, (alpha < 1.0 ? min(alpha + ((total.x + total.y, + total.z) / 3.0) * alpha, 1.0) : 1.0));
 }
