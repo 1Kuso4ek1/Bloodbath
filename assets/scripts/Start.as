@@ -81,6 +81,19 @@ void Start()
         else if((!player.IsMoving() || !player.IsOnGround()) && Game::scene.GetAnimation("walk").GetState() == Playing)
             Game::scene.GetAnimation("walk").Pause();
     });
+    
+    player.AddCustomEvent(function()
+    {
+        if(Mouse::isButtonPressed(Mouse::Middle))
+            Game::camera.SetFOV(lerp(Game::camera.GetFOV(), 55, 0.05));
+        else
+        {
+            auto l = Game::scene.GetModel("player").GetRigidBody().getLinearVelocity().length();
+            Game::camera.SetFOV(lerp(Game::camera.GetFOV(), 80 + l, 0.05));
+            if(Game::camera.GetFOV() >= 110)
+                Game::camera.SetFOV(110);
+        }
+    });
 
     player.AddCustomEvent(function()
     {

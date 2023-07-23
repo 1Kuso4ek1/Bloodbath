@@ -48,8 +48,9 @@ void Loop()
     Packet p;
     while(socket.receive(p) == Socket::Done)
     {
-        int code = -1;
-        float x = 0, y = 0, z = 0;
+        int code = -1, moving = 0;
+        Vector3 pos, euler;
+        Quaternion orient;
         if(p >> code)
             switch(code)
             {
@@ -59,25 +60,55 @@ void Loop()
                 Game::scene.GetModel("enemy:enemy").GetRigidBody().setIsActive(false);
                 break;
             case 1:
-                p >> x >> y >> z;
-                Game::scene.GetModel("enemy:enemy").SetPosition(Vector3(x, y, z));
+                p >> moving;
+                if(moving == 1 && Game::scene.GetAnimation("Armature|Walk-chel").GetState() == Stopped)
+                {
+                    Game::scene.GetAnimation("Stand").Stop();
+                    Game::scene.GetAnimation("Armature|Walk-chel").Play();
+                }
+                else if(moving == 0)
+                {
+                    Game::scene.GetAnimation("Armature|Walk-chel").Stop();
+                    Game::scene.GetAnimation("Stand").Play();
+                }
+                p >> pos.x >> pos.y >> pos.z >> orient.x >> orient.y >> orient.z >> orient.w;
+                //orient.z = orient.y; orient.z = -orient.z;
+                Game::scene.GetModel("enemy:enemy").SetPosition(pos);
+                Game::scene.GetBone("Body-chel").SetOrientation(orient * QuaternionFromEuler(Vector3(radians(90), 0, 0)));
+
+                euler = EulerFromQuaternion(orient); euler.x = 0; euler.y = radians(-30);
+
+                Game::scene.GetBone("Bone.007-chel").SetOrientation(slerp(Game::scene.GetBone("Bone.007-chel").GetOrientation(), QuaternionFromEuler(euler) * QuaternionFromEuler(Vector3(0, 0, radians(90))), 0.1));
+                euler.y = -euler.y;
+                Game::scene.GetBone("Bone.010-chel").SetOrientation(slerp(Game::scene.GetBone("Bone.010-chel").GetOrientation(), QuaternionFromEuler(euler) * QuaternionFromEuler(Vector3(0, 0, radians(-90))), 0.1));
                 break;
             }
     }
+    auto enemyPos = Game::scene.GetModel("enemy:enemy").GetPosition();
+    Game::scene.GetModel("chel").SetPosition(enemyPos);
+
     Game::scene.GetModel("flash").SetIsDrawable(false);
     player.Update();
     Game::camera.SetPosition(Game::scene.GetModel("player").GetPosition() + Vector3(0, 2.5, 0));
-    auto l = Game::scene.GetModel("player").GetRigidBody().getLinearVelocity().length();
-    Game::camera.SetFOV(lerp(Game::camera.GetFOV(), 80 + l, 0.1));
-    if(Game::camera.GetFOV() >= 110)
-        Game::camera.SetFOV(110);
 
     p.clear();
     auto pos = Game::scene.GetModel("player").GetPosition();
+    auto orient = Game::camera.GetOrientation();
+    orient = orient * QuaternionFromEuler(Vector3(0, radians(-90), 0));
+
     p << 1;
+
+    p << (player.IsMoving() ? 1 : 0);
+
     p << pos.x;
     p << pos.y;
     p << pos.z;
+
+    p << orient.z;
+    p << orient.x;
+    p << orient.y;
+    p << orient.w;
+
     socket.send(p);
     p.clear();
 

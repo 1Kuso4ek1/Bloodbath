@@ -1,0 +1,104 @@
+Fri Jul 21 20:26:15 2023
+	Info: Texture ./assets/textures/sky1.hdr loaded
+Fri Jul 21 20:26:15 2023
+	Info: Renderer successfully initialized
+Fri Jul 21 20:26:17 2023
+	Info: Texture assets/textures/Metall_ak-47_Base_Color.png loaded
+Fri Jul 21 20:26:17 2023
+	Info: Texture assets/textures/Metall_ak-47_Normal_OpenGL.png loaded
+Fri Jul 21 20:26:17 2023
+	Info: Texture assets/textures/Metall_ak-47_Metallic.png loaded
+Fri Jul 21 20:26:17 2023
+	Info: Texture assets/textures/Metall_ak-47_Roughness.png loaded
+Fri Jul 21 20:26:17 2023
+	Info: Texture assets/textures/Wood_ak-47_Base_Color.png loaded
+Fri Jul 21 20:26:17 2023
+	Info: Texture assets/textures/Wood_ak-47_Normal_OpenGL.png loaded
+Fri Jul 21 20:26:17 2023
+	Info: Texture assets/textures/Wood_ak-47_Metallic.png loaded
+Fri Jul 21 20:26:17 2023
+	Info: Texture assets/textures/Wood_ak-47_Roughness.png loaded
+Fri Jul 21 20:26:17 2023
+	Info: Texture assets/textures/map_color.jpg loaded
+Fri Jul 21 20:26:17 2023
+	Info: Texture assets/textures/map_normal.jpg loaded
+Fri Jul 21 20:26:17 2023
+	Info: Texture assets/textures/map_metalness.jpg loaded
+Fri Jul 21 20:26:17 2023
+	Info: Texture assets/textures/map_roughness.jpg loaded
+Fri Jul 21 20:26:18 2023
+	Info: Texture assets/textures/Plaster001_2K_Color.jpg loaded
+Fri Jul 21 20:26:18 2023
+	Info: Texture assets/textures/Plaster001_2K_NormalGL.jpg loaded
+Fri Jul 21 20:26:18 2023
+	Info: Texture assets/textures/Plaster001_2K_Roughness.jpg loaded
+Fri Jul 21 20:26:18 2023
+	Info: Texture assets/textures/Concrete044D_2K_Color.jpg loaded
+Fri Jul 21 20:26:18 2023
+	Info: Texture assets/textures/Concrete044D_2K_NormalGL.jpg loaded
+Fri Jul 21 20:26:18 2023
+	Info: Texture assets/textures/Concrete044D_2K_Roughness.jpg loaded
+Fri Jul 21 20:26:18 2023
+	Info: Texture assets/textures/DiamondPlate008C_2K_Color.jpg loaded
+Fri Jul 21 20:26:18 2023
+	Info: Texture assets/textures/DiamondPlate008C_2K_NormalGL.jpg loaded
+Fri Jul 21 20:26:18 2023
+	Info: Texture assets/textures/DiamondPlate008C_2K_Metalness.jpg loaded
+Fri Jul 21 20:26:18 2023
+	Info: Texture assets/textures/DiamondPlate008C_2K_Roughness.jpg loaded
+Fri Jul 21 20:26:18 2023
+	Info: Texture assets/textures/pngwing.com.png loaded
+Fri Jul 21 20:26:18 2023
+	Info: Texture assets/textures/character.jpg loaded
+Fri Jul 21 20:26:18 2023
+	Info: Texture assets/textures/templategrid_albedo.png loaded
+Fri Jul 21 20:26:18 2023
+	Info: Texture assets/textures/muzzle-flash.png loaded
+Fri Jul 21 20:26:18 2023
+	Info: Texture assets/textures/muzzle-flash.png loaded
+Fri Jul 21 20:26:18 2023
+	Info: Model assets/models/LowPolyCharacter.fbx loaded:
+        Meshes: 1
+        Bones: 15
+        Animations: 1
+Fri Jul 21 20:26:18 2023
+	Info: Model assets/models/map.obj loaded:
+        Meshes: 2
+        Bones: 0
+        Animations: 0
+Fri Jul 21 20:26:18 2023
+	Info: Model assets/models/ak-47.fbx loaded:
+        Meshes: 2
+        Bones: 0
+        Animations: 0
+Fri Jul 21 20:26:18 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Fri Jul 21 20:26:18 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Fri Jul 21 20:26:18 2023
+	Info: Model assets/models/ak-47.fbx loaded:
+        Meshes: 2
+        Bones: 0
+        Animations: 0
+Fri Jul 21 20:26:18 2023
+	Info: Sound "assets/sounds/metal-pipe.mp3" successfully loaded
+Fri Jul 21 20:26:18 2023
+	Info: Sound "assets/sounds/footstep1.ogg" successfully loaded
+Fri Jul 21 20:26:18 2023
+	Info: Sound "assets/sounds/footstep2.ogg" successfully loaded
+Fri Jul 21 20:26:18 2023
+	Info: Sound "assets/sounds/footstep3.ogg" successfully loaded
+Fri Jul 21 20:26:18 2023
+	Info: Sound "assets/sounds/footstep4.ogg" successfully loaded
+Fri Jul 21 20:26:18 2023
+	Info: Sound "assets/sounds/jump.mp3" successfully loaded
+Fri Jul 21 20:26:18 2023
+	Info: Sound "assets/sounds/land.mp3" successfully loaded
+Fri Jul 21 20:26:18 2023
+	Info: Sound "assets/sounds/ak47-shot.mp3" successfully loaded

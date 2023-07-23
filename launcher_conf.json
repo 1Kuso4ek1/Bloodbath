@@ -3,10 +3,10 @@
     "window" :
     {
         "title" : "Bloodbath",
-        "widthTmp" : 640,
-        "heightTmp" : 360,
-        "width" : 1280,
-        "height" : 720,
+        "width" : 640,
+        "height" : 360,
+        "widthT" : 1280,
+        "heightT" : 720,
         "fullscreen" : true,
         "vsync" : true,
         "maxFps" : 120
