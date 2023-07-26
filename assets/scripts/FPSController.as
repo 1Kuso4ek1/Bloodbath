@@ -35,12 +35,6 @@ class FPSController
 
     void Update()
     {
-        Game::scene.GetSoundManager().SetPosition(Game::scene.GetModel("enemy:enemy").GetPosition(), "metal-pipe", 0);
-        if(abs(prevVel - /*playerRB*/Game::scene.GetModel("enemy:enemy").GetRigidBody().getLinearVelocity().length()) >= 1.3)
-        {
-            Game::scene.GetSoundManager().Play("metal-pipe", 0);
-        }
-        prevVel = /*playerRB*/Game::scene.GetModel("enemy:enemy").GetRigidBody().getLinearVelocity().length();
         auto v = Game::camera.Move(1, true); v.y = 0.0; v *= 250;
         if(pause) v = Vector3(0, 0, 0);
         moving = v.length() > 0;
@@ -74,31 +68,30 @@ class FPSController
 
         Ray ray(playerModel.GetPosition(), playerModel.GetPosition() - Vector3(0, playerModel.GetSize().y + 0.05, 0));
         RaycastInfo info;
+        int count = 0;
         for(uint i = 0; i < ground.Size(); i++)
         {
             /*onGround = ground[i].GetRigidBody().raycast(ray, info);
             if(onGround) break;*/
-            bool tmp = ground[i].GetRigidBody().raycast(ray, info);
-
-            if(!onGround && tmp)
-            {
-                onGround = true;
-                Game::scene.GetSoundManager().SetPosition(playerModel.GetPosition(), "land", 0);
-                Game::scene.GetSoundManager().PlayMono("land", 0);
-                jumpSound = true;
-                break;
-            }
-            
-            onGround = tmp;
-            if(onGround) break;
+            count += ground[i].GetRigidBody().raycast(ray, info) ? 1 : 0;
         }
+
+        if(!onGround && count > 0)
+        {
+            onGround = true;
+            Game::scene.GetSoundManager().SetPosition(playerModel.GetPosition(), "land", 0);
+            Game::scene.GetSoundManager().PlayMono("land", 0);
+            jumpSound = true;
+        }
+
+        onGround = count > 0;
 
         if(!onGround && serverConfig.allowBhop > 0) bhopDelay.restart();
 
         if(Keyboard::isKeyPressed(Keyboard::Space))
             if(onGround)
             {
-                playerModel.GetRigidBody().applyWorldForceAtCenterOfMass(Vector3(0, serverConfig.allowBhop == 0 ? 60 : 100, 0) + Game::camera.GetOrientation() * Vector3(0, 0, -20));
+                playerModel.GetRigidBody().applyWorldForceAtCenterOfMass(Vector3(0, serverConfig.allowBhop == 0 ? 350 : 500, 0) + Game::camera.GetOrientation() * Vector3(0, 0, -80));
                 Game::scene.GetSoundManager().SetPosition(playerModel.GetPosition(), "jump", 0);
                 if(jumpSound)
                     Game::scene.GetSoundManager().Play("jump", 0);

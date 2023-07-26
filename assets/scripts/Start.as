@@ -14,27 +14,15 @@ ServerConfig serverConfig;
 
 void Start()
 {
-    Game::bloomStrength = 0.3;
-    Game::blurIterations = 16;
-    //Game::exposure = 0.5;
+    Game::manageCameraMouse = false;
+    Game::manageCameraMovement = false;
+    Game::mouseCursorVisible = true;
 
     Game::scene.GetModel("map:ground").SetShadowBias(0.0);
     Game::scene.GetModel("rifle").SetShadowBias(0.0000001);
+    Game::scene.GetModel("rifle").SetIsDrawable(false);
 
-    int status = socket.connect(ResolveIp("localhost"), 2000, seconds(5));
-    //Log::Write(to_string(status));
-    if(status == Socket::Done)
-    {
-        Packet p;
-        status = socket.receive(p);
-        if(status == Socket::Done)
-            p >> serverConfig.name >> serverConfig.allowBhop >> serverConfig.enableFullGUI >> serverConfig.maxPlayers/* >> serverConfig.weaponDamage*/;
-        Log::Write("Welcome to the " + serverConfig.name);
-        if(serverConfig.allowBhop == 0) Log::Write("There's no bhop :(");
-    }
-    socket.setBlocking(false);
-
-    Game::manageCameraMovement = false;
+    Game::scene.UpdatePhysics(false);
 	
     @player = @FPSController(Game::scene.GetModel("player"), Game::scene.GetModelGroup("ground"), 6.0);
     player.AddCustomEvent(function()
@@ -50,10 +38,10 @@ void Start()
             
             RaycastInfo info;
             Ray ray(Game::camera.GetPosition(true), Game::camera.GetPosition(true) + (Game::camera.GetOrientation() * Vector3(0, 0, -1000)));
-            if(Game::scene.GetModel("enemy:enemy").GetRigidBody().raycast(ray, info))
+            if(Game::scene.GetModel("enemy:ground").GetRigidBody().raycast(ray, info))
             {
-                Game::scene.GetModel("enemy:enemy").GetRigidBody().applyWorldForceAtWorldPosition(Game::camera.GetOrientation() * Vector3(0, 0, -100), info.worldPoint);
-                auto pos = Game::scene.GetModel("enemy:enemy").GetPosition();
+                Game::scene.GetModel("enemy:ground").GetRigidBody().applyWorldForceAtWorldPosition(Game::camera.GetOrientation() * Vector3(0, 0, -100), info.worldPoint);
+                auto pos = Game::scene.GetModel("enemy:ground").GetPosition();
                 pos.y = 0.01;
                 auto model = Game::scene.CloneModel(Game::scene.GetModel("blood"), true);
                 model.SetPosition(pos + Vector3(rnd(-5, 5), 0, rnd(-5, 5)));
@@ -109,6 +97,53 @@ void Start()
         }
     });
 
-    @hud = @engine.CreateGui("assets/hud.txt");
-    hud.getChatBox("chat").addLine("hello world");
+    @menu = @engine.CreateGui("assets/menu.txt");
+    Game::exposure = 0.0;
+    Game::blurIterations = 128;
+    Game::bloomStrength = 1.0;
+    menu.getPanel("loadingPanel").setVisible(true);
+    menu.getPanel("loadingPanel").hideWithEffect(tgui::Fade, seconds(3.0));
+    menu.getButton("connect").onPress(function()
+    {
+        Log::Write("connect");
+        auto ip = menu.getEditBox("ip").getText().toStdString();
+        Log::Write(menu.getEditBox("ip").getText().toStdString());
+        auto port = stoi(menu.getEditBox("port").getText().toStdString());
+        Log::Write(menu.getEditBox("port").getText().toStdString());
+        int status = socket.connect(ResolveIp(ip), port, seconds(5));
+        if(status == Socket::Done)
+        {
+            Packet p;
+            status = socket.receive(p);
+            int numPlayers = 0;
+            if(status == Socket::Done)
+                p >> serverConfig.name >> serverConfig.allowBhop >> serverConfig.enableFullGUI >> serverConfig.maxPlayers >> numPlayers/* >> serverConfig.weaponDamage*/;
+            menu.getLabel("info").setText("Connected to " + serverConfig.name + " with " + to_string(numPlayers - 1) + " players");        
+            menu.getButton("play").setText("Play");
+            socket.setBlocking(false);
+        }
+        else menu.getLabel("info").setText("Failed to connect!");
+    });
+
+    menu.getButton("play").onPress(function()
+    {
+        Game::manageCameraMouse = true;
+        Game::mouseCursorVisible = false;
+        Game::exposure = 1.0;
+        Game::blurIterations = 16;
+        Game::bloomStrength = 0.3;
+        Game::scene.UpdatePhysics(true);
+        Game::scene.GetModel("rifle").SetIsDrawable(true);
+        Game::scene.GetSoundManager().Stop("menu-music");
+        @currentLoop = @mainGameLoop;
+        engine.RemoveGui();
+        @hud = @engine.CreateGui("assets/hud.txt");
+        if(serverConfig.name.length() > 0)
+            hud.getChatBox("chat").addLine("Welcome to the " + serverConfig.name);
+    });
+
+    Game::scene.GetSoundManager().Play("menu-music");
+
+    /*@hud = @engine.CreateGui("assets/hud.txt");
+    hud.getChatBox("chat").addLine("hello world");*/
 }

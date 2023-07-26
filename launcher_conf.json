@@ -20,9 +20,9 @@
     {
     	"shadersDir" : "assets/shaders/",
         "hdriPath" : "assets/textures/sky1.hdr",
-        "skyboxSideSize" : 1024,
+        "skyboxSideSize" : 256,
         "irradianceSideSize" : 32,
-        "prefilteredSideSize" : 1024,
+        "prefilteredSideSize" : 256,
         "shadowMapResolution" : 8192,
         "exposure" : 1.0
     },
