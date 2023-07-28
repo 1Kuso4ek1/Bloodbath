@@ -2,10 +2,13 @@ class ServerConfig
 {
     string name;
 
-	int allowBhop = 1;
-	int enableFullGUI = 1;
+	bool allowBhop = true;
+	bool enableFullGUI = true;
 
 	int maxPlayers;
+
+	float jumpForce = 500;
+	float maxSpeed = 6.0;
 
 	array<int> weaponDamage;
 };
@@ -22,9 +25,11 @@ void Start()
     Game::scene.GetModel("rifle").SetShadowBias(0.0000001);
     Game::scene.GetModel("rifle").SetIsDrawable(false);
 
+    Game::scene.GetPhysicsManager().SetTimeStep(1.0 / 60.0);
+
     Game::scene.UpdatePhysics(false);
 	
-    @player = @FPSController(Game::scene.GetModel("player"), Game::scene.GetModelGroup("ground"), 6.0);
+    @player = @FPSController(Game::scene.GetModel("player"), Game::scene.GetModelGroup("ground"));
     player.AddCustomEvent(function()
     {
         if(Mouse::isButtonPressed(Mouse::Left) && delay.getElapsedTime().asSeconds() > 0.1 && !pause)
@@ -105,22 +110,21 @@ void Start()
     menu.getPanel("loadingPanel").hideWithEffect(tgui::Fade, seconds(3.0));
     menu.getButton("connect").onPress(function()
     {
-        Log::Write("connect");
         auto ip = menu.getEditBox("ip").getText().toStdString();
-        Log::Write(menu.getEditBox("ip").getText().toStdString());
         auto port = stoi(menu.getEditBox("port").getText().toStdString());
-        Log::Write(menu.getEditBox("port").getText().toStdString());
         int status = socket.connect(ResolveIp(ip), port, seconds(5));
         if(status == Socket::Done)
         {
             Packet p;
+            Clock ping;
             status = socket.receive(p);
-            int numPlayers = 0;
+            int numPlayers = 0, event = 0;
             if(status == Socket::Done)
-                p >> serverConfig.name >> serverConfig.allowBhop >> serverConfig.enableFullGUI >> serverConfig.maxPlayers >> numPlayers/* >> serverConfig.weaponDamage*/;
-            menu.getLabel("info").setText("Connected to " + serverConfig.name + " with " + to_string(numPlayers - 1) + " players");        
+                p >> event >> serverConfig.name >> serverConfig.allowBhop >> serverConfig.enableFullGUI >> serverConfig.maxPlayers >> serverConfig.jumpForce >> serverConfig.maxSpeed >> numPlayers;// >> serverConfig.weaponDamage;
+            menu.getLabel("info").setText("Connected to " + serverConfig.name + "\n" + to_string(numPlayers - 1) + "/" + to_string(serverConfig.maxPlayers) + " players");
             menu.getButton("play").setText("Play");
             socket.setBlocking(false);
+            updateInfo.restart();
         }
         else menu.getLabel("info").setText("Failed to connect!");
     });

@@ -1,12 +1,5 @@
 GameLoop@ mainGameLoop = function()
 {
-    if(fpsClock.getElapsedTime().asSeconds() >= 1)
-    {
-        Game::scene.GetPhysicsManager().SetTimeStep(1.0 / float(fps));
-        fps = 0;
-        fpsClock.restart();
-    }
-
     hud.getProgressBar("health").setValue(health);
 
     /*if(bleedingClock.getElapsedTime().asSeconds() >= 0.2)
@@ -18,11 +11,25 @@ GameLoop@ mainGameLoop = function()
     }*/
 
     if(Keyboard::isKeyPressed(Keyboard::Escape)) pause = !pause;
+    
     if(Keyboard::isKeyPressed(Keyboard::K))
     {
         Game::bloomStrength = lerp(Game::bloomStrength, 1.0, 0.05);
         Game::exposure = lerp(Game::exposure, 0.0, 0.02);
         Game::blurIterations = lerp(Game::blurIterations, 32.0, 0.05);
+    }
+
+    if(!pause)
+    {
+        Game::blurIterations = lerp(Game::blurIterations, 16, 0.8);
+        Game::bloomStrength = lerp(Game::bloomStrength, 0.3, 0.015);
+        hud.setOpacity(lerp(hud.getOpacity(), 1.0, 0.05));
+    }
+    else
+    {
+        //Game::blurIterations = lerp(Game::blurIterations, 64, 0.8);
+        Game::bloomStrength = lerp(Game::bloomStrength, 1.0, 0.05);
+        hud.setOpacity(lerp(hud.getOpacity(), 0.0, 0.05));
     }
 
     Game::mouseCursorGrabbed = !pause;
@@ -40,10 +47,9 @@ GameLoop@ mainGameLoop = function()
         if(p >> code)
             switch(code)
             {
-            case 0:
+            case -1:
                 Log::Write("someone connected");
                 Game::scene.GetModel("enemy:ground").GetRigidBody().setType(STATIC);
-                Game::scene.GetModel("enemy:ground").GetRigidBody().setIsActive(false);
                 break;
             case 1:
                 p >> moving;
@@ -74,7 +80,7 @@ GameLoop@ mainGameLoop = function()
     Game::scene.GetModel("chel").SetPosition(enemyPos);
 
     Game::scene.GetModel("flash").SetIsDrawable(false);
-    player.Update();
+    if(!pause) player.Update();
     Game::camera.SetPosition(Game::scene.GetModel("player").GetPosition() + Vector3(0, 2.5, 0));
 
     if(health <= 50 && health > 0)
@@ -102,6 +108,4 @@ GameLoop@ mainGameLoop = function()
 
     socket.send(p);
     p.clear();
-
-    fps++;
 };

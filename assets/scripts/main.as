@@ -4,7 +4,7 @@ TcpSocket socket;
 tgui::Gui@ menu, hud;
 int fps = 30;
 int health = 100; //In future, get health from the server
-Clock fpsClock;//, bleedingClock;
+//Clock fpsClock, bleedingClock;
 bool pause = false;
 
 funcdef void GameLoop();
