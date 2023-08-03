@@ -8,8 +8,8 @@
         "widthT" : 1280,
         "heightT" : 720,
         "fullscreen" : true,
-        "vsync" : true,
-        "maxFps" : 120
+        "vsync" : false,
+        "maxFps" : 60
     },
     "gui" :
     {

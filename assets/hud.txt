@@ -1,7 +1,7 @@
 ChatBox.chat {
     LinesStartFromTop = false;
     NewLinesBelowOthers = true;
-    Position = (10, 820);
+    Position = (10, 800);
     Size = (290, 212);
     TextColor = white;
     TextSize = 13;
@@ -61,5 +61,34 @@ Picture.Picture1 {
         Opacity = 0.8;
         Texture = "textures/crosshair.png" Smooth;
         TransparentTexture = false;
+    }
+}
+
+EditBox.chatField {
+    Position = (10, 1020);
+    Size = (290, 22);
+    TextSize = 13;
+
+    Renderer {
+        BackgroundColor = #F5F5F5;
+        BackgroundColorDisabled = #E6E6E6;
+        BackgroundColorHover = white;
+        BorderColor = #3C3C3C;
+        BorderColorDisabled = #7D7D7D;
+        BorderColorHover = black;
+        Borders = (1, 1, 1, 1);
+        CaretColor = black;
+        CaretWidth = 1;
+        DefaultTextColor = #A0A0A0;
+        Opacity = 0.5;
+        Padding = (0, 0, 0, 0);
+        SelectedTextBackgroundColor = #006EFF;
+        SelectedTextColor = white;
+        TextColor = #3C3C3C;
+        TextColorDisabled = #7D7D7D;
+        Texture = None;
+        TextureDisabled = None;
+        TextureFocused = None;
+        TextureHover = None;
     }
 }

@@ -20,9 +20,10 @@ void Start()
     Game::manageCameraMouse = false;
     Game::manageCameraMovement = false;
     Game::mouseCursorVisible = true;
+    Game::mouseSensitivity = 0.8;
 
-    Game::scene.GetModel("map:ground").SetShadowBias(0.0);
-    Game::scene.GetModel("rifle").SetShadowBias(0.0000001);
+    Game::scene.GetModel("map:ground").SetShadowBias(0.0003);
+    Game::scene.GetModel("rifle").SetShadowBias(0.0001);
     Game::scene.GetModel("rifle").SetIsDrawable(false);
 
     Game::scene.GetPhysicsManager().SetTimeStep(1.0 / 60.0);
@@ -41,9 +42,11 @@ void Start()
 
             Game::scene.GetSoundManager().PlayMono("ak47-shot");
             
-            RaycastInfo info;
+            RaycastInfo info, info1;
             Ray ray(Game::camera.GetPosition(true), Game::camera.GetPosition(true) + (Game::camera.GetOrientation() * Vector3(0, 0, -1000)));
-            if(Game::scene.GetModel("enemy:ground").GetRigidBody().raycast(ray, info))
+            bool hit = Game::scene.GetModel("enemy:ground").GetRigidBody().raycast(ray, info);
+            Game::scene.GetModel("map:ground").GetRigidBody().raycast(ray, info1);
+            if(hit && (info.worldPoint - Game::camera.GetPosition()).length() < (info1.worldPoint - Game::camera.GetPosition()).length())
             {
                 Game::scene.GetModel("enemy:ground").GetRigidBody().applyWorldForceAtWorldPosition(Game::camera.GetOrientation() * Vector3(0, 0, -100), info.worldPoint);
                 auto pos = Game::scene.GetModel("enemy:ground").GetPosition();
@@ -53,7 +56,8 @@ void Start()
                 model.SetIsDrawable(true);
                 health -= 10;
             }
-            Game::camera.SetOrientation(Game::camera.GetOrientation() * QuaternionFromEuler(Vector3(0.03, 0, 0)));
+            if((Game::camera.GetOrientation() * Vector3(0, 0, -1)).y < 0.90)
+                Game::camera.SetOrientation(Game::camera.GetOrientation() * QuaternionFromEuler(Vector3(0.04, 0.0, 0.0)));
             delay.restart();
         }
     });
@@ -139,9 +143,12 @@ void Start()
         Game::scene.UpdatePhysics(true);
         Game::scene.GetModel("rifle").SetIsDrawable(true);
         Game::scene.GetSoundManager().Stop("menu-music");
+        //Game::scene.LoadEnvironment("assets/textures/sky1.hdr");
         @currentLoop = @mainGameLoop;
         engine.RemoveGui();
         @hud = @engine.CreateGui("assets/hud.txt");
+        hud.getEditBox("chatField").setVisible(false);
+        hud.getEditBox("chatField").setEnabled(false);
         if(serverConfig.name.length() > 0)
             hud.getChatBox("chat").addLine("Welcome to the " + serverConfig.name);
     });

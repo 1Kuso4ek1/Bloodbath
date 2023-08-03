@@ -47,7 +47,7 @@ GameLoop@ mainGameLoop = function()
         if(p >> code)
             switch(code)
             {
-            case -1:
+            case 0:
                 Log::Write("someone connected");
                 Game::scene.GetModel("enemy:ground").GetRigidBody().setType(STATIC);
                 break;
@@ -55,13 +55,13 @@ GameLoop@ mainGameLoop = function()
                 p >> moving;
                 if(moving == 1 && Game::scene.GetAnimation("Armature|Walk-chel").GetState() == Stopped)
                 {
-                    Game::scene.GetAnimation("Stand").Stop();
+                    Game::scene.GetAnimation("Stand-chel").Stop();
                     Game::scene.GetAnimation("Armature|Walk-chel").Play();
                 }
                 else if(moving == 0)
                 {
                     Game::scene.GetAnimation("Armature|Walk-chel").Stop();
-                    Game::scene.GetAnimation("Stand").Play();
+                    Game::scene.GetAnimation("Stand-chel").Play();
                 }
                 p >> pos.x >> pos.y >> pos.z >> orient.x >> orient.y >> orient.z >> orient.w;
                 //orient.z = orient.y; orient.z = -orient.z;
