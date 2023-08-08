@@ -44,7 +44,7 @@ class FPSController
             footstepDelay.restart();
         }
         if((!Keyboard::isKeyPressed(Keyboard::LControl) || !onGround) && serverConfig.allowBhop)
-            playerRB.applyWorldForceAtCenterOfMass((onGround && bhopDelay.getElapsedTime().asSeconds() >= 0.3) ? v : v / (Dot(v / 50, playerRB.getLinearVelocity()) < 0 ? 10 : (serverConfig.allowBhop ? 80 : 50)));
+            playerRB.applyWorldForceAtCenterOfMass((onGround && bhopDelay.getElapsedTime().asSeconds() >= 0.3) ? v : v / (Dot(v / 50, playerRB.getLinearVelocity()) < 0 ? 8 : (serverConfig.allowBhop ? 80 : 50)));
         else if(!serverConfig.allowBhop && onGround)
             playerRB.applyWorldForceAtCenterOfMass(v);
 
@@ -90,14 +90,18 @@ class FPSController
         if(!onGround && serverConfig.allowBhop) bhopDelay.restart();
 
         if(Keyboard::isKeyPressed(Keyboard::Space))
-            if(onGround)
+        {
+            if(onGround && canJump)
             {
                 playerModel.GetRigidBody().applyWorldForceAtCenterOfMass(Vector3(0, serverConfig.jumpForce, 0) + Game::camera.GetOrientation() * Vector3(0, 0, -80));
                 Game::scene.GetSoundManager().SetPosition(playerModel.GetPosition(), "jump", 0);
                 if(jumpSound)
                     Game::scene.GetSoundManager().Play("jump", 0);
                 jumpSound = false;
+                canJump = false;
             }
+        }
+        else canJump = true;
         /*if(playerRB.getLinearVelocity().length() == 0)
             playerRB.setAngularVelocity(Vector3(0, 0, 0));
         else *///playerModel.SetOrientation(Quaternion(0, 0, 0, 1));
@@ -117,6 +121,7 @@ class FPSController
     private Model@ playerModel;
     private ModelGroup ground;
     private RigidBody@ playerRB;
+    private bool canJump;
     private bool moving;
     private bool onGround;
     private bool jumpSound;

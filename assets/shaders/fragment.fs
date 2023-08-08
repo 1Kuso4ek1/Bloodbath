@@ -1,4 +1,4 @@
-#version 330
+#version 450 core
 precision mediump float;
 
 const int maxLights = 128;
@@ -29,6 +29,8 @@ uniform vec3 nirradiance;
 uniform bool drawTransparency = false;
 uniform float shadowBias;
 
+uniform sampler2DShadow shadowMaps[maxShadows];
+
 in vec2 coord;
 in vec3 camposout;
 in vec3 mnormal;
@@ -41,7 +43,6 @@ out vec4 color;
 struct Shadow
 {
 	vec3 sourcepos;
-	sampler2DShadow shadowmap;
     bool isactive;
 };
 
@@ -68,16 +69,27 @@ float CalcShadow()
     for(int i = 0; i < maxShadows; i++)
     {
         if(!shadows[i].isactive) continue;
-        if(1.0 - dot(mnormal, normalize(shadows[i].sourcepos - mpos)) >= 1.0) continue;
 
         vec3 pcoord = lspaceout[i].xyz / lspaceout[i].w;
         pcoord = pcoord * 0.5 + 0.5;
         if(pcoord.z > 1.0) continue;
         
         pcoord.z -= shadowBias;
-        float tmp = 1.0 - texture(shadows[i].shadowmap, pcoord);
-        if(tmp != 0.0 && ret == 0.0)
-            ret += tmp;
+        //float tmp = 1.0 - texture(shadows[i].shadowmap, pcoord); // only for gl 4.6 systems
+        float tmp = 1.0;
+        switch(i) // for the gl 4.5 compatibility
+        {
+        case 0: tmp -= texture(shadowMaps[0], pcoord); break;
+        case 1: tmp -= texture(shadowMaps[1], pcoord); break;
+        case 2: tmp -= texture(shadowMaps[2], pcoord); break;
+        case 3: tmp -= texture(shadowMaps[3], pcoord); break;
+        case 4: tmp -= texture(shadowMaps[4], pcoord); break;
+        case 5: tmp -= texture(shadowMaps[5], pcoord); break;
+        case 6: tmp -= texture(shadowMaps[6], pcoord); break;
+        case 7: tmp -= texture(shadowMaps[7], pcoord); break;
+        default: break;
+        }
+        if(ret < tmp) ret = tmp;
     }
     return ret;
 }

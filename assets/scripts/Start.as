@@ -22,8 +22,8 @@ void Start()
     Game::mouseCursorVisible = true;
     Game::mouseSensitivity = 0.8;
 
-    Game::scene.GetModel("map:ground").SetShadowBias(0.0003);
-    Game::scene.GetModel("rifle").SetShadowBias(0.0001);
+    //Game::scene.GetModel("map:ground").SetShadowBias(0.0003);
+    Game::scene.GetModel("rifle").SetShadowBias(0.01);
     Game::scene.GetModel("rifle").SetIsDrawable(false);
 
     Game::scene.GetPhysicsManager().SetTimeStep(1.0 / 60.0);
@@ -87,8 +87,8 @@ void Start()
         {
             auto l = Game::scene.GetModel("player").GetRigidBody().getLinearVelocity().length();
             Game::camera.SetFOV(lerp(Game::camera.GetFOV(), 80 + l, 0.05));
-            if(Game::camera.GetFOV() >= 110)
-                Game::camera.SetFOV(110);
+            if(Game::camera.GetFOV() >= 135)
+                Game::camera.SetFOV(135);
         }
     });
 
