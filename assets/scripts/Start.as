@@ -29,6 +29,8 @@ void Start()
     Game::scene.GetPhysicsManager().SetTimeStep(1.0 / 60.0);
 
     Game::scene.UpdatePhysics(false);
+
+    Game::scene.SaveState();
 	
     @player = @FPSController(Game::scene.GetModel("player"), Game::scene.GetModelGroup("ground"));
     player.AddCustomEvent(function()
@@ -112,6 +114,12 @@ void Start()
     Game::bloomStrength = 1.0;
     menu.getPanel("loadingPanel").setVisible(true);
     menu.getPanel("loadingPanel").hideWithEffect(tgui::Fade, seconds(3.0));
+
+    menu.getButton("exit").onPress(function()
+    {
+        engine.Close();
+    });
+
     menu.getButton("connect").onPress(function()
     {
         auto ip = menu.getEditBox("ip").getText().toStdString();
@@ -147,8 +155,28 @@ void Start()
         @currentLoop = @mainGameLoop;
         engine.RemoveGui();
         @hud = @engine.CreateGui("assets/hud.txt");
+        @pauseMenu = @engine.CreateGui("assets/pause.txt");
+        pauseMenu.setOpacity(0.0);
         hud.getEditBox("chatField").setVisible(false);
         hud.getEditBox("chatField").setEnabled(false);
+
+        pauseMenu.getButton("continue").onPress(function()
+        {
+            if(pause) pause = false;
+        });
+
+        pauseMenu.getButton("disconnect").onPress(function()
+        {
+            if(pause)
+            {
+                pause = false;
+                socket.disconnect();
+                Game::scene.LoadState();
+                @currentLoop = @menuLoop;
+                engine.RemoveGui();
+                Start();
+            }
+        });
         if(serverConfig.name.length() > 0)
             hud.getChatBox("chat").addLine("Welcome to the " + serverConfig.name);
     });

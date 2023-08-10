@@ -2,6 +2,9 @@ GameLoop@ mainGameLoop = function()
 {
     hud.getProgressBar("health").setValue(health);
 
+    Game::mouseSensitivity = pauseMenu.getSlider("sensitivity").getValue();
+    pauseMenu.getLabel("sensVal").setText(to_string(Game::mouseSensitivity));
+
     /*if(bleedingClock.getElapsedTime().asSeconds() >= 0.2)
     {
         auto pos = Game::camera.GetPosition();
@@ -10,7 +13,11 @@ GameLoop@ mainGameLoop = function()
         bleedingClock.restart();
     }*/
 
-    if(Keyboard::isKeyPressed(Keyboard::Escape)) pause = !pause;
+    if(Keyboard::isKeyPressed(Keyboard::Escape) && buttonTimer.getElapsedTime().asSeconds() > 0.3)
+    {
+        buttonTimer.restart();
+        pause = !pause;
+    }
     
     if(Keyboard::isKeyPressed(Keyboard::K))
     {
@@ -24,12 +31,14 @@ GameLoop@ mainGameLoop = function()
         Game::blurIterations = lerp(Game::blurIterations, 16, 0.8);
         Game::bloomStrength = lerp(Game::bloomStrength, 0.3, 0.015);
         hud.setOpacity(lerp(hud.getOpacity(), 1.0, 0.05));
+        pauseMenu.setOpacity(lerp(pauseMenu.getOpacity(), 0.0, 0.05));
     }
     else
     {
         //Game::blurIterations = lerp(Game::blurIterations, 64, 0.8);
         Game::bloomStrength = lerp(Game::bloomStrength, 1.0, 0.05);
         hud.setOpacity(lerp(hud.getOpacity(), 0.0, 0.05));
+        pauseMenu.setOpacity(lerp(pauseMenu.getOpacity(), 1.0, 0.05));
     }
 
     Game::mouseCursorGrabbed = !pause;
