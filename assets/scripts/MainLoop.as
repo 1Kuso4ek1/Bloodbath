@@ -5,14 +5,6 @@ GameLoop@ mainGameLoop = function()
     Game::mouseSensitivity = pauseMenu.getSlider("sensitivity").getValue();
     pauseMenu.getLabel("sensVal").setText(to_string(Game::mouseSensitivity));
 
-    /*if(bleedingClock.getElapsedTime().asSeconds() >= 0.2)
-    {
-        auto pos = Game::camera.GetPosition();
-        pos.y = 0.01;
-        Game::scene.CloneModel(Game::scene.GetModel("blood"), true).SetPosition(pos);
-        bleedingClock.restart();
-    }*/
-
     if(Keyboard::isKeyPressed(Keyboard::Escape) && buttonTimer.getElapsedTime().asSeconds() > 0.3)
     {
         buttonTimer.restart();

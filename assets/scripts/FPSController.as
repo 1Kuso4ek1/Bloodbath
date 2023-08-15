@@ -102,9 +102,6 @@ class FPSController
             }
         }
         else canJump = true;
-        /*if(playerRB.getLinearVelocity().length() == 0)
-            playerRB.setAngularVelocity(Vector3(0, 0, 0));
-        else *///playerModel.SetOrientation(Quaternion(0, 0, 0, 1));
     }
 
     bool IsMoving()
@@ -122,6 +119,7 @@ class FPSController
     private ModelGroup ground;
     private RigidBody@ playerRB;
     private bool canJump;
+    private bool canVault;
     private bool moving;
     private bool onGround;
     private bool jumpSound;
