@@ -68,6 +68,8 @@ class FPSController
             customEvents[i]();
 
         Ray ray(playerModel.GetPosition(), playerModel.GetPosition() - Vector3(0, playerModel.GetSize().y + 0.05, 0));
+        Ray ray1(Game::camera.GetPosition(true), Game::camera.GetPosition(true) + (Game::camera.GetOrientation() * Vector3(0, 0, -3)));
+        Ray ray2(Game::camera.GetPosition(true) - Vector3(0.0, playerModel.GetSize().y - 0.2, 0.0), Game::camera.GetPosition(true) - Vector3(0.0, playerModel.GetSize().y - 0.2, 0.0) + (Game::camera.GetOrientation() * Vector3(0, 0, -3)));
         RaycastInfo info;
         int count = 0;
         for(uint i = 0; i < ground.Size(); i++)
@@ -75,6 +77,12 @@ class FPSController
             /*onGround = ground[i].GetRigidBody().raycast(ray, info);
             if(onGround) break;*/
             count += ground[i].GetRigidBody().raycast(ray, info) ? 1 : 0;
+            if(!ground[i].GetRigidBody().raycast(ray1, info) && ground[i].GetRigidBody().raycast(ray2, info) && 
+               vaultDelay.getElapsedTime().asSeconds() > 1)
+            {
+                canVault = true && !onGround;
+                vaultDelay.restart();
+            }
         }
 
         if(!onGround && count > 0)
@@ -91,14 +99,15 @@ class FPSController
 
         if(Keyboard::isKeyPressed(Keyboard::Space))
         {
-            if(onGround && canJump)
+            if((onGround && canJump) || canVault)
             {
-                playerModel.GetRigidBody().applyWorldForceAtCenterOfMass(Vector3(0, serverConfig.jumpForce, 0) + Game::camera.GetOrientation() * Vector3(0, 0, -80));
+                playerModel.GetRigidBody().applyWorldForceAtCenterOfMass(Vector3(0, serverConfig.jumpForce + (canVault ? 80 : 0), 0) + Game::camera.GetOrientation() * Vector3(0, 0, -80));
                 Game::scene.GetSoundManager().SetPosition(playerModel.GetPosition(), "jump", 0);
                 if(jumpSound)
                     Game::scene.GetSoundManager().Play("jump", 0);
                 jumpSound = false;
                 canJump = false;
+                canVault = false;
             }
         }
         else canJump = true;
@@ -123,6 +132,6 @@ class FPSController
     private bool moving;
     private bool onGround;
     private bool jumpSound;
-    private Clock bhopDelay, footstepDelay;
+    private Clock bhopDelay, footstepDelay, vaultDelay;
     private float prevVel = 0.0;
 };

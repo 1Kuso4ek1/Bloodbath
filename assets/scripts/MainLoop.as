@@ -10,18 +10,11 @@ GameLoop@ mainGameLoop = function()
         buttonTimer.restart();
         pause = !pause;
     }
-    
-    if(Keyboard::isKeyPressed(Keyboard::K))
-    {
-        Game::bloomStrength = lerp(Game::bloomStrength, 1.0, 0.05);
-        Game::exposure = lerp(Game::exposure, 0.0, 0.02);
-        Game::blurIterations = lerp(Game::blurIterations, 32.0, 0.05);
-    }
 
     if(!pause)
     {
-        Game::blurIterations = lerp(Game::blurIterations, 16, 0.8);
-        Game::bloomStrength = lerp(Game::bloomStrength, 0.3, 0.015);
+        Game::blurIterations = lerp(Game::blurIterations, 16, 0.03);
+        Game::bloomStrength = lerp(Game::bloomStrength, 0.2, 0.015);
         hud.setOpacity(lerp(hud.getOpacity(), 1.0, 0.05));
         pauseMenu.setOpacity(lerp(pauseMenu.getOpacity(), 0.0, 0.05));
     }

@@ -147,11 +147,11 @@ void Start()
         Game::mouseCursorVisible = false;
         Game::exposure = 1.0;
         Game::blurIterations = 16;
-        Game::bloomStrength = 0.3;
+        Game::bloomStrength = 0.2;
         Game::scene.UpdatePhysics(true);
         Game::scene.GetModel("rifle").SetIsDrawable(true);
         Game::scene.GetSoundManager().Stop("menu-music");
-        //Game::scene.LoadEnvironment("assets/textures/sky1.hdr");
+        //Game::scene.LoadEnvironment("assets/textures/doom_sky.hdr");
         @currentLoop = @mainGameLoop;
         engine.RemoveGui();
         @hud = @engine.CreateGui("assets/hud.txt");
