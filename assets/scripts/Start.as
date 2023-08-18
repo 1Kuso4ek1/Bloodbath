@@ -23,7 +23,7 @@ void Start()
     Game::mouseSensitivity = 0.8;
 
     //Game::scene.GetModel("map:ground").SetShadowBias(0.0003);
-    Game::scene.GetModel("rifle").SetShadowBias(0.01);
+    Game::scene.GetModel("rifle").SetShadowBias(0.005);
     Game::scene.GetModel("rifle").SetIsDrawable(false);
 
     Game::scene.GetPhysicsManager().SetTimeStep(1.0 / 60.0);
