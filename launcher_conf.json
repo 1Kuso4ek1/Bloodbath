@@ -23,7 +23,7 @@
         "skyboxSideSize" : 256,
         "irradianceSideSize" : 32,
         "prefilteredSideSize" : 256,
-        "shadowMapResolution" : 8192,
+        "shadowMapResolution" : 4096,
         "exposure" : 1.0
     },
     "log" :

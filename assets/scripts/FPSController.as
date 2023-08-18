@@ -101,7 +101,7 @@ class FPSController
         {
             if((onGround && canJump) || canVault)
             {
-                playerModel.GetRigidBody().applyWorldForceAtCenterOfMass(Vector3(0, serverConfig.jumpForce + (canVault ? 80 : 0), 0) + Game::camera.GetOrientation() * Vector3(0, 0, -80));
+                playerModel.GetRigidBody().applyWorldForceAtCenterOfMass(Vector3(0, serverConfig.jumpForce + (canVault ? serverConfig.jumpForce / 2.0 : 0), 0) + Game::camera.GetOrientation() * Vector3(0, 0, -80));
                 Game::scene.GetSoundManager().SetPosition(playerModel.GetPosition(), "jump", 0);
                 if(jumpSound)
                     Game::scene.GetSoundManager().Play("jump", 0);
