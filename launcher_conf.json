@@ -7,7 +7,7 @@
         "height" : 360,
         "widthT" : 1280,
         "heightT" : 720,
-        "fullscreen" : true,
+        "fullscreen" : false,
         "vsync" : false,
         "maxFps" : 60
     },

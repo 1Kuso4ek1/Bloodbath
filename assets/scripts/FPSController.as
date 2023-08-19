@@ -34,7 +34,7 @@ class FPSController
 
     void Update()
     {
-        auto v = Game::camera.Move(1, true); v.y = 0.0; v *= 250;
+        auto v = Game::camera.Move(updateCam ? 1 : 0.1, true); v.y = 0.0; v *= 250;
         moving = v.length() > 0;
         if(moving && footstepDelay.getElapsedTime().asSeconds() >= (Game::camera.GetSpeed() == 1 ? 0.5 : 0.35) && onGround && bhopDelay.getElapsedTime().asSeconds() >= 0.3)
         {

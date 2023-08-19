@@ -35,7 +35,8 @@ GameLoop@ mainGameLoop = function()
     Packet p;
     while(socket.receive(p) == Socket::Done)
     {
-        int code = -1, moving = 0;
+        int code = -1;
+        bool moving = false, onGround = true;
         Vector3 pos, euler;
         Quaternion orient;
         if(p >> code)
@@ -47,15 +48,24 @@ GameLoop@ mainGameLoop = function()
                 break;
             case 1:
                 p >> moving;
-                if(moving == 1 && Game::scene.GetAnimation("Armature|Walk-chel").GetState() == Stopped)
+                p >> onGround;
+                if(onGround && moving && Game::scene.GetAnimation("Armature|Walk-chel").GetState() == Stopped)
                 {
                     Game::scene.GetAnimation("Stand-chel").Stop();
                     Game::scene.GetAnimation("Armature|Walk-chel").Play();
+                    Game::scene.GetAnimation("Jump-chel").Stop();
                 }
-                else if(moving == 0)
+                else if(!moving && onGround)
                 {
                     Game::scene.GetAnimation("Armature|Walk-chel").Stop();
                     Game::scene.GetAnimation("Stand-chel").Play();
+                    Game::scene.GetAnimation("Jump-chel").Stop();
+                }
+                else if(!onGround && Game::scene.GetAnimation("Jump-chel").GetState() == Stopped)
+                {
+                    Game::scene.GetAnimation("Armature|Walk-chel").Stop();
+                    Game::scene.GetAnimation("Stand-chel").Stop();
+                    Game::scene.GetAnimation("Jump-chel").Play();
                 }
                 p >> pos.x >> pos.y >> pos.z >> orient.x >> orient.y >> orient.z >> orient.w;
                 //orient.z = orient.y; orient.z = -orient.z;
@@ -89,7 +99,8 @@ GameLoop@ mainGameLoop = function()
 
     p << 1;
 
-    p << (player.IsMoving() ? 1 : 0);
+    p << player.IsMoving();
+    p << player.IsOnGround();
 
     p << pos.x;
     p << pos.y;
