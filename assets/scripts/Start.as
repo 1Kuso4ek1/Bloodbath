@@ -25,6 +25,9 @@ void Start()
     //Game::scene.GetModel("map:ground").SetShadowBias(0.0003);
     Game::scene.GetModel("rifle").SetShadowBias(0.005);
     Game::scene.GetModel("rifle").SetIsDrawable(false);
+    Game::scene.GetModel("chel").SetIsDrawable(true);
+    Game::scene.GetModel("rifle-copy").SetIsDrawable(false);
+    Game::scene.GetAnimation("Menu-Idle").Play();
 
     Game::scene.GetPhysicsManager().SetTimeStep(1.0 / 60.0);
 
@@ -96,16 +99,10 @@ void Start()
 
     player.AddCustomEvent(function()
     {
-        if(Keyboard::isKeyPressed(Keyboard::LShift))
-        {
+        if(player.IsRunning())
             Game::scene.GetAnimation("walk").SetTPS(15);
-            Game::camera.SetSpeed(2);
-        }
         else
-        {
-            Game::scene.GetAnimation("walk").SetTPS(10);
-            Game::camera.SetSpeed(1);
-        }
+            Game::scene.GetAnimation("walk").SetTPS(5);
     });
 
     @menu = @engine.CreateGui("assets/menu.txt");
@@ -132,8 +129,8 @@ void Start()
             status = socket.receive(p);
             int numPlayers = 0, event = 0;
             if(status == Socket::Done)
-                p >> event >> serverConfig.name >> serverConfig.allowBhop >> serverConfig.enableFullGUI >> serverConfig.maxPlayers >> serverConfig.jumpForce >> serverConfig.maxSpeed >> numPlayers;// >> serverConfig.weaponDamage;
-            menu.getLabel("info").setText("Connected to " + serverConfig.name + "\n" + to_string(numPlayers - 1) + "/" + to_string(serverConfig.maxPlayers) + " players");
+                p >> id >> event >> serverConfig.name >> serverConfig.allowBhop >> serverConfig.enableFullGUI >> serverConfig.maxPlayers >> serverConfig.jumpForce >> serverConfig.maxSpeed >> numPlayers;// >> serverConfig.weaponDamage;
+            menu.getLabel("info").setText("Connected to " + serverConfig.name + "\n" + to_string(numPlayers - 1) + "/" + to_string(serverConfig.maxPlayers) + " players\n" + "ID: " + to_string(id));
             menu.getButton("play").setText("Play");
             socket.setBlocking(false);
             updateInfo.restart();
@@ -151,6 +148,11 @@ void Start()
         Game::scene.UpdatePhysics(true);
         Game::scene.GetModel("rifle").SetIsDrawable(true);
         Game::scene.GetSoundManager().Stop("menu-music");
+        Game::scene.GetAnimation("Menu-Idle").Stop();
+        Game::scene.GetModel("chel").DefaultPose();
+        Game::scene.GetModel("chel").SetIsDrawable(false);
+        Game::scene.GetModel("enemy:ground").GetRigidBody().setIsActive(false);
+        //Game::scene.GetSoundManager().Play("game-music");
         //Game::scene.LoadEnvironment("assets/textures/doom_sky.hdr");
         @currentLoop = @mainGameLoop;
         engine.RemoveGui();
@@ -177,8 +179,14 @@ void Start()
                 Start();
             }
         });
+
         if(serverConfig.name.length() > 0)
+        {
             hud.getChatBox("chat").addLine("Welcome to the " + serverConfig.name);
+            Packet p;
+            p << 0; p << id; p << "amogus";
+            socket.send(p);
+        }
     });
 
     Game::scene.GetSoundManager().Play("menu-music");

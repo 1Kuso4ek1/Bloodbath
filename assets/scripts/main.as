@@ -3,12 +3,39 @@ Clock delay, buttonTimer;
 TcpSocket socket;
 tgui::Gui@ menu, hud, pauseMenu;
 int health = 100; //In future, get health from the server
+int id = 0;
 Clock physicsTime;
 bool pause = false, updateCam = true;
 
 funcdef void GameLoop();
 
 GameLoop@ currentLoop = @menuLoop;/*@mainGameLoop;*/
+
+class Client
+{
+    Client() {}
+
+    Client(int id, string name, Model@ model, Model@ chel)
+    {
+        this.id = id;
+        this.name = name;
+        @this.model = @model;
+        @this.chel = @chel;
+    }
+
+    bool opEquals(const Client& in client)
+    {
+        return id == client.id;
+    }
+
+    string name;
+    int id;
+    int health = 100;
+    Model@ model;
+    Model@ chel;
+};
+
+array<Client> clients;
 
 float lerp(float x, float y, float t)
 {

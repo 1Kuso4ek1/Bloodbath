@@ -28,7 +28,7 @@
     },
     "log" :
     {
-    	"init" : false,
+    	"init" : true,
     	"silent" : true
     }
 }

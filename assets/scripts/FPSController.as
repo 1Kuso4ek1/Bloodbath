@@ -34,9 +34,10 @@ class FPSController
 
     void Update()
     {
-        auto v = Game::camera.Move(updateCam ? 1 : 0.1, true); v.y = 0.0; v *= 250;
+        isRunning = !Keyboard::isKeyPressed(Keyboard::LShift);
+        auto v = Game::camera.Move(updateCam ? (isRunning ? 1.0 : 0.5) : 0.1, true); v.y = 0.0; v *= 250;
         moving = v.length() > 0;
-        if(moving && footstepDelay.getElapsedTime().asSeconds() >= (Game::camera.GetSpeed() == 1 ? 0.5 : 0.35) && onGround && bhopDelay.getElapsedTime().asSeconds() >= 0.3)
+        if(moving && onGround && isRunning && footstepDelay.getElapsedTime().asSeconds() >= 0.3 && bhopDelay.getElapsedTime().asSeconds() >= 0.3)
         {
             auto soundNum = to_string(int(rnd(1, 4)));
             Game::scene.GetSoundManager().SetPosition(playerModel.GetPosition(), "footstep" + soundNum, 0);
@@ -44,19 +45,19 @@ class FPSController
             footstepDelay.restart();
         }
         if((!Keyboard::isKeyPressed(Keyboard::LControl) || !onGround) && serverConfig.allowBhop)
-            playerRB.applyWorldForceAtCenterOfMass((onGround && bhopDelay.getElapsedTime().asSeconds() >= 0.3) ? v : v / (Dot(v / 50, playerRB.getLinearVelocity()) < 0 ? 8 : (serverConfig.allowBhop ? 80 : 50)));
+            playerRB.applyWorldForceAtCenterOfMass((onGround && bhopDelay.getElapsedTime().asSeconds() >= 0.3) ? v : v / (Dot(v / 50, playerRB.getLinearVelocity()) < 2 ? 3.0 : (serverConfig.allowBhop ? 100.0 : 50.0)));
         else if(!serverConfig.allowBhop && onGround)
             playerRB.applyWorldForceAtCenterOfMass(v);
 
         auto vel = playerRB.getLinearVelocity();
-        if(vel.x > serverConfig.maxSpeed) vel.x = serverConfig.maxSpeed;
-        if(vel.z > serverConfig.maxSpeed) vel.z = serverConfig.maxSpeed;
-        if(vel.x < -serverConfig.maxSpeed) vel.x = -serverConfig.maxSpeed;
-        if(vel.z < -serverConfig.maxSpeed) vel.z = -serverConfig.maxSpeed;
+        auto maxSpeed = serverConfig.maxSpeed * (isRunning ? 2.5 : 0.1);
+        if(vel.x > maxSpeed) vel.x = maxSpeed;
+        if(vel.z > maxSpeed) vel.z = maxSpeed;
+        if(vel.x < -maxSpeed) vel.x = -maxSpeed;
+        if(vel.z < -maxSpeed) vel.z = -maxSpeed;
 
         if(onGround && bhopDelay.getElapsedTime().asSeconds() >= 0.3 && !Keyboard::isKeyPressed(Keyboard::LControl))
             playerRB.setLinearVelocity(vel);
-        //Log::Write(vel.to_string());
 
         if((onGround && !Keyboard::isKeyPressed(Keyboard::LControl) && bhopDelay.getElapsedTime().asSeconds() >= 0.3))
             playerRB.setLinearVelocity(
@@ -101,7 +102,7 @@ class FPSController
         {
             if((onGround && canJump) || canVault)
             {
-                playerModel.GetRigidBody().applyWorldForceAtCenterOfMass(Vector3(0, serverConfig.jumpForce + (canVault ? serverConfig.jumpForce / 2.0 : 0), 0) + Game::camera.GetOrientation() * Vector3(0, 0, -80));
+                playerModel.GetRigidBody().applyWorldForceAtCenterOfMass(Vector3(0, serverConfig.jumpForce + (canVault ? serverConfig.jumpForce / 2.0 : 0), 0) + Game::camera.GetOrientation() * Vector3(0, 0, -250));
                 Game::scene.GetSoundManager().SetPosition(playerModel.GetPosition(), "jump", 0);
                 if(jumpSound)
                     Game::scene.GetSoundManager().Play("jump", 0);
@@ -118,6 +119,11 @@ class FPSController
         return moving;
     }
 
+    bool IsRunning()
+    {
+        return isRunning;
+    }
+
     bool IsOnGround()
     {
         return onGround;
@@ -127,6 +133,7 @@ class FPSController
     private Model@ playerModel;
     private ModelGroup ground;
     private RigidBody@ playerRB;
+    private bool isRunning;
     private bool canJump;
     private bool canVault;
     private bool moving;

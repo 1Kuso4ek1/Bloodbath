@@ -35,7 +35,8 @@ GameLoop@ mainGameLoop = function()
     Packet p;
     while(socket.receive(p) == Socket::Done)
     {
-        int code = -1;
+        int code = -1, newId = -1;
+        string newName;
         bool moving = false, onGround = true;
         Vector3 pos, euler;
         Quaternion orient;
@@ -43,45 +44,66 @@ GameLoop@ mainGameLoop = function()
             switch(code)
             {
             case 0:
-                Log::Write("someone connected");
-                Game::scene.GetModel("enemy:ground").GetRigidBody().setType(STATIC);
+                p >> newId >> newName;
+                if(clients.find(Client(id, newName, null, null)) < 0)
+                {
+                    hud.getChatBox("chat").addLine(newName + " connected");
+                    Model@ model = @Game::scene.CloneModel(Game::scene.GetModel("enemy:ground"), true, "enemy" + to_string(newId) + ":ground");
+                    model.GetRigidBody().setIsActive(true);
+                    Model@ chel = @Game::scene.CloneModel(Game::scene.GetModel("chel"), true, "chel" + to_string(newId));
+                    chel.SetIsDrawable(true);
+                    Model@ rifle = @Game::scene.CloneModel(Game::scene.GetModel("rifle-copy"), true, "rifle-copy" + to_string(newId));
+                    rifle.SetIsDrawable(true);
+                    cast<Node>(Game::scene.GetBone("Right-Hand-chel" + to_string(newId))).AddChild(cast<Node>(rifle));
+                    cast<Node>(rifle).SetParent(cast<Node>(Game::scene.GetBone("Right-Hand-chel" + to_string(newId))));
+                    clients.insertLast(Client(newId, newName, model, chel));
+                    p.clear();
+                    p << 0; p << id; p << "amogus";
+                    socket.send(p);
+                }
                 break;
             case 1:
+                p >> newId;
                 p >> moving;
                 p >> onGround;
-                if(onGround && moving && Game::scene.GetAnimation("Armature|Walk-chel").GetState() == Stopped)
+
+                if(onGround && moving && Game::scene.GetAnimation("Armature|Walk-chel-chel" + to_string(newId)).GetState() == Stopped)
                 {
-                    Game::scene.GetAnimation("Stand-chel").Stop();
-                    Game::scene.GetAnimation("Armature|Walk-chel").Play();
-                    Game::scene.GetAnimation("Jump-chel").Stop();
+                    Game::scene.GetAnimation("Stand-chel-chel" + to_string(newId)).Stop();
+                    Game::scene.GetAnimation("Armature|Walk-chel-chel" + to_string(newId)).Play();
+                    Game::scene.GetAnimation("Jump-chel-chel" + to_string(newId)).Stop();
                 }
                 else if(!moving && onGround)
                 {
-                    Game::scene.GetAnimation("Armature|Walk-chel").Stop();
-                    Game::scene.GetAnimation("Stand-chel").Play();
-                    Game::scene.GetAnimation("Jump-chel").Stop();
+                    Game::scene.GetAnimation("Armature|Walk-chel-chel" + to_string(newId)).Stop();
+                    Game::scene.GetAnimation("Stand-chel-chel" + to_string(newId)).Play();
+                    Game::scene.GetAnimation("Jump-chel-chel" + to_string(newId)).Stop();
                 }
-                else if(!onGround && Game::scene.GetAnimation("Jump-chel").GetState() == Stopped)
+                else if(!onGround && Game::scene.GetAnimation("Jump-chel-chel" + to_string(newId)).GetState() == Stopped)
                 {
-                    Game::scene.GetAnimation("Armature|Walk-chel").Stop();
-                    Game::scene.GetAnimation("Stand-chel").Stop();
-                    Game::scene.GetAnimation("Jump-chel").Play();
+                    Game::scene.GetAnimation("Armature|Walk-chel-chel" + to_string(newId)).Stop();
+                    Game::scene.GetAnimation("Stand-chel-chel" + to_string(newId)).Stop();
+                    Game::scene.GetAnimation("Jump-chel-chel" + to_string(newId)).Play();
                 }
+                
                 p >> pos.x >> pos.y >> pos.z >> orient.x >> orient.y >> orient.z >> orient.w;
                 //orient.z = orient.y; orient.z = -orient.z;
-                Game::scene.GetModel("enemy:ground").SetPosition(pos);
-                Game::scene.GetBone("Body-chel").SetOrientation(orient * QuaternionFromEuler(Vector3(radians(90), 0, 0)));
+                Game::scene.GetModel("enemy" + to_string(newId) + ":ground").SetPosition(pos);
+                Game::scene.GetBone("Body-chel" + to_string(newId)).SetOrientation(orient * QuaternionFromEuler(Vector3(radians(90), 0, 0)));
 
                 euler = EulerFromQuaternion(orient); euler.x = 0; euler.y = radians(-30);
 
-                Game::scene.GetBone("Bone.007-chel").SetOrientation(slerp(Game::scene.GetBone("Bone.007-chel").GetOrientation(), QuaternionFromEuler(euler) * QuaternionFromEuler(Vector3(0, 0, radians(90))), 0.1));
+                Game::scene.GetBone("Bone.007-chel" + to_string(newId)).SetOrientation(slerp(Game::scene.GetBone("Bone.007-chel" + to_string(newId)).GetOrientation(), QuaternionFromEuler(euler) * QuaternionFromEuler(Vector3(0, 0, radians(90))), 0.1));
                 euler.y = -euler.y;
-                Game::scene.GetBone("Bone.010-chel").SetOrientation(slerp(Game::scene.GetBone("Bone.010-chel").GetOrientation(), QuaternionFromEuler(euler) * QuaternionFromEuler(Vector3(0, 0, radians(-90))), 0.1));
+                Game::scene.GetBone("Bone.010-chel" + to_string(newId)).SetOrientation(slerp(Game::scene.GetBone("Bone.010-chel" + to_string(newId)).GetOrientation(), QuaternionFromEuler(euler) * QuaternionFromEuler(Vector3(0, 0, radians(-90))), 0.1));
                 break;
             }
     }
-    auto enemyPos = Game::scene.GetModel("enemy:ground").GetPosition();
-    Game::scene.GetModel("chel").SetPosition(enemyPos);
+    
+    for(int i = 0; i < clients.length(); i++)
+    {
+        clients[i].chel.SetPosition(clients[i].model.GetPosition());
+    }
 
     Game::scene.GetModel("flash").SetIsDrawable(false);
     if(!pause) player.Update();
@@ -98,6 +120,8 @@ GameLoop@ mainGameLoop = function()
     orient = orient * QuaternionFromEuler(Vector3(0, radians(-90), 0));
 
     p << 1;
+
+    p << id;
 
     p << player.IsMoving();
     p << player.IsOnGround();
