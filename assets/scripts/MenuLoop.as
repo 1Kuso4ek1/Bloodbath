@@ -2,12 +2,15 @@ Clock updateInfo;
 
 GameLoop@ menuLoop = function()
 {
-    Game::exposure = lerp(Game::exposure, 1.0, 0.015);
-    Game::blurIterations = lerp(Game::blurIterations, 16, 0.8);
-    Game::bloomStrength = lerp(Game::bloomStrength, 0.3, 0.002 + Game::exposure / 100.0);
+    if(updatePhysics)
+    {
+        Game::exposure = lerp(Game::exposure, 1.0, 0.015);
+        Game::blurIterations = lerp(Game::blurIterations, 16, 0.8);
+        Game::bloomStrength = lerp(Game::bloomStrength, 0.3, 0.002 + Game::exposure / 100.0);
 
-    auto pos = Game::camera.GetPosition();
-    Game::camera.SetPosition(Vector3(lerp(pos.x, 13.8, 0.01), lerp(pos.y, 4.6, 0.01), lerp(pos.z, 7.2, 0.01)));
+        auto pos = Game::camera.GetPosition();
+        Game::camera.SetPosition(Vector3(lerp(pos.x, 13.8, 0.01), lerp(pos.y, 4.6, 0.01), lerp(pos.z, 7.2, 0.01)));
+    }
 
     if(!socket.isBlocking() && updateInfo.getElapsedTime().asSeconds() >= 1.0)
     {

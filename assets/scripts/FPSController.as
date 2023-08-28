@@ -34,8 +34,9 @@ class FPSController
 
     void Update()
     {
+        if(!updatePhysics) return;
         isRunning = !Keyboard::isKeyPressed(Keyboard::LShift);
-        auto v = Game::camera.Move(updateCam ? (isRunning ? 1.0 : 0.5) : 0.1, true); v.y = 0.0; v *= 250;
+        auto v = Game::camera.Move(isRunning ? 1.0 : 0.5, true); v.y = 0.0; v *= 250;
         moving = v.length() > 0;
         if(moving && onGround && isRunning && footstepDelay.getElapsedTime().asSeconds() >= 0.3 && bhopDelay.getElapsedTime().asSeconds() >= 0.3)
         {

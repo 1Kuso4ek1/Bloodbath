@@ -5,7 +5,7 @@ tgui::Gui@ menu, hud, pauseMenu;
 int health = 100; //In future, get health from the server
 int id = 0;
 Clock physicsTime;
-bool pause = false, updateCam = true;
+bool pause = false, updatePhysics = true;
 
 funcdef void GameLoop();
 
@@ -52,12 +52,12 @@ void Loop()
     if(physicsTime.getElapsedTime().asSeconds() < (1.0 / 60.0))
     {
         Game::scene.UpdatePhysics(false);
-        updateCam = false;
+        updatePhysics = false;
     }
     else
     {
         Game::scene.UpdatePhysics(true);
-        updateCam = true;
+        updatePhysics = true;
         physicsTime.restart();
     }
 

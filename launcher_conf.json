@@ -9,7 +9,7 @@
         "heightT" : 720,
         "fullscreen" : false,
         "vsync" : false,
-        "maxFps" : 60
+        "maxFps" : 120
     },
     "gui" :
     {

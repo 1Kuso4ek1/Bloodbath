@@ -105,7 +105,8 @@ GameLoop@ mainGameLoop = function()
         clients[i].chel.SetPosition(clients[i].model.GetPosition());
     }
 
-    Game::scene.GetModel("flash").SetIsDrawable(false);
+    if(updatePhysics)
+        Game::scene.GetModel("flash").SetIsDrawable(false);
     if(!pause) player.Update();
     Game::camera.SetPosition(Game::scene.GetModel("player").GetPosition() + Vector3(0, 2.5, 0));
 
