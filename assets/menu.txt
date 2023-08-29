@@ -1,59 +1,6 @@
-Picture.Picture1 {
-    Size = (50, 50);
-
-    Renderer {
-        Texture = "textures/profilepic.jpg" Smooth;
-        TransparentTexture = false;
-    }
-}
-
-Panel.Panel1 {
-    Position = (50, 0);
-    Size = (140, 50);
-
-    Renderer {
-        BackgroundColor = white;
-        BorderColor = black;
-        Opacity = 0.5;
-        TextureBackground = None;
-    }
-
-    Label.nickname {
-        HorizontalAlignment = Center;
-        Size = (139, 50.3077);
-        Text = "[Your nickname]";
-        TextSize = 13;
-        VerticalAlignment = Center;
-
-        Renderer {
-            BorderColor = Black;
-            TextColor = #767676;
-            TextOutlineColor = transparent;
-            TextOutlineThickness = 0.5;
-            TextStyle = Bold;
-            TextureBackground = None;
-
-            Scrollbar {
-                ArrowBackgroundColor = rgb(80, 80, 80);
-                ArrowColor = rgb(190, 190, 190);
-                TextureArrowDown = "themes/Black.png" Part(1, 230, 20, 20) Middle(0, 1, 20, 19) Smooth;
-                TextureArrowDownHover = "themes/Black.png" Part(306, 225, 20, 20) Middle(0, 1, 20, 19) Smooth;
-                TextureArrowUp = "themes/Black.png" Part(284, 225, 20, 20) Middle(0, 0, 20, 19) Smooth;
-                TextureArrowUpHover = "themes/Black.png" Part(285, 171, 20, 20) Middle(0, 0, 20, 19) Smooth;
-                TextureThumb = "themes/Black.png" Part(23, 230, 20, 20) Smooth;
-                TextureThumbHover = "themes/Black.png" Part(306, 193, 20, 20) Smooth;
-                TextureTrack = "themes/Black.png" Part(255, 1, 20, 20) Smooth;
-                TextureTrackHover = "themes/Black.png" Part(284, 203, 20, 20) Smooth;
-                ThumbColor = rgb(190, 190, 190);
-                TrackColor = rgb(80, 80, 80);
-            }
-        }
-    }
-}
-
 EditBox.ip {
     DefaultText = Address;
-    Position = (0, 320);
+    Position = (0, 290);
     Size = (140, 22);
     TextSize = 13;
 
@@ -84,7 +31,7 @@ EditBox.ip {
 EditBox.port {
     DefaultText = Port;
     InputValidator = UInt;
-    Position = (150, 320);
+    Position = (150, 290);
     Size = (40, 22);
     TextSize = 13;
 
@@ -185,7 +132,9 @@ Label.info {
         BackgroundColor = transparent;
         BorderColor = #3C3C3C;
         Borders = (0, 0, 0, 0);
-        TextColor = #3C3C3C;
+        TextColor = #857D7E;
+        TextOutlineColor = black;
+        TextOutlineThickness = 0.1;
         TextureBackground = None;
 
         Scrollbar {
@@ -235,6 +184,37 @@ Button.exit {
         TextureDown = None;
         TextureDownFocused = None;
         TextureDownHover = None;
+        TextureFocused = None;
+        TextureHover = None;
+    }
+}
+
+EditBox.nickname {
+    DefaultText = Nickname;
+    MaximumCharacters = 30;
+    Position = (0, 320);
+    Size = (190, 22);
+    TextSize = 13;
+
+    Renderer {
+        BackgroundColor = #F5F5F5;
+        BackgroundColorDisabled = #E6E6E6;
+        BackgroundColorHover = white;
+        BorderColor = #3C3C3C;
+        BorderColorDisabled = #7D7D7D;
+        BorderColorHover = black;
+        Borders = (1, 1, 1, 1);
+        CaretColor = black;
+        CaretWidth = 1;
+        DefaultTextColor = #A0A0A0;
+        Opacity = 0.5;
+        Padding = (0, 0, 0, 0);
+        SelectedTextBackgroundColor = #006EFF;
+        SelectedTextColor = white;
+        TextColor = #3C3C3C;
+        TextColorDisabled = #7D7D7D;
+        Texture = None;
+        TextureDisabled = None;
         TextureFocused = None;
         TextureHover = None;
     }

@@ -43,60 +43,88 @@ GameLoop@ mainGameLoop = function()
         if(p >> code)
             switch(code)
             {
-            case 0:
-                p >> newId >> newName;
-                if(clients.find(Client(id, newName, null, null)) < 0)
-                {
-                    hud.getChatBox("chat").addLine(newName + " connected");
-                    Model@ model = @Game::scene.CloneModel(Game::scene.GetModel("enemy:ground"), true, "enemy" + to_string(newId) + ":ground");
-                    model.GetRigidBody().setIsActive(true);
-                    Model@ chel = @Game::scene.CloneModel(Game::scene.GetModel("chel"), true, "chel" + to_string(newId));
-                    chel.SetIsDrawable(true);
-                    Model@ rifle = @Game::scene.CloneModel(Game::scene.GetModel("rifle-copy"), true, "rifle-copy" + to_string(newId));
-                    rifle.SetIsDrawable(true);
-                    cast<Node>(Game::scene.GetBone("Right-Hand-chel" + to_string(newId))).AddChild(cast<Node>(rifle));
-                    cast<Node>(rifle).SetParent(cast<Node>(Game::scene.GetBone("Right-Hand-chel" + to_string(newId))));
-                    clients.insertLast(Client(newId, newName, model, chel));
-                    p.clear();
-                    p << 0; p << id; p << "amogus";
-                    socket.send(p);
-                }
-                break;
-            case 1:
-                p >> newId;
-                p >> moving;
-                p >> onGround;
+	            case 0:
+	            {
+	                p >> newId;
+	                p >> newName;
 
-                if(onGround && moving && Game::scene.GetAnimation("Armature|Walk-chel-chel" + to_string(newId)).GetState() == Stopped)
-                {
-                    Game::scene.GetAnimation("Stand-chel-chel" + to_string(newId)).Stop();
-                    Game::scene.GetAnimation("Armature|Walk-chel-chel" + to_string(newId)).Play();
-                    Game::scene.GetAnimation("Jump-chel-chel" + to_string(newId)).Stop();
-                }
-                else if(!moving && onGround)
-                {
-                    Game::scene.GetAnimation("Armature|Walk-chel-chel" + to_string(newId)).Stop();
-                    Game::scene.GetAnimation("Stand-chel-chel" + to_string(newId)).Play();
-                    Game::scene.GetAnimation("Jump-chel-chel" + to_string(newId)).Stop();
-                }
-                else if(!onGround && Game::scene.GetAnimation("Jump-chel-chel" + to_string(newId)).GetState() == Stopped)
-                {
-                    Game::scene.GetAnimation("Armature|Walk-chel-chel" + to_string(newId)).Stop();
-                    Game::scene.GetAnimation("Stand-chel-chel" + to_string(newId)).Stop();
-                    Game::scene.GetAnimation("Jump-chel-chel" + to_string(newId)).Play();
-                }
-                
-                p >> pos.x >> pos.y >> pos.z >> orient.x >> orient.y >> orient.z >> orient.w;
-                //orient.z = orient.y; orient.z = -orient.z;
-                Game::scene.GetModel("enemy" + to_string(newId) + ":ground").SetPosition(pos);
-                Game::scene.GetBone("Body-chel" + to_string(newId)).SetOrientation(orient * QuaternionFromEuler(Vector3(radians(90), 0, 0)));
+	                if(clients.find(Client(newId, "", null, null)) < 0)
+	                {
+	                    hud.getChatBox("chat").addLine(newName + " connected");
+	                    Model@ model = @Game::scene.CloneModel(Game::scene.GetModel("enemy:ground"), true, "enemy" + to_string(newId) + ":ground");
+	                    model.GetRigidBody().setIsActive(true);
+	                    Model@ chel = @Game::scene.CloneModel(Game::scene.GetModel("chel"), true, "chel" + to_string(newId));
+	                    chel.SetIsDrawable(true);
+	                    Model@ rifle = @Game::scene.CloneModel(Game::scene.GetModel("rifle-copy"), true, "rifle-copy" + to_string(newId));
+	                    rifle.SetIsDrawable(true);
+	                    cast<Node>(Game::scene.GetBone("Right-Hand-chel" + to_string(newId))).AddChild(cast<Node>(rifle));
+	                    cast<Node>(rifle).SetParent(cast<Node>(Game::scene.GetBone("Right-Hand-chel" + to_string(newId))));
+	                    clients.insertLast(Client(newId, newName, model, chel));
+	                    p.clear();
+	                    p << 0; p << id; p << name;
+	                    socket.send(p);
+	                    player.SetGroundGroup(Game::scene.GetModelGroup("ground"));
+	                }
+	                break;
+	            }
+	            
+	            case 1:
+	            {
+	                p >> newId;
+	                p >> moving;
+	                p >> onGround;
 
-                euler = EulerFromQuaternion(orient); euler.x = 0; euler.y = radians(-30);
+	                if(onGround && moving && Game::scene.GetAnimation("Armature|Walk-chel-chel" + to_string(newId)).GetState() == Stopped)
+	                {
+	                    Game::scene.GetAnimation("Stand-chel-chel" + to_string(newId)).Stop();
+	                    Game::scene.GetAnimation("Armature|Walk-chel-chel" + to_string(newId)).Play();
+	                    Game::scene.GetAnimation("Jump-chel-chel" + to_string(newId)).Stop();
+	                }
+	                else if(!moving && onGround)
+	                {
+	                    Game::scene.GetAnimation("Armature|Walk-chel-chel" + to_string(newId)).Stop();
+	                    Game::scene.GetAnimation("Stand-chel-chel" + to_string(newId)).Play();
+	                    Game::scene.GetAnimation("Jump-chel-chel" + to_string(newId)).Stop();
+	                }
+	                else if(!onGround && Game::scene.GetAnimation("Jump-chel-chel" + to_string(newId)).GetState() == Stopped)
+	                {
+	                    Game::scene.GetAnimation("Armature|Walk-chel-chel" + to_string(newId)).Stop();
+	                    Game::scene.GetAnimation("Stand-chel-chel" + to_string(newId)).Stop();
+	                    Game::scene.GetAnimation("Jump-chel-chel" + to_string(newId)).Play();
+	                }
+	                
+	                p >> pos.x >> pos.y >> pos.z >> orient.x >> orient.y >> orient.z >> orient.w;
 
-                Game::scene.GetBone("Bone.007-chel" + to_string(newId)).SetOrientation(slerp(Game::scene.GetBone("Bone.007-chel" + to_string(newId)).GetOrientation(), QuaternionFromEuler(euler) * QuaternionFromEuler(Vector3(0, 0, radians(90))), 0.1));
-                euler.y = -euler.y;
-                Game::scene.GetBone("Bone.010-chel" + to_string(newId)).SetOrientation(slerp(Game::scene.GetBone("Bone.010-chel" + to_string(newId)).GetOrientation(), QuaternionFromEuler(euler) * QuaternionFromEuler(Vector3(0, 0, radians(-90))), 0.1));
-                break;
+	                Game::scene.GetModel("enemy" + to_string(newId) + ":ground").SetPosition(pos);
+	                Game::scene.GetBone("Body-chel" + to_string(newId)).SetOrientation(orient * QuaternionFromEuler(Vector3(radians(90), 0, 0)));
+
+	                euler = EulerFromQuaternion(orient); euler.x = 0; euler.y = radians(-30);
+
+	                Game::scene.GetBone("Bone.007-chel" + to_string(newId)).SetOrientation(slerp(Game::scene.GetBone("Bone.007-chel" + to_string(newId)).GetOrientation(), QuaternionFromEuler(euler) * QuaternionFromEuler(Vector3(0, 0, radians(90))), 0.1));
+	                euler.y = -euler.y;
+	                Game::scene.GetBone("Bone.010-chel" + to_string(newId)).SetOrientation(slerp(Game::scene.GetBone("Bone.010-chel" + to_string(newId)).GetOrientation(), QuaternionFromEuler(euler) * QuaternionFromEuler(Vector3(0, 0, radians(-90))), 0.1));
+	                break;
+	            }
+                case 5:
+                {
+                    p >> newId;
+                    if(newId == id)
+                    {
+                        p >> health;
+                        break;
+                    }
+
+                    int client = clients.find(Client(newId, "", null, null));
+	                p >> clients[client].health;
+                        Log::Write(to_string(clients[client].health));
+	                if(clients[client].health > 50)
+	                    clients[client].chel.SetMaterial(Game::scene.GetMaterial("character"));
+    	            else if(clients[client].health <= 50 && clients[client].health > 0)
+	                    clients[client].chel.SetMaterial(Game::scene.GetMaterial("character-wounded"));
+	                else if(clients[client].health == 0)
+	                    clients[client].chel.SetMaterial(Game::scene.GetMaterial("character-dead"));
+                    break;
+                }
             }
     }
     
@@ -109,11 +137,6 @@ GameLoop@ mainGameLoop = function()
         Game::scene.GetModel("flash").SetIsDrawable(false);
     if(!pause) player.Update();
     Game::camera.SetPosition(Game::scene.GetModel("player").GetPosition() + Vector3(0, 2.5, 0));
-
-    if(health <= 50 && health > 0)
-        Game::scene.GetModel("chel").SetMaterial(Game::scene.GetMaterial("character-wounded"));
-    if(health == 0)
-        Game::scene.GetModel("chel").SetMaterial(Game::scene.GetMaterial("character-dead"));
 
     p.clear();
     auto pos = Game::scene.GetModel("player").GetPosition();

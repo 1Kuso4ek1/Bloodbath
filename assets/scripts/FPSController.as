@@ -114,6 +114,11 @@ class FPSController
         }
         else canJump = true;
     }
+    
+    void SetGroundGroup(ModelGroup ground)
+    {
+        this.ground = ground;
+    }
 
     bool IsMoving()
     {

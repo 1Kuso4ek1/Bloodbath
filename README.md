@@ -1,7 +1,7 @@
 # Bloodbath
 A multiplayer shooter made with 3Dev. (In development)
 ## Features
-- Cool movement with sliding, surfing (kinda), bunnyhopping and vaulting!
+- Cool movement with bunnyhopping, surfing and vaulting!
 - Weapon inspection with F key!
 - Working multiplayer!
 - Cool graphics!

@@ -49,17 +49,23 @@ void Start()
             
             RaycastInfo info, info1;
             Ray ray(Game::camera.GetPosition(true), Game::camera.GetPosition(true) + (Game::camera.GetOrientation() * Vector3(0, 0, -1000)));
-            bool hit = Game::scene.GetModel("enemy:ground").GetRigidBody().raycast(ray, info);
-            Game::scene.GetModel("map:ground").GetRigidBody().raycast(ray, info1);
-            if(hit && (info.worldPoint - Game::camera.GetPosition()).length() < (info1.worldPoint - Game::camera.GetPosition()).length())
+            int hit = -1;
+            for(int i = 0; i < clients.length(); i++)
             {
-                Game::scene.GetModel("enemy:ground").GetRigidBody().applyWorldForceAtWorldPosition(Game::camera.GetOrientation() * Vector3(0, 0, -100), info.worldPoint);
-                auto pos = Game::scene.GetModel("enemy:ground").GetPosition();
+                if(clients[i].model.GetRigidBody().raycast(ray, info))
+                    hit = i;
+            }
+            Game::scene.GetModel("map:ground").GetRigidBody().raycast(ray, info1);
+            if(hit != -1 && (info.worldPoint - Game::camera.GetPosition()).length() < (info1.worldPoint - Game::camera.GetPosition()).length())
+            {
+                auto pos = clients[hit].model.GetPosition();
                 pos.y = 0.01;
                 auto model = Game::scene.CloneModel(Game::scene.GetModel("blood"), true);
                 model.SetPosition(pos + Vector3(rnd(-5, 5), 0, rnd(-5, 5)));
                 model.SetIsDrawable(true);
-                health -= 10;
+                // code = 2, myId, damagedId, weaponId
+                Packet p; p << 2; p << id; p << clients[hit].id; p << 0;
+                socket.send(p);
             }
             if((Game::camera.GetOrientation() * Vector3(0, 0, -1)).y < 0.90)
                 Game::camera.SetOrientation(Game::camera.GetOrientation() * QuaternionFromEuler(Vector3(0.04, 0.0, 0.0)));
@@ -124,16 +130,16 @@ void Start()
         int status = socket.connect(ResolveIp(ip), port, seconds(5));
         if(status == Socket::Done)
         {
-            Packet p;
+            /*Packet p;
             Clock ping;
             status = socket.receive(p);
             int numPlayers = 0, event = 0;
             if(status == Socket::Done)
                 p >> id >> event >> serverConfig.name >> serverConfig.allowBhop >> serverConfig.enableFullGUI >> serverConfig.maxPlayers >> serverConfig.jumpForce >> serverConfig.maxSpeed >> numPlayers;// >> serverConfig.weaponDamage;
             menu.getLabel("info").setText("Connected to " + serverConfig.name + "\n" + to_string(numPlayers - 1) + "/" + to_string(serverConfig.maxPlayers) + " players\n" + "ID: " + to_string(id));
+            updateInfo.restart();*/
             menu.getButton("play").setText("Play");
             socket.setBlocking(false);
-            updateInfo.restart();
         }
         else menu.getLabel("info").setText("Failed to connect!");
     });
@@ -155,6 +161,7 @@ void Start()
         //Game::scene.GetSoundManager().Play("game-music");
         //Game::scene.LoadEnvironment("assets/textures/doom_sky.hdr");
         @currentLoop = @mainGameLoop;
+        name = menu.getEditBox("nickname").getText().toStdString();
         engine.RemoveGui();
         @hud = @engine.CreateGui("assets/hud.txt");
         @pauseMenu = @engine.CreateGui("assets/pause.txt");
@@ -184,7 +191,7 @@ void Start()
         {
             hud.getChatBox("chat").addLine("Welcome to the " + serverConfig.name);
             Packet p;
-            p << 0; p << id; p << "amogus";
+            p << 0; p << id; p << name;
             socket.send(p);
         }
     });

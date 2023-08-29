@@ -1,144 +1,1002 @@
-Mon Aug 28 14:15:23 2023
+Wed Aug 30 00:02:37 2023
 	Info: Texture assets/textures/sky1.hdr loaded
-Mon Aug 28 14:15:23 2023
+Wed Aug 30 00:02:37 2023
 	Info: Renderer successfully initialized
-Mon Aug 28 14:15:24 2023
+Wed Aug 30 00:02:37 2023
 	Info: Texture assets/textures/pngwing.com.png loaded
-Mon Aug 28 14:15:24 2023
+Wed Aug 30 00:02:37 2023
 	Info: Texture assets/textures/blood_normal.png loaded
-Mon Aug 28 14:15:24 2023
+Wed Aug 30 00:02:37 2023
 	Info: Texture assets/textures/character.jpg loaded
-Mon Aug 28 14:15:24 2023
+Wed Aug 30 00:02:37 2023
 	Info: Texture assets/textures/character-dead.jpg loaded
-Mon Aug 28 14:15:24 2023
+Wed Aug 30 00:02:37 2023
 	Info: Texture assets/textures/character-wounded.jpg loaded
-Mon Aug 28 14:15:24 2023
+Wed Aug 30 00:02:38 2023
 	Info: Texture assets/textures/map_color.jpg loaded
-Mon Aug 28 14:15:24 2023
+Wed Aug 30 00:02:38 2023
 	Info: Texture assets/textures/map_normal.jpg loaded
-Mon Aug 28 14:15:24 2023
+Wed Aug 30 00:02:38 2023
 	Info: Texture assets/textures/map_metalness.jpg loaded
-Mon Aug 28 14:15:24 2023
+Wed Aug 30 00:02:38 2023
 	Info: Texture assets/textures/map_roughness.jpg loaded
-Mon Aug 28 14:15:24 2023
+Wed Aug 30 00:02:38 2023
 	Info: Texture assets/textures/muzzle-flash.png loaded
-Mon Aug 28 14:15:24 2023
+Wed Aug 30 00:02:38 2023
 	Info: Texture assets/textures/muzzle-flash.png loaded
-Mon Aug 28 14:15:24 2023
+Wed Aug 30 00:02:38 2023
 	Info: Texture assets/textures/Concrete044D_2K_Color.jpg loaded
-Mon Aug 28 14:15:24 2023
+Wed Aug 30 00:02:38 2023
 	Info: Texture assets/textures/Concrete044D_2K_NormalGL.jpg loaded
-Mon Aug 28 14:15:24 2023
+Wed Aug 30 00:02:38 2023
 	Info: Texture assets/textures/Concrete044D_2K_Roughness.jpg loaded
-Mon Aug 28 14:15:24 2023
+Wed Aug 30 00:02:38 2023
 	Info: Texture assets/textures/DiamondPlate008C_2K_Color.jpg loaded
-Mon Aug 28 14:15:24 2023
+Wed Aug 30 00:02:38 2023
 	Info: Texture assets/textures/DiamondPlate008C_2K_NormalGL.jpg loaded
-Mon Aug 28 14:15:24 2023
+Wed Aug 30 00:02:38 2023
 	Info: Texture assets/textures/DiamondPlate008C_2K_Metalness.jpg loaded
-Mon Aug 28 14:15:24 2023
+Wed Aug 30 00:02:38 2023
 	Info: Texture assets/textures/DiamondPlate008C_2K_Roughness.jpg loaded
-Mon Aug 28 14:15:24 2023
+Wed Aug 30 00:02:38 2023
 	Info: Texture assets/textures/Plaster001_2K_Color.jpg loaded
-Mon Aug 28 14:15:24 2023
+Wed Aug 30 00:02:38 2023
 	Info: Texture assets/textures/Plaster001_2K_NormalGL.jpg loaded
-Mon Aug 28 14:15:24 2023
+Wed Aug 30 00:02:39 2023
 	Info: Texture assets/textures/Plaster001_2K_Roughness.jpg loaded
-Mon Aug 28 14:15:24 2023
+Wed Aug 30 00:02:39 2023
 	Info: Texture assets/textures/templategrid_albedo.png loaded
-Mon Aug 28 14:15:25 2023
+Wed Aug 30 00:02:39 2023
+	Info: Texture assets/textures/ptitsa.png loaded
+Wed Aug 30 00:02:39 2023
 	Info: Texture assets/textures/Wood_ak-47_Base_Color.png loaded
-Mon Aug 28 14:15:25 2023
+Wed Aug 30 00:02:39 2023
 	Info: Texture assets/textures/Wood_ak-47_Normal_OpenGL.png loaded
-Mon Aug 28 14:15:25 2023
+Wed Aug 30 00:02:39 2023
 	Info: Texture assets/textures/Wood_ak-47_Metallic.png loaded
-Mon Aug 28 14:15:25 2023
+Wed Aug 30 00:02:39 2023
 	Info: Texture assets/textures/Wood_ak-47_Roughness.png loaded
-Mon Aug 28 14:15:25 2023
+Wed Aug 30 00:02:39 2023
 	Info: Texture assets/textures/Metall_ak-47_Base_Color.png loaded
-Mon Aug 28 14:15:25 2023
+Wed Aug 30 00:02:40 2023
 	Info: Texture assets/textures/Metall_ak-47_Normal_OpenGL.png loaded
-Mon Aug 28 14:15:25 2023
+Wed Aug 30 00:02:40 2023
 	Info: Texture assets/textures/Metall_ak-47_Metallic.png loaded
-Mon Aug 28 14:15:25 2023
+Wed Aug 30 00:02:40 2023
 	Info: Texture assets/textures/Metall_ak-47_Roughness.png loaded
-Mon Aug 28 14:15:25 2023
+Wed Aug 30 00:02:40 2023
 	Info: Model assets/models/plane.fbx loaded:
         Meshes: 1
         Bones: 0
         Animations: 0
-Mon Aug 28 14:15:25 2023
+Wed Aug 30 00:02:40 2023
 	Info: Model assets/models/LowPolyCharacter.fbx loaded:
         Meshes: 1
         Bones: 15
         Animations: 0
-Mon Aug 28 14:15:25 2023
+Wed Aug 30 00:02:40 2023
 	Info: Model assets/models/plane.fbx loaded:
         Meshes: 1
         Bones: 0
         Animations: 0
-Mon Aug 28 14:15:25 2023
+Wed Aug 30 00:02:40 2023
 	Info: Model assets/models/map.obj loaded:
         Meshes: 2
         Bones: 0
         Animations: 0
-Mon Aug 28 14:15:25 2023
+Wed Aug 30 00:02:40 2023
 	Info: Model assets/models/ak-47.fbx loaded:
         Meshes: 2
         Bones: 0
         Animations: 0
-Mon Aug 28 14:15:25 2023
+Wed Aug 30 00:02:40 2023
 	Info: Model assets/models/ak-47.fbx loaded:
         Meshes: 2
         Bones: 0
         Animations: 0
-Mon Aug 28 14:15:25 2023
+Wed Aug 30 00:02:40 2023
 	Info: Sound "assets/sounds/metal-pipe.mp3" successfully loaded
-Mon Aug 28 14:15:25 2023
+Wed Aug 30 00:02:40 2023
 	Info: Sound "assets/sounds/footstep1.ogg" successfully loaded
-Mon Aug 28 14:15:25 2023
+Wed Aug 30 00:02:40 2023
 	Info: Sound "assets/sounds/footstep2.ogg" successfully loaded
-Mon Aug 28 14:15:25 2023
+Wed Aug 30 00:02:40 2023
 	Info: Sound "assets/sounds/footstep3.ogg" successfully loaded
-Mon Aug 28 14:15:25 2023
+Wed Aug 30 00:02:40 2023
 	Info: Sound "assets/sounds/footstep4.ogg" successfully loaded
-Mon Aug 28 14:15:25 2023
+Wed Aug 30 00:02:40 2023
 	Info: Sound "assets/sounds/jump.mp3" successfully loaded
-Mon Aug 28 14:15:25 2023
+Wed Aug 30 00:02:40 2023
 	Info: Sound "assets/sounds/land.mp3" successfully loaded
-Mon Aug 28 14:15:25 2023
+Wed Aug 30 00:02:40 2023
 	Info: Sound "assets/sounds/ak47-shot.mp3" successfully loaded
-Mon Aug 28 14:15:26 2023
+Wed Aug 30 00:02:40 2023
 	Info: Sound "assets/sounds/I-Cant-Stop-Mastered.mp3" successfully loaded
-Mon Aug 28 14:15:26 2023
+Wed Aug 30 00:02:40 2023
+	Info: Sound "assets/sounds/hit1.ogg" successfully loaded
+Wed Aug 30 00:02:40 2023
+	Info: Sound "assets/sounds/hit2.ogg" successfully loaded
+Wed Aug 30 00:02:40 2023
 	Info: /home/kuso4ek/Рабочий стол/projects/Bloodbath/assets/scripts/MainLoop.as (2, 1): Compiling void $mainGameLoop$0()
-Mon Aug 28 14:15:26 2023
+Wed Aug 30 00:02:40 2023
 	Warning: /home/kuso4ek/Рабочий стол/projects/Bloodbath/assets/scripts/MainLoop.as (16, 32): Float value truncated in implicit conversion to integer
-Mon Aug 28 14:15:26 2023
-	Warning: /home/kuso4ek/Рабочий стол/projects/Bloodbath/assets/scripts/MainLoop.as (103, 22): Signed/Unsigned mismatch
-Mon Aug 28 14:15:26 2023
+Wed Aug 30 00:02:40 2023
+	Warning: /home/kuso4ek/Рабочий стол/projects/Bloodbath/assets/scripts/MainLoop.as (131, 22): Signed/Unsigned mismatch
+Wed Aug 30 00:02:40 2023
 	Info: /home/kuso4ek/Рабочий стол/projects/Bloodbath/assets/scripts/MenuLoop.as (4, 1): Compiling void $menuLoop$0()
-Mon Aug 28 14:15:26 2023
+Wed Aug 30 00:02:40 2023
 	Warning: /home/kuso4ek/Рабочий стол/projects/Bloodbath/assets/scripts/MenuLoop.as (8, 32): Float value truncated in implicit conversion to integer
-Mon Aug 28 14:15:26 2023
-	Info: Build completed successfully in 0.006724 s
-Mon Aug 28 14:15:37 2023
+Wed Aug 30 00:02:40 2023
+	Info: /home/kuso4ek/Рабочий стол/projects/Bloodbath/assets/scripts/Start.as (40, 5): Compiling void $void Start()$0()
+Wed Aug 30 00:02:40 2023
+	Warning: /home/kuso4ek/Рабочий стол/projects/Bloodbath/assets/scripts/Start.as (53, 30): Signed/Unsigned mismatch
+Wed Aug 30 00:02:40 2023
+	Info: Build completed successfully in 0.008041 s
+Wed Aug 30 00:02:48 2023
+	Warning: Could not find an animation with name "Armature|Walk-chel-chel0", function will return nullptr
+Wed Aug 30 00:02:48 2023
+	Warning: Could not find an animation with name "Armature|Walk-chel-chel0", function will return nullptr
+Wed Aug 30 00:02:48 2023
+	Warning: Could not find an animation with name "Armature|Walk-chel-chel0", function will return nullptr
+Wed Aug 30 00:02:48 2023
+	Warning: Could not find an animation with name "Armature|Walk-chel-chel0", function will return nullptr
+Wed Aug 30 00:02:48 2023
+	Warning: Could not find an animation with name "Armature|Walk-chel-chel0", function will return nullptr
+Wed Aug 30 00:02:48 2023
+	Warning: Could not find an animation with name "Armature|Walk-chel-chel0", function will return nullptr
+Wed Aug 30 00:02:48 2023
+	Info: Model assets/models/LowPolyCharacter.fbx loaded:
+        Meshes: 1
+        Bones: 15
+        Animations: 0
+Wed Aug 30 00:02:48 2023
+	Info: Model assets/models/ak-47.fbx loaded:
+        Meshes: 2
+        Bones: 0
+        Animations: 0
+Wed Aug 30 00:02:48 2023
+	Info: 100
+Wed Aug 30 00:02:48 2023
+	Info: 100
+Wed Aug 30 00:02:48 2023
+	Info: 100
+Wed Aug 30 00:02:49 2023
+	Info: 100
+Wed Aug 30 00:02:49 2023
+	Info: 100
+Wed Aug 30 00:02:49 2023
+	Info: 100
+Wed Aug 30 00:02:49 2023
+	Info: 100
+Wed Aug 30 00:02:49 2023
+	Info: 100
+Wed Aug 30 00:02:50 2023
+	Info: 100
+Wed Aug 30 00:02:50 2023
+	Info: 100
+Wed Aug 30 00:02:50 2023
+	Info: 100
+Wed Aug 30 00:02:50 2023
+	Info: 100
+Wed Aug 30 00:02:50 2023
+	Info: 100
+Wed Aug 30 00:02:51 2023
+	Info: 100
+Wed Aug 30 00:02:51 2023
+	Info: 100
+Wed Aug 30 00:02:51 2023
+	Info: 100
+Wed Aug 30 00:02:51 2023
+	Info: 100
+Wed Aug 30 00:02:51 2023
+	Info: 100
+Wed Aug 30 00:02:52 2023
+	Info: 100
+Wed Aug 30 00:02:52 2023
+	Info: 100
+Wed Aug 30 00:02:52 2023
+	Info: 100
+Wed Aug 30 00:02:52 2023
+	Info: 100
+Wed Aug 30 00:02:52 2023
+	Info: 100
+Wed Aug 30 00:02:52 2023
+	Info: 100
+Wed Aug 30 00:02:52 2023
+	Info: 100
+Wed Aug 30 00:02:52 2023
+	Info: 100
+Wed Aug 30 00:02:52 2023
+	Info: 100
+Wed Aug 30 00:02:52 2023
+	Info: 100
+Wed Aug 30 00:02:53 2023
+	Info: 100
+Wed Aug 30 00:02:53 2023
+	Info: 100
+Wed Aug 30 00:02:53 2023
+	Info: 100
+Wed Aug 30 00:02:53 2023
+	Info: 100
+Wed Aug 30 00:02:53 2023
+	Info: 100
+Wed Aug 30 00:02:53 2023
+	Info: 100
+Wed Aug 30 00:02:53 2023
+	Info: 100
+Wed Aug 30 00:02:53 2023
+	Info: 100
+Wed Aug 30 00:02:53 2023
+	Info: 100
+Wed Aug 30 00:02:53 2023
+	Info: 100
+Wed Aug 30 00:02:53 2023
+	Info: 100
+Wed Aug 30 00:02:53 2023
+	Info: 100
+Wed Aug 30 00:02:53 2023
+	Info: 100
+Wed Aug 30 00:02:53 2023
+	Info: 100
+Wed Aug 30 00:02:53 2023
+	Info: 100
+Wed Aug 30 00:02:53 2023
+	Info: 100
+Wed Aug 30 00:02:53 2023
+	Info: 100
+Wed Aug 30 00:02:53 2023
+	Info: 100
+Wed Aug 30 00:02:53 2023
+	Info: 100
+Wed Aug 30 00:02:53 2023
+	Info: 100
+Wed Aug 30 00:02:53 2023
+	Info: 100
+Wed Aug 30 00:02:53 2023
+	Info: 100
+Wed Aug 30 00:02:53 2023
+	Info: 100
+Wed Aug 30 00:02:53 2023
+	Info: 100
+Wed Aug 30 00:02:53 2023
+	Info: 100
+Wed Aug 30 00:02:53 2023
+	Info: 100
+Wed Aug 30 00:02:53 2023
+	Info: 100
+Wed Aug 30 00:02:53 2023
+	Info: 100
+Wed Aug 30 00:02:53 2023
+	Info: 100
+Wed Aug 30 00:02:53 2023
+	Info: 100
+Wed Aug 30 00:02:53 2023
+	Info: 100
+Wed Aug 30 00:02:53 2023
+	Info: 100
+Wed Aug 30 00:02:53 2023
+	Info: 100
+Wed Aug 30 00:02:53 2023
+	Info: 100
+Wed Aug 30 00:02:53 2023
+	Info: 100
+Wed Aug 30 00:02:53 2023
+	Info: 100
+Wed Aug 30 00:02:53 2023
+	Info: 100
+Wed Aug 30 00:02:53 2023
+	Info: 100
+Wed Aug 30 00:02:53 2023
+	Info: 100
+Wed Aug 30 00:02:53 2023
+	Info: 100
+Wed Aug 30 00:02:53 2023
+	Info: 100
+Wed Aug 30 00:02:53 2023
+	Info: 100
+Wed Aug 30 00:02:53 2023
+	Info: 100
+Wed Aug 30 00:02:53 2023
+	Info: 100
+Wed Aug 30 00:02:53 2023
+	Info: 100
+Wed Aug 30 00:02:53 2023
+	Info: 100
+Wed Aug 30 00:02:53 2023
+	Info: 100
+Wed Aug 30 00:02:54 2023
+	Info: 100
+Wed Aug 30 00:02:54 2023
+	Info: 100
+Wed Aug 30 00:02:54 2023
+	Info: 100
+Wed Aug 30 00:02:54 2023
+	Info: 100
+Wed Aug 30 00:02:54 2023
+	Info: 100
+Wed Aug 30 00:02:54 2023
+	Info: 100
+Wed Aug 30 00:02:54 2023
+	Info: 100
+Wed Aug 30 00:02:54 2023
+	Info: 100
+Wed Aug 30 00:02:54 2023
+	Info: 100
+Wed Aug 30 00:02:54 2023
+	Info: 100
+Wed Aug 30 00:02:54 2023
+	Info: 100
+Wed Aug 30 00:02:54 2023
+	Info: 100
+Wed Aug 30 00:02:54 2023
+	Info: 100
+Wed Aug 30 00:02:54 2023
+	Info: 100
+Wed Aug 30 00:02:54 2023
+	Info: 100
+Wed Aug 30 00:02:54 2023
+	Info: 100
+Wed Aug 30 00:02:54 2023
+	Info: 100
+Wed Aug 30 00:02:55 2023
+	Info: 100
+Wed Aug 30 00:02:55 2023
+	Info: 100
+Wed Aug 30 00:02:55 2023
+	Info: 100
+Wed Aug 30 00:02:55 2023
+	Info: 100
+Wed Aug 30 00:02:55 2023
+	Info: 100
+Wed Aug 30 00:02:56 2023
+	Info: 100
+Wed Aug 30 00:02:56 2023
+	Info: 100
+Wed Aug 30 00:02:56 2023
+	Info: 100
+Wed Aug 30 00:02:56 2023
+	Info: 100
+Wed Aug 30 00:02:56 2023
+	Info: 100
+Wed Aug 30 00:02:57 2023
+	Info: 100
+Wed Aug 30 00:02:57 2023
+	Info: 100
+Wed Aug 30 00:02:57 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Wed Aug 30 00:02:57 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Wed Aug 30 00:02:57 2023
+	Info: 60
+Wed Aug 30 00:02:57 2023
+	Info: 60
+Wed Aug 30 00:02:57 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Wed Aug 30 00:02:57 2023
+	Info: 40
+Wed Aug 30 00:02:57 2023
+	Info: 40
+Wed Aug 30 00:02:57 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Wed Aug 30 00:02:57 2023
+	Info: 20
+Wed Aug 30 00:02:58 2023
+	Info: 20
+Wed Aug 30 00:02:58 2023
+	Info: 20
+Wed Aug 30 00:02:58 2023
+	Info: 20
+Wed Aug 30 00:02:58 2023
+	Info: 20
+Wed Aug 30 00:02:58 2023
+	Info: 20
+Wed Aug 30 00:02:59 2023
+	Info: 20
+Wed Aug 30 00:02:59 2023
+	Info: 20
+Wed Aug 30 00:02:59 2023
+	Info: 20
+Wed Aug 30 00:02:59 2023
+	Info: 20
+Wed Aug 30 00:02:59 2023
+	Info: 20
+Wed Aug 30 00:03:00 2023
+	Info: 20
+Wed Aug 30 00:03:00 2023
+	Info: 20
+Wed Aug 30 00:03:00 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Wed Aug 30 00:03:00 2023
+	Info: 0
+Wed Aug 30 00:03:00 2023
+	Info: 0
+Wed Aug 30 00:03:00 2023
+	Info: 0
+Wed Aug 30 00:03:00 2023
+	Info: 0
+Wed Aug 30 00:03:01 2023
+	Info: 0
+Wed Aug 30 00:03:01 2023
+	Info: 0
+Wed Aug 30 00:03:01 2023
+	Info: 0
+Wed Aug 30 00:03:01 2023
+	Info: 0
+Wed Aug 30 00:03:01 2023
+	Info: 0
+Wed Aug 30 00:03:02 2023
+	Info: 0
+Wed Aug 30 00:03:02 2023
+	Info: 0
+Wed Aug 30 00:03:02 2023
+	Info: 0
+Wed Aug 30 00:03:02 2023
+	Info: 0
+Wed Aug 30 00:03:02 2023
+	Info: 0
+Wed Aug 30 00:03:02 2023
+	Info: 0
+Wed Aug 30 00:03:02 2023
+	Info: 0
+Wed Aug 30 00:03:02 2023
+	Info: 0
+Wed Aug 30 00:03:02 2023
+	Info: 0
+Wed Aug 30 00:03:02 2023
+	Info: 0
+Wed Aug 30 00:03:02 2023
+	Info: 0
+Wed Aug 30 00:03:02 2023
+	Info: 0
+Wed Aug 30 00:03:02 2023
+	Info: 0
+Wed Aug 30 00:03:02 2023
+	Info: 0
+Wed Aug 30 00:03:02 2023
+	Info: 0
+Wed Aug 30 00:03:03 2023
+	Info: 0
+Wed Aug 30 00:03:03 2023
+	Info: 0
+Wed Aug 30 00:03:03 2023
+	Info: 0
+Wed Aug 30 00:03:03 2023
+	Info: 0
+Wed Aug 30 00:03:03 2023
+	Info: 0
+Wed Aug 30 00:03:03 2023
+	Info: 0
+Wed Aug 30 00:03:03 2023
+	Info: 0
+Wed Aug 30 00:03:03 2023
+	Info: 0
+Wed Aug 30 00:03:03 2023
+	Info: 0
+Wed Aug 30 00:03:03 2023
+	Info: 0
+Wed Aug 30 00:03:03 2023
+	Info: 0
+Wed Aug 30 00:03:03 2023
+	Info: 0
+Wed Aug 30 00:03:03 2023
+	Info: 0
+Wed Aug 30 00:03:03 2023
+	Info: 0
+Wed Aug 30 00:03:03 2023
+	Info: 0
+Wed Aug 30 00:03:03 2023
+	Info: 0
+Wed Aug 30 00:03:03 2023
+	Info: 0
+Wed Aug 30 00:03:03 2023
+	Info: 0
+Wed Aug 30 00:03:03 2023
+	Info: 0
+Wed Aug 30 00:03:03 2023
+	Info: 0
+Wed Aug 30 00:03:03 2023
+	Info: 0
+Wed Aug 30 00:03:03 2023
+	Info: 0
+Wed Aug 30 00:03:03 2023
+	Info: 0
+Wed Aug 30 00:03:03 2023
+	Info: 0
+Wed Aug 30 00:03:03 2023
+	Info: 0
+Wed Aug 30 00:03:03 2023
+	Info: 0
+Wed Aug 30 00:03:03 2023
+	Info: 0
+Wed Aug 30 00:03:03 2023
+	Info: 0
+Wed Aug 30 00:03:03 2023
+	Info: 0
+Wed Aug 30 00:03:03 2023
+	Info: 0
+Wed Aug 30 00:03:03 2023
+	Info: 0
+Wed Aug 30 00:03:03 2023
+	Info: 0
+Wed Aug 30 00:03:03 2023
+	Info: 0
+Wed Aug 30 00:03:03 2023
+	Info: 0
+Wed Aug 30 00:03:03 2023
+	Info: 0
+Wed Aug 30 00:03:03 2023
+	Info: 0
+Wed Aug 30 00:03:03 2023
+	Info: 0
+Wed Aug 30 00:03:03 2023
+	Info: 0
+Wed Aug 30 00:03:03 2023
+	Info: 0
+Wed Aug 30 00:03:03 2023
+	Info: 0
+Wed Aug 30 00:03:03 2023
+	Info: 0
+Wed Aug 30 00:03:03 2023
+	Info: 0
+Wed Aug 30 00:03:03 2023
+	Info: 0
+Wed Aug 30 00:03:03 2023
+	Info: 0
+Wed Aug 30 00:03:04 2023
+	Info: 0
+Wed Aug 30 00:03:04 2023
+	Info: 0
+Wed Aug 30 00:03:04 2023
+	Info: 0
+Wed Aug 30 00:03:04 2023
+	Info: 0
+Wed Aug 30 00:03:04 2023
+	Info: 0
+Wed Aug 30 00:03:04 2023
+	Info: 0
+Wed Aug 30 00:03:04 2023
+	Info: 0
+Wed Aug 30 00:03:04 2023
+	Info: 0
+Wed Aug 30 00:03:04 2023
+	Info: 0
+Wed Aug 30 00:03:04 2023
+	Info: 0
+Wed Aug 30 00:03:04 2023
+	Info: 0
+Wed Aug 30 00:03:04 2023
+	Info: 0
+Wed Aug 30 00:03:04 2023
+	Info: 0
+Wed Aug 30 00:03:04 2023
+	Info: 0
+Wed Aug 30 00:03:04 2023
+	Info: 0
+Wed Aug 30 00:03:04 2023
+	Info: 0
+Wed Aug 30 00:03:04 2023
+	Info: 0
+Wed Aug 30 00:03:04 2023
+	Info: 0
+Wed Aug 30 00:03:04 2023
+	Info: 0
+Wed Aug 30 00:03:04 2023
+	Info: 0
+Wed Aug 30 00:03:04 2023
+	Info: 0
+Wed Aug 30 00:03:04 2023
+	Info: 0
+Wed Aug 30 00:03:04 2023
+	Info: 0
+Wed Aug 30 00:03:04 2023
+	Info: 0
+Wed Aug 30 00:03:04 2023
+	Info: 0
+Wed Aug 30 00:03:04 2023
+	Info: 0
+Wed Aug 30 00:03:04 2023
+	Info: 0
+Wed Aug 30 00:03:04 2023
+	Info: 0
+Wed Aug 30 00:03:04 2023
+	Info: 0
+Wed Aug 30 00:03:05 2023
+	Info: 0
+Wed Aug 30 00:03:05 2023
+	Info: 0
+Wed Aug 30 00:03:05 2023
+	Info: 0
+Wed Aug 30 00:03:05 2023
+	Info: 0
+Wed Aug 30 00:03:05 2023
+	Info: 0
+Wed Aug 30 00:03:06 2023
+	Info: 0
+Wed Aug 30 00:03:06 2023
+	Info: 0
+Wed Aug 30 00:03:06 2023
+	Info: 0
+Wed Aug 30 00:03:06 2023
+	Info: 0
+Wed Aug 30 00:03:06 2023
+	Info: 0
+Wed Aug 30 00:03:07 2023
+	Info: 0
+Wed Aug 30 00:03:07 2023
+	Info: 0
+Wed Aug 30 00:03:07 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Wed Aug 30 00:03:07 2023
+	Info: -20
+Wed Aug 30 00:03:07 2023
+	Info: -20
+Wed Aug 30 00:03:07 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Wed Aug 30 00:03:07 2023
+	Info: -40
+Wed Aug 30 00:03:08 2023
+	Info: -40
+Wed Aug 30 00:03:08 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Wed Aug 30 00:03:08 2023
+	Info: -60
+Wed Aug 30 00:03:08 2023
+	Info: -60
+Wed Aug 30 00:03:08 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Wed Aug 30 00:03:08 2023
+	Info: -80
+Wed Aug 30 00:03:08 2023
+	Info: -80
+Wed Aug 30 00:03:08 2023
+	Info: -80
+Wed Aug 30 00:03:09 2023
+	Info: -80
+Wed Aug 30 00:03:09 2023
+	Info: -80
+Wed Aug 30 00:03:09 2023
+	Info: -80
+Wed Aug 30 00:03:09 2023
+	Info: -80
+Wed Aug 30 00:03:09 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Wed Aug 30 00:03:09 2023
+	Info: -100
+Wed Aug 30 00:03:09 2023
+	Info: -100
+Wed Aug 30 00:03:10 2023
+	Info: -100
+Wed Aug 30 00:03:10 2023
+	Info: -100
+Wed Aug 30 00:03:10 2023
+	Info: -100
+Wed Aug 30 00:03:10 2023
+	Info: -100
+Wed Aug 30 00:03:10 2023
+	Info: -100
+Wed Aug 30 00:03:10 2023
+	Info: -100
+Wed Aug 30 00:03:10 2023
+	Info: -100
+Wed Aug 30 00:03:10 2023
+	Info: -100
+Wed Aug 30 00:03:10 2023
+	Info: -100
+Wed Aug 30 00:03:10 2023
+	Info: -100
+Wed Aug 30 00:03:10 2023
+	Info: -100
+Wed Aug 30 00:03:10 2023
+	Info: -100
+Wed Aug 30 00:03:10 2023
+	Info: -100
+Wed Aug 30 00:03:10 2023
+	Info: -100
+Wed Aug 30 00:03:10 2023
+	Info: -100
+Wed Aug 30 00:03:10 2023
+	Info: -100
+Wed Aug 30 00:03:10 2023
+	Info: -100
+Wed Aug 30 00:03:10 2023
+	Info: -100
+Wed Aug 30 00:03:10 2023
+	Info: -100
+Wed Aug 30 00:03:10 2023
+	Info: -100
+Wed Aug 30 00:03:11 2023
+	Info: -100
+Wed Aug 30 00:03:11 2023
+	Info: -100
+Wed Aug 30 00:03:11 2023
+	Info: -100
+Wed Aug 30 00:03:11 2023
+	Info: -100
+Wed Aug 30 00:03:11 2023
+	Info: -100
+Wed Aug 30 00:03:11 2023
+	Info: -100
+Wed Aug 30 00:03:11 2023
+	Info: -100
+Wed Aug 30 00:03:11 2023
+	Info: -100
+Wed Aug 30 00:03:11 2023
+	Info: -100
+Wed Aug 30 00:03:11 2023
+	Info: -100
+Wed Aug 30 00:03:11 2023
+	Info: -100
+Wed Aug 30 00:03:11 2023
+	Info: -100
+Wed Aug 30 00:03:11 2023
+	Info: -100
+Wed Aug 30 00:03:11 2023
+	Info: -100
+Wed Aug 30 00:03:11 2023
+	Info: -100
+Wed Aug 30 00:03:11 2023
+	Info: -100
+Wed Aug 30 00:03:11 2023
+	Info: -100
+Wed Aug 30 00:03:11 2023
+	Info: -100
+Wed Aug 30 00:03:12 2023
+	Info: -100
+Wed Aug 30 00:03:12 2023
+	Info: -100
+Wed Aug 30 00:03:12 2023
+	Info: -100
+Wed Aug 30 00:03:12 2023
+	Info: -100
+Wed Aug 30 00:03:12 2023
+	Info: -100
+Wed Aug 30 00:03:13 2023
+	Info: -100
+Wed Aug 30 00:03:13 2023
+	Info: -100
+Wed Aug 30 00:03:13 2023
+	Info: -100
+Wed Aug 30 00:03:13 2023
+	Info: -100
+Wed Aug 30 00:03:13 2023
+	Info: -100
+Wed Aug 30 00:03:14 2023
+	Info: -100
+Wed Aug 30 00:03:14 2023
+	Info: -100
+Wed Aug 30 00:03:14 2023
+	Info: -100
+Wed Aug 30 00:03:14 2023
+	Info: -100
+Wed Aug 30 00:03:14 2023
+	Info: -100
+Wed Aug 30 00:03:15 2023
+	Info: -100
+Wed Aug 30 00:03:15 2023
+	Info: -100
+Wed Aug 30 00:03:15 2023
+	Info: -100
+Wed Aug 30 00:03:15 2023
+	Info: -100
+Wed Aug 30 00:03:15 2023
+	Info: -100
+Wed Aug 30 00:03:16 2023
+	Info: -100
+Wed Aug 30 00:03:16 2023
+	Info: -100
+Wed Aug 30 00:03:16 2023
+	Info: -100
+Wed Aug 30 00:03:16 2023
+	Info: -100
+Wed Aug 30 00:03:16 2023
+	Info: -100
+Wed Aug 30 00:03:17 2023
+	Info: -100
+Wed Aug 30 00:03:17 2023
+	Info: -100
+Wed Aug 30 00:03:17 2023
+	Info: -100
+Wed Aug 30 00:03:17 2023
+	Info: -100
+Wed Aug 30 00:03:17 2023
+	Info: -100
+Wed Aug 30 00:03:18 2023
+	Info: -100
+Wed Aug 30 00:03:18 2023
+	Info: -100
+Wed Aug 30 00:03:18 2023
+	Info: -100
+Wed Aug 30 00:03:18 2023
+	Info: -100
+Wed Aug 30 00:03:18 2023
+	Info: -100
+Wed Aug 30 00:03:19 2023
+	Info: -100
+Wed Aug 30 00:03:19 2023
+	Info: -100
+Wed Aug 30 00:03:19 2023
+	Info: -100
+Wed Aug 30 00:03:19 2023
+	Info: -100
+Wed Aug 30 00:03:19 2023
+	Info: -100
+Wed Aug 30 00:03:20 2023
+	Info: -100
+Wed Aug 30 00:03:20 2023
+	Info: -100
+Wed Aug 30 00:03:20 2023
+	Info: -100
+Wed Aug 30 00:03:20 2023
+	Info: -100
+Wed Aug 30 00:03:20 2023
+	Info: -100
+Wed Aug 30 00:03:21 2023
+	Info: -100
+Wed Aug 30 00:03:21 2023
+	Info: -100
+Wed Aug 30 00:03:21 2023
+	Info: -100
+Wed Aug 30 00:03:21 2023
+	Info: -100
+Wed Aug 30 00:03:21 2023
+	Info: -100
+Wed Aug 30 00:03:22 2023
+	Info: -100
+Wed Aug 30 00:03:22 2023
+	Info: -100
+Wed Aug 30 00:03:22 2023
+	Info: -100
+Wed Aug 30 00:03:22 2023
+	Info: -100
+Wed Aug 30 00:03:22 2023
+	Info: -100
+Wed Aug 30 00:03:23 2023
+	Info: -100
+Wed Aug 30 00:03:23 2023
+	Info: -100
+Wed Aug 30 00:03:23 2023
+	Info: -100
+Wed Aug 30 00:03:23 2023
+	Info: -100
+Wed Aug 30 00:03:23 2023
+	Info: -100
+Wed Aug 30 00:03:24 2023
+	Info: -100
+Wed Aug 30 00:03:24 2023
+	Info: -100
+Wed Aug 30 00:03:24 2023
+	Info: -100
+Wed Aug 30 00:03:24 2023
+	Info: -100
+Wed Aug 30 00:03:24 2023
+	Info: -100
+Wed Aug 30 00:03:25 2023
+	Info: -100
+Wed Aug 30 00:03:25 2023
+	Info: -100
+Wed Aug 30 00:03:25 2023
+	Info: -100
+Wed Aug 30 00:03:25 2023
+	Info: -100
+Wed Aug 30 00:03:25 2023
+	Info: -100
+Wed Aug 30 00:03:26 2023
+	Info: -100
+Wed Aug 30 00:03:26 2023
+	Info: -100
+Wed Aug 30 00:03:26 2023
+	Info: -100
+Wed Aug 30 00:03:26 2023
+	Info: -100
+Wed Aug 30 00:03:26 2023
+	Info: -100
+Wed Aug 30 00:03:27 2023
+	Info: -100
+Wed Aug 30 00:03:27 2023
+	Info: -100
+Wed Aug 30 00:03:27 2023
+	Info: -100
+Wed Aug 30 00:03:27 2023
+	Info: -100
+Wed Aug 30 00:03:27 2023
+	Info: -100
+Wed Aug 30 00:03:28 2023
+	Info: -100
+Wed Aug 30 00:03:28 2023
+	Info: -100
+Wed Aug 30 00:03:28 2023
+	Info: -100
+Wed Aug 30 00:03:28 2023
+	Info: -100
+Wed Aug 30 00:03:28 2023
+	Info: -100
+Wed Aug 30 00:03:29 2023
+	Info: -100
+Wed Aug 30 00:03:29 2023
+	Info: -100
+Wed Aug 30 00:03:29 2023
+	Info: -100
+Wed Aug 30 00:03:29 2023
+	Info: -100
+Wed Aug 30 00:03:29 2023
+	Info: -100
+Wed Aug 30 00:03:30 2023
+	Info: -100
+Wed Aug 30 00:03:30 2023
+	Info: -100
+Wed Aug 30 00:03:30 2023
+	Info: -100
+Wed Aug 30 00:03:30 2023
+	Info: -100
+Wed Aug 30 00:03:30 2023
+	Info: -100
+Wed Aug 30 00:03:31 2023
+	Info: -100
+Wed Aug 30 00:03:31 2023
+	Info: -100
+Wed Aug 30 00:03:31 2023
+	Info: -100
+Wed Aug 30 00:03:31 2023
+	Info: -100
+Wed Aug 30 00:03:31 2023
+	Info: -100
+Wed Aug 30 00:03:32 2023
+	Info: -100
+Wed Aug 30 00:03:32 2023
+	Info: -100
+Wed Aug 30 00:03:32 2023
+	Info: -100
+Wed Aug 30 00:03:32 2023
+	Info: -100
+Wed Aug 30 00:03:32 2023
+	Info: -100
+Wed Aug 30 00:03:32 2023
 	Warning:  (0, 0): There is an external reference to an object in module 'module', preventing it from being deleted
-Mon Aug 28 14:15:37 2023
+Wed Aug 30 00:03:32 2023
 	Info:  (0, 0): The function in previous message is named '$void Start()$5'. The func type is 1
-Mon Aug 28 14:15:37 2023
+Wed Aug 30 00:03:32 2023
 	Warning:  (0, 0): There is an external reference to an object in module 'module', preventing it from being deleted
-Mon Aug 28 14:15:37 2023
+Wed Aug 30 00:03:32 2023
 	Info:  (0, 0): The function in previous message is named '$void Start()$6'. The func type is 1
-Mon Aug 28 14:15:37 2023
+Wed Aug 30 00:03:32 2023
 	Warning:  (0, 0): There is an external reference to an object in module 'module', preventing it from being deleted
-Mon Aug 28 14:15:37 2023
+Wed Aug 30 00:03:32 2023
 	Info:  (0, 0): The function in previous message is named '$void Start()$7'. The func type is 1
-Mon Aug 28 14:15:37 2023
+Wed Aug 30 00:03:32 2023
 	Warning:  (0, 0): There is an external reference to an object in module 'module', preventing it from being deleted
-Mon Aug 28 14:15:37 2023
+Wed Aug 30 00:03:32 2023
 	Info:  (0, 0): The function in previous message is named '$void $void Start()$7()$0'. The func type is 1
-Mon Aug 28 14:15:37 2023
+Wed Aug 30 00:03:32 2023
 	Warning:  (0, 0): There is an external reference to an object in module 'module', preventing it from being deleted
-Mon Aug 28 14:15:37 2023
+Wed Aug 30 00:03:32 2023
 	Info:  (0, 0): The function in previous message is named '$void $void Start()$7()$1'. The func type is 1

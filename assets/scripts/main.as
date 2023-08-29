@@ -4,6 +4,7 @@ TcpSocket socket;
 tgui::Gui@ menu, hud, pauseMenu;
 int health = 100; //In future, get health from the server
 int id = 0;
+string name;
 Clock physicsTime;
 bool pause = false, updatePhysics = true;
 
