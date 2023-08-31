@@ -34,6 +34,8 @@ void Start()
     Game::scene.UpdatePhysics(false);
 
     Game::scene.SaveState();
+
+    socket.setBlocking(true);
 	
     @player = @FPSController(Game::scene.GetModel("player"), Game::scene.GetModelGroup("ground"));
     player.AddCustomEvent(function()
@@ -50,7 +52,7 @@ void Start()
             RaycastInfo info, info1;
             Ray ray(Game::camera.GetPosition(true), Game::camera.GetPosition(true) + (Game::camera.GetOrientation() * Vector3(0, 0, -1000)));
             int hit = -1;
-            for(int i = 0; i < clients.length(); i++)
+            for(uint i = 0; i < clients.length(); i++)
             {
                 if(clients[i].model.GetRigidBody().raycast(ray, info))
                     hit = i;

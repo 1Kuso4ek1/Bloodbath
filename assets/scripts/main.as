@@ -51,16 +51,14 @@ Vector3 lerp(Vector3 v, Vector3 v1, float t)
 void Loop()
 {
     if(physicsTime.getElapsedTime().asSeconds() < (1.0 / 60.0))
-    {
-        Game::scene.UpdatePhysics(false);
         updatePhysics = false;
-    }
     else
     {
-        Game::scene.UpdatePhysics(true);
         updatePhysics = true;
         physicsTime.restart();
     }
+
+    Game::scene.UpdatePhysics(updatePhysics);
 
     currentLoop();
 }

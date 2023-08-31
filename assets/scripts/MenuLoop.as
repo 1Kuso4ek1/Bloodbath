@@ -5,7 +5,7 @@ GameLoop@ menuLoop = function()
     if(updatePhysics)
     {
         Game::exposure = lerp(Game::exposure, 1.0, 0.015);
-        Game::blurIterations = lerp(Game::blurIterations, 16, 0.8);
+        Game::blurIterations = int(lerp(Game::blurIterations, 16, 0.8));
         Game::bloomStrength = lerp(Game::bloomStrength, 0.3, 0.002 + Game::exposure / 100.0);
 
         auto pos = Game::camera.GetPosition();
