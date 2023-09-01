@@ -5,7 +5,7 @@
         "title" : "Bloodbath",
         "width" : 1280,
         "height" : 720,
-        "fullscreen" : false,
+        "fullscreen" : true,
         "vsync" : false,
         "maxFps" : 60
     },

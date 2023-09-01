@@ -21,6 +21,7 @@ void Start()
     Game::manageCameraMovement = false;
     Game::mouseCursorVisible = true;
     Game::mouseSensitivity = 0.8;
+    Game::mouseCursorGrabbed = false;
 
     //Game::scene.GetModel("map:ground").SetShadowBias(0.0003);
     Game::scene.GetModel("rifle").SetShadowBias(0.005);
@@ -47,7 +48,7 @@ void Start()
             Game::scene.GetAnimation("shoot").Play();
             Game::scene.GetLight("light").SetColor(Vector3(25, 10, 2));
 
-            Game::scene.GetSoundManager().PlayMono("ak47-shot");
+            Game::scene.GetSoundManager().PlayMono("ak47-shot", id);
             
             RaycastInfo info, info1;
             Ray ray(Game::camera.GetPosition(true), Game::camera.GetPosition(true) + (Game::camera.GetOrientation() * Vector3(0, 0, -1000)));
@@ -65,10 +66,10 @@ void Start()
                 auto model = Game::scene.CloneModel(Game::scene.GetModel("blood"), true);
                 model.SetPosition(pos + Vector3(rnd(-5, 5), 0, rnd(-5, 5)));
                 model.SetIsDrawable(true);
-                // code = 2, myId, damagedId, weaponId
-                Packet p; p << 2; p << id; p << clients[hit].id; p << 0;
-                socket.send(p);
             }
+            // code = 2, myId, damagedId, weaponId
+            Packet p; p << 2; p << id; p << (hit == -1 ? hit : clients[hit].id); p << 0;
+            socket.send(p);
             if((Game::camera.GetOrientation() * Vector3(0, 0, -1)).y < 0.90)
                 Game::camera.SetOrientation(Game::camera.GetOrientation() * QuaternionFromEuler(Vector3(0.04, 0.0, 0.0)));
             delay.restart();
@@ -140,7 +141,6 @@ void Start()
                 p >> id >> event >> serverConfig.name >> serverConfig.allowBhop >> serverConfig.enableFullGUI >> serverConfig.maxPlayers >> serverConfig.jumpForce >> serverConfig.maxSpeed >> numPlayers;// >> serverConfig.weaponDamage;
             menu.getLabel("info").setText("Connected to " + serverConfig.name + "\n" + to_string(numPlayers - 1) + "/" + to_string(serverConfig.maxPlayers) + " players\n" + "ID: " + to_string(id));
             updateInfo.restart();*/
-            menu.getButton("play").setText("Play");
             socket.setBlocking(false);
         }
         else menu.getLabel("info").setText("Failed to connect!");

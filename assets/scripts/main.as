@@ -32,8 +32,10 @@ class Client
     string name;
     int id;
     int health = 100;
+    bool prevOnGround = true;
     Model@ model;
     Model@ chel;
+    Clock footsteps;
 };
 
 array<Client> clients;

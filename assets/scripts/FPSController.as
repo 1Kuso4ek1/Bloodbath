@@ -40,9 +40,9 @@ class FPSController
         moving = v.length() > 0;
         if(moving && onGround && isRunning && footstepDelay.getElapsedTime().asSeconds() >= 0.3 && bhopDelay.getElapsedTime().asSeconds() >= 0.3)
         {
-            auto soundNum = to_string(int(rnd(1, 4)));
-            Game::scene.GetSoundManager().SetPosition(playerModel.GetPosition(), "footstep" + soundNum, 0);
-            Game::scene.GetSoundManager().PlayMono("footstep" + soundNum, 0);
+            auto soundNum = to_string(int(rnd(1, 5)));
+            //Game::scene.GetSoundManager().SetPosition(playerModel.GetPosition(), "footstep" + soundNum, id);
+            Game::scene.GetSoundManager().PlayMono("footstep" + soundNum, id);
             footstepDelay.restart();
         }
         if((!Keyboard::isKeyPressed(Keyboard::LControl) || !onGround) && serverConfig.allowBhop)

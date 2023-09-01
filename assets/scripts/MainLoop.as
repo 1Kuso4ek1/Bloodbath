@@ -11,14 +11,15 @@ GameLoop@ mainGameLoop = function()
         pause = !pause;
     }
 
-    if(!pause)
+    if(!pause && health > 0)
     {
         Game::blurIterations = int(lerp(Game::blurIterations, 16, 0.03));
         Game::bloomStrength = lerp(Game::bloomStrength, 0.2, 0.015);
+        Game::exposure = lerp(Game::exposure, 1.0, 0.005);
         hud.setOpacity(lerp(hud.getOpacity(), 1.0, 0.05));
         pauseMenu.setOpacity(lerp(pauseMenu.getOpacity(), 0.0, 0.05));
     }
-    else
+    else if(pause)
     {
         //Game::blurIterations = lerp(Game::blurIterations, 64, 0.8);
         Game::bloomStrength = lerp(Game::bloomStrength, 1.0, 0.05);
@@ -26,7 +27,6 @@ GameLoop@ mainGameLoop = function()
         pauseMenu.setOpacity(lerp(pauseMenu.getOpacity(), 1.0, 0.05));
     }
 
-    Game::mouseCursorGrabbed = !pause;
     Game::mouseCursorVisible = pause;
     Game::manageCameraMouse = !pause;
 
@@ -37,7 +37,7 @@ GameLoop@ mainGameLoop = function()
     {
         int code = -1, newId = -1;
         string newName;
-        bool moving = false, onGround = true;
+        bool moving = false, onGround = true, isRunning = true;
         Vector3 pos, euler;
         Quaternion orient;
         if(p >> code)
@@ -70,12 +70,45 @@ GameLoop@ mainGameLoop = function()
 	            case 1:
 	            {
 	                p >> newId;
+
+                    if(id == newId)
+                    {
+                        p >> pos.x >> pos.y >> pos.z;
+                        Game::scene.GetModel("player").GetRigidBody().setLinearVelocity(Vector3(0, 0, 0));
+                        Game::scene.GetModel("player").SetPosition(pos);
+                        break;
+                    }
+
 	                p >> moving;
 	                p >> onGround;
+                    p >> isRunning;
+
+                    int cl = clients.find(Client(newId, "", null, null));
+
+                    if(clients[cl].prevOnGround && !onGround)
+                    {
+                        Game::scene.GetSoundManager().SetPosition(clients[cl].model.GetPosition(), "jump", newId);
+                        Game::scene.GetSoundManager().Play("jump", newId);
+                    }
+                    else if(!clients[cl].prevOnGround && onGround)
+                    {
+                        Game::scene.GetSoundManager().SetPosition(clients[cl].model.GetPosition(), "land", newId);
+                        Game::scene.GetSoundManager().Play("land", newId);
+                    }
+
+                    clients[cl].prevOnGround = onGround;
+
+                    if(moving && onGround && isRunning && clients[cl].footsteps.getElapsedTime().asSeconds() >= 0.3)
+                    {
+                        auto soundNum = to_string(int(rnd(1, 5)));
+                        Game::scene.GetSoundManager().SetPosition(clients[cl].model.GetPosition(), "footstep" + soundNum, newId);
+                        Game::scene.GetSoundManager().Play("footstep" + soundNum, newId);
+                        clients[cl].footsteps.restart();
+                    }
 
                     Game::scene.GetAnimation("Default-chel-chel" + to_string(newId)).Stop();
 
-                    if(clients[clients.find(Client(newId, "", null, null))].health <= 0)
+                    if(clients[cl].health <= 0)
                     {
 	                    Game::scene.GetAnimation("Stand-chel-chel" + to_string(newId)).Stop();
 	                    Game::scene.GetAnimation("Armature|Walk-chel-chel" + to_string(newId)).Stop();
@@ -91,7 +124,7 @@ GameLoop@ mainGameLoop = function()
                         break;
                     }
                     else if(Game::scene.GetAnimation("Death-chel-chel" + to_string(newId)).GetState() != Stopped &&
-                            clients[clients.find(Client(newId, "", null, null))].health > 0)
+                            clients[cl].health > 0)
                     {
                         Game::scene.GetAnimation("Death-chel-chel" + to_string(newId)).Stop();
                         Game::scene.GetAnimation("Default-chel-chel" + to_string(newId)).Play();
@@ -131,6 +164,36 @@ GameLoop@ mainGameLoop = function()
 	                Game::scene.GetBone("Bone.010-chel" + to_string(newId)).SetOrientation(slerp(Game::scene.GetBone("Bone.010-chel" + to_string(newId)).GetOrientation(), QuaternionFromEuler(euler) * QuaternionFromEuler(Vector3(0, 0, radians(-90))), 0.1));
 	                break;
 	            }
+
+                case 2:
+                {
+                    int id0 = -1, id1 = -1;
+                    p >> id0 >> id1;
+                    int it = clients.find(Client(id0, "", null, null));
+                    Game::scene.GetSoundManager().SetPosition(clients[it].model.GetPosition(), "ak47-shot", id0);
+                    Game::scene.GetSoundManager().Play("ak47-shot", id0);
+                    if(id1 > -1)
+                    {
+                        auto hitNum = to_string(int(rnd(1, 3)));
+                        if(id == id1)
+                        {
+                            pos = Game::camera.GetPosition();
+                            Game::scene.GetSoundManager().PlayMono("hit" + hitNum, id);
+                            break;
+                        }
+                        else
+                        {
+                            it = clients.find(Client(id1, "", null, null));
+                            pos = clients[it].model.GetPosition();
+                            Game::scene.GetSoundManager().SetPosition(pos, "hit" + hitNum, id1);
+                            Game::scene.GetSoundManager().Play("hit" + hitNum, id1);
+                        }
+                        pos.y = 0.01;
+                        auto model = Game::scene.CloneModel(Game::scene.GetModel("blood"), true);
+                        model.SetPosition(pos + Vector3(rnd(-5, 5), 0, rnd(-5, 5)));
+                        model.SetIsDrawable(true);
+                    }
+                }
 
                 case 3:
                 {
@@ -177,8 +240,9 @@ GameLoop@ mainGameLoop = function()
     if(!pause && health > 0) player.Update();
     else if(health <= 0)
     {
-        Game::blurIterations = int(lerp(Game::blurIterations, 16, 0.03));
-        Game::bloomStrength = lerp(Game::bloomStrength, 0.2, 0.015);
+        Game::exposure = lerp(Game::exposure, 0.0, 0.005);
+        Game::blurIterations = int(lerp(Game::blurIterations, 64, 0.03));
+        Game::bloomStrength = lerp(Game::bloomStrength, 1.0, 0.15);
     }
     Game::camera.SetPosition(Game::scene.GetModel("player").GetPosition() + Vector3(0, 2.5, 0));
 
@@ -193,6 +257,7 @@ GameLoop@ mainGameLoop = function()
 
     p << player.IsMoving();
     p << player.IsOnGround();
+    p << player.IsRunning();
 
     p << pos.x;
     p << pos.y;
