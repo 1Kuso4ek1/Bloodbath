@@ -1,175 +1,195 @@
-Fri Sep  1 20:58:23 2023
+Sat Sep  2 23:30:25 2023
 	Info: Texture assets/textures/sky1.hdr loaded
-Fri Sep  1 20:58:23 2023
+Sat Sep  2 23:30:25 2023
 	Info: Renderer successfully initialized
-Fri Sep  1 20:58:23 2023
+Sat Sep  2 23:30:25 2023
 	Info: Texture assets/textures/pngwing.com.png loaded
-Fri Sep  1 20:58:23 2023
+Sat Sep  2 23:30:25 2023
 	Info: Texture assets/textures/blood_normal.png loaded
-Fri Sep  1 20:58:23 2023
+Sat Sep  2 23:30:25 2023
 	Info: Texture assets/textures/character.jpg loaded
-Fri Sep  1 20:58:23 2023
+Sat Sep  2 23:30:25 2023
 	Info: Texture assets/textures/character-dead.jpg loaded
-Fri Sep  1 20:58:23 2023
+Sat Sep  2 23:30:25 2023
 	Info: Texture assets/textures/character-wounded.jpg loaded
-Fri Sep  1 20:58:23 2023
+Sat Sep  2 23:30:25 2023
 	Info: Texture assets/textures/map_color.jpg loaded
-Fri Sep  1 20:58:23 2023
+Sat Sep  2 23:30:25 2023
 	Info: Texture assets/textures/map_normal.jpg loaded
-Fri Sep  1 20:58:24 2023
+Sat Sep  2 23:30:25 2023
 	Info: Texture assets/textures/map_metalness.jpg loaded
-Fri Sep  1 20:58:24 2023
+Sat Sep  2 23:30:25 2023
 	Info: Texture assets/textures/map_roughness.jpg loaded
-Fri Sep  1 20:58:24 2023
+Sat Sep  2 23:30:25 2023
 	Info: Texture assets/textures/muzzle-flash.png loaded
-Fri Sep  1 20:58:24 2023
+Sat Sep  2 23:30:25 2023
 	Info: Texture assets/textures/muzzle-flash.png loaded
-Fri Sep  1 20:58:24 2023
+Sat Sep  2 23:30:25 2023
 	Info: Texture assets/textures/Concrete044D_2K_Color.jpg loaded
-Fri Sep  1 20:58:24 2023
+Sat Sep  2 23:30:25 2023
 	Info: Texture assets/textures/Concrete044D_2K_NormalGL.jpg loaded
-Fri Sep  1 20:58:24 2023
+Sat Sep  2 23:30:25 2023
 	Info: Texture assets/textures/Concrete044D_2K_Roughness.jpg loaded
-Fri Sep  1 20:58:24 2023
+Sat Sep  2 23:30:26 2023
 	Info: Texture assets/textures/DiamondPlate008C_2K_Color.jpg loaded
-Fri Sep  1 20:58:24 2023
+Sat Sep  2 23:30:26 2023
 	Info: Texture assets/textures/DiamondPlate008C_2K_NormalGL.jpg loaded
-Fri Sep  1 20:58:24 2023
+Sat Sep  2 23:30:26 2023
 	Info: Texture assets/textures/DiamondPlate008C_2K_Metalness.jpg loaded
-Fri Sep  1 20:58:24 2023
+Sat Sep  2 23:30:26 2023
 	Info: Texture assets/textures/DiamondPlate008C_2K_Roughness.jpg loaded
-Fri Sep  1 20:58:24 2023
+Sat Sep  2 23:30:26 2023
 	Info: Texture assets/textures/Plaster001_2K_Color.jpg loaded
-Fri Sep  1 20:58:24 2023
+Sat Sep  2 23:30:26 2023
 	Info: Texture assets/textures/Plaster001_2K_NormalGL.jpg loaded
-Fri Sep  1 20:58:24 2023
+Sat Sep  2 23:30:26 2023
 	Info: Texture assets/textures/Plaster001_2K_Roughness.jpg loaded
-Fri Sep  1 20:58:24 2023
+Sat Sep  2 23:30:26 2023
 	Info: Texture assets/textures/templategrid_albedo.png loaded
-Fri Sep  1 20:58:24 2023
+Sat Sep  2 23:30:26 2023
 	Info: Texture assets/textures/ptitsa.png loaded
-Fri Sep  1 20:58:24 2023
+Sat Sep  2 23:30:26 2023
 	Info: Texture assets/textures/Wood_ak-47_Base_Color.png loaded
-Fri Sep  1 20:58:25 2023
+Sat Sep  2 23:30:26 2023
 	Info: Texture assets/textures/Wood_ak-47_Normal_OpenGL.png loaded
-Fri Sep  1 20:58:25 2023
+Sat Sep  2 23:30:26 2023
 	Info: Texture assets/textures/Wood_ak-47_Metallic.png loaded
-Fri Sep  1 20:58:25 2023
+Sat Sep  2 23:30:26 2023
 	Info: Texture assets/textures/Wood_ak-47_Roughness.png loaded
-Fri Sep  1 20:58:25 2023
+Sat Sep  2 23:30:27 2023
 	Info: Texture assets/textures/Metall_ak-47_Base_Color.png loaded
-Fri Sep  1 20:58:25 2023
+Sat Sep  2 23:30:27 2023
 	Info: Texture assets/textures/Metall_ak-47_Normal_OpenGL.png loaded
-Fri Sep  1 20:58:25 2023
+Sat Sep  2 23:30:27 2023
 	Info: Texture assets/textures/Metall_ak-47_Metallic.png loaded
-Fri Sep  1 20:58:25 2023
+Sat Sep  2 23:30:27 2023
 	Info: Texture assets/textures/Metall_ak-47_Roughness.png loaded
-Fri Sep  1 20:58:25 2023
+Sat Sep  2 23:30:27 2023
 	Info: Model assets/models/plane.fbx loaded:
         Meshes: 1
         Bones: 0
         Animations: 0
-Fri Sep  1 20:58:25 2023
+Sat Sep  2 23:30:27 2023
 	Info: Model assets/models/LowPolyCharacter.fbx loaded:
         Meshes: 1
         Bones: 15
         Animations: 0
-Fri Sep  1 20:58:25 2023
+Sat Sep  2 23:30:27 2023
 	Info: Model assets/models/plane.fbx loaded:
         Meshes: 1
         Bones: 0
         Animations: 0
-Fri Sep  1 20:58:25 2023
+Sat Sep  2 23:30:27 2023
 	Info: Model assets/models/map.obj loaded:
         Meshes: 2
         Bones: 0
         Animations: 0
-Fri Sep  1 20:58:25 2023
+Sat Sep  2 23:30:27 2023
 	Info: Model assets/models/ak-47.fbx loaded:
         Meshes: 2
         Bones: 0
         Animations: 0
-Fri Sep  1 20:58:25 2023
+Sat Sep  2 23:30:27 2023
 	Info: Model assets/models/ak-47.fbx loaded:
         Meshes: 2
         Bones: 0
         Animations: 0
-Fri Sep  1 20:58:25 2023
+Sat Sep  2 23:30:27 2023
 	Info: Sound "assets/sounds/metal-pipe.mp3" successfully loaded
-Fri Sep  1 20:58:25 2023
+Sat Sep  2 23:30:27 2023
 	Info: Sound "assets/sounds/footstep1.ogg" successfully loaded
-Fri Sep  1 20:58:25 2023
+Sat Sep  2 23:30:27 2023
 	Info: Sound "assets/sounds/footstep2.ogg" successfully loaded
-Fri Sep  1 20:58:25 2023
+Sat Sep  2 23:30:27 2023
 	Info: Sound "assets/sounds/footstep3.ogg" successfully loaded
-Fri Sep  1 20:58:25 2023
+Sat Sep  2 23:30:27 2023
 	Info: Sound "assets/sounds/footstep4.ogg" successfully loaded
-Fri Sep  1 20:58:25 2023
+Sat Sep  2 23:30:27 2023
 	Info: Sound "assets/sounds/jump.mp3" successfully loaded
-Fri Sep  1 20:58:25 2023
+Sat Sep  2 23:30:27 2023
 	Info: Sound "assets/sounds/land.mp3" successfully loaded
-Fri Sep  1 20:58:25 2023
+Sat Sep  2 23:30:27 2023
 	Info: Sound "assets/sounds/ak47-shot.mp3" successfully loaded
-Fri Sep  1 20:58:26 2023
+Sat Sep  2 23:30:27 2023
 	Info: Sound "assets/sounds/I-Cant-Stop-Mastered.mp3" successfully loaded
-Fri Sep  1 20:58:26 2023
+Sat Sep  2 23:30:27 2023
 	Info: Sound "assets/sounds/hit1.ogg" successfully loaded
-Fri Sep  1 20:58:26 2023
+Sat Sep  2 23:30:27 2023
 	Info: Sound "assets/sounds/hit2.ogg" successfully loaded
-Fri Sep  1 20:58:26 2023
-	Info: Build completed successfully in 0.008636 s
-Fri Sep  1 20:58:35 2023
+Sat Sep  2 23:30:27 2023
+	Info: Build completed successfully in 0.009605 s
+Sat Sep  2 23:30:37 2023
 	Info: Model assets/models/LowPolyCharacter.fbx loaded:
         Meshes: 1
         Bones: 15
         Animations: 0
-Fri Sep  1 20:58:35 2023
+Sat Sep  2 23:30:37 2023
 	Info: Model assets/models/ak-47.fbx loaded:
         Meshes: 2
         Bones: 0
         Animations: 0
-Fri Sep  1 20:58:48 2023
+Sat Sep  2 23:32:04 2023
 	Info: Model assets/models/plane.fbx loaded:
         Meshes: 1
         Bones: 0
         Animations: 0
-Fri Sep  1 20:58:49 2023
+Sat Sep  2 23:32:04 2023
 	Info: Model assets/models/plane.fbx loaded:
         Meshes: 1
         Bones: 0
         Animations: 0
-Fri Sep  1 20:58:49 2023
+Sat Sep  2 23:32:04 2023
 	Info: Model assets/models/plane.fbx loaded:
         Meshes: 1
         Bones: 0
         Animations: 0
-Fri Sep  1 20:58:50 2023
+Sat Sep  2 23:32:04 2023
 	Info: Model assets/models/plane.fbx loaded:
         Meshes: 1
         Bones: 0
         Animations: 0
-Fri Sep  1 20:58:51 2023
+Sat Sep  2 23:32:04 2023
 	Info: Model assets/models/plane.fbx loaded:
         Meshes: 1
         Bones: 0
         Animations: 0
-Fri Sep  1 20:59:13 2023
+Sat Sep  2 23:32:04 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  2 23:32:05 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  2 23:32:05 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  2 23:32:05 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  2 23:32:12 2023
 	Warning:  (0, 0): There is an external reference to an object in module 'module', preventing it from being deleted
-Fri Sep  1 20:59:13 2023
+Sat Sep  2 23:32:12 2023
 	Info:  (0, 0): The function in previous message is named '$void Start()$5'. The func type is 1
-Fri Sep  1 20:59:13 2023
+Sat Sep  2 23:32:12 2023
 	Warning:  (0, 0): There is an external reference to an object in module 'module', preventing it from being deleted
-Fri Sep  1 20:59:13 2023
+Sat Sep  2 23:32:12 2023
 	Info:  (0, 0): The function in previous message is named '$void Start()$6'. The func type is 1
-Fri Sep  1 20:59:13 2023
+Sat Sep  2 23:32:12 2023
 	Warning:  (0, 0): There is an external reference to an object in module 'module', preventing it from being deleted
-Fri Sep  1 20:59:13 2023
+Sat Sep  2 23:32:12 2023
 	Info:  (0, 0): The function in previous message is named '$void Start()$7'. The func type is 1
-Fri Sep  1 20:59:13 2023
+Sat Sep  2 23:32:12 2023
 	Warning:  (0, 0): There is an external reference to an object in module 'module', preventing it from being deleted
-Fri Sep  1 20:59:13 2023
+Sat Sep  2 23:32:12 2023
 	Info:  (0, 0): The function in previous message is named '$void $void Start()$7()$0'. The func type is 1
-Fri Sep  1 20:59:13 2023
+Sat Sep  2 23:32:12 2023
 	Warning:  (0, 0): There is an external reference to an object in module 'module', preventing it from being deleted
-Fri Sep  1 20:59:13 2023
+Sat Sep  2 23:32:12 2023
 	Info:  (0, 0): The function in previous message is named '$void $void Start()$7()$1'. The func type is 1

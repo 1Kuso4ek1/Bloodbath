@@ -5,11 +5,33 @@ GameLoop@ mainGameLoop = function()
     Game::mouseSensitivity = pauseMenu.getSlider("sensitivity").getValue();
     pauseMenu.getLabel("sensVal").setText(to_string(Game::mouseSensitivity));
 
+    if(Keyboard::isKeyPressed(Keyboard::T))
+        chatActive = true;
+
+    if(Keyboard::isKeyPressed(Keyboard::Enter))
+    {
+        auto text = hud.getEditBox("chatField").getText().toStdString();
+        hud.getEditBox("chatField").setText("");
+        if(text.length() > 0)
+        {
+            hud.getChatBox("chat").addLine(name + ": " + text);
+            Packet p;
+            p << 3; p << name + ": " + text; p << 0;
+            socket.send(p);
+        }
+    }
+
     if(Keyboard::isKeyPressed(Keyboard::Escape) && buttonTimer.getElapsedTime().asSeconds() > 0.3)
     {
         buttonTimer.restart();
-        pause = !pause;
+        if(chatActive)
+            chatActive = false;
+        else
+            pause = !pause;
     }
+
+    hud.getEditBox("chatField").setVisible(chatActive);
+    hud.getEditBox("chatField").setEnabled(chatActive);
 
     if(!pause && health > 0)
     {
@@ -27,8 +49,8 @@ GameLoop@ mainGameLoop = function()
         pauseMenu.setOpacity(lerp(pauseMenu.getOpacity(), 1.0, 0.05));
     }
 
-    Game::mouseCursorVisible = pause;
-    Game::manageCameraMouse = !pause;
+    Game::mouseCursorVisible = pause || chatActive;
+    Game::manageCameraMouse = !pause && !chatActive;
 
     Game::scene.GetLight("light").SetColor(Vector3(0, 0, 0));
 
@@ -237,7 +259,7 @@ GameLoop@ mainGameLoop = function()
 
     if(updatePhysics)
         Game::scene.GetModel("flash").SetIsDrawable(false);
-    if(!pause && health > 0) player.Update();
+    if(!pause && health > 0 && !chatActive) player.Update();
     else if(health <= 0)
     {
         Game::exposure = lerp(Game::exposure, 0.0, 0.005);
