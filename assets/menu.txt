@@ -222,10 +222,21 @@ EditBox.nickname {
 
 Panel.loadingPanel {
     Size = (1920, 1080);
+    Visible = false;
 
     Renderer {
         BackgroundColor = black;
         BorderColor = black;
         TextureBackground = None;
+    }
+
+    Picture.Picture1 {
+        Position = (805, 385);
+        Size = (310, 310);
+
+        Renderer {
+            Texture = "textures/idn.png" Smooth;
+            TransparentTexture = false;
+        }
     }
 }

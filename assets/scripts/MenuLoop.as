@@ -2,6 +2,13 @@ Clock updateInfo;
 
 GameLoop@ menuLoop = function()
 {
+    if(logoTime.getElapsedTime().asSeconds() > 1.5 && logo)
+    {
+        menu.getPanel("loadingPanel").hideWithEffect(tgui::Fade, seconds(3.0));
+        logo = false;
+    }
+    else if(logo) return;
+
     if(updatePhysics)
     {
         Game::exposure = lerp(Game::exposure, 1.0, 0.015);
@@ -12,7 +19,7 @@ GameLoop@ menuLoop = function()
         Game::camera.SetPosition(Vector3(lerp(pos.x, 13.8, 0.01), lerp(pos.y, 4.6, 0.01), lerp(pos.z, 7.2, 0.01)));
     }
 
-    if(!socket.isBlocking() && updateInfo.getElapsedTime().asSeconds() >= 1.0)
+    if(!socket.isBlocking() && updateInfo.getElapsedTime().asSeconds() >= 0.5)
     {
         updateInfo.restart();
         Packet upd; upd << -1;

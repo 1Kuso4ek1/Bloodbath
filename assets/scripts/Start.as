@@ -115,11 +115,10 @@ void Start()
     });
 
     @menu = @engine.CreateGui("assets/menu.txt");
+    menu.getPanel("loadingPanel").setVisible(logo);
     Game::exposure = 0.0;
     Game::blurIterations = 128;
     Game::bloomStrength = 1.0;
-    menu.getPanel("loadingPanel").setVisible(true);
-    menu.getPanel("loadingPanel").hideWithEffect(tgui::Fade, seconds(3.0));
 
     menu.getButton("exit").onPress(function()
     {

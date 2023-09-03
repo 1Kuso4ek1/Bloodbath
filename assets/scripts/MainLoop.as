@@ -215,6 +215,7 @@ GameLoop@ mainGameLoop = function()
                         model.SetPosition(pos + Vector3(rnd(-5, 5), 0, rnd(-5, 5)));
                         model.SetIsDrawable(true);
                     }
+                    break;
                 }
 
                 case 3:
@@ -228,6 +229,24 @@ GameLoop@ mainGameLoop = function()
                         hud.getChatBox("chat").addLine(message, tgui::Color(150, 150, 255));
                     else if(type == 2)
                         hud.getChatBox("chat").addLine(message, tgui::Color(255, 150, 150));
+                    break;
+                }
+
+                case 4:
+                {
+                    p >> newId;
+                    int cl = clients.find(Client(newId, "", null, null));
+                    hud.getChatBox("chat").addLine(clients[cl].name + " disconnected", tgui::Color(150, 150, 255));
+                    Game::scene.RemoveModel(clients[cl].model);
+                    Game::scene.RemoveModel(clients[cl].chel);
+                    Game::scene.RemoveModel(Game::scene.GetModel("rifle-copy" + to_string(clients[cl].id)));
+                    Game::scene.RemoveAnimation(Game::scene.GetAnimation("Default-chel-chel" + clients[cl].id));
+                    Game::scene.RemoveAnimation(Game::scene.GetAnimation("Death-chel-chel" + clients[cl].id));
+                    Game::scene.RemoveAnimation(Game::scene.GetAnimation("Jump-chel-chel" + clients[cl].id));
+                    Game::scene.RemoveAnimation(Game::scene.GetAnimation("Stand-chel-chel" + clients[cl].id));
+                    Game::scene.RemoveAnimation(Game::scene.GetAnimation("Armature|Walk-chel-chel" + clients[cl].id));
+                    clients.removeAt(cl);
+                    break;
                 }
 
                 case 5:
@@ -242,11 +261,18 @@ GameLoop@ mainGameLoop = function()
                     int client = clients.find(Client(newId, "", null, null));
 	                p >> clients[client].health;
 	                if(clients[client].health > 50)
+                    {
 	                    clients[client].chel.SetMaterial(Game::scene.GetMaterial("character"));
+                        if(!Game::scene.GetModel("rifle-copy" + to_string(clients[client].id)).IsDrawable())
+                            Game::scene.GetModel("rifle-copy" + to_string(clients[client].id)).SetIsDrawable(true);
+                    }
     	            else if(clients[client].health <= 50 && clients[client].health > 0)
 	                    clients[client].chel.SetMaterial(Game::scene.GetMaterial("character-wounded"));
 	                else if(clients[client].health == 0)
+                    {
+                        Game::scene.GetModel("rifle-copy" + to_string(clients[client].id)).SetIsDrawable(false);
 	                    clients[client].chel.SetMaterial(Game::scene.GetMaterial("character-dead"));
+                    }
                     break;
                 }
             }
@@ -254,7 +280,7 @@ GameLoop@ mainGameLoop = function()
     
     for(uint i = 0; i < clients.length(); i++)
     {
-        clients[i].chel.SetPosition(clients[i].model.GetPosition());
+        clients[i].chel.SetPosition(clients[i].model.GetPosition() - Vector3(0, 0.1, 0));
     }
 
     if(updatePhysics)
