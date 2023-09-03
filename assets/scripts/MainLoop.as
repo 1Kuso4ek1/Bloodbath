@@ -268,6 +268,8 @@ GameLoop@ mainGameLoop = function()
     }
     Game::camera.SetPosition(Game::scene.GetModel("player").GetPosition() + Vector3(0, 2.5, 0));
 
+    hud.getLabel("velocity").setText(to_string(int(Game::scene.GetModel("player").GetRigidBody().getLinearVelocity().length())));
+
     p.clear();
     auto pos = Game::scene.GetModel("player").GetPosition();
     auto orient = Game::camera.GetOrientation();
