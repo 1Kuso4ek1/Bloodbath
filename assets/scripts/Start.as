@@ -37,6 +37,17 @@ void Start()
     Game::scene.SaveState();
 
     socket.setBlocking(true);
+    
+    for(uint i = 0; i < clients.length(); i++)
+    {
+        Game::scene.RemoveAnimation(Game::scene.GetAnimation("Default-chel-chel" + clients[i].id));                                             
+        Game::scene.RemoveAnimation(Game::scene.GetAnimation("Death-chel-chel" + clients[i].id));
+        Game::scene.RemoveAnimation(Game::scene.GetAnimation("Jump-chel-chel" + clients[i].id));
+        Game::scene.RemoveAnimation(Game::scene.GetAnimation("Stand-chel-chel" + clients[i].id));
+        Game::scene.RemoveAnimation(Game::scene.GetAnimation("Armature|Walk-chel-chel" + clients[i].id));
+    }
+
+    clients.removeRange(0, clients.length());
 	
     @player = @FPSController(Game::scene.GetModel("player"), Game::scene.GetModelGroup("ground"));
     player.AddCustomEvent(function()

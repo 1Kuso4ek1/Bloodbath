@@ -106,6 +106,7 @@ GameLoop@ mainGameLoop = function()
                     p >> isRunning;
 
                     int cl = clients.find(Client(newId, "", null, null));
+                    if(cl < 0) break;
 
                     if(clients[cl].prevOnGround && !onGround)
                     {
@@ -239,13 +240,14 @@ GameLoop@ mainGameLoop = function()
                     hud.getChatBox("chat").addLine(clients[cl].name + " disconnected", tgui::Color(150, 150, 255));
                     Game::scene.RemoveModel(clients[cl].model);
                     Game::scene.RemoveModel(clients[cl].chel);
-                    Game::scene.RemoveModel(Game::scene.GetModel("rifle-copy" + to_string(clients[cl].id)));
-                    Game::scene.RemoveAnimation(Game::scene.GetAnimation("Default-chel-chel" + clients[cl].id));
-                    Game::scene.RemoveAnimation(Game::scene.GetAnimation("Death-chel-chel" + clients[cl].id));
-                    Game::scene.RemoveAnimation(Game::scene.GetAnimation("Jump-chel-chel" + clients[cl].id));
-                    Game::scene.RemoveAnimation(Game::scene.GetAnimation("Stand-chel-chel" + clients[cl].id));
-                    Game::scene.RemoveAnimation(Game::scene.GetAnimation("Armature|Walk-chel-chel" + clients[cl].id));
+                    Game::scene.RemoveModel(Game::scene.GetModel("rifle-copy" + to_string(newId)));
+                    Game::scene.RemoveAnimation(Game::scene.GetAnimation("Default-chel-chel" + to_string(newId)));
+                    Game::scene.RemoveAnimation(Game::scene.GetAnimation("Death-chel-chel" + to_string(newId)));
+                    Game::scene.RemoveAnimation(Game::scene.GetAnimation("Jump-chel-chel" + to_string(newId)));
+                    Game::scene.RemoveAnimation(Game::scene.GetAnimation("Stand-chel-chel" + to_string(newId)));
+                    Game::scene.RemoveAnimation(Game::scene.GetAnimation("Armature|Walk-chel-chel" + to_string(newId)));
                     clients.removeAt(cl);
+                    player.SetGroundGroup(Game::scene.GetModelGroup("ground"));
                     break;
                 }
 
@@ -258,20 +260,21 @@ GameLoop@ mainGameLoop = function()
                         break;
                     }
 
-                    int client = clients.find(Client(newId, "", null, null));
-	                p >> clients[client].health;
-	                if(clients[client].health > 50)
+                    int cl = clients.find(Client(newId, "", null, null));
+                    if(cl < 0) break;
+	                p >> clients[cl].health;
+	                if(clients[cl].health > 50)
                     {
-	                    clients[client].chel.SetMaterial(Game::scene.GetMaterial("character"));
-                        if(!Game::scene.GetModel("rifle-copy" + to_string(clients[client].id)).IsDrawable())
-                            Game::scene.GetModel("rifle-copy" + to_string(clients[client].id)).SetIsDrawable(true);
+	                    clients[cl].chel.SetMaterial(Game::scene.GetMaterial("character"));
+                        if(!Game::scene.GetModel("rifle-copy" + to_string(clients[cl].id)).IsDrawable())
+                            Game::scene.GetModel("rifle-copy" + to_string(clients[cl].id)).SetIsDrawable(true);
                     }
-    	            else if(clients[client].health <= 50 && clients[client].health > 0)
-	                    clients[client].chel.SetMaterial(Game::scene.GetMaterial("character-wounded"));
-	                else if(clients[client].health == 0)
+    	            else if(clients[cl].health <= 50 && clients[cl].health > 0)
+	                    clients[cl].chel.SetMaterial(Game::scene.GetMaterial("character-wounded"));
+	                else if(clients[cl].health == 0)
                     {
-                        Game::scene.GetModel("rifle-copy" + to_string(clients[client].id)).SetIsDrawable(false);
-	                    clients[client].chel.SetMaterial(Game::scene.GetMaterial("character-dead"));
+                        Game::scene.GetModel("rifle-copy" + to_string(clients[cl].id)).SetIsDrawable(false);
+	                    clients[cl].chel.SetMaterial(Game::scene.GetMaterial("character-dead"));
                     }
                     break;
                 }
