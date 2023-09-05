@@ -79,10 +79,10 @@ void Start()
                 model.SetIsDrawable(true);
             }
             // code = 2, myId, damagedId, weaponId
-            Packet p; p << 2; p << id; p << (hit == -1 ? hit : clients[hit].id); p << 0;
+            Packet p; p << 2; p << id; p << (hit == -1 ? -1 : clients[hit].id); p << 0;
             socket.send(p);
             if((Game::camera.GetOrientation() * Vector3(0, 0, -1)).y < 0.90)
-                Game::camera.SetOrientation(Game::camera.GetOrientation() * QuaternionFromEuler(Vector3(0.04, 0.0, 0.0)));
+                Game::camera.SetOrientation(Game::camera.GetOrientation() * QuaternionFromEuler(Vector3(0.03, 0.0, 0.0)));
             delay.restart();
         }
     });
@@ -106,7 +106,7 @@ void Start()
     
     player.AddCustomEvent(function()
     {
-        if(Mouse::isButtonPressed(Mouse::Middle))
+        if(Mouse::isButtonPressed(Mouse::Right))
             Game::camera.SetFOV(lerp(Game::camera.GetFOV(), 55, 0.05));
         else
         {
@@ -203,7 +203,7 @@ void Start()
         {
             hud.getChatBox("chat").addLine("Welcome to the " + serverConfig.name);
             Packet p;
-            p << 0; p << id; p << name;
+            p << 0; p << id; p << name; p << team;
             socket.send(p);
         }
     });

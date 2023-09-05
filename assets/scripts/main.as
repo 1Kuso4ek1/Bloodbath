@@ -3,7 +3,7 @@ Clock delay, buttonTimer;
 TcpSocket socket;
 tgui::Gui@ menu, hud, pauseMenu;
 int health = 100; //In future, get health from the server
-int id = 0;
+int id = 0, team = 0, kills = 0, deaths = 0;
 string name;
 Clock physicsTime, logoTime;
 bool pause = false, updatePhysics = true, chatActive = false, logo = true;
@@ -16,12 +16,18 @@ class Client
 {
     Client() {}
 
-    Client(int id, string name, Model@ model, Model@ chel)
+    Client(int id, int team, string name, Model@ model, Model@ chel)
     {
         this.id = id;
+        this.team = team;
         this.name = name;
         @this.model = @model;
         @this.chel = @chel;
+    }
+
+    Client(int id)
+    {
+        this.id = id;
     }
 
     bool opEquals(const Client& in client)
@@ -30,7 +36,7 @@ class Client
     }
 
     string name;
-    int id;
+    int id, team, kills, deaths;
     int health = 100;
     bool prevOnGround = true;
     Model@ model;

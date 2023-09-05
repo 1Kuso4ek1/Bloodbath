@@ -57,7 +57,7 @@ GameLoop@ mainGameLoop = function()
     Packet p;
     while(socket.receive(p) == Socket::Done)
     {
-        int code = -1, newId = -1;
+        int code = -1, newId = -1, newTeam = -1;
         string newName;
         bool moving = false, onGround = true, isRunning = true;
         Vector3 pos, euler;
@@ -69,8 +69,9 @@ GameLoop@ mainGameLoop = function()
 	            {
 	                p >> newId;
 	                p >> newName;
+                    p >> newTeam;
 
-	                if(clients.find(Client(newId, "", null, null)) < 0)
+	                if(clients.find(Client(newId)) < 0)
 	                {
 	                    Model@ model = @Game::scene.CloneModel(Game::scene.GetModel("enemy:ground"), true, "enemy" + to_string(newId) + ":ground");
 	                    model.GetRigidBody().setIsActive(true);
@@ -80,9 +81,9 @@ GameLoop@ mainGameLoop = function()
 	                    rifle.SetIsDrawable(true);
 	                    cast<Node>(Game::scene.GetBone("Right-Hand-chel" + to_string(newId))).AddChild(cast<Node>(rifle));
 	                    cast<Node>(rifle).SetParent(cast<Node>(Game::scene.GetBone("Right-Hand-chel" + to_string(newId))));
-	                    clients.insertLast(Client(newId, newName, model, chel));
+	                    clients.insertLast(Client(newId, newTeam, newName, model, chel));
 	                    p.clear();
-	                    p << 0; p << id; p << name;
+	                    p << 0; p << id; p << name; p << team;
 	                    socket.send(p);
 	                    player.SetGroundGroup(Game::scene.GetModelGroup("ground"));
 	                }
@@ -105,7 +106,7 @@ GameLoop@ mainGameLoop = function()
 	                p >> onGround;
                     p >> isRunning;
 
-                    int cl = clients.find(Client(newId, "", null, null));
+                    int cl = clients.find(Client(newId));
                     if(cl < 0) break;
 
                     if(clients[cl].prevOnGround && !onGround)
@@ -142,8 +143,8 @@ GameLoop@ mainGameLoop = function()
                         euler = EulerFromQuaternion(orient);
                         //Log::Write(euler.to_string());
                         
-                        clients[clients.find(Client(newId, "", null, null))].chel.SetOrientation(QuaternionFromEuler(Vector3(radians(-90.0), radians(-90.0) + euler.z, 0)));
-                        clients[clients.find(Client(newId, "", null, null))].model.SetPosition(pos);
+                        clients[clients.find(Client(newId))].chel.SetOrientation(QuaternionFromEuler(Vector3(radians(-90.0), radians(-90.0) + euler.z, 0)));
+                        clients[clients.find(Client(newId))].model.SetPosition(pos);
                         break;
                     }
                     else if(Game::scene.GetAnimation("Death-chel-chel" + to_string(newId)).GetState() != Stopped &&
@@ -176,8 +177,8 @@ GameLoop@ mainGameLoop = function()
 	                
 	                p >> pos.x >> pos.y >> pos.z >> orient.x >> orient.y >> orient.z >> orient.w;
 
-	                clients[clients.find(Client(newId, "", null, null))].model.SetPosition(pos);
-                    clients[clients.find(Client(newId, "", null, null))].chel.SetOrientation(QuaternionFromEuler(Vector3(radians(-90.0), radians(-90.0), 0)));
+	                clients[clients.find(Client(newId))].model.SetPosition(pos);
+                    clients[clients.find(Client(newId))].chel.SetOrientation(QuaternionFromEuler(Vector3(radians(-90.0), radians(-90.0), 0)));
 	                Game::scene.GetBone("Body-chel" + to_string(newId)).SetOrientation(orient * QuaternionFromEuler(Vector3(radians(90), 0, 0)));
 
 	                euler = EulerFromQuaternion(orient); euler.x = 0; euler.y = radians(-30);
@@ -192,7 +193,7 @@ GameLoop@ mainGameLoop = function()
                 {
                     int id0 = -1, id1 = -1;
                     p >> id0 >> id1;
-                    int it = clients.find(Client(id0, "", null, null));
+                    int it = clients.find(Client(id0));
                     Game::scene.GetSoundManager().SetPosition(clients[it].model.GetPosition(), "ak47-shot", id0);
                     Game::scene.GetSoundManager().Play("ak47-shot", id0);
                     if(id1 > -1)
@@ -206,7 +207,7 @@ GameLoop@ mainGameLoop = function()
                         }
                         else
                         {
-                            it = clients.find(Client(id1, "", null, null));
+                            it = clients.find(Client(id1));
                             pos = clients[it].model.GetPosition();
                             Game::scene.GetSoundManager().SetPosition(pos, "hit" + hitNum, id1);
                             Game::scene.GetSoundManager().Play("hit" + hitNum, id1);
@@ -236,7 +237,7 @@ GameLoop@ mainGameLoop = function()
                 case 4:
                 {
                     p >> newId;
-                    int cl = clients.find(Client(newId, "", null, null));
+                    int cl = clients.find(Client(newId));
                     hud.getChatBox("chat").addLine(clients[cl].name + " disconnected", tgui::Color(150, 150, 255));
                     Game::scene.RemoveModel(clients[cl].model);
                     Game::scene.RemoveModel(clients[cl].chel);
@@ -256,22 +257,20 @@ GameLoop@ mainGameLoop = function()
                     p >> newId;
                     if(newId == id)
                     {
-                        p >> health;
+                        p >> health >> kills >> deaths;
                         break;
                     }
 
-                    int cl = clients.find(Client(newId, "", null, null));
+                    int cl = clients.find(Client(newId));
                     if(cl < 0) break;
-	                p >> clients[cl].health;
-	                if(clients[cl].health > 50)
+	                p >> clients[cl].health >> clients[cl].kills >> clients[cl].deaths;
+	                if(clients[cl].health > 0)
                     {
-	                    clients[cl].chel.SetMaterial(Game::scene.GetMaterial("character"));
+	                    clients[cl].chel.SetMaterial(Game::scene.GetMaterial("character" + to_string(clients[cl].team)));
                         if(!Game::scene.GetModel("rifle-copy" + to_string(clients[cl].id)).IsDrawable())
                             Game::scene.GetModel("rifle-copy" + to_string(clients[cl].id)).SetIsDrawable(true);
                     }
-    	            else if(clients[cl].health <= 50 && clients[cl].health > 0)
-	                    clients[cl].chel.SetMaterial(Game::scene.GetMaterial("character-wounded"));
-	                else if(clients[cl].health == 0)
+	                else
                     {
                         Game::scene.GetModel("rifle-copy" + to_string(clients[cl].id)).SetIsDrawable(false);
 	                    clients[cl].chel.SetMaterial(Game::scene.GetMaterial("character-dead"));
@@ -281,6 +280,12 @@ GameLoop@ mainGameLoop = function()
             }
     }
     
+    array<int> score = { 0, 0 };
+    for(uint i = 0; i < clients.length(); i++)
+        score[clients[i].team] += clients[i].kills;
+    score[team] += kills;
+    hud.getLabel("score").setText(to_string(score[team]) + "-" + to_string(score[(team < 1 ? 1 : 0)]));
+
     for(uint i = 0; i < clients.length(); i++)
     {
         clients[i].chel.SetPosition(clients[i].model.GetPosition() - Vector3(0, 0.1, 0));
