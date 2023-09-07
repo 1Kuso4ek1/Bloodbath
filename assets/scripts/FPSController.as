@@ -20,8 +20,8 @@ class FPSController
         playerRB.setAngularLockAxisFactor(Vector3(0, 1, 0));
 
         PhysicalMaterial mat;
-        mat.setBounciness(0.0);
-        mat.setFrictionCoefficient(0.0);
+        mat.setBounciness(0.01);
+        mat.setFrictionCoefficient(0.5);
         playerRB.setMaterial(mat);
         for(uint i = 0; i < ground.Size(); i++)
             ground[i].GetRigidBody().setMaterial(mat);

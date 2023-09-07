@@ -79,8 +79,11 @@ GameLoop@ mainGameLoop = function()
 	                    chel.SetIsDrawable(true);
 	                    Model@ rifle = @Game::scene.CloneModel(Game::scene.GetModel("rifle-copy"), true, "rifle-copy" + to_string(newId));
 	                    rifle.SetIsDrawable(true);
+                        Model@ head = @Game::scene.CloneModel(Game::scene.GetModel("head"), true, "head" + to_string(newId));
 	                    cast<Node>(Game::scene.GetBone("Right-Hand-chel" + to_string(newId))).AddChild(cast<Node>(rifle));
 	                    cast<Node>(rifle).SetParent(cast<Node>(Game::scene.GetBone("Right-Hand-chel" + to_string(newId))));
+	                    cast<Node>(Game::scene.GetBone("Bone.014-chel" + to_string(newId))).AddChild(cast<Node>(head));
+	                    cast<Node>(head).SetParent(cast<Node>(Game::scene.GetBone("Bone.014-chel" + to_string(newId))));
 	                    clients.insertLast(Client(newId, newTeam, newName, model, chel));
 	                    p.clear();
 	                    p << 0; p << id; p << name; p << team;
@@ -152,6 +155,7 @@ GameLoop@ mainGameLoop = function()
                     {
                         Game::scene.GetAnimation("Death-chel-chel" + to_string(newId)).Stop();
                         Game::scene.GetAnimation("Default-chel-chel" + to_string(newId)).Play();
+                        break;
                     }
 	                else if(onGround && moving && Game::scene.GetAnimation("Armature|Walk-chel-chel" + to_string(newId)).GetState() == Stopped)
 	                {

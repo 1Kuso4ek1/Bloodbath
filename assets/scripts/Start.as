@@ -52,6 +52,8 @@ void Start()
     @player = @FPSController(Game::scene.GetModel("player"), Game::scene.GetModelGroup("ground"));
     player.AddCustomEvent(function()
     {
+        if(delay.getElapsedTime().asSeconds() < 0.2)
+            Game::camera.SetOrientation(slerp(Game::camera.GetOrientation(), Game::camera.GetOrientation() * QuaternionFromEuler(Vector3(-0.03, 0.0, 0.0)), 0.12));
         if(Mouse::isButtonPressed(Mouse::Left) && delay.getElapsedTime().asSeconds() > 0.1 && !pause)
         {
             Game::scene.GetModel("flash").SetIsDrawable(true);
@@ -63,11 +65,15 @@ void Start()
             
             RaycastInfo info, info1;
             Ray ray(Game::camera.GetPosition(true), Game::camera.GetPosition(true) + (Game::camera.GetOrientation() * Vector3(0, 0, -1000)));
-            int hit = -1;
+            int hit = -1; bool hs = false;
             for(uint i = 0; i < clients.length(); i++)
             {
                 if(clients[i].model.GetRigidBody().raycast(ray, info))
                     hit = i;
+                Game::scene.GetModel("head" + to_string(clients[i].id)).GetRigidBody().setIsActive(true);
+                if(Game::scene.GetModel("head" + to_string(clients[i].id)).GetRigidBody().raycast(ray, info))
+                    hs = true;
+                Game::scene.GetModel("head" + to_string(clients[i].id)).GetRigidBody().setIsActive(false);
             }
             Game::scene.GetModel("map:ground").GetRigidBody().raycast(ray, info1);
             if(hit != -1 && (info.worldPoint - Game::camera.GetPosition()).length() < (info1.worldPoint - Game::camera.GetPosition()).length())
@@ -79,7 +85,7 @@ void Start()
                 model.SetIsDrawable(true);
             }
             // code = 2, myId, damagedId, weaponId
-            Packet p; p << 2; p << id; p << (hit == -1 ? -1 : clients[hit].id); p << 0;
+            Packet p; p << 2; p << id; p << (hit == -1 ? -1 : clients[hit].id); p << hs; p << 0;
             socket.send(p);
             if((Game::camera.GetOrientation() * Vector3(0, 0, -1)).y < 0.90)
                 Game::camera.SetOrientation(Game::camera.GetOrientation() * QuaternionFromEuler(Vector3(0.03, 0.0, 0.0)));
