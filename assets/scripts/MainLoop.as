@@ -332,4 +332,10 @@ GameLoop@ mainGameLoop = function()
 
     socket.send(p);
     p.clear();
+    if(pos.y < -10)
+    {
+        p << -69;
+        socket.send(p);
+        p.clear();
+    }
 };

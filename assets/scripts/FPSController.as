@@ -21,7 +21,7 @@ class FPSController
 
         PhysicalMaterial mat;
         mat.setBounciness(0.01);
-        mat.setFrictionCoefficient(0.5);
+        mat.setFrictionCoefficient(0.05);
         playerRB.setMaterial(mat);
         for(uint i = 0; i < ground.Size(); i++)
             ground[i].GetRigidBody().setMaterial(mat);
