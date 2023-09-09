@@ -149,6 +149,11 @@ GameLoop@ mainGameLoop = function()
                             clients[clients.find(Client(newId))].chel.SetOrientation(QuaternionFromEuler(Vector3(radians(-90.0), radians(-90.0) + euler.z, 0)));
                             clients[clients.find(Client(newId))].model.SetPosition(pos);
                         }
+                        else
+                        {
+                        	p >> pos.x >> pos.y >> pos.z;
+                        	clients[clients.find(Client(newId))].model.SetPosition(pos);
+                        }
                         break;
                     }
                     else if(Game::scene.GetAnimation("Death-chel-chel" + to_string(newId)).GetState() != Stopped)
