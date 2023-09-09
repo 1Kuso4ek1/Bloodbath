@@ -3,8 +3,8 @@ Clock delay, buttonTimer;
 TcpSocket socket;
 tgui::Gui@ menu, hud, pauseMenu;
 int health = 100; //In future, get health from the server
-int id = 0, team = 0, kills = 0, deaths = 0;
-string name;
+int id = 0, team = 0, kills = 0, deaths = 0, lastPort = 0;
+string name, lastIp, defaultMessage;
 Clock physicsTime, logoTime;
 bool pause = false, updatePhysics = true, chatActive = false, logo = true;
 

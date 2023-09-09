@@ -20,7 +20,6 @@ void Start()
     Game::manageCameraMouse = false;
     Game::manageCameraMovement = false;
     Game::mouseCursorVisible = true;
-    Game::mouseSensitivity = 0.8;
     Game::mouseCursorGrabbed = false;
 
     //Game::scene.GetModel("map:ground").SetShadowBias(0.0003);
@@ -137,6 +136,27 @@ void Start()
     Game::blurIterations = 128;
     Game::bloomStrength = 1.0;
 
+    file data;
+    if(data.open("assets/default.txt", "r") >= 0)
+    {
+        name = data.readLine(); name.erase(name.length() - 1, 1);
+        Log::Write("name");
+        defaultMessage = data.readLine(); defaultMessage.erase(defaultMessage.length() - 1, 1);
+        Log::Write("default message");
+        lastIp = data.readLine(); lastIp.erase(lastIp.length() - 1, 1);
+        Log::Write("ip");
+        auto port = data.readLine();
+        if(port.length() > 1)
+            lastPort = stoi(port);
+        Log::Write("port");
+
+        menu.getEditBox("ip").setText(lastIp);
+        menu.getEditBox("port").setText(to_string(lastPort));
+        menu.getEditBox("nickname").setText(name);
+
+        data.close();
+    }
+
     menu.getButton("exit").onPress(function()
     {
         engine.Close();
@@ -146,19 +166,21 @@ void Start()
     {
         auto ip = menu.getEditBox("ip").getText().toStdString();
         auto port = stoi(menu.getEditBox("port").getText().toStdString());
+        name = menu.getEditBox("nickname").getText().toStdString();
+        file data;
+
+        if(data.open("assets/default.txt", "w") >= 0)
+        {
+            data.writeString(name + "\n");
+            data.writeString(defaultMessage + "\n");
+            data.writeString(ip + "\n");
+            data.writeString(to_string(port));
+
+            data.close();
+        }
         int status = socket.connect(ResolveIp(ip), port, seconds(5));
         if(status == Socket::Done)
-        {
-            /*Packet p;
-            Clock ping;
-            status = socket.receive(p);
-            int numPlayers = 0, event = 0;
-            if(status == Socket::Done)
-                p >> id >> event >> serverConfig.name >> serverConfig.allowBhop >> serverConfig.enableFullGUI >> serverConfig.maxPlayers >> serverConfig.jumpForce >> serverConfig.maxSpeed >> numPlayers;// >> serverConfig.weaponDamage;
-            menu.getLabel("info").setText("Connected to " + serverConfig.name + "\n" + to_string(numPlayers - 1) + "/" + to_string(serverConfig.maxPlayers) + " players\n" + "ID: " + to_string(id));
-            updateInfo.restart();*/
             socket.setBlocking(false);
-        }
         else menu.getLabel("info").setText("Failed to connect!");
     });
 
@@ -179,13 +201,28 @@ void Start()
         //Game::scene.GetSoundManager().Play("game-music");
         //Game::scene.LoadEnvironment("assets/textures/doom_sky.hdr");
         @currentLoop = @mainGameLoop;
-        name = menu.getEditBox("nickname").getText().toStdString();
         engine.RemoveGui();
         @hud = @engine.CreateGui("assets/hud.txt");
         @pauseMenu = @engine.CreateGui("assets/pause.txt");
         pauseMenu.setOpacity(0.0);
         hud.getEditBox("chatField").setVisible(false);
         hud.getEditBox("chatField").setEnabled(false);
+
+        if(serverConfig.name.length() > 0)
+        {
+            hud.getChatBox("chat").addLine("Welcome to the " + serverConfig.name);
+            Packet p;
+            p << 0; p << id; p << name; p << team;
+            socket.send(p);
+        }
+
+        if(defaultMessage.length() > 0)
+        {
+            hud.getChatBox("chat").addLine(name + ": " + defaultMessage);
+            Packet p;
+            p << 3; p << name + ": " + defaultMessage; p << 0;
+            socket.send(p);
+        }
 
         pauseMenu.getButton("continue").onPress(function()
         {
@@ -204,18 +241,7 @@ void Start()
                 Start();
             }
         });
-
-        if(serverConfig.name.length() > 0)
-        {
-            hud.getChatBox("chat").addLine("Welcome to the " + serverConfig.name);
-            Packet p;
-            p << 0; p << id; p << name; p << team;
-            socket.send(p);
-        }
     });
 
     Game::scene.GetSoundManager().Play("menu-music");
-
-    /*@hud = @engine.CreateGui("assets/hud.txt");
-    hud.getChatBox("chat").addLine("hello world");*/
 }

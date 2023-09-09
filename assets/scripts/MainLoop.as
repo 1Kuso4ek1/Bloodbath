@@ -133,51 +133,49 @@ GameLoop@ mainGameLoop = function()
                         clients[cl].footsteps.restart();
                     }
 
-                    Game::scene.GetAnimation("Default-chel-chel" + to_string(newId)).Stop();
-
                     if(clients[cl].health <= 0)
                     {
-	                    Game::scene.GetAnimation("Stand-chel-chel" + to_string(newId)).Stop();
-	                    Game::scene.GetAnimation("Armature|Walk-chel-chel" + to_string(newId)).Stop();
-	                    Game::scene.GetAnimation("Jump-chel-chel" + to_string(newId)).Stop();
                         if(Game::scene.GetAnimation("Death-chel-chel" + to_string(newId)).GetState() == Stopped)
+                        {
     	                    Game::scene.GetAnimation("Death-chel-chel" + to_string(newId)).Play();
-    	                p >> pos.x >> pos.y >> pos.z >> orient.x >> orient.y >> orient.z >> orient.w;
-                        euler = EulerFromQuaternion(orient);
-                        //Log::Write(euler.to_string());
+    	                    Game::scene.GetAnimation("Armature|Walk-chel-chel" + to_string(newId)).Stop();
+                            Game::scene.GetAnimation("Stand-chel-chel" + to_string(newId)).Stop();
+                            Game::scene.GetAnimation("Jump-chel-chel" + to_string(newId)).Stop();
+                            
+    	                    p >> pos.x >> pos.y >> pos.z >> orient.x >> orient.y >> orient.z >> orient.w;
+                            euler = EulerFromQuaternion(orient);
                         
-                        clients[clients.find(Client(newId))].chel.SetOrientation(QuaternionFromEuler(Vector3(radians(-90.0), radians(-90.0) + euler.z, 0)));
-                        clients[clients.find(Client(newId))].model.SetPosition(pos);
+                            clients[clients.find(Client(newId))].chel.SetOrientation(QuaternionFromEuler(Vector3(radians(-90.0), radians(-90.0) + euler.z, 0)));
+                            clients[clients.find(Client(newId))].model.SetPosition(pos);
+                        }
                         break;
                     }
-                    else if(Game::scene.GetAnimation("Death-chel-chel" + to_string(newId)).GetState() != Stopped &&
-                            clients[cl].health > 0)
-                    {
-                        Game::scene.GetAnimation("Death-chel-chel" + to_string(newId)).Stop();
+                    else if(Game::scene.GetAnimation("Death-chel-chel" + to_string(newId)).GetState() != Stopped)
+                    {                    
                         Game::scene.GetAnimation("Default-chel-chel" + to_string(newId)).Play();
+                        Game::scene.GetAnimation("Death-chel-chel" + to_string(newId)).Stop();
                         break;
                     }
 	                else if(onGround && moving && Game::scene.GetAnimation("Armature|Walk-chel-chel" + to_string(newId)).GetState() == Stopped)
 	                {
-	                    Game::scene.GetAnimation("Stand-chel-chel" + to_string(newId)).Stop();
 	                    Game::scene.GetAnimation("Armature|Walk-chel-chel" + to_string(newId)).Play();
-	                    Game::scene.GetAnimation("Jump-chel-chel" + to_string(newId)).Stop();
-	                    Game::scene.GetAnimation("Death-chel-chel" + to_string(newId)).Stop();
+                        Game::scene.GetAnimation("Stand-chel-chel" + to_string(newId)).Stop();
+                        Game::scene.GetAnimation("Jump-chel-chel" + to_string(newId)).Stop();
 	                }
 	                else if(!moving && onGround)
 	                {
-	                    Game::scene.GetAnimation("Armature|Walk-chel-chel" + to_string(newId)).Stop();
 	                    Game::scene.GetAnimation("Stand-chel-chel" + to_string(newId)).Play();
-	                    Game::scene.GetAnimation("Jump-chel-chel" + to_string(newId)).Stop();
-	                    Game::scene.GetAnimation("Death-chel-chel" + to_string(newId)).Stop();
+                        Game::scene.GetAnimation("Armature|Walk-chel-chel" + to_string(newId)).Stop();
+                        Game::scene.GetAnimation("Jump-chel-chel" + to_string(newId)).Stop();
 	                }
 	                else if(!onGround && Game::scene.GetAnimation("Jump-chel-chel" + to_string(newId)).GetState() == Stopped)
 	                {
-	                    Game::scene.GetAnimation("Armature|Walk-chel-chel" + to_string(newId)).Stop();
-	                    Game::scene.GetAnimation("Stand-chel-chel" + to_string(newId)).Stop();
 	                    Game::scene.GetAnimation("Jump-chel-chel" + to_string(newId)).Play();
-	                    Game::scene.GetAnimation("Death-chel-chel" + to_string(newId)).Stop();
-	                }                    
+                        Game::scene.GetAnimation("Stand-chel-chel" + to_string(newId)).Stop();
+                        Game::scene.GetAnimation("Armature|Walk-chel-chel" + to_string(newId)).Stop();
+	                }
+
+	                Game::scene.GetAnimation("Default-chel-chel" + to_string(newId)).Stop();
 	                
 	                p >> pos.x >> pos.y >> pos.z >> orient.x >> orient.y >> orient.z >> orient.w;
 
