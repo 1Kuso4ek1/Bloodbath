@@ -155,7 +155,6 @@ GameLoop@ mainGameLoop = function()
                     {
                         Game::scene.GetAnimation("Default-chel-chel" + to_string(newId)).Play();
                         Game::scene.GetAnimation("Death-chel-chel" + to_string(newId)).Stop();
-                        Game::scene.GetAnimation("Default-chel-chel" + to_string(newId)).Stop();
 	                    Game::scene.GetAnimation("Armature|Walk-chel-chel" + to_string(newId)).Stop();
                         Game::scene.GetAnimation("Stand-chel-chel" + to_string(newId)).Stop();
                         Game::scene.GetAnimation("Jump-chel-chel" + to_string(newId)).Stop();
