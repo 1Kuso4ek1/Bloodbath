@@ -138,6 +138,7 @@ GameLoop@ mainGameLoop = function()
                         if(Game::scene.GetAnimation("Death-chel-chel" + to_string(newId)).GetState() == Stopped)
                         {
     	                    Game::scene.GetAnimation("Death-chel-chel" + to_string(newId)).Play();
+    	                    Game::scene.GetAnimation("Default-chel-chel" + to_string(newId)).Stop();
     	                    Game::scene.GetAnimation("Armature|Walk-chel-chel" + to_string(newId)).Stop();
                             Game::scene.GetAnimation("Stand-chel-chel" + to_string(newId)).Stop();
                             Game::scene.GetAnimation("Jump-chel-chel" + to_string(newId)).Stop();
@@ -151,9 +152,13 @@ GameLoop@ mainGameLoop = function()
                         break;
                     }
                     else if(Game::scene.GetAnimation("Death-chel-chel" + to_string(newId)).GetState() != Stopped)
-                    {                    
+                    {
                         Game::scene.GetAnimation("Default-chel-chel" + to_string(newId)).Play();
                         Game::scene.GetAnimation("Death-chel-chel" + to_string(newId)).Stop();
+                        Game::scene.GetAnimation("Default-chel-chel" + to_string(newId)).Stop();
+	                    Game::scene.GetAnimation("Armature|Walk-chel-chel" + to_string(newId)).Stop();
+                        Game::scene.GetAnimation("Stand-chel-chel" + to_string(newId)).Stop();
+                        Game::scene.GetAnimation("Jump-chel-chel" + to_string(newId)).Stop();
                         break;
                     }
 	                else if(onGround && moving && Game::scene.GetAnimation("Armature|Walk-chel-chel" + to_string(newId)).GetState() == Stopped)

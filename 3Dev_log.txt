@@ -1,128 +1,2459 @@
-Sat Sep  9 22:27:34 2023
+Sat Sep  9 22:47:32 2023
 	Info: Texture assets/textures/sky1.hdr loaded
-Sat Sep  9 22:27:34 2023
+Sat Sep  9 22:47:32 2023
 	Info: Renderer successfully initialized
-Sat Sep  9 22:27:35 2023
+Sat Sep  9 22:47:34 2023
 	Info: Texture assets/textures/pngwing.com.png loaded
-Sat Sep  9 22:27:35 2023
+Sat Sep  9 22:47:34 2023
 	Info: Texture assets/textures/blood_normal.png loaded
-Sat Sep  9 22:27:35 2023
+Sat Sep  9 22:47:34 2023
 	Info: Texture assets/textures/character-dead.jpg loaded
-Sat Sep  9 22:27:35 2023
+Sat Sep  9 22:47:34 2023
 	Info: Texture assets/textures/character.jpg loaded
-Sat Sep  9 22:27:35 2023
+Sat Sep  9 22:47:34 2023
 	Info: Texture assets/textures/character1.jpg loaded
-Sat Sep  9 22:27:35 2023
+Sat Sep  9 22:47:34 2023
 	Info: Texture assets/textures/map_color.jpg loaded
-Sat Sep  9 22:27:35 2023
+Sat Sep  9 22:47:34 2023
 	Info: Texture assets/textures/map_normal.jpg loaded
-Sat Sep  9 22:27:35 2023
+Sat Sep  9 22:47:34 2023
 	Info: Texture assets/textures/map_metalness.jpg loaded
-Sat Sep  9 22:27:35 2023
+Sat Sep  9 22:47:35 2023
 	Info: Texture assets/textures/map_roughness.jpg loaded
-Sat Sep  9 22:27:35 2023
+Sat Sep  9 22:47:35 2023
 	Info: Texture assets/textures/muzzle-flash.png loaded
-Sat Sep  9 22:27:35 2023
+Sat Sep  9 22:47:35 2023
 	Info: Texture assets/textures/muzzle-flash.png loaded
-Sat Sep  9 22:27:36 2023
+Sat Sep  9 22:47:35 2023
 	Info: Texture assets/textures/templategrid_albedo.png loaded
-Sat Sep  9 22:27:36 2023
+Sat Sep  9 22:47:35 2023
 	Info: Texture assets/textures/ptitsa.png loaded
-Sat Sep  9 22:27:36 2023
+Sat Sep  9 22:47:35 2023
 	Info: Texture assets/textures/Wood_ak-47_Base_Color.png loaded
-Sat Sep  9 22:27:36 2023
+Sat Sep  9 22:47:35 2023
 	Info: Texture assets/textures/Wood_ak-47_Normal_OpenGL.png loaded
-Sat Sep  9 22:27:36 2023
+Sat Sep  9 22:47:35 2023
 	Info: Texture assets/textures/Wood_ak-47_Metallic.png loaded
-Sat Sep  9 22:27:36 2023
+Sat Sep  9 22:47:35 2023
 	Info: Texture assets/textures/Wood_ak-47_Roughness.png loaded
-Sat Sep  9 22:27:36 2023
+Sat Sep  9 22:47:35 2023
 	Info: Texture assets/textures/Metall_ak-47_Base_Color.png loaded
-Sat Sep  9 22:27:36 2023
+Sat Sep  9 22:47:36 2023
 	Info: Texture assets/textures/Metall_ak-47_Normal_OpenGL.png loaded
-Sat Sep  9 22:27:36 2023
+Sat Sep  9 22:47:36 2023
 	Info: Texture assets/textures/Metall_ak-47_Metallic.png loaded
-Sat Sep  9 22:27:36 2023
+Sat Sep  9 22:47:36 2023
 	Info: Texture assets/textures/Metall_ak-47_Roughness.png loaded
-Sat Sep  9 22:27:36 2023
+Sat Sep  9 22:47:36 2023
 	Info: Model assets/models/plane.fbx loaded:
         Meshes: 1
         Bones: 0
         Animations: 0
-Sat Sep  9 22:27:36 2023
+Sat Sep  9 22:47:36 2023
 	Info: Model assets/models/LowPolyCharacter.fbx loaded:
         Meshes: 1
         Bones: 15
         Animations: 0
-Sat Sep  9 22:27:36 2023
+Sat Sep  9 22:47:36 2023
 	Info: Model assets/models/plane.fbx loaded:
         Meshes: 1
         Bones: 0
         Animations: 0
-Sat Sep  9 22:27:36 2023
+Sat Sep  9 22:47:36 2023
 	Info: Model assets/models/map.obj loaded:
         Meshes: 2
         Bones: 0
         Animations: 0
-Sat Sep  9 22:27:36 2023
+Sat Sep  9 22:47:36 2023
 	Info: Model assets/models/ak-47.fbx loaded:
         Meshes: 2
         Bones: 0
         Animations: 0
-Sat Sep  9 22:27:36 2023
+Sat Sep  9 22:47:36 2023
 	Info: Model assets/models/ak-47.fbx loaded:
         Meshes: 2
         Bones: 0
         Animations: 0
-Sat Sep  9 22:27:36 2023
+Sat Sep  9 22:47:36 2023
 	Info: Sound "assets/sounds/metal-pipe.mp3" successfully loaded
-Sat Sep  9 22:27:36 2023
+Sat Sep  9 22:47:36 2023
 	Info: Sound "assets/sounds/footstep1.ogg" successfully loaded
-Sat Sep  9 22:27:36 2023
+Sat Sep  9 22:47:36 2023
 	Info: Sound "assets/sounds/footstep2.ogg" successfully loaded
-Sat Sep  9 22:27:36 2023
+Sat Sep  9 22:47:36 2023
 	Info: Sound "assets/sounds/footstep3.ogg" successfully loaded
-Sat Sep  9 22:27:36 2023
+Sat Sep  9 22:47:36 2023
 	Info: Sound "assets/sounds/footstep4.ogg" successfully loaded
-Sat Sep  9 22:27:36 2023
+Sat Sep  9 22:47:36 2023
 	Info: Sound "assets/sounds/jump.mp3" successfully loaded
-Sat Sep  9 22:27:36 2023
+Sat Sep  9 22:47:36 2023
 	Info: Sound "assets/sounds/land.mp3" successfully loaded
-Sat Sep  9 22:27:36 2023
+Sat Sep  9 22:47:36 2023
 	Info: Sound "assets/sounds/ak47-shot.mp3" successfully loaded
-Sat Sep  9 22:27:37 2023
+Sat Sep  9 22:47:36 2023
 	Info: Sound "assets/sounds/I-Cant-Stop-Mastered.mp3" successfully loaded
-Sat Sep  9 22:27:37 2023
+Sat Sep  9 22:47:36 2023
 	Info: Sound "assets/sounds/hit1.ogg" successfully loaded
-Sat Sep  9 22:27:37 2023
+Sat Sep  9 22:47:36 2023
 	Info: Sound "assets/sounds/hit2.ogg" successfully loaded
-Sat Sep  9 22:27:37 2023
-	Info: Build completed successfully in 0.010794 s
-Sat Sep  9 22:27:37 2023
+Sat Sep  9 22:47:36 2023
+	Info: Build completed successfully in 0.013018 s
+Sat Sep  9 22:47:36 2023
 	Info: name
-Sat Sep  9 22:27:37 2023
+Sat Sep  9 22:47:36 2023
 	Info: default message
-Sat Sep  9 22:27:37 2023
+Sat Sep  9 22:47:36 2023
 	Info: ip
-Sat Sep  9 22:27:37 2023
+Sat Sep  9 22:47:36 2023
 	Info: port
-Sat Sep  9 22:27:47 2023
+Sat Sep  9 22:47:47 2023
+	Info: Model assets/models/LowPolyCharacter.fbx loaded:
+        Meshes: 1
+        Bones: 15
+        Animations: 0
+Sat Sep  9 22:47:47 2023
+	Info: Model assets/models/ak-47.fbx loaded:
+        Meshes: 2
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:48:03 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:48:03 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:48:03 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:48:19 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:48:19 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:48:44 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:49:59 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:49:59 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:50:01 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:50:02 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:50:08 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:50:09 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:50:23 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:50:23 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:50:24 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:50:24 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:50:24 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:50:34 2023
+	Info: Model assets/models/LowPolyCharacter.fbx loaded:
+        Meshes: 1
+        Bones: 15
+        Animations: 0
+Sat Sep  9 22:50:34 2023
+	Info: Model assets/models/ak-47.fbx loaded:
+        Meshes: 2
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:50:37 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:50:37 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:50:37 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:50:37 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:50:38 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:50:38 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:50:38 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:50:38 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:50:38 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:50:38 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:50:39 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:50:39 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:50:39 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:50:39 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:50:39 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:50:39 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:50:40 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:50:40 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:50:41 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:50:41 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:50:42 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:50:42 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:50:44 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:50:45 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:50:45 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:50:46 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:50:46 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:51:02 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:51:02 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:51:03 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:51:03 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:51:03 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:51:03 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:51:03 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:51:03 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:51:04 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:51:17 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:51:18 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:51:41 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:51:41 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:51:42 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:51:43 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:51:43 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:51:43 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:51:59 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:52:00 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:52:00 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:52:03 2023
+	Info: Model assets/models/LowPolyCharacter.fbx loaded:
+        Meshes: 1
+        Bones: 15
+        Animations: 0
+Sat Sep  9 22:52:03 2023
+	Info: Model assets/models/ak-47.fbx loaded:
+        Meshes: 2
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:52:14 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:52:14 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:52:14 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:52:14 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:52:14 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:52:14 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:52:15 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:52:15 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:52:15 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:52:15 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:52:15 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:52:15 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:52:15 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:52:34 2023
+	Warning: Could not find a model with name "enemy0:ground", function will return nullptr
+Sat Sep  9 22:52:34 2023
+	Warning: Could not find a model with name "chel0", function will return nullptr
+Sat Sep  9 22:52:34 2023
+	Warning: Could not find a model with name "rifle-copy0", function will return nullptr
+Sat Sep  9 22:52:34 2023
+	Info: name
+Sat Sep  9 22:52:34 2023
+	Info: default message
+Sat Sep  9 22:52:34 2023
+	Info: ip
+Sat Sep  9 22:52:34 2023
+	Info: port
+Sat Sep  9 22:52:38 2023
+	Info: Model assets/models/LowPolyCharacter.fbx loaded:
+        Meshes: 1
+        Bones: 15
+        Animations: 0
+Sat Sep  9 22:52:38 2023
+	Info: Model assets/models/ak-47.fbx loaded:
+        Meshes: 2
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:52:38 2023
+	Info: Model assets/models/LowPolyCharacter.fbx loaded:
+        Meshes: 1
+        Bones: 15
+        Animations: 0
+Sat Sep  9 22:52:38 2023
+	Info: Model assets/models/ak-47.fbx loaded:
+        Meshes: 2
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:52:45 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:52:54 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:52:55 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:52:55 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:52:55 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:53:07 2023
+	Info: name
+Sat Sep  9 22:53:07 2023
+	Info: default message
+Sat Sep  9 22:53:07 2023
+	Info: ip
+Sat Sep  9 22:53:07 2023
+	Info: port
+Sat Sep  9 22:53:10 2023
+	Info: Model assets/models/LowPolyCharacter.fbx loaded:
+        Meshes: 1
+        Bones: 15
+        Animations: 0
+Sat Sep  9 22:53:10 2023
+	Info: Model assets/models/ak-47.fbx loaded:
+        Meshes: 2
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:53:10 2023
+	Info: Model assets/models/LowPolyCharacter.fbx loaded:
+        Meshes: 1
+        Bones: 15
+        Animations: 0
+Sat Sep  9 22:53:10 2023
+	Info: Model assets/models/ak-47.fbx loaded:
+        Meshes: 2
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:53:17 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:53:17 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:53:17 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:53:18 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:53:18 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:53:18 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:53:18 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:53:18 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:53:18 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:53:18 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:53:18 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:53:18 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:53:18 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:53:18 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:53:18 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:53:18 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:53:18 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:53:24 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:53:45 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:53:52 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:53:53 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:53:53 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:53:53 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:53:53 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:53:53 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:53:53 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:53:54 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:53:54 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:53:54 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:53:54 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:53:54 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:54:00 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:54:00 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:54:00 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:54:01 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:54:01 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:54:01 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:54:01 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:54:01 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:54:01 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:54:01 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:54:02 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:54:04 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:54:04 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:54:04 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:54:04 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:54:05 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:54:19 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:54:20 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:54:20 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:54:20 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:54:20 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:54:21 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:54:21 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:54:21 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:54:38 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:54:38 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:54:40 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:54:41 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:54:41 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:54:41 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:54:41 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:54:42 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:54:42 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:54:42 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:54:57 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:54:59 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:55:00 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:55:01 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:55:01 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:55:14 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:55:14 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:55:15 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:55:15 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:55:15 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:55:15 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:55:15 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:55:15 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:55:19 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:55:20 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:55:20 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:55:20 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:55:33 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:55:33 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:55:34 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:55:34 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:55:34 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:55:34 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:55:34 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:55:34 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:55:35 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:55:35 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:55:35 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:55:35 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:55:35 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:55:35 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:55:42 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:55:42 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:55:42 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:55:42 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:56:13 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:56:13 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:56:35 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:56:36 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:56:37 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:56:37 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:56:41 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:56:41 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:56:41 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:56:41 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:56:41 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:56:41 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:56:41 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:56:41 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:56:42 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:56:46 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:56:47 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:56:47 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:56:47 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:57:01 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:57:01 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:57:02 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:57:02 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:57:02 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:57:09 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:57:10 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:57:11 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:57:11 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:57:11 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:57:18 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:57:18 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:57:18 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:57:18 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:57:19 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:57:19 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:57:19 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:57:19 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:57:19 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:57:22 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:57:23 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:57:23 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:57:23 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:57:24 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:57:28 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:57:29 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:57:29 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:57:29 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:57:35 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:57:35 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:57:35 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:57:35 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:57:42 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:57:42 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:57:42 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:57:52 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:57:52 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:57:52 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:57:52 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:57:52 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:57:53 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:57:54 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:57:55 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:57:55 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:57:55 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:57:57 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:57:57 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:58:14 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:58:19 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:58:19 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:58:21 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:58:21 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:58:21 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:58:21 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:58:21 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:58:21 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:58:21 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:58:22 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:58:22 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:58:23 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:58:23 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:58:23 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:58:49 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:58:50 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:58:50 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:58:50 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:58:50 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:58:50 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:58:50 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:58:50 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:58:50 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:58:50 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:58:50 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:59:00 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:59:00 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:59:00 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:59:00 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:59:00 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:59:01 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:59:15 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:59:15 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:59:16 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:59:16 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:59:16 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:59:16 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:59:16 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:59:33 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:59:33 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:59:33 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:59:33 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:59:51 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:59:52 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:59:53 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:59:53 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 22:59:59 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:00:00 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:00:19 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:00:19 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:00:19 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:00:20 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:00:20 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:00:20 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:00:20 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:00:29 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:00:29 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:00:29 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:00:29 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:00:34 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:00:34 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:00:34 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:00:34 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:00:34 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:00:34 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:00:34 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:00:44 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:01:07 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:01:08 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:01:08 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:01:25 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:01:25 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:01:26 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:01:26 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:01:26 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:01:26 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:01:26 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:02:07 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:02:07 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:02:08 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:02:23 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:02:51 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:02:58 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:02:58 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:03:09 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:03:09 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:03:30 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:03:30 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:04:02 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:04:03 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:04:03 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:04:03 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:04:09 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:04:10 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:04:42 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:04:42 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:04:42 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:04:43 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:04:43 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:05:17 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:05:17 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:05:17 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:05:17 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:05:17 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:05:20 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:05:20 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:05:21 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:05:21 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:05:25 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:05:25 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:05:25 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:05:37 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:05:38 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:05:38 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:05:39 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:05:39 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:05:39 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:05:48 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:05:48 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:05:49 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:05:49 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:05:49 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:05:49 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:06:17 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:06:20 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:06:20 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:06:20 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:06:20 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:06:51 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:06:55 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:06:56 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:06:56 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:06:56 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:06:56 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:07:24 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:07:24 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:07:25 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:07:25 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:07:25 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:07:25 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:07:34 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:07:34 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:08:05 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:08:21 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:08:21 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:08:21 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:08:22 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:08:45 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:08:46 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:08:49 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:08:49 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:08:49 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:08:59 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:09:46 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:09:46 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:09:46 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:09:53 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:09:54 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:09:54 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:10:13 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:10:13 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:10:13 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:10:13 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:10:13 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:10:13 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:10:13 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:10:23 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:10:24 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:10:31 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:10:31 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:10:32 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:10:32 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:10:32 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:10:32 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:10:50 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:10:50 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:11:39 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:11:50 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:11:50 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:11:50 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:12:03 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:12:03 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:12:14 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:12:14 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:12:14 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:12:22 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:12:23 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:12:23 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:12:23 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:12:24 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:12:24 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:12:24 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:12:31 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:12:31 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:12:32 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:12:48 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Sat Sep  9 23:13:14 2023
+	Warning: Could not find a model with name "enemy2:ground", function will return nullptr
+Sat Sep  9 23:13:14 2023
+	Warning: Could not find a model with name "chel2", function will return nullptr
+Sat Sep  9 23:13:14 2023
+	Warning: Could not find a model with name "rifle-copy2", function will return nullptr
+Sat Sep  9 23:13:14 2023
+	Info: name
+Sat Sep  9 23:13:14 2023
+	Info: default message
+Sat Sep  9 23:13:14 2023
+	Info: ip
+Sat Sep  9 23:13:14 2023
+	Info: port
+Sat Sep  9 23:13:17 2023
 	Warning:  (0, 0): There is an external reference to an object in module 'module', preventing it from being deleted
-Sat Sep  9 22:27:47 2023
+Sat Sep  9 23:13:17 2023
 	Info:  (0, 0): The function in previous message is named '$void Start()$5'. The func type is 1
-Sat Sep  9 22:27:47 2023
+Sat Sep  9 23:13:17 2023
 	Warning:  (0, 0): There is an external reference to an object in module 'module', preventing it from being deleted
-Sat Sep  9 22:27:47 2023
+Sat Sep  9 23:13:17 2023
 	Info:  (0, 0): The function in previous message is named '$void Start()$6'. The func type is 1
-Sat Sep  9 22:27:47 2023
+Sat Sep  9 23:13:17 2023
 	Warning:  (0, 0): There is an external reference to an object in module 'module', preventing it from being deleted
-Sat Sep  9 22:27:47 2023
+Sat Sep  9 23:13:17 2023
 	Info:  (0, 0): The function in previous message is named '$void Start()$7'. The func type is 1
-Sat Sep  9 22:27:47 2023
+Sat Sep  9 23:13:17 2023
 	Warning:  (0, 0): There is an external reference to an object in module 'module', preventing it from being deleted
-Sat Sep  9 22:27:47 2023
+Sat Sep  9 23:13:17 2023
 	Info:  (0, 0): The function in previous message is named '$void $void Start()$7()$0'. The func type is 1
-Sat Sep  9 22:27:47 2023
+Sat Sep  9 23:13:17 2023
 	Warning:  (0, 0): There is an external reference to an object in module 'module', preventing it from being deleted
-Sat Sep  9 22:27:47 2023
+Sat Sep  9 23:13:17 2023
 	Info:  (0, 0): The function in previous message is named '$void $void Start()$7()$1'. The func type is 1
