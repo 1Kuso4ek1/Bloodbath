@@ -154,6 +154,7 @@ GameLoop@ mainGameLoop = function()
                     }
                     else if(Game::scene.GetAnimation("Death-chel-chel" + to_string(newId)).GetState() != Stopped)
                     {
+                        Game::scene.GetAnimation("Death-chel-chel" + to_string(newId)).Stop();
                         clients[clients.find(Client(newId))].chel.DefaultPose();
                         break;
                     }

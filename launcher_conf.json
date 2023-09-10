@@ -3,9 +3,9 @@
     "window" :
     {
         "title" : "Bloodbath",
-        "width" : 1920,
-        "height" : 1080,
-        "fullscreen" : true,
+        "width" : 960,
+        "height" : 540,
+        "fullscreen" : false,
         "vsync" : false,
         "maxFps" : 60
     },
@@ -18,10 +18,10 @@
     {
     	"shadersDir" : "assets/shaders/",
         "hdriPath" : "assets/textures/sky1.hdr",
-        "skyboxSideSize" : 1024,
-        "irradianceSideSize" : 128,
-        "prefilteredSideSize" : 1024,
-        "shadowMapResolution" : 8192,
+        "skyboxSideSize" : 1,
+        "irradianceSideSize" : 1,
+        "prefilteredSideSize" : 1,
+        "shadowMapResolution" : 8,
         "exposure" : 1.0
     },
     "log" :
