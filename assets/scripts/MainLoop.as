@@ -279,13 +279,15 @@ GameLoop@ mainGameLoop = function()
                     }
                     break;
                 }
+
+                case 6:
+                {
+                    p >> score[0] >> score[1];
+                    break;
+                }
             }
     }
     
-    array<int> score = { 0, 0 };
-    for(uint i = 0; i < clients.length(); i++)
-        score[clients[i].team] += clients[i].kills;
-    score[team] += kills;
     hud.getLabel("score").setText(to_string(score[team]) + "-" + to_string(score[(team < 1 ? 1 : 0)]));
 
     for(uint i = 0; i < clients.length(); i++)

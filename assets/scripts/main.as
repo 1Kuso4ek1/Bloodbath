@@ -7,6 +7,7 @@ int id = 0, team = 0, kills = 0, deaths = 0, lastPort = 0;
 string name, lastIp, defaultMessage;
 Clock physicsTime, logoTime;
 bool pause = false, updatePhysics = true, chatActive = false, logo = true;
+array<int> score = { 0, 0 };
 
 funcdef void GameLoop();
 
