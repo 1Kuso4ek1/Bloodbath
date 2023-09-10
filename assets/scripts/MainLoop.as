@@ -138,10 +138,6 @@ GameLoop@ mainGameLoop = function()
                         if(Game::scene.GetAnimation("Death-chel-chel" + to_string(newId)).GetState() == Stopped)
                         {
     	                    Game::scene.GetAnimation("Death-chel-chel" + to_string(newId)).Play();
-    	                    Game::scene.GetAnimation("Default-chel-chel" + to_string(newId)).Stop();
-    	                    Game::scene.GetAnimation("Armature|Walk-chel-chel" + to_string(newId)).Stop();
-                            Game::scene.GetAnimation("Stand-chel-chel" + to_string(newId)).Stop();
-                            Game::scene.GetAnimation("Jump-chel-chel" + to_string(newId)).Stop();
                             
     	                    p >> pos.x >> pos.y >> pos.z >> orient.x >> orient.y >> orient.z >> orient.w;
                             euler = EulerFromQuaternion(orient);
@@ -158,11 +154,7 @@ GameLoop@ mainGameLoop = function()
                     }
                     else if(Game::scene.GetAnimation("Death-chel-chel" + to_string(newId)).GetState() != Stopped)
                     {
-                        Game::scene.GetAnimation("Default-chel-chel" + to_string(newId)).Play();
-                        Game::scene.GetAnimation("Death-chel-chel" + to_string(newId)).Stop();
-	                    Game::scene.GetAnimation("Armature|Walk-chel-chel" + to_string(newId)).Stop();
-                        Game::scene.GetAnimation("Stand-chel-chel" + to_string(newId)).Stop();
-                        Game::scene.GetAnimation("Jump-chel-chel" + to_string(newId)).Stop();
+                        clients[clients.find(Client(newId))].chel.DefaultPose();
                         break;
                     }
 	                else if(onGround && moving && Game::scene.GetAnimation("Armature|Walk-chel-chel" + to_string(newId)).GetState() == Stopped)
@@ -183,8 +175,6 @@ GameLoop@ mainGameLoop = function()
                         Game::scene.GetAnimation("Stand-chel-chel" + to_string(newId)).Stop();
                         Game::scene.GetAnimation("Armature|Walk-chel-chel" + to_string(newId)).Stop();
 	                }
-
-	                Game::scene.GetAnimation("Default-chel-chel" + to_string(newId)).Stop();
 	                
 	                p >> pos.x >> pos.y >> pos.z >> orient.x >> orient.y >> orient.z >> orient.w;
 
