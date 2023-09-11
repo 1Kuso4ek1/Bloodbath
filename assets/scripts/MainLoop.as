@@ -5,7 +5,7 @@ GameLoop@ mainGameLoop = function()
     Game::mouseSensitivity = pauseMenu.getSlider("sensitivity").getValue();
     pauseMenu.getLabel("sensVal").setText(to_string(Game::mouseSensitivity));
 
-    if(Keyboard::isKeyPressed(Keyboard::T))
+    if(Keyboard::isKeyPressed(Keyboard::T) && !pause)
         chatActive = true;
 
     if(Keyboard::isKeyPressed(Keyboard::Enter))
