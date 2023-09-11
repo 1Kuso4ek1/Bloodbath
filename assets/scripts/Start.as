@@ -9,8 +9,6 @@ class ServerConfig
 
 	float jumpForce = 500;
 	float maxSpeed = 6.0;
-
-	array<int> weaponDamage;
 };
 
 ServerConfig serverConfig;
@@ -23,8 +21,17 @@ void Start()
     Game::mouseCursorGrabbed = false;
 
     //Game::scene.GetModel("map:ground").SetShadowBias(0.0003);
-    Game::scene.GetModel("rifle").SetShadowBias(0.005);
-    Game::scene.GetModel("rifle").SetIsDrawable(false);
+    weapons.removeRange(0, weapons.length());
+    
+    weapons.insertLast(Weapon(Game::scene.GetModel("rifle"), Game::scene.GetModel("flash"), "ak47-shot",
+                              Game::scene.GetAnimation("rifleShoot"), Game::scene.GetAnimation("lookAtRifle"), 0.03, 0.1));
+    weapons.insertLast(Weapon(Game::scene.GetModel("deagle"), Game::scene.GetModel("flash1"), "deagle-shot",
+                              Game::scene.GetAnimation("deagleShoot"), Game::scene.GetAnimation("lookAtDeagle"), 0.06, 0.3));
+    for(uint i = 0; i < weapons.length(); i++)
+    {
+        weapons[i].model.SetIsDrawable(false);
+        weapons[i].model.SetShadowBias(0.005);
+    }
     Game::scene.GetModel("chel").SetIsDrawable(true);
     Game::scene.GetModel("rifle-copy").SetIsDrawable(false);
     Game::scene.GetAnimation("Menu-Idle").Play();
@@ -51,16 +58,16 @@ void Start()
     @player = @FPSController(Game::scene.GetModel("player"), Game::scene.GetModelGroup("ground"));
     player.AddCustomEvent(function()
     {
-        if(delay.getElapsedTime().asSeconds() < 0.2)
-            Game::camera.SetOrientation(slerp(Game::camera.GetOrientation(), Game::camera.GetOrientation() * QuaternionFromEuler(Vector3(-0.03, 0.0, 0.0)), 0.12));
-        if(Mouse::isButtonPressed(Mouse::Left) && delay.getElapsedTime().asSeconds() > 0.1 && !pause)
+        if(weapons[currentWeapon].clock.getElapsedTime().asSeconds() < 0.2)
+            Game::camera.SetOrientation(slerp(Game::camera.GetOrientation(), Game::camera.GetOrientation() * QuaternionFromEuler(Vector3(-weapons[currentWeapon].recoil, 0.0, 0.0)), 0.12));
+        if(Mouse::isButtonPressed(Mouse::Left) && weapons[currentWeapon].IsReady() && !pause && Game::scene.GetAnimation("deploy").GetState() != Playing)
         {
-            Game::scene.GetModel("flash").SetIsDrawable(true);
-            Game::scene.GetAnimation("lookAtRifle").Stop();
-            Game::scene.GetAnimation("shoot").Play();
+            weapons[currentWeapon].flash.SetIsDrawable(true);
+            weapons[currentWeapon].inspect.Stop();
+            weapons[currentWeapon].shoot.Play();
             Game::scene.GetLight("light").SetColor(Vector3(25, 10, 2));
 
-            Game::scene.GetSoundManager().PlayMono("ak47-shot", id);
+            Game::scene.GetSoundManager().PlayMono(weapons[currentWeapon].sound, id);
             
             RaycastInfo info, info1;
             Ray ray(Game::camera.GetPosition(true), Game::camera.GetPosition(true) + (Game::camera.GetOrientation() * Vector3(0, 0, -1000)));
@@ -84,26 +91,26 @@ void Start()
                 model.SetIsDrawable(true);
             }
             // code = 2, myId, damagedId, weaponId
-            Packet p; p << 2; p << id; p << (hit == -1 ? -1 : clients[hit].id); p << hs; p << 0;
+            Packet p; p << 2; p << id; p << (hit == -1 ? -1 : clients[hit].id); p << hs; p << currentWeapon;
             socket.send(p);
             if((Game::camera.GetOrientation() * Vector3(0, 0, -1)).y < 0.90)
-                Game::camera.SetOrientation(Game::camera.GetOrientation() * QuaternionFromEuler(Vector3(0.03, 0.0, 0.0)));
-            delay.restart();
+                Game::camera.SetOrientation(Game::camera.GetOrientation() * QuaternionFromEuler(Vector3(weapons[currentWeapon].recoil, 0.0, 0.0)));
+            weapons[currentWeapon].clock.restart();
         }
     });
 
     player.AddCustomEvent(function()
     {
-        if(Keyboard::isKeyPressed(Keyboard::F) && Game::scene.GetAnimation("lookAtRifle").GetState() != Playing)
+        if(Keyboard::isKeyPressed(Keyboard::F) && weapons[currentWeapon].inspect.GetState() != Playing)
         {
-            Game::scene.GetAnimation("shoot").Stop();
-            Game::scene.GetAnimation("lookAtRifle").Play();
+            weapons[currentWeapon].shoot.Stop();
+            weapons[currentWeapon].inspect.Play();
         }
     });
 
     player.AddCustomEvent(function()
     {
-        if(player.IsMoving() && Game::scene.GetAnimation("walk").GetState() != Playing && player.IsOnGround())
+        if(player.IsMoving() && Game::scene.GetAnimation("walk").GetState() != Playing && Game::scene.GetAnimation("deploy").GetState() != Playing && player.IsOnGround())
             Game::scene.GetAnimation("walk").Play();
         else if((!player.IsMoving() || !player.IsOnGround()) && Game::scene.GetAnimation("walk").GetState() == Playing)
             Game::scene.GetAnimation("walk").Pause();
@@ -192,7 +199,7 @@ void Start()
         Game::blurIterations = 16;
         Game::bloomStrength = 0.2;
         Game::scene.UpdatePhysics(true);
-        Game::scene.GetModel("rifle").SetIsDrawable(true);
+        weapons[currentWeapon].model.SetIsDrawable(true);
         Game::scene.GetSoundManager().Stop("menu-music");
         Game::scene.GetAnimation("Menu-Idle").Stop();
         Game::scene.GetModel("chel").DefaultPose();

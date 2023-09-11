@@ -1,13 +1,20 @@
 FPSController@ player;
-Clock delay, buttonTimer;
+
 TcpSocket socket;
 tgui::Gui@ menu, hud, pauseMenu;
-int health = 100; //In future, get health from the server
+
+int health = 100;
 int id = 0, team = 0, kills = 0, deaths = 0, lastPort = 0;
+uint currentWeapon = 0;
+
 string name, lastIp, defaultMessage;
-Clock physicsTime, logoTime;
+
+Clock physicsTime, logoTime, delay, buttonTimer;
+
 bool pause = false, updatePhysics = true, chatActive = false, logo = true;
+
 array<int> score = { 0, 0 };
+array<Weapon> weapons;
 
 funcdef void GameLoop();
 

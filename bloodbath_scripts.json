@@ -5,6 +5,7 @@
 		"assets/scripts/FPSController.as",
 		"assets/scripts/Start.as",
 		"assets/scripts/MainLoop.as",
-		"assets/scripts/MenuLoop.as"
+		"assets/scripts/MenuLoop.as",
+		"assets/scripts/Weapon.as"
 	]
 }

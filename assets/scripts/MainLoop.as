@@ -8,6 +8,19 @@ GameLoop@ mainGameLoop = function()
     if(Keyboard::isKeyPressed(Keyboard::T) && !pause)
         chatActive = true;
 
+    for(uint i = 0; i < weapons.length(); i++)
+    {
+        if(Keyboard::isKeyPressed(Keyboard::Num1 + i) && i != currentWeapon)
+        {
+            weapons[currentWeapon].model.SetIsDrawable(false);
+            currentWeapon = i;
+            weapons[currentWeapon].model.SetIsDrawable(true);
+            Game::scene.GetAnimation("walk").Stop();
+            Game::scene.GetAnimation("deploy").Play();
+            break;
+        }
+    }
+
     if(Keyboard::isKeyPressed(Keyboard::Enter))
     {
         auto text = hud.getEditBox("chatField").getText().toStdString();
@@ -296,7 +309,8 @@ GameLoop@ mainGameLoop = function()
     }
 
     if(updatePhysics)
-        Game::scene.GetModel("flash").SetIsDrawable(false);
+        for(uint i = 0; i < weapons.length(); i++)
+            weapons[i].flash.SetIsDrawable(false);
     if(!pause && health > 0 && !chatActive) player.Update();
     else if(health <= 0)
     {
