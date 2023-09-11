@@ -10,7 +10,7 @@ GameLoop@ mainGameLoop = function()
 
     for(uint i = 0; i < weapons.length(); i++)
     {
-        if(Keyboard::isKeyPressed(Keyboard::Num1 + i) && i != currentWeapon)
+        if(Keyboard::isKeyPressed(Keyboard::Num1 + i) && i != currentWeapon && !pause && !chatActive)
         {
             weapons[currentWeapon].model.SetIsDrawable(false);
             currentWeapon = i;
@@ -70,7 +70,7 @@ GameLoop@ mainGameLoop = function()
     Packet p;
     while(socket.receive(p) == Socket::Done)
     {
-        int code = -1, newId = -1, newTeam = -1;
+        int code = -1, newId = -1, newTeam = -1, weapon = 0;
         string newName;
         bool moving = false, onGround = true, isRunning = true;
         Vector3 pos, euler;
@@ -91,10 +91,14 @@ GameLoop@ mainGameLoop = function()
 	                    Model@ chel = @Game::scene.CloneModel(Game::scene.GetModel("chel"), true, "chel" + to_string(newId));
 	                    chel.SetIsDrawable(true);
 	                    Model@ rifle = @Game::scene.CloneModel(Game::scene.GetModel("rifle-copy"), true, "rifle-copy" + to_string(newId));
+                        Model@ deagle = @Game::scene.CloneModel(Game::scene.GetModel("deagle-copy"), true, "deagle-copy" + to_string(newId));
 	                    rifle.SetIsDrawable(true);
+	                    deagle.SetIsDrawable(true);
                         Model@ head = @Game::scene.CloneModel(Game::scene.GetModel("head"), true, "head" + to_string(newId));
 	                    cast<Node>(Game::scene.GetBone("Right-Hand-chel" + to_string(newId))).AddChild(cast<Node>(rifle));
 	                    cast<Node>(rifle).SetParent(cast<Node>(Game::scene.GetBone("Right-Hand-chel" + to_string(newId))));
+	                    cast<Node>(Game::scene.GetBone("Right-Hand-chel" + to_string(newId))).AddChild(cast<Node>(deagle));
+	                    cast<Node>(deagle).SetParent(cast<Node>(Game::scene.GetBone("Right-Hand-chel" + to_string(newId))));
 	                    cast<Node>(Game::scene.GetBone("Bone.014-chel" + to_string(newId))).AddChild(cast<Node>(head));
 	                    cast<Node>(head).SetParent(cast<Node>(Game::scene.GetBone("Bone.014-chel" + to_string(newId))));
 	                    clients.insertLast(Client(newId, newTeam, newName, model, chel));
@@ -190,7 +194,19 @@ GameLoop@ mainGameLoop = function()
                         Game::scene.GetAnimation("Armature|Walk-chel-chel" + to_string(newId)).Stop();
 	                }
 	                
-	                p >> pos.x >> pos.y >> pos.z >> orient.x >> orient.y >> orient.z >> orient.w;
+	                p >> pos.x >> pos.y >> pos.z >> orient.x >> orient.y >> orient.z >> orient.w >> weapon;
+
+                    switch(weapon)
+                    {
+                    case 0:
+                        Game::scene.GetModel("rifle-copy" + to_string(newId)).SetIsDrawable(true);
+                        Game::scene.GetModel("deagle-copy" + to_string(newId)).SetIsDrawable(false);
+                        break;
+                    case 1:
+                        Game::scene.GetModel("rifle-copy" + to_string(newId)).SetIsDrawable(false);
+                        Game::scene.GetModel("deagle-copy" + to_string(newId)).SetIsDrawable(true);
+                        break;
+                    }
 
 	                clients[clients.find(Client(newId))].model.SetPosition(pos);
                     clients[clients.find(Client(newId))].chel.SetOrientation(QuaternionFromEuler(Vector3(radians(-90.0), radians(-90.0), 0)));
@@ -207,10 +223,10 @@ GameLoop@ mainGameLoop = function()
                 case 2:
                 {
                     int id0 = -1, id1 = -1;
-                    p >> id0 >> id1;
+                    p >> id0 >> id1 >> weapon;
                     int it = clients.find(Client(id0));
-                    Game::scene.GetSoundManager().SetPosition(clients[it].model.GetPosition(), "ak47-shot", id0);
-                    Game::scene.GetSoundManager().Play("ak47-shot", id0);
+                    Game::scene.GetSoundManager().SetPosition(clients[it].model.GetPosition(), weapons[weapon].sound, id0);
+                    Game::scene.GetSoundManager().Play(weapons[weapon].sound, id0);
                     if(id1 > -1)
                     {
                         auto hitNum = to_string(int(rnd(1, 3)));
@@ -257,6 +273,7 @@ GameLoop@ mainGameLoop = function()
                     Game::scene.RemoveModel(clients[cl].model);
                     Game::scene.RemoveModel(clients[cl].chel);
                     Game::scene.RemoveModel(Game::scene.GetModel("rifle-copy" + to_string(newId)));
+                    Game::scene.RemoveModel(Game::scene.GetModel("deagle-copy" + to_string(newId)));
                     Game::scene.RemoveAnimation(Game::scene.GetAnimation("Default-chel-chel" + to_string(newId)));
                     Game::scene.RemoveAnimation(Game::scene.GetAnimation("Death-chel-chel" + to_string(newId)));
                     Game::scene.RemoveAnimation(Game::scene.GetAnimation("Jump-chel-chel" + to_string(newId)));
@@ -282,12 +299,13 @@ GameLoop@ mainGameLoop = function()
 	                if(clients[cl].health > 0)
                     {
 	                    clients[cl].chel.SetMaterial(Game::scene.GetMaterial("character" + to_string(clients[cl].team)));
-                        if(!Game::scene.GetModel("rifle-copy" + to_string(clients[cl].id)).IsDrawable())
-                            Game::scene.GetModel("rifle-copy" + to_string(clients[cl].id)).SetIsDrawable(true);
+                        /*if(!Game::scene.GetModel("rifle-copy" + to_string(clients[cl].id)).IsDrawable())
+                            Game::scene.GetModel("rifle-copy" + to_string(clients[cl].id)).SetIsDrawable(true);*/
                     }
 	                else
                     {
                         Game::scene.GetModel("rifle-copy" + to_string(clients[cl].id)).SetIsDrawable(false);
+                        Game::scene.GetModel("deagle-copy" + to_string(clients[cl].id)).SetIsDrawable(false);
 	                    clients[cl].chel.SetMaterial(Game::scene.GetMaterial("character-dead"));
                     }
                     break;
@@ -343,6 +361,8 @@ GameLoop@ mainGameLoop = function()
     p << orient.x;
     p << orient.y;
     p << orient.w;
+
+    p << currentWeapon;
 
     socket.send(p);
     p.clear();
