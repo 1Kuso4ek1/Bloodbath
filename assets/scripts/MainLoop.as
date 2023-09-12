@@ -92,13 +92,17 @@ GameLoop@ mainGameLoop = function()
 	                    chel.SetIsDrawable(true);
 	                    Model@ rifle = @Game::scene.CloneModel(Game::scene.GetModel("rifle-copy"), true, "rifle-copy" + to_string(newId));
                         Model@ deagle = @Game::scene.CloneModel(Game::scene.GetModel("deagle-copy"), true, "deagle-copy" + to_string(newId));
+                        Model@ knife = @Game::scene.CloneModel(Game::scene.GetModel("knife-copy"), true, "knife-copy" + to_string(newId));
 	                    rifle.SetIsDrawable(true);
 	                    deagle.SetIsDrawable(true);
+	                    knife.SetIsDrawable(true);
                         Model@ head = @Game::scene.CloneModel(Game::scene.GetModel("head"), true, "head" + to_string(newId));
 	                    cast<Node>(Game::scene.GetBone("Right-Hand-chel" + to_string(newId))).AddChild(cast<Node>(rifle));
 	                    cast<Node>(rifle).SetParent(cast<Node>(Game::scene.GetBone("Right-Hand-chel" + to_string(newId))));
 	                    cast<Node>(Game::scene.GetBone("Right-Hand-chel" + to_string(newId))).AddChild(cast<Node>(deagle));
 	                    cast<Node>(deagle).SetParent(cast<Node>(Game::scene.GetBone("Right-Hand-chel" + to_string(newId))));
+	                    cast<Node>(Game::scene.GetBone("Right-Hand-chel" + to_string(newId))).AddChild(cast<Node>(knife));
+	                    cast<Node>(knife).SetParent(cast<Node>(Game::scene.GetBone("Right-Hand-chel" + to_string(newId))));
 	                    cast<Node>(Game::scene.GetBone("Bone.014-chel" + to_string(newId))).AddChild(cast<Node>(head));
 	                    cast<Node>(head).SetParent(cast<Node>(Game::scene.GetBone("Bone.014-chel" + to_string(newId))));
 	                    clients.insertLast(Client(newId, newTeam, newName, model, chel));
@@ -201,10 +205,17 @@ GameLoop@ mainGameLoop = function()
                     case 0:
                         Game::scene.GetModel("rifle-copy" + to_string(newId)).SetIsDrawable(true);
                         Game::scene.GetModel("deagle-copy" + to_string(newId)).SetIsDrawable(false);
+                        Game::scene.GetModel("knife-copy" + to_string(newId)).SetIsDrawable(false);
                         break;
                     case 1:
                         Game::scene.GetModel("rifle-copy" + to_string(newId)).SetIsDrawable(false);
                         Game::scene.GetModel("deagle-copy" + to_string(newId)).SetIsDrawable(true);
+                        Game::scene.GetModel("knife-copy" + to_string(newId)).SetIsDrawable(false);
+                        break;
+                    case 2:
+                        Game::scene.GetModel("rifle-copy" + to_string(newId)).SetIsDrawable(false);
+                        Game::scene.GetModel("deagle-copy" + to_string(newId)).SetIsDrawable(false);
+                        Game::scene.GetModel("knife-copy" + to_string(newId)).SetIsDrawable(true);
                         break;
                     }
 
@@ -223,7 +234,8 @@ GameLoop@ mainGameLoop = function()
                 case 2:
                 {
                     int id0 = -1, id1 = -1;
-                    p >> id0 >> id1 >> weapon;
+                    bool hs = false;
+                    p >> id0 >> id1 >> hs >> weapon;
                     int it = clients.find(Client(id0));
                     Game::scene.GetSoundManager().SetPosition(clients[it].model.GetPosition(), weapons[weapon].sound, id0);
                     Game::scene.GetSoundManager().Play(weapons[weapon].sound, id0);
@@ -328,7 +340,8 @@ GameLoop@ mainGameLoop = function()
 
     if(updatePhysics)
         for(uint i = 0; i < weapons.length(); i++)
-            weapons[i].flash.SetIsDrawable(false);
+            if(i != 2)
+                weapons[i].flash.SetIsDrawable(false);
     if(!pause && health > 0 && !chatActive) player.Update();
     else if(health <= 0)
     {

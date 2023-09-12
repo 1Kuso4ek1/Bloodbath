@@ -1,149 +1,161 @@
-Mon Sep 11 20:44:35 2023
+Tue Sep 12 19:31:38 2023
 	Info: Texture assets/textures/sky1.hdr loaded
-Mon Sep 11 20:44:35 2023
+Tue Sep 12 19:31:38 2023
 	Info: Renderer successfully initialized
-Mon Sep 11 20:44:36 2023
+Tue Sep 12 19:31:38 2023
 	Info: Texture assets/textures/blood_normal.png loaded
-Mon Sep 11 20:44:36 2023
+Tue Sep 12 19:31:38 2023
 	Info: Texture assets/textures/pngwing.com.png loaded
-Mon Sep 11 20:44:36 2023
+Tue Sep 12 19:31:38 2023
 	Info: Texture assets/textures/character.jpg loaded
-Mon Sep 11 20:44:36 2023
+Tue Sep 12 19:31:38 2023
 	Info: Texture assets/textures/map_roughness.jpg loaded
-Mon Sep 11 20:44:36 2023
+Tue Sep 12 19:31:38 2023
 	Info: Texture assets/textures/map_metalness.jpg loaded
-Mon Sep 11 20:44:37 2023
+Tue Sep 12 19:31:38 2023
 	Info: Texture assets/textures/map_normal.jpg loaded
-Mon Sep 11 20:44:37 2023
+Tue Sep 12 19:31:38 2023
 	Info: Texture assets/textures/map_color.jpg loaded
-Mon Sep 11 20:44:37 2023
+Tue Sep 12 19:31:38 2023
 	Info: Texture assets/textures/DesertEagle_Desert_Eagle_Roughness.png loaded
-Mon Sep 11 20:44:37 2023
+Tue Sep 12 19:31:39 2023
 	Info: Texture assets/textures/DesertEagle_Desert_Eagle_Metallic.png loaded
-Mon Sep 11 20:44:37 2023
+Tue Sep 12 19:31:39 2023
 	Info: Texture assets/textures/DesertEagle_Desert_Eagle_AO.png loaded
-Mon Sep 11 20:44:37 2023
+Tue Sep 12 19:31:39 2023
 	Info: Texture assets/textures/DesertEagle_Desert_Eagle_Normal.png loaded
-Mon Sep 11 20:44:38 2023
+Tue Sep 12 19:31:39 2023
 	Info: Texture assets/textures/DesertEagle_Desert_Eagle_BaseColor.png loaded
-Mon Sep 11 20:44:38 2023
+Tue Sep 12 19:31:39 2023
 	Info: Texture assets/textures/muzzle-flash.png loaded
-Mon Sep 11 20:44:38 2023
+Tue Sep 12 19:31:39 2023
 	Info: Texture assets/textures/muzzle-flash.png loaded
-Mon Sep 11 20:44:38 2023
+Tue Sep 12 19:31:39 2023
+	Info: Texture assets/textures/roughness.png loaded
+Tue Sep 12 19:31:39 2023
+	Info: Texture assets/textures/metalness.png loaded
+Tue Sep 12 19:31:40 2023
+	Info: Texture assets/textures/normal.png loaded
+Tue Sep 12 19:31:40 2023
+	Info: Texture assets/textures/color.png loaded
+Tue Sep 12 19:31:40 2023
 	Info: Texture assets/textures/templategrid_albedo.png loaded
-Mon Sep 11 20:44:38 2023
+Tue Sep 12 19:31:40 2023
 	Info: Texture assets/textures/Wood_ak-47_Roughness.png loaded
-Mon Sep 11 20:44:38 2023
+Tue Sep 12 19:31:40 2023
 	Info: Texture assets/textures/Wood_ak-47_Metallic.png loaded
-Mon Sep 11 20:44:38 2023
+Tue Sep 12 19:31:40 2023
 	Info: Texture assets/textures/Wood_ak-47_Normal_OpenGL.png loaded
-Mon Sep 11 20:44:38 2023
+Tue Sep 12 19:31:40 2023
 	Info: Texture assets/textures/Wood_ak-47_Base_Color.png loaded
-Mon Sep 11 20:44:38 2023
+Tue Sep 12 19:31:40 2023
 	Info: Texture assets/textures/Metall_ak-47_Roughness.png loaded
-Mon Sep 11 20:44:38 2023
+Tue Sep 12 19:31:40 2023
 	Info: Texture assets/textures/Metall_ak-47_Metallic.png loaded
-Mon Sep 11 20:44:38 2023
+Tue Sep 12 19:31:41 2023
 	Info: Texture assets/textures/Metall_ak-47_Normal_OpenGL.png loaded
-Mon Sep 11 20:44:39 2023
+Tue Sep 12 19:31:41 2023
 	Info: Texture assets/textures/Metall_ak-47_Base_Color.png loaded
-Mon Sep 11 20:44:39 2023
+Tue Sep 12 19:31:41 2023
 	Info: Model assets/models/plane.fbx loaded:
         Meshes: 1
         Bones: 0
         Animations: 0
-Mon Sep 11 20:44:39 2023
+Tue Sep 12 19:31:41 2023
 	Info: Model assets/models/LowPolyCharacter.fbx loaded:
         Meshes: 1
         Bones: 15
         Animations: 0
-Mon Sep 11 20:44:39 2023
+Tue Sep 12 19:31:41 2023
 	Info: Model assets/models/DesertEagle.fbx loaded:
         Meshes: 1
         Bones: 0
         Animations: 0
-Mon Sep 11 20:44:39 2023
+Tue Sep 12 19:31:41 2023
 	Info: Model assets/models/DesertEagle.fbx loaded:
         Meshes: 1
         Bones: 0
         Animations: 0
-Mon Sep 11 20:44:39 2023
+Tue Sep 12 19:31:41 2023
 	Info: Model assets/models/plane.fbx loaded:
         Meshes: 1
         Bones: 0
         Animations: 0
-Mon Sep 11 20:44:39 2023
+Tue Sep 12 19:31:41 2023
 	Info: Model assets/models/plane.fbx loaded:
         Meshes: 1
         Bones: 0
         Animations: 0
-Mon Sep 11 20:44:39 2023
+Tue Sep 12 19:31:41 2023
+	Info: Model assets/models/knife.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Tue Sep 12 19:31:41 2023
+	Info: Model assets/models/knife.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Tue Sep 12 19:31:41 2023
 	Info: Model assets/models/map.obj loaded:
         Meshes: 2
         Bones: 0
         Animations: 0
-Mon Sep 11 20:44:39 2023
+Tue Sep 12 19:31:41 2023
 	Info: Model assets/models/ak-47.fbx loaded:
         Meshes: 2
         Bones: 0
         Animations: 0
-Mon Sep 11 20:44:39 2023
+Tue Sep 12 19:31:41 2023
 	Info: Model assets/models/ak-47.fbx loaded:
         Meshes: 2
         Bones: 0
         Animations: 0
-Mon Sep 11 20:44:39 2023
+Tue Sep 12 19:31:41 2023
 	Info: Sound "assets/sounds/metal-pipe.mp3" successfully loaded
-Mon Sep 11 20:44:39 2023
+Tue Sep 12 19:31:41 2023
 	Info: Sound "assets/sounds/footstep1.ogg" successfully loaded
-Mon Sep 11 20:44:39 2023
+Tue Sep 12 19:31:41 2023
 	Info: Sound "assets/sounds/footstep2.ogg" successfully loaded
-Mon Sep 11 20:44:39 2023
+Tue Sep 12 19:31:41 2023
 	Info: Sound "assets/sounds/footstep3.ogg" successfully loaded
-Mon Sep 11 20:44:39 2023
+Tue Sep 12 19:31:41 2023
 	Info: Sound "assets/sounds/footstep4.ogg" successfully loaded
-Mon Sep 11 20:44:39 2023
+Tue Sep 12 19:31:41 2023
 	Info: Sound "assets/sounds/jump.mp3" successfully loaded
-Mon Sep 11 20:44:39 2023
+Tue Sep 12 19:31:41 2023
 	Info: Sound "assets/sounds/land.mp3" successfully loaded
-Mon Sep 11 20:44:39 2023
+Tue Sep 12 19:31:41 2023
 	Info: Sound "assets/sounds/ak47-shot.mp3" successfully loaded
-Mon Sep 11 20:44:39 2023
+Tue Sep 12 19:31:41 2023
 	Info: Sound "assets/sounds/I-Cant-Stop-Mastered.mp3" successfully loaded
-Mon Sep 11 20:44:39 2023
+Tue Sep 12 19:31:41 2023
 	Info: Sound "assets/sounds/hit1.ogg" successfully loaded
-Mon Sep 11 20:44:39 2023
+Tue Sep 12 19:31:41 2023
 	Info: Sound "assets/sounds/hit2.ogg" successfully loaded
-Mon Sep 11 20:44:39 2023
+Tue Sep 12 19:31:41 2023
 	Info: Sound "assets/sounds/deagle-shot.mp3" successfully loaded
-Mon Sep 11 20:44:39 2023
-	Info: Build completed successfully in 0.012424 s
-Mon Sep 11 20:44:39 2023
+Tue Sep 12 19:31:41 2023
+	Info: Sound "assets/sounds/knife-sound.mp3" successfully loaded
+Tue Sep 12 19:31:41 2023
+	Info: Build completed successfully in 0.012072 s
+Tue Sep 12 19:31:41 2023
 	Info: name
-Mon Sep 11 20:44:39 2023
+Tue Sep 12 19:31:41 2023
 	Info: default message
-Mon Sep 11 20:44:39 2023
+Tue Sep 12 19:31:41 2023
 	Info: ip
-Mon Sep 11 20:44:39 2023
+Tue Sep 12 19:31:41 2023
 	Info: port
-Mon Sep 11 20:46:08 2023
+Tue Sep 12 19:31:44 2023
 	Warning:  (0, 0): There is an external reference to an object in module 'module', preventing it from being deleted
-Mon Sep 11 20:46:08 2023
+Tue Sep 12 19:31:44 2023
 	Info:  (0, 0): The function in previous message is named '$void Start()$5'. The func type is 1
-Mon Sep 11 20:46:08 2023
+Tue Sep 12 19:31:44 2023
 	Warning:  (0, 0): There is an external reference to an object in module 'module', preventing it from being deleted
-Mon Sep 11 20:46:08 2023
+Tue Sep 12 19:31:44 2023
 	Info:  (0, 0): The function in previous message is named '$void Start()$6'. The func type is 1
-Mon Sep 11 20:46:08 2023
+Tue Sep 12 19:31:44 2023
 	Warning:  (0, 0): There is an external reference to an object in module 'module', preventing it from being deleted
-Mon Sep 11 20:46:08 2023
+Tue Sep 12 19:31:44 2023
 	Info:  (0, 0): The function in previous message is named '$void Start()$7'. The func type is 1
-Mon Sep 11 20:46:08 2023
-	Warning:  (0, 0): There is an external reference to an object in module 'module', preventing it from being deleted
-Mon Sep 11 20:46:08 2023
-	Info:  (0, 0): The function in previous message is named '$void $void Start()$7()$0'. The func type is 1
-Mon Sep 11 20:46:08 2023
-	Warning:  (0, 0): There is an external reference to an object in module 'module', preventing it from being deleted
-Mon Sep 11 20:46:08 2023
-	Info:  (0, 0): The function in previous message is named '$void $void Start()$7()$1'. The func type is 1

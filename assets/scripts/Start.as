@@ -24,9 +24,11 @@ void Start()
     weapons.removeRange(0, weapons.length());
     
     weapons.insertLast(Weapon(Game::scene.GetModel("rifle"), Game::scene.GetModel("flash"), "ak47-shot",
-                              Game::scene.GetAnimation("rifleShoot"), Game::scene.GetAnimation("lookAtRifle"), 0.03, 0.1));
+                              Game::scene.GetAnimation("rifleShoot"), Game::scene.GetAnimation("lookAtRifle"), 0.03, 0.1, 1000));
     weapons.insertLast(Weapon(Game::scene.GetModel("deagle"), Game::scene.GetModel("flash1"), "deagle-shot",
-                              Game::scene.GetAnimation("deagleShoot"), Game::scene.GetAnimation("lookAtDeagle"), 0.06, 0.3));
+                              Game::scene.GetAnimation("deagleShoot"), Game::scene.GetAnimation("lookAtDeagle"), 0.06, 0.3, 1000));
+    weapons.insertLast(Weapon(Game::scene.GetModel("knife"), null, "knife-sound",
+                              Game::scene.GetAnimation("knifeHit"), Game::scene.GetAnimation("lookAtKnife"), 0.0, 1.0, 5));
     for(uint i = 0; i < weapons.length(); i++)
     {
         weapons[i].model.SetIsDrawable(false);
@@ -34,6 +36,8 @@ void Start()
     }
     Game::scene.GetModel("chel").SetIsDrawable(true);
     Game::scene.GetModel("rifle-copy").SetIsDrawable(false);
+    Game::scene.GetModel("deagle-copy").SetIsDrawable(false);
+    Game::scene.GetModel("knife-copy").SetIsDrawable(false);
     Game::scene.GetAnimation("Menu-Idle").Play();
 
     Game::scene.GetPhysicsManager().SetTimeStep(1.0 / 60.0);
@@ -62,15 +66,17 @@ void Start()
             Game::camera.SetOrientation(slerp(Game::camera.GetOrientation(), Game::camera.GetOrientation() * QuaternionFromEuler(Vector3(-weapons[currentWeapon].recoil, 0.0, 0.0)), 0.12));
         if(Mouse::isButtonPressed(Mouse::Left) && weapons[currentWeapon].IsReady() && !pause && Game::scene.GetAnimation("deploy").GetState() != Playing)
         {
-            weapons[currentWeapon].flash.SetIsDrawable(true);
+            if(currentWeapon != 2)
+                weapons[currentWeapon].flash.SetIsDrawable(true);
             weapons[currentWeapon].inspect.Stop();
             weapons[currentWeapon].shoot.Play();
-            Game::scene.GetLight("light").SetColor(Vector3(25, 10, 2));
+            if(currentWeapon != 2)
+                Game::scene.GetLight("light").SetColor(Vector3(25, 10, 2));
 
             Game::scene.GetSoundManager().PlayMono(weapons[currentWeapon].sound, id);
             
             RaycastInfo info, info1;
-            Ray ray(Game::camera.GetPosition(true), Game::camera.GetPosition(true) + (Game::camera.GetOrientation() * Vector3(0, 0, -1000)));
+            Ray ray(Game::camera.GetPosition(true), Game::camera.GetPosition(true) + (Game::camera.GetOrientation() * Vector3(0, 0, -weapons[currentWeapon].range)));
             int hit = -1; bool hs = false;
             for(uint i = 0; i < clients.length(); i++)
             {
