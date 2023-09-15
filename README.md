@@ -1,4 +1,5 @@
 # Bloodbath
+![](https://img.shields.io/github/downloads/1kuso4ek1/Bloodbath/total)  
 A multiplayer shooter made with 3Dev. (In development)
 ## Features
 - Cool movement with bunnyhopping, surfing and vaulting!
