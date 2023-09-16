@@ -2,7 +2,20 @@ GameLoop@ mainGameLoop = function()
 {
     hud.getProgressBar("health").setValue(health);
 
-    Game::mouseSensitivity = pauseMenu.getSlider("sensitivity").getValue();
+    if(Game::mouseSensitivity != pauseMenu.getSlider("sensitivity").getValue())
+    {
+        Game::mouseSensitivity = pauseMenu.getSlider("sensitivity").getValue();
+        file data;
+        if(data.open("assets/default.txt", "r") >= 0)
+        {
+            auto str = data.readString(data.getSize() - to_string(Game::mouseSensitivity).length());
+            data.close();
+            data.open("assets/default.txt", "w");
+            data.writeString(str + to_string(Game::mouseSensitivity));
+            data.close();
+        }
+    }
+
     pauseMenu.getLabel("sensVal").setText(to_string(Game::mouseSensitivity));
 
     if(Keyboard::isKeyPressed(Keyboard::T) && !pause)
@@ -318,6 +331,7 @@ GameLoop@ mainGameLoop = function()
                     {
                         Game::scene.GetModel("rifle-copy" + to_string(clients[cl].id)).SetIsDrawable(false);
                         Game::scene.GetModel("deagle-copy" + to_string(clients[cl].id)).SetIsDrawable(false);
+                        Game::scene.GetModel("knife-copy" + to_string(clients[cl].id)).SetIsDrawable(false);
 	                    clients[cl].chel.SetMaterial(Game::scene.GetMaterial("character-dead"));
                     }
                     break;
@@ -342,13 +356,17 @@ GameLoop@ mainGameLoop = function()
         for(uint i = 0; i < weapons.length(); i++)
             if(i != 2)
                 weapons[i].flash.SetIsDrawable(false);
-    if(!pause && health > 0 && !chatActive) player.Update();
-    else if(health <= 0)
+    player.Update();
+    if(health <= 0)
     {
         Game::exposure = lerp(Game::exposure, 0.0, 0.005);
         Game::blurIterations = int(lerp(Game::blurIterations, 64, 0.03));
         Game::bloomStrength = lerp(Game::bloomStrength, 1.0, 0.15);
     }
+    if(player.IsMoving() && Game::scene.GetAnimation("walk").GetState() != Playing && Game::scene.GetAnimation("deploy").GetState() != Playing && player.IsOnGround())
+        Game::scene.GetAnimation("walk").Play();
+    else if((!player.IsMoving() || !player.IsOnGround()) && Game::scene.GetAnimation("walk").GetState() == Playing)
+        Game::scene.GetAnimation("walk").Pause();
     Game::camera.SetPosition(Game::scene.GetModel("player").GetPosition() + Vector3(0, 2.5, 0));
 
     hud.getLabel("velocity").setText(to_string(int(Game::scene.GetModel("player").GetRigidBody().getLinearVelocity().length())));

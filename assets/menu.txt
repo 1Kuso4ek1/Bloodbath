@@ -125,7 +125,7 @@ Button.play {
 
 Label.info {
     Position = (0, 380);
-    Size = (189, 72.6154);
+    Size = (189, 82.6154);
     TextSize = 13;
 
     Renderer {

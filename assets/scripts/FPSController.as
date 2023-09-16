@@ -35,6 +35,19 @@ class FPSController
     void Update()
     {
         if(!updatePhysics) return;
+
+        if(pause || health <= 0 || chatActive)
+        {
+            UpdateIsOnGround();
+            moving = false;
+            if(onGround)
+                playerRB.setLinearVelocity(
+                    Vector3(playerRB.getLinearVelocity().x / 1.3,
+                            playerRB.getLinearVelocity().y,
+                            playerRB.getLinearVelocity().z / 1.3));
+            return;
+        }
+
         isRunning = !Keyboard::isKeyPressed(Keyboard::LShift);
         auto v = Game::camera.Move(isRunning ? 1.0 : 0.5, true); v.y = 0.0; v *= 250;
         moving = v.length() > 0;
@@ -69,6 +82,28 @@ class FPSController
         for(uint i = 0; i < customEvents.length(); i++)
             customEvents[i]();
 
+        UpdateIsOnGround();
+
+        if(!onGround && serverConfig.allowBhop) bhopDelay.restart();
+
+        if(Keyboard::isKeyPressed(Keyboard::Space))
+        {
+            if((onGround && canJump) || canVault)
+            {
+                playerModel.GetRigidBody().applyWorldForceAtCenterOfMass(Vector3(0, serverConfig.jumpForce + (canVault ? serverConfig.jumpForce / 2.0 : 0), 0) + Game::camera.GetOrientation() * Vector3(0, 0, -250));
+                Game::scene.GetSoundManager().SetPosition(playerModel.GetPosition(), "jump", 0);
+                if(jumpSound)
+                    Game::scene.GetSoundManager().Play("jump", 0);
+                jumpSound = false;
+                canJump = false;
+                canVault = false;
+            }
+        }
+        else canJump = true;
+    }
+
+    void UpdateIsOnGround()
+    {
         Ray ray(playerModel.GetPosition(), playerModel.GetPosition() - Vector3(0, playerModel.GetSize().y + 0.05, 0));
         Ray ray1(Game::camera.GetPosition(true), Game::camera.GetPosition(true) + (Game::camera.GetOrientation() * Vector3(0, 0, -3)));
         Ray ray2(Game::camera.GetPosition(true) - Vector3(0.0, playerModel.GetSize().y - 0.2, 0.0), Game::camera.GetPosition(true) - Vector3(0.0, playerModel.GetSize().y - 0.2, 0.0) + (Game::camera.GetOrientation() * Vector3(0, 0, -3)));
@@ -96,23 +131,6 @@ class FPSController
         }
 
         onGround = count > 0;
-
-        if(!onGround && serverConfig.allowBhop) bhopDelay.restart();
-
-        if(Keyboard::isKeyPressed(Keyboard::Space))
-        {
-            if((onGround && canJump) || canVault)
-            {
-                playerModel.GetRigidBody().applyWorldForceAtCenterOfMass(Vector3(0, serverConfig.jumpForce + (canVault ? serverConfig.jumpForce / 2.0 : 0), 0) + Game::camera.GetOrientation() * Vector3(0, 0, -250));
-                Game::scene.GetSoundManager().SetPosition(playerModel.GetPosition(), "jump", 0);
-                if(jumpSound)
-                    Game::scene.GetSoundManager().Play("jump", 0);
-                jumpSound = false;
-                canJump = false;
-                canVault = false;
-            }
-        }
-        else canJump = true;
     }
     
     void SetGroundGroup(ModelGroup ground)

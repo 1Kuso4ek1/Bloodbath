@@ -113,14 +113,6 @@ void Start()
             weapons[currentWeapon].inspect.Play();
         }
     });
-
-    player.AddCustomEvent(function()
-    {
-        if(player.IsMoving() && Game::scene.GetAnimation("walk").GetState() != Playing && Game::scene.GetAnimation("deploy").GetState() != Playing && player.IsOnGround())
-            Game::scene.GetAnimation("walk").Play();
-        else if((!player.IsMoving() || !player.IsOnGround()) && Game::scene.GetAnimation("walk").GetState() == Playing)
-            Game::scene.GetAnimation("walk").Pause();
-    });
     
     player.AddCustomEvent(function()
     {
@@ -153,15 +145,14 @@ void Start()
     if(data.open("assets/default.txt", "r") >= 0)
     {
         name = data.readLine(); name.erase(name.length() - 1, 1);
-        Log::Write("name");
         defaultMessage = data.readLine(); defaultMessage.erase(defaultMessage.length() - 1, 1);
-        Log::Write("default message");
         lastIp = data.readLine(); lastIp.erase(lastIp.length() - 1, 1);
-        Log::Write("ip");
-        auto port = data.readLine();
-        if(port.length() > 1)
+        auto port = data.readLine(); port.erase(port.length() - 1, 1);
+        auto sens = data.readLine();
+        if(port.length() > 0)
             lastPort = stoi(port);
-        Log::Write("port");
+        if(sens.length() > 0)
+            Game::mouseSensitivity = stof(sens);
 
         menu.getEditBox("ip").setText(lastIp);
         menu.getEditBox("port").setText(to_string(lastPort));
@@ -187,7 +178,8 @@ void Start()
             data.writeString(name + "\n");
             data.writeString(defaultMessage + "\n");
             data.writeString(ip + "\n");
-            data.writeString(to_string(port));
+            data.writeString(to_string(port) + "\n");
+            data.writeString(to_string(Game::mouseSensitivity));
 
             data.close();
         }
@@ -217,9 +209,11 @@ void Start()
         engine.RemoveGui();
         @hud = @engine.CreateGui("assets/hud.txt");
         @pauseMenu = @engine.CreateGui("assets/pause.txt");
+        pauseMenu.getSlider("sensitivity").setValue(Game::mouseSensitivity);
         pauseMenu.setOpacity(0.0);
         hud.getEditBox("chatField").setVisible(false);
         hud.getEditBox("chatField").setEnabled(false);
+        socket.setBlocking(false);
 
         if(serverConfig.name.length() > 0)
         {

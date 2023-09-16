@@ -1,4 +1,4 @@
-Clock updateInfo;
+Clock updateInfo, ping;
 
 GameLoop@ menuLoop = function()
 {
@@ -24,6 +24,8 @@ GameLoop@ menuLoop = function()
         updateInfo.restart();
         Packet upd; upd << -1;
         socket.send(upd);
+        socket.setBlocking(true);
+        ping.restart();
         int numPlayers = 0, event = 0;
         while(socket.receive(upd) == Socket::Done)
         {
@@ -31,7 +33,7 @@ GameLoop@ menuLoop = function()
             if(event == -1)
             {
                 upd >> id >> serverConfig.name >> serverConfig.allowBhop >> serverConfig.enableFullGUI >> serverConfig.maxPlayers >> serverConfig.jumpForce >> serverConfig.maxSpeed >> numPlayers >> team;
-                menu.getLabel("info").setText("Connected to " + serverConfig.name + "\n" + to_string(numPlayers - 1) + "/" + to_string(serverConfig.maxPlayers) + " players\n" + "ID: " + to_string(id));
+                menu.getLabel("info").setText("Connected to " + serverConfig.name + "\n" + to_string(numPlayers - 1) + "/" + to_string(serverConfig.maxPlayers) + " players\n" + "ID: " + to_string(id) + "\nPing: " + to_string(ping.getElapsedTime().asMilliseconds()));
                 menu.getButton("play").setText("Play");
                 break;
             }
@@ -41,5 +43,6 @@ GameLoop@ menuLoop = function()
                 menu.getLabel("info").setText("Server refused connection");
             }
         }
+        socket.setBlocking(false);
     }
 };
