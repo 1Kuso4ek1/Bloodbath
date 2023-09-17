@@ -34,6 +34,7 @@ void Start()
         weapons[i].model.SetIsDrawable(false);
         weapons[i].model.SetShadowBias(0.005);
     }
+    //Game::scene.GetModel("chel").SetShadowBias(0.005);
     Game::scene.GetModel("chel").SetIsDrawable(true);
     Game::scene.GetModel("rifle-copy").SetIsDrawable(false);
     Game::scene.GetModel("deagle-copy").SetIsDrawable(false);
