@@ -14,12 +14,14 @@ GameLoop@ menuLoop = function()
         Game::exposure = lerp(Game::exposure, 1.0, 0.015);
         Game::blurIterations = int(lerp(Game::blurIterations, 16, 0.8));
         Game::bloomStrength = lerp(Game::bloomStrength, 0.3, 0.002 + Game::exposure / 100.0);
+
+        Game::camera.SetFOV(lerp(Game::camera.GetFOV(), 90.0, 0.002));
     }
 
-    if(!socket.isBlocking() && updateInfo.getElapsedTime().asSeconds() >= 0.5)
+    if(!socket.isBlocking() && updateInfo.getElapsedTime().asSeconds() >= 2.0)
     {
         updateInfo.restart();
-        Packet upd; upd << -1;
+        Packet upd; upd << -1; upd << name; upd << password;
         socket.send(upd);
         socket.setBlocking(true);
         ping.restart();
@@ -29,8 +31,9 @@ GameLoop@ menuLoop = function()
             upd >> event;
             if(event == -1)
             {
-                upd >> id >> serverConfig.name >> serverConfig.allowBhop >> serverConfig.enableFullGUI >> serverConfig.maxPlayers >> serverConfig.jumpForce >> serverConfig.maxSpeed >> numPlayers >> team;
-                menu.getLabel("info").setText("Connected to " + serverConfig.name + "\n" + to_string(numPlayers - 1) + "/" + to_string(serverConfig.maxPlayers) + " players\n" + "ID: " + to_string(id) + "\nPing: " + to_string(ping.getElapsedTime().asMilliseconds()));
+                string stats;
+                upd >> id >> serverConfig.name >> serverConfig.allowBhop >> serverConfig.enableFullGUI >> serverConfig.maxPlayers >> serverConfig.jumpForce >> serverConfig.maxSpeed >> numPlayers >> team >> stats;
+                menu.getLabel("info").setText("Connected to " + serverConfig.name + "\n" + to_string(numPlayers - 1) + "/" + to_string(serverConfig.maxPlayers) + " players\n" + "ID: " + to_string(id) + "\nPing: " + to_string(ping.getElapsedTime().asMilliseconds()) + "\n" + stats);
                 menu.getButton("play").setText("Play");
                 break;
             }

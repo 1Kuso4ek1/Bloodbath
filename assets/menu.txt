@@ -60,7 +60,7 @@ EditBox.port {
 }
 
 Button.connect {
-    Position = (0, 350);
+    Position = (0, 380);
     Size = (91, 22);
     Text = Connect;
     TextSize = 13;
@@ -92,7 +92,7 @@ Button.connect {
 }
 
 Button.play {
-    Position = (100, 350);
+    Position = (100, 380);
     Size = (91, 22);
     Text = "Play alone";
     TextSize = 13;
@@ -124,8 +124,8 @@ Button.play {
 }
 
 Label.info {
-    Position = (0, 380);
-    Size = (189, 82.6154);
+    Position = (0, 410);
+    Size = (189, 402.615);
     TextSize = 13;
 
     Renderer {
@@ -193,6 +193,38 @@ EditBox.nickname {
     DefaultText = Nickname;
     MaximumCharacters = 30;
     Position = (0, 320);
+    Size = (190, 22);
+    TextSize = 13;
+
+    Renderer {
+        BackgroundColor = #F5F5F5;
+        BackgroundColorDisabled = #E6E6E6;
+        BackgroundColorHover = white;
+        BorderColor = #3C3C3C;
+        BorderColorDisabled = #7D7D7D;
+        BorderColorHover = black;
+        Borders = (1, 1, 1, 1);
+        CaretColor = black;
+        CaretWidth = 1;
+        DefaultTextColor = #A0A0A0;
+        Opacity = 0.5;
+        Padding = (0, 0, 0, 0);
+        SelectedTextBackgroundColor = #006EFF;
+        SelectedTextColor = white;
+        TextColor = #3C3C3C;
+        TextColorDisabled = #7D7D7D;
+        Texture = None;
+        TextureDisabled = None;
+        TextureFocused = None;
+        TextureHover = None;
+    }
+}
+
+EditBox.password {
+    DefaultText = "Password (optional)";
+    MaximumCharacters = 30;
+    PasswordCharacter = "*";
+    Position = (0, 350);
     Size = (190, 22);
     TextSize = 13;
 

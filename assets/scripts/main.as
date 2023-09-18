@@ -7,7 +7,7 @@ int health = 100;
 int id = 0, team = 0, kills = 0, deaths = 0, lastPort = 0;
 uint currentWeapon = 0;
 
-string name, lastIp, defaultMessage;
+string name, password, lastIp;
 
 Clock physicsTime, logoTime, delay, buttonTimer;
 

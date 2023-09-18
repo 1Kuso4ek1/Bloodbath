@@ -40,6 +40,7 @@ void Start()
     Game::scene.GetModel("deagle-copy").SetIsDrawable(false);
     Game::scene.GetModel("knife-copy").SetIsDrawable(false);
     Game::scene.GetAnimation("Menu-Idle").Play();
+    Game::camera.SetFOV(10.0);
 
     Game::scene.GetPhysicsManager().SetTimeStep(1.0 / 60.0);
 
@@ -146,7 +147,7 @@ void Start()
     if(data.open("assets/default.txt", "r") >= 0)
     {
         name = data.readLine(); name.erase(name.length() - 1, 1);
-        defaultMessage = data.readLine(); defaultMessage.erase(defaultMessage.length() - 1, 1);
+        password = data.readLine(); password.erase(password.length() - 1, 1);
         lastIp = data.readLine(); lastIp.erase(lastIp.length() - 1, 1);
         auto port = data.readLine(); port.erase(port.length() - 1, 1);
         auto sens = data.readLine();
@@ -158,6 +159,7 @@ void Start()
         menu.getEditBox("ip").setText(lastIp);
         menu.getEditBox("port").setText(to_string(lastPort));
         menu.getEditBox("nickname").setText(name);
+        menu.getEditBox("password").setText(password);
 
         data.close();
     }
@@ -172,12 +174,13 @@ void Start()
         auto ip = menu.getEditBox("ip").getText().toStdString();
         auto port = stoi(menu.getEditBox("port").getText().toStdString());
         name = menu.getEditBox("nickname").getText().toStdString();
+        password = menu.getEditBox("password").getText().toStdString();
         file data;
 
         if(data.open("assets/default.txt", "w") >= 0)
         {
             data.writeString(name + "\n");
-            data.writeString(defaultMessage + "\n");
+            data.writeString(password + "\n");
             data.writeString(ip + "\n");
             data.writeString(to_string(port) + "\n");
             data.writeString(to_string(Game::mouseSensitivity));
@@ -221,14 +224,6 @@ void Start()
             hud.getChatBox("chat").addLine("Welcome to the " + serverConfig.name);
             Packet p;
             p << 0; p << id; p << name; p << team;
-            socket.send(p);
-        }
-
-        if(defaultMessage.length() > 0)
-        {
-            hud.getChatBox("chat").addLine(name + ": " + defaultMessage);
-            Packet p;
-            p << 3; p << name + ": " + defaultMessage; p << 0;
             socket.send(p);
         }
 
