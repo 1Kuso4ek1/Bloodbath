@@ -31,7 +31,7 @@ void Start()
                               Game::scene.GetAnimation("knifeHit"), Game::scene.GetAnimation("lookAtKnife"), 0.0, 1.0, 5));
     for(uint i = 0; i < weapons.length(); i++)
     {
-        //weapons[i].model.SetIsDrawable(false);
+        weapons[i].model.SetIsDrawable(false);
         weapons[i].model.SetShadowBias(0.005);
     }
     //Game::scene.GetModel("chel").SetShadowBias(0.005);
@@ -198,7 +198,8 @@ void Start()
         Game::blurIterations = 16;
         Game::bloomStrength = 0.2;
         Game::scene.UpdatePhysics(true);
-        //weapons[currentWeapon].model.SetIsDrawable(true);
+        weapons[currentWeapon].model.SetIsDrawable(true);
+        Game::scene.GetAnimation("HoldRifle-chel").Play();
         Game::scene.GetSoundManager().Stop("menu-music");
         Game::scene.GetAnimation("Menu-Idle").Stop();
         Game::scene.GetModel("chel").DefaultPose();
