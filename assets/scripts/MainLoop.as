@@ -34,8 +34,10 @@ GameLoop@ mainGameLoop = function()
             weapons[currentWeapon].model.SetIsDrawable(false);
             currentWeapon = i;
             weapons[currentWeapon].model.SetIsDrawable(true);
-            Game::scene.GetAnimation("walk").Stop();
-            Game::scene.GetAnimation("deploy").Play();
+            /*Game::scene.GetAnimation("walk").Stop();
+            Game::scene.GetAnimation("deploy").Play();*/
+            Game::scene.GetBone("Left-Arm.0-chel").SetOrientation(QuaternionFromEuler(Vector3(40, 100, -83)));
+            Game::scene.GetBone("Right-Arm.0-chel").SetOrientation(QuaternionFromEuler(Vector3(-40, -100, 83)));
             switch(i)
             {
             case 0:
@@ -232,22 +234,29 @@ GameLoop@ mainGameLoop = function()
 	                
 	                p >> pos.x >> pos.y >> pos.z >> orient.x >> orient.y >> orient.z >> orient.w >> weapon;
 
+                    Game::scene.GetAnimation("HoldRifle-chel-chel" + to_string(newId)).Stop();
+                    Game::scene.GetAnimation("HoldPistol-chel-chel" + to_string(newId)).Stop();
+                    Game::scene.GetAnimation("HoldKnife-chel-chel" + to_string(newId)).Stop();
+
                     switch(weapon)
                     {
                     case 0:
                         Game::scene.GetModel("rifle-copy" + to_string(newId)).SetIsDrawable(true);
                         Game::scene.GetModel("deagle-copy" + to_string(newId)).SetIsDrawable(false);
                         Game::scene.GetModel("knife-copy" + to_string(newId)).SetIsDrawable(false);
+                        Game::scene.GetAnimation("HoldRifle-chel-chel" + to_string(newId)).Play();
                         break;
                     case 1:
                         Game::scene.GetModel("rifle-copy" + to_string(newId)).SetIsDrawable(false);
                         Game::scene.GetModel("deagle-copy" + to_string(newId)).SetIsDrawable(true);
                         Game::scene.GetModel("knife-copy" + to_string(newId)).SetIsDrawable(false);
+                        Game::scene.GetAnimation("HoldPistol-chel-chel" + to_string(newId)).Play();
                         break;
                     case 2:
                         Game::scene.GetModel("rifle-copy" + to_string(newId)).SetIsDrawable(false);
                         Game::scene.GetModel("deagle-copy" + to_string(newId)).SetIsDrawable(false);
                         Game::scene.GetModel("knife-copy" + to_string(newId)).SetIsDrawable(true);
+                        Game::scene.GetAnimation("HoldKnife-chel-chel" + to_string(newId)).Play();
                         break;
                     }
 
@@ -256,12 +265,13 @@ GameLoop@ mainGameLoop = function()
                     
                     euler = EulerFromQuaternion(orient); 
                     auto euler1 = euler; euler1.x = radians(90.0);
-                    auto euler2 = euler; euler2.y = euler2.z = 0.0;
+                    auto euler2 = euler; euler2.x /= 2; euler2.y = euler2.z = 0.0;
                     auto euler3 = euler; euler3.y = euler3.x * 0.8; euler3.x = radians(40); euler3.z = radians(-83);
                     euler.x = 0; euler.y = radians(-30);
 
                     Game::scene.GetBone("Body-chel" + to_string(newId)).SetOrientation(slerp(Game::scene.GetBone("Body-chel" + to_string(newId)).GetOrientation(), QuaternionFromEuler(euler1), 0.5));
 
+                    Game::scene.GetBone("Bone.013-chel" + to_string(newId)).SetOrientation(QuaternionFromEuler(euler2));
                     Game::scene.GetBone("Bone.014-chel" + to_string(newId)).SetOrientation(QuaternionFromEuler(euler2));
 
                     Game::scene.GetBone("Left-Arm.0-chel" + to_string(newId)).SetOrientation(slerp(Game::scene.GetBone("Left-Arm.0-chel" + to_string(newId)).GetOrientation(), QuaternionFromEuler(euler3), 0.5));
@@ -399,7 +409,7 @@ GameLoop@ mainGameLoop = function()
         Game::scene.GetAnimation("walk").Play();
     else if((!player.IsMoving() || !player.IsOnGround()) && Game::scene.GetAnimation("walk").GetState() == Playing)
         Game::scene.GetAnimation("walk").Pause();
-    Game::camera.SetPosition(Game::scene.GetModel("player").GetPosition() + Vector3(0, 1.4, 0) + Game::camera.GetOrientation() * Vector3(0, 0.6, -0.8));
+    Game::camera.SetPosition(Game::scene.GetModel("player").GetPosition() + Vector3(0, 1.4, 0) + Game::camera.GetOrientation() * Vector3(0, 0.6, -0.4));
 
     hud.getLabel("velocity").setText(to_string(int(Game::scene.GetModel("player").GetRigidBody().getLinearVelocity().length())));
 
@@ -414,13 +424,14 @@ GameLoop@ mainGameLoop = function()
 
 	auto euler = EulerFromQuaternion(orient1); 
     auto euler1 = euler; euler1.x = radians(90.0);
-    auto euler2 = euler; euler2.y = euler2.z = 0.0;
+    auto euler2 = euler; euler2.x /= 2; euler2.y = euler2.z = 0.0;
     auto euler3 = euler; euler3.y = euler3.x; euler3.x = radians(40); euler3.z = radians(-83);
     euler.x = 0; euler.y = radians(-30);
 
     Game::scene.GetBone("Body-chel").SetOrientation(slerp(Game::scene.GetBone("Body-chel").GetOrientation(), QuaternionFromEuler(euler1), 0.5));
 
-    Game::scene.GetBone("Bone.014-chel").SetSize(Vector3(0.7, 0.7, 0.7));
+    Game::scene.GetBone("Bone.014-chel").SetSize(Vector3(1.0, 1.0, 0.3));
+    Game::scene.GetBone("Bone.013-chel").SetOrientation(QuaternionFromEuler(euler2));
     Game::scene.GetBone("Bone.014-chel").SetOrientation(QuaternionFromEuler(euler2));
 
     Game::scene.GetBone("Left-Arm.0-chel").SetOrientation(slerp(Game::scene.GetBone("Left-Arm.0-chel").GetOrientation(), QuaternionFromEuler(euler3), 0.5));

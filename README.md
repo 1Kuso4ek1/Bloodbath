@@ -7,7 +7,9 @@ A multiplayer shooter made with 3Dev. (In development)
 - Working multiplayer!
 - Cool graphics!
 - Blood!
+- True First Person!
 - Metal pipe falling sound effect!
+- A FUCKING DILDO WTF 🤨🤨🤨
 - AMOGUS!
 ## Main server
 SLAUGHTERHOUSE #1
