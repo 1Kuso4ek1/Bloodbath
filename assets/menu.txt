@@ -14,7 +14,8 @@ EditBox.ip {
         Borders = (1, 1, 1, 1);
         CaretColor = black;
         CaretWidth = 1;
-        DefaultTextColor = #A0A0A0;
+        DefaultTextColor = black;
+        DefaultTextStyle = Italic;
         Opacity = 0.5;
         Padding = (0, 0, 0, 0);
         SelectedTextBackgroundColor = #006EFF;
@@ -45,7 +46,8 @@ EditBox.port {
         Borders = (1, 1, 1, 1);
         CaretColor = black;
         CaretWidth = 1;
-        DefaultTextColor = #A0A0A0;
+        DefaultTextColor = black;
+        DefaultTextStyle = Italic;
         Opacity = 0.5;
         Padding = (0, 0, 0, 0);
         SelectedTextBackgroundColor = #006EFF;
@@ -206,7 +208,8 @@ EditBox.nickname {
         Borders = (1, 1, 1, 1);
         CaretColor = black;
         CaretWidth = 1;
-        DefaultTextColor = #A0A0A0;
+        DefaultTextColor = black;
+        DefaultTextStyle = Italic;
         Opacity = 0.5;
         Padding = (0, 0, 0, 0);
         SelectedTextBackgroundColor = #006EFF;
@@ -238,7 +241,8 @@ EditBox.password {
         Borders = (1, 1, 1, 1);
         CaretColor = black;
         CaretWidth = 1;
-        DefaultTextColor = #A0A0A0;
+        DefaultTextColor = black;
+        DefaultTextStyle = Italic;
         Opacity = 0.5;
         Padding = (0, 0, 0, 0);
         SelectedTextBackgroundColor = #006EFF;

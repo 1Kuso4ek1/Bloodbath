@@ -59,12 +59,12 @@ class FPSController
             footstepDelay.restart();
         }
         if((!Keyboard::isKeyPressed(Keyboard::LControl) || !onGround) && serverConfig.allowBhop)
-            playerRB.applyWorldForceAtCenterOfMass((onGround && bhopDelay.getElapsedTime().asSeconds() >= 0.3) ? v : v / (Dot(v / 50, playerRB.getLinearVelocity()) < 2 ? 3.0 : (serverConfig.allowBhop ? 100.0 : 50.0)));
+            playerRB.applyWorldForceAtCenterOfMass((onGround && bhopDelay.getElapsedTime().asSeconds() >= 0.3) ? v : v / (Dot(v / v.length(), playerRB.getLinearVelocity() / playerRB.getLinearVelocity().length()) < -0.01 ? 0.75 : (serverConfig.allowBhop ? 100.0 : 50.0)));
         else if(!serverConfig.allowBhop && onGround)
             playerRB.applyWorldForceAtCenterOfMass(v);
 
         auto vel = playerRB.getLinearVelocity();
-        auto maxSpeed = serverConfig.maxSpeed * (isRunning ? 2.5 : 0.1);
+        auto maxSpeed = serverConfig.maxSpeed * (isRunning ? 2.5 : 0.25);
         if(vel.x > maxSpeed) vel.x = maxSpeed;
         if(vel.z > maxSpeed) vel.z = maxSpeed;
         if(vel.x < -maxSpeed) vel.x = -maxSpeed;
@@ -83,6 +83,21 @@ class FPSController
             customEvents[i]();
 
         UpdateIsOnGround();
+        if(onGround)
+        {
+            Game::scene.GetAnimation("Jump-chel").Stop();
+            Game::scene.GetAnimation("Stand-chel").Stop();
+            if(moving)
+            {
+                if(Game::scene.GetAnimation("Armature|Walk-chel").GetState() != Playing)
+                    Game::scene.GetAnimation("Armature|Walk-chel").Play();
+            }
+            else
+            {
+                Game::scene.GetAnimation("Armature|Walk-chel").Stop();
+                Game::scene.GetAnimation("Stand-chel").Play();
+            }
+        }
 
         if(!onGround && serverConfig.allowBhop) bhopDelay.restart();
 
@@ -94,6 +109,9 @@ class FPSController
                 Game::scene.GetSoundManager().SetPosition(playerModel.GetPosition(), "jump", 0);
                 if(jumpSound)
                     Game::scene.GetSoundManager().Play("jump", 0);
+                Game::scene.GetAnimation("Armature|Walk-chel").Stop();
+                Game::scene.GetAnimation("Stand-chel").Stop();
+                Game::scene.GetAnimation("Jump-chel").Play();
                 jumpSound = false;
                 canJump = false;
                 canVault = false;

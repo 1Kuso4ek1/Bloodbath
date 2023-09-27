@@ -121,17 +121,9 @@ void Start()
         {
             auto l = Game::scene.GetModel("player").GetRigidBody().getLinearVelocity().length();
             Game::camera.SetFOV(lerp(Game::camera.GetFOV(), 80 + l, 0.05));
-            if(Game::camera.GetFOV() >= 135)
-                Game::camera.SetFOV(135);
+            if(Game::camera.GetFOV() >= 120)
+                Game::camera.SetFOV(120);
         }
-    });
-
-    player.AddCustomEvent(function()
-    {
-        if(player.IsRunning())
-            Game::scene.GetAnimation("walk").SetTPS(15);
-        else
-            Game::scene.GetAnimation("walk").SetTPS(5);
     });
 
     @menu = @engine.CreateGui("assets/menu.txt");

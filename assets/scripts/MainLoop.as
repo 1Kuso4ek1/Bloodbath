@@ -341,6 +341,7 @@ GameLoop@ mainGameLoop = function()
                     Game::scene.RemoveModel(clients[cl].chel);
                     Game::scene.RemoveModel(Game::scene.GetModel("rifle-copy" + to_string(newId)));
                     Game::scene.RemoveModel(Game::scene.GetModel("deagle-copy" + to_string(newId)));
+                    Game::scene.RemoveModel(Game::scene.GetModel("knife-copy" + to_string(newId)));
                     Game::scene.RemoveAnimation(Game::scene.GetAnimation("Default-chel-chel" + to_string(newId)));
                     Game::scene.RemoveAnimation(Game::scene.GetAnimation("Death-chel-chel" + to_string(newId)));
                     Game::scene.RemoveAnimation(Game::scene.GetAnimation("Jump-chel-chel" + to_string(newId)));

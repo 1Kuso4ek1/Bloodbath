@@ -94,8 +94,8 @@ EditBox.chatField {
 }
 
 Label.velocity {
-    Position = (1890, 1060);
-    Size = (24, 18);
+    Position = (1870, 1060);
+    Size = (44, 18);
     Text = 1;
     TextSize = 13;
 
