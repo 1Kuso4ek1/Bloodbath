@@ -74,7 +74,7 @@ void Start()
 
             Game::scene.GetSoundManager().PlayMono(weapons[currentWeapon].sound, id);
             
-            RaycastInfo info, info1;
+            RaycastInfo info, info1, infohs;
             Ray ray(Game::camera.GetPosition(true), Game::camera.GetPosition(true) + (Game::camera.GetOrientation() * Vector3(0, 0, -weapons[currentWeapon].range)));
             int hit = -1; bool hs = false;
             for(uint i = 0; i < clients.length(); i++)
@@ -82,12 +82,15 @@ void Start()
                 if(clients[i].model.GetRigidBody().raycast(ray, info))
                     hit = i;
                 Game::scene.GetModel("head" + to_string(clients[i].id)).GetRigidBody().setIsActive(true);
-                if(Game::scene.GetModel("head" + to_string(clients[i].id)).GetRigidBody().raycast(ray, info))
+                if(Game::scene.GetModel("head" + to_string(clients[i].id)).GetRigidBody().raycast(ray, infohs))
+                {
                     hs = true;
+                    info = infohs;
+                }
                 Game::scene.GetModel("head" + to_string(clients[i].id)).GetRigidBody().setIsActive(false);
             }
             Game::scene.GetModel("map:ground").GetRigidBody().raycast(ray, info1);
-            if(hit != -1 && (info.worldPoint - Game::camera.GetPosition()).length() < (info1.worldPoint - Game::camera.GetPosition()).length())
+            if(hit != -1 && ((info.worldPoint - Game::camera.GetPosition()).length() < (info1.worldPoint - Game::camera.GetPosition()).length()))
             {
                 auto pos = clients[hit].model.GetPosition();
                 pos.y = 0.01;
@@ -95,6 +98,7 @@ void Start()
                 model.SetPosition(pos + Vector3(rnd(-5, 5), 0, rnd(-5, 5)));
                 model.SetIsDrawable(true);
             }
+            else hit = -1;
             // code = 2, myId, damagedId, weaponId
             Packet p; p << 2; p << id; p << (hit == -1 ? -1 : clients[hit].id); p << hs; p << currentWeapon;
             socket.send(p);
