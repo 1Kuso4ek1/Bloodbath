@@ -21,6 +21,8 @@ GameLoop@ mainGameLoop = function()
     if(Keyboard::isKeyPressed(Keyboard::T) && !pause)
         chatActive = true;
 
+    if(Game::scene.GetAnimation("knifeHit").GetState() == Paused)
+        Game::scene.GetAnimation("knifeHit").Stop();
     Game::scene.GetAnimation("HoldRifle-chel").Stop();
     Game::scene.GetAnimation("HoldPistol-chel").Stop();
     Game::scene.GetAnimation("HoldKnife-chel").Stop();
