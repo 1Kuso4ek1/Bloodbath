@@ -88,6 +88,8 @@ void Start()
                     info = infohs;
                 }
                 Game::scene.GetModel("head" + to_string(clients[i].id)).GetRigidBody().setIsActive(false);
+                
+                if(hit != -1) break;
             }
             Game::scene.GetModel("map:ground").GetRigidBody().raycast(ray, info1);
             if(hit != -1 && ((info.worldPoint - Game::camera.GetPosition()).length() < (info1.worldPoint - Game::camera.GetPosition()).length()))
@@ -99,6 +101,7 @@ void Start()
                 model.SetIsDrawable(true);
             }
             else hit = -1;
+            
             // code = 2, myId, damagedId, weaponId
             Packet p; p << 2; p << id; p << (hit == -1 ? -1 : clients[hit].id); p << hs; p << currentWeapon;
             socket.send(p);

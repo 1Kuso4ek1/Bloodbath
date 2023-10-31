@@ -6,7 +6,7 @@
         "width" : 1920,
         "height" : 1080,
         "fullscreen" : true,
-        "vsync" : false,
+        "vsync" : true,
         "maxFps" : 60
     },
     "gui" :
@@ -18,10 +18,11 @@
     {
     	"shadersDir" : "assets/shaders/",
         "hdriPath" : "assets/textures/sky1.hdr",
-        "skyboxSideSize" : 1024,
-        "irradianceSideSize" : 128,
-        "prefilteredSideSize" : 1024,
-        "shadowMapResolution" : 8192,
+        "skyboxSideSize" : 512,
+        "irradianceSideSize" : 32,
+        "prefilteredSideSize" : 512,
+        "shadowMapResolution" : 4096,
+        "bloomResolutionScale" : 10,
         "exposure" : 1.0
     },
     "log" :
