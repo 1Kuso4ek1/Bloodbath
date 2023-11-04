@@ -36,8 +36,7 @@ GameLoop@ mainGameLoop = function()
             weapons[currentWeapon].model.SetIsDrawable(false);
             currentWeapon = i;
             weapons[currentWeapon].model.SetIsDrawable(true);
-            /*Game::scene.GetAnimation("walk").Stop();
-            Game::scene.GetAnimation("deploy").Play();*/
+            Game::scene.GetAnimation("knifeHit").Stop();
             Game::scene.GetBone("Left-Arm.0-chel").SetOrientation(QuaternionFromEuler(Vector3(40, 100, -83)));
             Game::scene.GetBone("Right-Arm.0-chel").SetOrientation(QuaternionFromEuler(Vector3(-40, -100, 83)));
             switch(i)
@@ -73,13 +72,26 @@ GameLoop@ mainGameLoop = function()
     {
         buttonTimer.restart();
         if(chatActive)
+        {
             chatActive = false;
+            chatTimer.restart();
+        }
         else
             pause = !pause;
     }
 
     hud.getEditBox("chatField").setVisible(chatActive);
     hud.getEditBox("chatField").setEnabled(chatActive);
+    if(chatActive && hidden)
+    {
+    	hud.getChatBox("chat").showWithEffect(tgui::Fade, seconds(0.5));
+        hidden = false;
+    }
+    else if(!chatActive && chatTimer.getElapsedTime().asSeconds() > 3.0 && !hidden)
+    {
+    	hud.getChatBox("chat").hideWithEffect(tgui::Fade, seconds(0.5));
+        hidden = true;
+    }
 
     if(!pause && health > 0)
     {
@@ -322,6 +334,9 @@ GameLoop@ mainGameLoop = function()
 
                 case 3:
                 {
+                    hud.getChatBox("chat").showWithEffect(tgui::Fade, seconds(0.5));
+                    hidden = false;
+                    chatTimer.restart();
                     string message; 
                     int type = 0;
                     p >> message >> type;

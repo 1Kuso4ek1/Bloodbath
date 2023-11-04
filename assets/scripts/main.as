@@ -9,9 +9,9 @@ uint currentWeapon = 0;
 
 string name, password, lastIp;
 
-Clock physicsTime, logoTime, delay, buttonTimer;
+Clock physicsTime, logoTime, delay, buttonTimer, chatTimer;
 
-bool pause = false, updatePhysics = true, chatActive = false, logo = true;
+bool pause = false, updatePhysics = true, chatActive = false, logo = true, hidden = false;
 
 array<int> score = { 0, 0 };
 array<Weapon> weapons;
