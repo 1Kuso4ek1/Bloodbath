@@ -5,9 +5,9 @@
         "title" : "Bloodbath",
         "width" : 1920,
         "height" : 1080,
-        "fullscreen" : true,
-        "vsync" : false,
-        "maxFps" : 60
+        "fullscreen" : false,
+        "vsync" : true,
+        "maxFps" : 120
     },
     "gui" :
     {
@@ -22,7 +22,7 @@
         "irradianceSideSize" : 32,
         "prefilteredSideSize" : 512,
         "shadowMapResolution" : 4096,
-        "bloomResolutionScale" : 10,
+        "bloomResolutionScale" : 8,
         "exposure" : 1.0
     },
     "log" :

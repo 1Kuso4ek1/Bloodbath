@@ -214,7 +214,10 @@ void Start()
         pauseMenu.setOpacity(0.0);
         hud.getEditBox("chatField").setVisible(false);
         hud.getEditBox("chatField").setEnabled(false);
+        chatTimer.restart();
         socket.setBlocking(false);
+
+        Game::scene.GetModel("chel").SetMaterial(Game::scene.GetMaterial("character" + to_string(team)));
 
         if(serverConfig.name.length() > 0)
         {

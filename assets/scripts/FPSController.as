@@ -34,8 +34,8 @@ class FPSController
 
     void Update()
     {
-        if(!updatePhysics) return;
-
+		if(!updatePhysics) return;
+    
         if(pause || health <= 0 || chatActive)
         {
             UpdateIsOnGround();

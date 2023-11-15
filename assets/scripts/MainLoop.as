@@ -114,6 +114,12 @@ GameLoop@ mainGameLoop = function()
 
     Game::scene.GetLight("light").SetColor(Vector3(0, 0, 0));
 
+    for(uint i = 0; i < clients.length(); i++)
+    {
+        Game::scene.GetModel("flash-copy" + to_string(clients[i].id)).SetIsDrawable(false);
+        Game::scene.GetModel("flash-copy1" + to_string(clients[i].id)).SetIsDrawable(false);
+    }
+
     Packet p;
     while(socket.receive(p) == Socket::Done)
     {
@@ -140,14 +146,27 @@ GameLoop@ mainGameLoop = function()
 	                    Model@ rifle = @Game::scene.CloneModel(Game::scene.GetModel("rifle-copy"), true, "rifle-copy" + to_string(newId));
                         Model@ deagle = @Game::scene.CloneModel(Game::scene.GetModel("deagle-copy"), true, "deagle-copy" + to_string(newId));
                         Model@ knife = @Game::scene.CloneModel(Game::scene.GetModel("knife-copy"), true, "knife-copy" + to_string(newId));
-	                    rifle.SetIsDrawable(true);
+                        Model@ flash = @Game::scene.CloneModel(Game::scene.GetModel("flash"), true, "flash-copy" + to_string(newId));
+                        Model@ flash1 = @Game::scene.CloneModel(Game::scene.GetModel("flash1"), true, "flash-copy1" + to_string(newId));
+	                    
+                        rifle.SetIsDrawable(true);
 	                    deagle.SetIsDrawable(true);
 	                    knife.SetIsDrawable(true);
+                        flash.SetIsDrawable(false);
+                        flash1.SetIsDrawable(false);
+
                         Model@ head = @Game::scene.CloneModel(Game::scene.GetModel("head"), true, "head" + to_string(newId));
+
 	                    cast<Node>(Game::scene.GetBone("Right-Hand-chel" + to_string(newId))).AddChild(cast<Node>(rifle));
 	                    cast<Node>(rifle).SetParent(cast<Node>(Game::scene.GetBone("Right-Hand-chel" + to_string(newId))));
 	                    cast<Node>(Game::scene.GetBone("Right-Hand-chel" + to_string(newId))).AddChild(cast<Node>(deagle));
 	                    cast<Node>(deagle).SetParent(cast<Node>(Game::scene.GetBone("Right-Hand-chel" + to_string(newId))));
+                        
+                        cast<Node>(rifle).AddChild(cast<Node>(flash));
+	                    cast<Node>(flash).SetParent(cast<Node>(rifle));
+	                    cast<Node>(deagle).AddChild(cast<Node>(flash1));
+	                    cast<Node>(flash1).SetParent(cast<Node>(deagle));
+
 	                    cast<Node>(Game::scene.GetBone("Right-Hand-chel" + to_string(newId))).AddChild(cast<Node>(knife));
 	                    cast<Node>(knife).SetParent(cast<Node>(Game::scene.GetBone("Right-Hand-chel" + to_string(newId))));
 	                    cast<Node>(Game::scene.GetBone("Bone.014-chel" + to_string(newId))).AddChild(cast<Node>(head));
@@ -167,10 +186,11 @@ GameLoop@ mainGameLoop = function()
 
                     if(id == newId)
                     {
-                        p >> pos.x >> pos.y >> pos.z;
+                        p >> pos.x >> pos.y >> pos.z >> team;
                         Game::scene.GetModel("player").GetRigidBody().setLinearVelocity(Vector3(0, 0, 0));
                         Game::scene.GetModel("player").GetRigidBody().setAngularVelocity(Vector3(0, 0, 0));
                         Game::scene.GetModel("player").SetPosition(pos);
+                        Game::scene.GetModel("chel").SetMaterial(Game::scene.GetMaterial("character" + to_string(team)));
                         break;
                     }
 
@@ -308,6 +328,14 @@ GameLoop@ mainGameLoop = function()
                     int it = clients.find(Client(id0));
                     Game::scene.GetSoundManager().SetPosition(clients[it].model.GetPosition(), weapons[weapon].sound, id0);
                     Game::scene.GetSoundManager().Play(weapons[weapon].sound, id0);
+
+                    switch(weapon)
+                    {
+                    case 0: Game::scene.GetModel("flash-copy" + to_string(id0)).SetIsDrawable(true); break;
+                    case 1: Game::scene.GetModel("flash-copy1" + to_string(id0)).SetIsDrawable(true); break;
+                    default: break;
+                    }
+
                     if(id1 > -1)
                     {
                         auto hitNum = to_string(int(rnd(1, 3)));
@@ -413,16 +441,20 @@ GameLoop@ mainGameLoop = function()
     }
 
     if(updatePhysics)
-        for(uint i = 0; i < weapons.length(); i++)
-            if(i != 2)
-                weapons[i].flash.SetIsDrawable(false);
-    player.Update();
-    if(health <= 0)
     {
-        Game::exposure = lerp(Game::exposure, 0.0, 0.005);
-        Game::blurIterations = int(lerp(Game::blurIterations, 64, 0.03));
-        Game::bloomStrength = lerp(Game::bloomStrength, 1.0, 0.15);
+	    for(uint i = 0; i < weapons.length(); i++)
+	        if(i != 2)
+	            weapons[i].flash.SetIsDrawable(false);
+		if(health <= 0)
+		{
+		    Game::exposure = lerp(Game::exposure, 0.0, 0.005);
+		    Game::blurIterations = int(lerp(Game::blurIterations, 64, 0.03));
+		    Game::bloomStrength = lerp(Game::bloomStrength, 1.0, 0.15);
+		}
     }
+
+	player.Update();
+    
     if(player.IsMoving() && Game::scene.GetAnimation("walk").GetState() != Playing && Game::scene.GetAnimation("deploy").GetState() != Playing && player.IsOnGround())
         Game::scene.GetAnimation("walk").Play();
     else if((!player.IsMoving() || !player.IsOnGround()) && Game::scene.GetAnimation("walk").GetState() == Playing)
