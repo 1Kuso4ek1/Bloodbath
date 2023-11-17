@@ -68,6 +68,13 @@ GameLoop@ mainGameLoop = function()
         }
     }
 
+    if(Keyboard::isKeyPressed(Keyboard::F1) && buttonTimer.getElapsedTime().asSeconds() > 0.3)
+    {
+    	buttonTimer.restart();
+    	freeCamera = !freeCamera;
+    	Game::manageCameraMovement = freeCamera;
+    }
+
     if(Keyboard::isKeyPressed(Keyboard::Escape) && buttonTimer.getElapsedTime().asSeconds() > 0.3)
     {
         buttonTimer.restart();
@@ -453,71 +460,74 @@ GameLoop@ mainGameLoop = function()
 		}
     }
 
-	player.Update();
-    
-    if(player.IsMoving() && Game::scene.GetAnimation("walk").GetState() != Playing && Game::scene.GetAnimation("deploy").GetState() != Playing && player.IsOnGround())
-        Game::scene.GetAnimation("walk").Play();
-    else if((!player.IsMoving() || !player.IsOnGround()) && Game::scene.GetAnimation("walk").GetState() == Playing)
-        Game::scene.GetAnimation("walk").Pause();
-    Game::camera.SetPosition(Game::scene.GetModel("player").GetPosition() + Vector3(0, 1.4, 0) + Game::camera.GetOrientation() * Vector3(0, 0.6, -0.4));
+	if(!freeCamera)
+	{
+		player.Update();
+	    
+	    if(player.IsMoving() && Game::scene.GetAnimation("walk").GetState() != Playing && Game::scene.GetAnimation("deploy").GetState() != Playing && player.IsOnGround())
+	        Game::scene.GetAnimation("walk").Play();
+	    else if((!player.IsMoving() || !player.IsOnGround()) && Game::scene.GetAnimation("walk").GetState() == Playing)
+	        Game::scene.GetAnimation("walk").Pause();
+	    Game::camera.SetPosition(Game::scene.GetModel("player").GetPosition() + Vector3(0, 1.4, 0) + Game::camera.GetOrientation() * Vector3(0, 0.6, -0.4));
 
-    hud.getLabel("velocity").setText(to_string(int(Game::scene.GetModel("player").GetRigidBody().getLinearVelocity().length())));
+	    hud.getLabel("velocity").setText(to_string(int(Game::scene.GetModel("player").GetRigidBody().getLinearVelocity().length())));
 
-    p.clear();
-    auto pos = Game::scene.GetModel("player").GetPosition();
-    auto orient = Game::camera.GetOrientation();
-    auto orient1 = orient = orient * QuaternionFromEuler(Vector3(0, radians(-90), 0));
-    orient1.x = orient.z; orient1.y = orient.x; orient1.z = orient.y;
+	    p.clear();
+	    auto pos = Game::scene.GetModel("player").GetPosition();
+	    auto orient = Game::camera.GetOrientation();
+	    auto orient1 = orient = orient * QuaternionFromEuler(Vector3(0, radians(-90), 0));
+	    orient1.x = orient.z; orient1.y = orient.x; orient1.z = orient.y;
 
-    Game::scene.GetModel("chel").SetPosition(pos);
-    Game::scene.GetModel("chel").SetOrientation(QuaternionFromEuler(Vector3(radians(-90.0), radians(-90.0), 0)));
+	    Game::scene.GetModel("chel").SetPosition(pos);
+	    Game::scene.GetModel("chel").SetOrientation(QuaternionFromEuler(Vector3(radians(-90.0), radians(-90.0), 0)));
 
-	auto euler = EulerFromQuaternion(orient1); 
-    auto euler1 = euler; euler1.x = radians(90.0);
-    auto euler2 = euler; euler2.x /= 2; euler2.y = euler2.z = 0.0;
-    auto euler3 = euler; euler3.y = euler3.x; euler3.x = radians(40); euler3.z = radians(-83);
-    euler.x = 0; euler.y = radians(-30);
+		auto euler = EulerFromQuaternion(orient1); 
+	    auto euler1 = euler; euler1.x = radians(90.0);
+	    auto euler2 = euler; euler2.x /= 2; euler2.y = euler2.z = 0.0;
+	    auto euler3 = euler; euler3.y = euler3.x; euler3.x = radians(40); euler3.z = radians(-83);
+	    euler.x = 0; euler.y = radians(-30);
 
-    Game::scene.GetBone("Body-chel").SetOrientation(slerp(Game::scene.GetBone("Body-chel").GetOrientation(), QuaternionFromEuler(euler1), 0.5));
+	    Game::scene.GetBone("Body-chel").SetOrientation(slerp(Game::scene.GetBone("Body-chel").GetOrientation(), QuaternionFromEuler(euler1), 0.5));
 
-    Game::scene.GetBone("Bone.014-chel").SetSize(Vector3(1.0, 1.0, 0.3));
-    Game::scene.GetBone("Bone.013-chel").SetOrientation(QuaternionFromEuler(euler2));
-    Game::scene.GetBone("Bone.014-chel").SetOrientation(QuaternionFromEuler(euler2));
+	    Game::scene.GetBone("Bone.014-chel").SetSize(Vector3(1.0, 1.0, 0.3));
+	    Game::scene.GetBone("Bone.013-chel").SetOrientation(QuaternionFromEuler(euler2));
+	    Game::scene.GetBone("Bone.014-chel").SetOrientation(QuaternionFromEuler(euler2));
 
-    Game::scene.GetBone("Left-Arm.0-chel").SetOrientation(slerp(Game::scene.GetBone("Left-Arm.0-chel").GetOrientation(), QuaternionFromEuler(euler3), 0.5));
-    //euler2.x *= -1; euler2.y = radians(-17.659); euler2.z = radians(65.436);
-    euler3.x = radians(-40); euler3.y *= -1; euler3.z = radians(83);
-    Game::scene.GetBone("Right-Arm.0-chel").SetOrientation(slerp(Game::scene.GetBone("Right-Arm.0-chel").GetOrientation(), QuaternionFromEuler(euler3), 0.5));
+	    Game::scene.GetBone("Left-Arm.0-chel").SetOrientation(slerp(Game::scene.GetBone("Left-Arm.0-chel").GetOrientation(), QuaternionFromEuler(euler3), 0.5));
+	    //euler2.x *= -1; euler2.y = radians(-17.659); euler2.z = radians(65.436);
+	    euler3.x = radians(-40); euler3.y *= -1; euler3.z = radians(83);
+	    Game::scene.GetBone("Right-Arm.0-chel").SetOrientation(slerp(Game::scene.GetBone("Right-Arm.0-chel").GetOrientation(), QuaternionFromEuler(euler3), 0.5));
 
-	Game::scene.GetBone("Bone.007-chel").SetOrientation(slerp(Game::scene.GetBone("Bone.007-chel").GetOrientation(), QuaternionFromEuler(euler) * QuaternionFromEuler(Vector3(0, 0, radians(90.0))), 0.1));
-	euler.y = -euler.y;
-	Game::scene.GetBone("Bone.010-chel").SetOrientation(slerp(Game::scene.GetBone("Bone.010-chel").GetOrientation(), QuaternionFromEuler(euler) * QuaternionFromEuler(Vector3(0, 0, radians(-90.0))), 0.1));
+		Game::scene.GetBone("Bone.007-chel").SetOrientation(slerp(Game::scene.GetBone("Bone.007-chel").GetOrientation(), QuaternionFromEuler(euler) * QuaternionFromEuler(Vector3(0, 0, radians(90.0))), 0.1));
+		euler.y = -euler.y;
+		Game::scene.GetBone("Bone.010-chel").SetOrientation(slerp(Game::scene.GetBone("Bone.010-chel").GetOrientation(), QuaternionFromEuler(euler) * QuaternionFromEuler(Vector3(0, 0, radians(-90.0))), 0.1));
 
-    p << 1;
-
-    p << id;
-
-    p << player.IsMoving();
-    p << player.IsOnGround();
-    p << player.IsRunning();
-
-    p << pos.x;
-    p << pos.y;
-    p << pos.z;
-
-    p << orient.z;
-    p << orient.x;
-    p << orient.y;
-    p << orient.w;
-
-    p << currentWeapon;
-
-    socket.send(p);
-    p.clear();
-    if(pos.y < -10)
-    {
-        p << -69;
-        socket.send(p);
-        p.clear();
-    }
+		p << 1;
+		
+	    p << id;
+	
+	    p << player.IsMoving();
+	    p << player.IsOnGround();
+	    p << player.IsRunning();
+	
+	    p << pos.x;
+	    p << pos.y;
+	    p << pos.z;
+	
+	    p << orient.z;
+	    p << orient.x;
+	    p << orient.y;
+	    p << orient.w;
+	
+	    p << currentWeapon;
+	
+	    socket.send(p);
+	    p.clear();
+	    if(pos.y < -10)
+	    {
+	        p << -69;
+	        socket.send(p);
+	        p.clear();
+	    }
+	}
 };

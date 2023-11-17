@@ -11,7 +11,7 @@ string name, password, lastIp;
 
 Clock physicsTime, logoTime, delay, buttonTimer, chatTimer;
 
-bool pause = false, updatePhysics = true, chatActive = false, logo = true, hidden = false;
+bool pause = false, updatePhysics = true, chatActive = false, logo = true, hidden = false, freeCamera = false;
 
 array<int> score = { 0, 0 };
 array<Weapon> weapons;
