@@ -447,22 +447,9 @@ GameLoop@ mainGameLoop = function()
         clients[i].chel.SetPosition(clients[i].model.GetPosition() - Vector3(0, 0.1, 0));
     }
 
-    if(updatePhysics)
-    {
-	    for(uint i = 0; i < weapons.length(); i++)
-	        if(i != 2)
-	            weapons[i].flash.SetIsDrawable(false);
-		if(health <= 0)
-		{
-		    Game::exposure = lerp(Game::exposure, 0.0, 0.005);
-		    Game::blurIterations = int(lerp(Game::blurIterations, 64, 0.03));
-		    Game::bloomStrength = lerp(Game::bloomStrength, 1.0, 0.15);
-		}
-    }
-
 	if(!freeCamera)
 	{
-		player.Update();
+        player.Update();
 	    
 	    if(player.IsMoving() && Game::scene.GetAnimation("walk").GetState() != Playing && Game::scene.GetAnimation("deploy").GetState() != Playing && player.IsOnGround())
 	        Game::scene.GetAnimation("walk").Play();
@@ -501,6 +488,47 @@ GameLoop@ mainGameLoop = function()
 		Game::scene.GetBone("Bone.007-chel").SetOrientation(slerp(Game::scene.GetBone("Bone.007-chel").GetOrientation(), QuaternionFromEuler(euler) * QuaternionFromEuler(Vector3(0, 0, radians(90.0))), 0.1));
 		euler.y = -euler.y;
 		Game::scene.GetBone("Bone.010-chel").SetOrientation(slerp(Game::scene.GetBone("Bone.010-chel").GetOrientation(), QuaternionFromEuler(euler) * QuaternionFromEuler(Vector3(0, 0, radians(-90.0))), 0.1));
+
+		if(updatePhysics)
+	    {
+	        for(uint i = 0; i < tracers.length(); i++)
+	        {
+	            tracers[i].Move(tracers[i].GetOrientation() * QuaternionFromEuler(Vector3(-1.57, 0.0, 0.0)) * Vector3(0, 0, -25));
+	        }
+	
+	        for(uint i = 0; i < tracers.length(); i++)
+	        {
+	            if((Game::camera.GetPosition() - tracers[i].GetPosition()).length() > 100.0)
+	            {
+	                Game::scene.RemoveModel(tracers[i]);
+	                tracers.removeAt(i);
+	            }
+	        }
+	        
+			for(uint i = 0; i < weapons.length(); i++)
+		        if(i != 2)
+		        	if(weapons[i].flash.IsDrawable())
+		        	{
+		            	weapons[i].flash.SetIsDrawable(!removeFlash);
+	
+						auto tracer = Game::scene.CloneModel(Game::scene.GetModel("tracer"), false, "tracer-copy" + to_string(tracerCounter++));
+		            	tracer.SetPosition(Game::camera.GetPosition() + Game::camera.GetOrientation() * Vector3(0.6, -0.3, -11));
+	   	                tracer.SetOrientation(Game::camera.GetOrientation() * QuaternionFromEuler(Vector3(1.57, 0.0, 0.0)));
+	   	                tracer.SetSize(Vector3(0.01, rnd(1, 10), 0.01));
+	   	                tracer.SetIsDrawable(true);
+	   	                tracers.insertLast(tracer);
+						if(!removeFlash)
+	   	                	removeFlash = !removeFlash;
+		            }
+	
+			if(health <= 0)
+			{
+			    Game::exposure = lerp(Game::exposure, 0.0, 0.005);
+			    Game::blurIterations = int(lerp(Game::blurIterations, 64, 0.03));
+			    Game::bloomStrength = lerp(Game::bloomStrength, 1.0, 0.15);
+			}
+	    }
+	
 
 		p << 1;
 		

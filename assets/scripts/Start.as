@@ -34,7 +34,7 @@ void Start()
         weapons[i].model.SetIsDrawable(false);
         weapons[i].model.SetShadowBias(0.005);
     }
-    //Game::scene.GetModel("chel").SetShadowBias(0.005);
+    Game::scene.GetModel("chel").SetShadowBias(0.005);
     Game::scene.GetModel("chel").SetIsDrawable(true);
     Game::scene.GetAnimation("Menu-Idle").Play();
     Game::camera.SetFOV(10.0);
@@ -107,7 +107,10 @@ void Start()
             socket.send(p);
             if((Game::camera.GetOrientation() * Vector3(0, 0, -1)).y < 0.90)
                 Game::camera.SetOrientation(Game::camera.GetOrientation() * QuaternionFromEuler(Vector3(weapons[currentWeapon].recoil, 0.0, 0.0)));
+
             weapons[currentWeapon].clock.restart();
+
+            removeFlash = false;
         }
     });
 

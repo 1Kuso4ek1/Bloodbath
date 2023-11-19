@@ -59,7 +59,8 @@ class FPSController
             footstepDelay.restart();
         }
         if((!Keyboard::isKeyPressed(Keyboard::LControl) || !onGround) && serverConfig.allowBhop)
-            playerRB.applyWorldForceAtCenterOfMass((onGround && bhopDelay.getElapsedTime().asSeconds() >= 0.3) ? v : v / (Dot(v / v.length(), playerRB.getLinearVelocity() / playerRB.getLinearVelocity().length()) < -0.01 ? 0.75 : (serverConfig.allowBhop ? 100.0 : 50.0)));
+            playerRB.applyWorldForceAtCenterOfMass((onGround && bhopDelay.getElapsedTime().asSeconds() >= 0.3) ? v : 
+v / (Dot(normalize(v), normalize(playerRB.getLinearVelocity())) < -0.01 ? 0.75 : (serverConfig.allowBhop ? 100.0 : 50.0)));
         else if(!serverConfig.allowBhop && onGround)
             playerRB.applyWorldForceAtCenterOfMass(v);
 

@@ -6,7 +6,7 @@
         "width" : 1920,
         "height" : 1080,
         "fullscreen" : true,
-        "vsync" : true,
+        "vsync" : false,
         "maxFps" : 120
     },
     "gui" :
@@ -22,7 +22,7 @@
         "irradianceSideSize" : 32,
         "prefilteredSideSize" : 512,
         "shadowMapResolution" : 4096,
-        "bloomResolutionScale" : 8,
+        "bloomResolutionScale" : 6,
         "exposure" : 1.0
     },
     "log" :

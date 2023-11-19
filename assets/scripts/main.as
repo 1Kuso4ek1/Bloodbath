@@ -5,16 +5,18 @@ tgui::Gui@ menu, hud, pauseMenu;
 
 int health = 100;
 int id = 0, team = 0, kills = 0, deaths = 0, lastPort = 0;
+uint tracerCounter = 0;
 uint currentWeapon = 0;
 
 string name, password, lastIp;
 
 Clock physicsTime, logoTime, delay, buttonTimer, chatTimer;
 
-bool pause = false, updatePhysics = true, chatActive = false, logo = true, hidden = false, freeCamera = false;
+bool pause = false, updatePhysics = true, chatActive = false, logo = true, hidden = false, freeCamera = false, removeFlash = false;
 
 array<int> score = { 0, 0 };
 array<Weapon> weapons;
+array<Model@> tracers;
 
 funcdef void GameLoop();
 
@@ -62,6 +64,11 @@ float lerp(float x, float y, float t)
 Vector3 lerp(Vector3 v, Vector3 v1, float t)
 {
     return Vector3(lerp(v.x, v1.x, t), lerp(v.y, v1.y, t), lerp(v.z, v1.z, t));
+}
+
+Vector3 normalize(Vector3 vec)
+{
+    return vec / (vec.length() > 1.0 ? vec.length() : 1.0);
 }
 
 void Loop()
