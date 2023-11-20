@@ -7,8 +7,11 @@ int health = 100;
 int id = 0, team = 0, kills = 0, deaths = 0, lastPort = 0;
 uint tracerCounter = 0;
 uint currentWeapon = 0;
+string currentMap = "town";
 
 string name, password, lastIp;
+
+PhysicalMaterial mat;
 
 Clock physicsTime, logoTime, delay, buttonTimer, chatTimer;
 
@@ -17,6 +20,8 @@ bool pause = false, updatePhysics = true, chatActive = false, logo = true, hidde
 array<int> score = { 0, 0 };
 array<Weapon> weapons;
 array<Model@> tracers;
+
+array<string> mapNames = { "town", "big arena", "arena" };
 
 funcdef void GameLoop();
 

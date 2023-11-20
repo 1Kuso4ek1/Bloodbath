@@ -32,8 +32,8 @@ GameLoop@ menuLoop = function()
             if(event == -1)
             {
                 string stats;
-                upd >> id >> serverConfig.name >> serverConfig.allowBhop >> serverConfig.enableFullGUI >> serverConfig.maxPlayers >> serverConfig.jumpForce >> serverConfig.maxSpeed >> numPlayers >> team >> stats;
-                menu.getLabel("info").setText("Connected to " + serverConfig.name + "\n" + to_string(numPlayers - 1) + "/" + to_string(serverConfig.maxPlayers) + " players\n" + "ID: " + to_string(id) + "\nPing: " + to_string(ping.getElapsedTime().asMilliseconds()) + "\n" + stats);
+                upd >> id >> serverConfig.name >> serverConfig.allowBhop >> serverConfig.enableFullGUI >> serverConfig.maxPlayers >> serverConfig.jumpForce >> serverConfig.maxSpeed >> numPlayers >> team >> currentMap >> stats;
+                menu.getLabel("info").setText("Connected to " + serverConfig.name + "\n" + to_string(numPlayers - 1) + "/" + to_string(serverConfig.maxPlayers) + " players\n" + "ID: " + to_string(id) + "\nPing: " + to_string(ping.getElapsedTime().asMilliseconds()) + "\nMap: " + currentMap + "\n" + stats);
                 menu.getButton("play").setText("Play");
                 break;
             }

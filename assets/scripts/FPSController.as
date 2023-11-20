@@ -18,13 +18,7 @@ class FPSController
         this.ground = ground;
         @playerRB = @playerModel.GetRigidBody();
         playerRB.setAngularLockAxisFactor(Vector3(0, 1, 0));
-
-        PhysicalMaterial mat;
-        mat.setBounciness(0.01);
-        mat.setFrictionCoefficient(0.05);
         playerRB.setMaterial(mat);
-        for(uint i = 0; i < ground.Size(); i++)
-            ground[i].GetRigidBody().setMaterial(mat);
     }
 
     void AddCustomEvent(EventFunction@ func)
@@ -132,6 +126,8 @@ v / (Dot(normalize(v), normalize(playerRB.getLinearVelocity())) < -0.01 ? 0.75 :
         {
             /*onGround = ground[i].GetRigidBody().raycast(ray, info);
             if(onGround) break;*/
+            if(!ground[i].IsLoaded()) continue;
+
             count += ground[i].GetRigidBody().raycast(ray, info) ? 1 : 0;
             if(!ground[i].GetRigidBody().raycast(ray1, info) && ground[i].GetRigidBody().raycast(ray2, info) && 
                vaultDelay.getElapsedTime().asSeconds() > 1)

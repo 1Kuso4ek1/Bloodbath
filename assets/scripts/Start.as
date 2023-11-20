@@ -36,8 +36,12 @@ void Start()
     }
     Game::scene.GetModel("chel").SetShadowBias(0.005);
     Game::scene.GetModel("chel").SetIsDrawable(true);
+    Game::scene.GetModel("lobby").SetIsDrawable(true);
     Game::scene.GetAnimation("Menu-Idle").Play();
     Game::camera.SetFOV(10.0);
+
+    mat.setBounciness(0.01);
+    mat.setFrictionCoefficient(0.05);
 
     Game::scene.GetPhysicsManager().SetTimeStep(1.0 / 60.0);
 
@@ -91,7 +95,7 @@ void Start()
                 
                 if(hit != -1) break;
             }
-            Game::scene.GetModel("map:ground").GetRigidBody().raycast(ray, info1);
+            Game::scene.GetModel(currentMap + ":ground").GetRigidBody().raycast(ray, info1);
             if(hit != -1 && ((info.worldPoint - Game::camera.GetPosition()).length() < (info1.worldPoint - Game::camera.GetPosition()).length()))
             {
                 auto pos = clients[hit].model.GetPosition();
@@ -221,6 +225,14 @@ void Start()
         socket.setBlocking(false);
 
         Game::scene.GetModel("chel").SetMaterial(Game::scene.GetMaterial("character" + to_string(team)));
+
+        for(uint i = 0; i < mapNames.length(); i++)
+            Game::scene.GetModel(mapNames[i] + ":ground").Unload(true);
+        Game::scene.GetModel(currentMap + ":ground").Load();
+        Game::scene.GetModel(currentMap + ":ground").SetIsDrawable(true);
+        Game::scene.GetModel("lobby").SetIsDrawable(false);
+        
+        Game::scene.GetModel(currentMap + ":ground").GetRigidBody().setMaterial(mat);
 
         if(serverConfig.name.length() > 0)
         {

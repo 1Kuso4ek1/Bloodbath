@@ -529,6 +529,11 @@ GameLoop@ mainGameLoop = function()
 			}
 	    }
 	
+        if(Keyboard::isKeyPressed(Keyboard::Q) && buttonTimer.getElapsedTime().asSeconds() > 0.3)
+        {
+            Log::Write(pos.to_string());
+            buttonTimer.restart();
+        }
 
 		p << 1;
 		
