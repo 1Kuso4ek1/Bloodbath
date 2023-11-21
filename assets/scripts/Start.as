@@ -20,7 +20,6 @@ void Start()
     Game::mouseCursorVisible = true;
     Game::mouseCursorGrabbed = false;
 
-    //Game::scene.GetModel("map:ground").SetShadowBias(0.0003);
     weapons.removeRange(0, weapons.length());
     
     weapons.insertLast(Weapon(Game::scene.GetModel("rifle"), Game::scene.GetModel("flash"), "ak47-shot",
@@ -36,7 +35,10 @@ void Start()
     }
 
     for(uint i = 0; i < mapNames.length(); i++)
+    {
         Game::scene.GetModel(mapNames[i] + ":ground").Unload(false);
+        Game::scene.GetModel(mapNames[i] + ":ground").SetShadowBias(-0.0001);
+    }
     Game::scene.GetModel("chel").SetShadowBias(0.005);
     Game::scene.GetModel("chel").SetIsDrawable(true);
     Game::scene.GetModel("lobby").SetIsDrawable(true);
