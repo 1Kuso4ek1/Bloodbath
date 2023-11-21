@@ -34,6 +34,9 @@ void Start()
         weapons[i].model.SetIsDrawable(false);
         weapons[i].model.SetShadowBias(0.005);
     }
+
+    for(uint i = 0; i < mapNames.length(); i++)
+        Game::scene.GetModel(mapNames[i] + ":ground").Unload(false);
     Game::scene.GetModel("chel").SetShadowBias(0.005);
     Game::scene.GetModel("chel").SetIsDrawable(true);
     Game::scene.GetModel("lobby").SetIsDrawable(true);

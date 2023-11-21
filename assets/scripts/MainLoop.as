@@ -119,12 +119,16 @@ GameLoop@ mainGameLoop = function()
     Game::mouseCursorVisible = pause || chatActive;
     Game::manageCameraMouse = !pause && !chatActive;
 
-    Game::scene.GetLight("light").SetColor(Vector3(0, 0, 0));
-
-    for(uint i = 0; i < clients.length(); i++)
+    if(updatePhysics)
     {
-        Game::scene.GetModel("flash-copy" + to_string(clients[i].id)).SetIsDrawable(false);
-        Game::scene.GetModel("flash-copy1" + to_string(clients[i].id)).SetIsDrawable(false);
+        Game::scene.GetLight("light").SetColor(Vector3(0, 0, 0));
+
+        for(uint i = 0; i < clients.length(); i++)
+        {
+            Game::scene.GetModel("flash-copy" + to_string(clients[i].id)).SetIsDrawable(false);
+            Game::scene.GetModel("flash-copy1" + to_string(clients[i].id)).SetIsDrawable(false);
+            Game::scene.GetLight("light-copy" + to_string(clients[i].id)).SetColor(Vector3(0, 0, 0));
+        }
     }
 
     Packet p;
@@ -155,12 +159,14 @@ GameLoop@ mainGameLoop = function()
                         Model@ knife = @Game::scene.CloneModel(Game::scene.GetModel("knife-copy"), true, "knife-copy" + to_string(newId));
                         Model@ flash = @Game::scene.CloneModel(Game::scene.GetModel("flash"), true, "flash-copy" + to_string(newId));
                         Model@ flash1 = @Game::scene.CloneModel(Game::scene.GetModel("flash1"), true, "flash-copy1" + to_string(newId));
+                        Light@ light = @Game::scene.CloneLight(Game::scene.GetLight("light"), true, "light-copy" + to_string(newId));
 	                    
                         rifle.SetIsDrawable(true);
 	                    deagle.SetIsDrawable(true);
 	                    knife.SetIsDrawable(true);
                         flash.SetIsDrawable(false);
                         flash1.SetIsDrawable(false);
+                        light.SetColor(Vector3(0, 0, 0));
 
                         Model@ head = @Game::scene.CloneModel(Game::scene.GetModel("head"), true, "head" + to_string(newId));
 
@@ -178,6 +184,10 @@ GameLoop@ mainGameLoop = function()
 	                    cast<Node>(knife).SetParent(cast<Node>(Game::scene.GetBone("Right-Hand-chel" + to_string(newId))));
 	                    cast<Node>(Game::scene.GetBone("Bone.014-chel" + to_string(newId))).AddChild(cast<Node>(head));
 	                    cast<Node>(head).SetParent(cast<Node>(Game::scene.GetBone("Bone.014-chel" + to_string(newId))));
+
+                        cast<Node>(model).AddChild(cast<Node>(light));
+	                    cast<Node>(light).SetParent(cast<Node>(model));
+                        
 	                    clients.insertLast(Client(newId, newTeam, newName, model, chel));
 	                    p.clear();
 	                    p << 0; p << id; p << name; p << team;
@@ -338,8 +348,14 @@ GameLoop@ mainGameLoop = function()
 
                     switch(weapon)
                     {
-                    case 0: Game::scene.GetModel("flash-copy" + to_string(id0)).SetIsDrawable(true); break;
-                    case 1: Game::scene.GetModel("flash-copy1" + to_string(id0)).SetIsDrawable(true); break;
+                    case 0:
+                        Game::scene.GetModel("flash-copy" + to_string(id0)).SetIsDrawable(true);
+                        Game::scene.GetLight("light-copy" + to_string(id0)).SetColor(Vector3(25, 10, 2));
+                        break;
+                    case 1:
+                        Game::scene.GetModel("flash-copy1" + to_string(id0)).SetIsDrawable(true);
+                        Game::scene.GetLight("light-copy" + to_string(id0)).SetColor(Vector3(25, 10, 2));
+                        break;
                     default: break;
                     }
 
@@ -391,6 +407,7 @@ GameLoop@ mainGameLoop = function()
                     hud.getChatBox("chat").addLine(clients[cl].name + " disconnected", tgui::Color(150, 150, 255));
                     Game::scene.RemoveModel(clients[cl].model);
                     Game::scene.RemoveModel(clients[cl].chel);
+                    Game::scene.RemoveLight(Game::scene.GetLight("light-copy" + to_string(newId)));
                     Game::scene.RemoveModel(Game::scene.GetModel("rifle-copy" + to_string(newId)));
                     Game::scene.RemoveModel(Game::scene.GetModel("deagle-copy" + to_string(newId)));
                     Game::scene.RemoveModel(Game::scene.GetModel("knife-copy" + to_string(newId)));
@@ -435,6 +452,21 @@ GameLoop@ mainGameLoop = function()
                 case 6:
                 {
                     p >> score[0] >> score[1];
+                    break;
+                }
+
+                case 7:
+                {
+                    p >> currentMap;
+
+                    for(uint i = 0; i < mapNames.length(); i++)
+                        Game::scene.GetModel(mapNames[i] + ":ground").Unload(true);
+                    Game::scene.GetModel(currentMap + ":ground").Load();
+                    Game::scene.GetModel(currentMap + ":ground").SetIsDrawable(true);
+                    Game::scene.GetModel("lobby").SetIsDrawable(false);
+                    
+                    Game::scene.GetModel(currentMap + ":ground").GetRigidBody().setMaterial(mat);
+
                     break;
                 }
             }
