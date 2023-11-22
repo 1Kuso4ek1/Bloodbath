@@ -350,12 +350,12 @@ GameLoop@ mainGameLoop = function()
                     Game::scene.GetSoundManager().SetPosition(clients[it].model.GetPosition(), weapons[weapon].sound, id0);
                     Game::scene.GetSoundManager().Play(weapons[weapon].sound, id0);
 
-                    auto tracer = Game::scene.CloneModel(Game::scene.GetModel("tracer"), false, "tracer-copy" + to_string(tracerCounter++));
+                    /*auto tracer = Game::scene.CloneModel(Game::scene.GetModel("tracer"), false, "tracer-copy" + to_string(tracerCounter++));
                     tracer.SetPosition(clients[it].model.GetPosition() + Vector3(0, 2.7, 0) + (Game::scene.GetBone("Body-chel" + to_string(id0)).GetOrientation() * Vector3(0.6, -0.3, -11)));
                     tracer.SetOrientation(Game::scene.GetBone("Body-chel" + to_string(id0)).GetOrientation());
                     tracer.SetSize(Vector3(0.01, rnd(1, 10), 0.01));
                     tracer.SetIsDrawable(true);
-                    tracers.insertLast(tracer);
+                    tracers.insertLast(tracer);*/
 
                     switch(weapon)
                     {
