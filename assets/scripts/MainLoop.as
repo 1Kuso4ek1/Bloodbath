@@ -73,6 +73,8 @@ GameLoop@ mainGameLoop = function()
     	buttonTimer.restart();
     	freeCamera = !freeCamera;
     	Game::manageCameraMovement = freeCamera;
+        if(freeCamera) hud.setOpacity(0.0);
+        else hud.setOpacity(1.0);
     }
 
     if(Keyboard::isKeyPressed(Keyboard::Escape) && buttonTimer.getElapsedTime().asSeconds() > 0.3)
@@ -104,15 +106,17 @@ GameLoop@ mainGameLoop = function()
     {
         Game::blurIterations = int(lerp(Game::blurIterations, 16, 0.03));
         Game::bloomStrength = lerp(Game::bloomStrength, 0.2, 0.015);
-        Game::exposure = lerp(Game::exposure, 1.0, 0.005);
-        hud.setOpacity(lerp(hud.getOpacity(), 1.0, 0.05));
+        Game::exposure = lerp(Game::exposure, initialExposure, 0.005);
+        if(!freeCamera)
+            hud.setOpacity(lerp(hud.getOpacity(), 1.0, 0.05));
         pauseMenu.setOpacity(lerp(pauseMenu.getOpacity(), 0.0, 0.05));
     }
     else if(pause)
     {
         //Game::blurIterations = lerp(Game::blurIterations, 64, 0.8);
         Game::bloomStrength = lerp(Game::bloomStrength, 1.0, 0.05);
-        hud.setOpacity(lerp(hud.getOpacity(), 0.0, 0.05));
+        if(!freeCamera)
+            hud.setOpacity(lerp(hud.getOpacity(), 0.0, 0.05));
         pauseMenu.setOpacity(lerp(pauseMenu.getOpacity(), 1.0, 0.05));
     }
 
@@ -346,6 +350,13 @@ GameLoop@ mainGameLoop = function()
                     Game::scene.GetSoundManager().SetPosition(clients[it].model.GetPosition(), weapons[weapon].sound, id0);
                     Game::scene.GetSoundManager().Play(weapons[weapon].sound, id0);
 
+                    auto tracer = Game::scene.CloneModel(Game::scene.GetModel("tracer"), false, "tracer-copy" + to_string(tracerCounter++));
+                    tracer.SetPosition(clients[it].model.GetPosition() + Vector3(0, 2.7, 0) + (Game::scene.GetBone("Body-chel" + to_string(id0)).GetOrientation() * Vector3(0.6, -0.3, -11)));
+                    tracer.SetOrientation(Game::scene.GetBone("Body-chel" + to_string(id0)).GetOrientation());
+                    tracer.SetSize(Vector3(0.01, rnd(1, 10), 0.01));
+                    tracer.SetIsDrawable(true);
+                    tracers.insertLast(tracer);
+
                     switch(weapon)
                     {
                     case 0:
@@ -487,7 +498,7 @@ GameLoop@ mainGameLoop = function()
 	        Game::scene.GetAnimation("walk").Play();
 	    else if((!player.IsMoving() || !player.IsOnGround()) && Game::scene.GetAnimation("walk").GetState() == Playing)
 	        Game::scene.GetAnimation("walk").Pause();
-	    Game::camera.SetPosition(Game::scene.GetModel("player").GetPosition() + Vector3(0, 1.4, 0) + Game::camera.GetOrientation() * Vector3(0, 0.6, -0.4));
+	    Game::camera.SetPosition(Game::scene.GetModel("player").GetPosition() + Vector3(0, 1.15, 0) + Game::camera.GetOrientation() * Vector3(0, 0.6, -0.4));
 
 	    hud.getLabel("velocity").setText(to_string(int(Game::scene.GetModel("player").GetRigidBody().getLinearVelocity().length())));
 
@@ -497,7 +508,7 @@ GameLoop@ mainGameLoop = function()
 	    auto orient1 = orient = orient * QuaternionFromEuler(Vector3(0, radians(-90), 0));
 	    orient1.x = orient.z; orient1.y = orient.x; orient1.z = orient.y;
 
-	    Game::scene.GetModel("chel").SetPosition(pos);
+	    Game::scene.GetModel("chel").SetPosition(pos - Vector3(0.0, 0.25, 0.0));
 	    Game::scene.GetModel("chel").SetOrientation(QuaternionFromEuler(Vector3(radians(-90.0), radians(-90.0), 0)));
 
 		auto euler = EulerFromQuaternion(orient1); 

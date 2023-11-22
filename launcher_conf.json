@@ -21,7 +21,7 @@
         "skyboxSideSize" : 512,
         "irradianceSideSize" : 32,
         "prefilteredSideSize" : 512,
-        "shadowMapResolution" : 8192,
+        "shadowMapResolution" : 4096,
         "bloomResolutionScale" : 6,
         "exposure" : 1.0
     },
