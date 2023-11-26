@@ -536,12 +536,13 @@ GameLoop@ mainGameLoop = function()
 	    {
 	        for(uint i = 0; i < tracers.length(); i++)
 	        {
-	            tracers[i].Move(tracers[i].GetOrientation() * QuaternionFromEuler(Vector3(-1.57, 0.0, 0.0)) * Vector3(0, 0, -25));
+	            tracers[i].Move(tracers[i].GetOrientation() * QuaternionFromEuler(Vector3(-1.57, 0.0, 0.0)) * Vector3(0, 0, -17));
+	            tracers[i].Expand(Vector3(0.015, -0.0005, 0.015));
 	        }
 	
 	        for(uint i = 0; i < tracers.length(); i++)
 	        {
-	            if((Game::camera.GetPosition() - tracers[i].GetPosition()).length() > 100.0)
+	            if((Game::camera.GetPosition() - tracers[i].GetPosition()).length() > 500.0)
 	            {
 	                Game::scene.RemoveModel(tracers[i]);
 	                tracers.removeAt(i);
@@ -550,9 +551,9 @@ GameLoop@ mainGameLoop = function()
 	        
 			for(uint i = 0; i < weapons.length(); i++)
 		        if(i != 2)
-		        	if(weapons[i].flash.IsDrawable())
+		        	if(weapons[i].flash.IsDrawable() && removeFlash)
 		        	{
-		            	weapons[i].flash.SetIsDrawable(!removeFlash);
+		            	weapons[i].flash.SetIsDrawable(false);
 	
 						auto tracer = Game::scene.CloneModel(Game::scene.GetModel("tracer"), false, "tracer-copy" + to_string(tracerCounter++));
 		            	tracer.SetPosition(Game::camera.GetPosition() + Game::camera.GetOrientation() * Vector3(0.6, -0.3, -11));
@@ -560,9 +561,10 @@ GameLoop@ mainGameLoop = function()
 	   	                tracer.SetSize(Vector3(0.01, rnd(1, 10), 0.01));
 	   	                tracer.SetIsDrawable(true);
 	   	                tracers.insertLast(tracer);
-						if(!removeFlash)
-	   	                	removeFlash = !removeFlash;
+						removeFlash = false;
 		            }
+		            else if(weapons[i].flash.IsDrawable() && !removeFlash)
+		            	removeFlash = true;
 	
 			if(health <= 0)
 			{
