@@ -114,6 +114,7 @@ void Start()
             // code = 2, myId, damagedId, weaponId
             Packet p; p << 2; p << id; p << (hit == -1 ? -1 : clients[hit].id); p << hs; p << currentWeapon;
             socket.send(p);
+            tracerOrient = Game::camera.GetOrientation();
             if((Game::camera.GetOrientation() * Vector3(0, 0, -1)).y < 0.90)
                 Game::camera.SetOrientation(Game::camera.GetOrientation() * QuaternionFromEuler(Vector3(weapons[currentWeapon].recoil, 0.0, 0.0)));
 

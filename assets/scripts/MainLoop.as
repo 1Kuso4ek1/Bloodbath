@@ -152,7 +152,7 @@ GameLoop@ mainGameLoop = function()
 	                p >> newName;
                     p >> newTeam;
 
-	                if(clients.find(Client(newId)) < 0)
+	                if(clients.find(Client(newId)) < 0 && newId != id)
 	                {
 	                    Model@ model = @Game::scene.CloneModel(Game::scene.GetModel("enemy:ground"), true, "enemy" + to_string(newId) + ":ground");
 	                    model.GetRigidBody().setIsActive(true);
@@ -191,12 +191,13 @@ GameLoop@ mainGameLoop = function()
 
                         cast<Node>(model).AddChild(cast<Node>(light));
 	                    cast<Node>(light).SetParent(cast<Node>(model));
+
+                        player.SetGroundGroup(Game::scene.GetModelGroup("ground"));
                         
 	                    clients.insertLast(Client(newId, newTeam, newName, model, chel));
 	                    p.clear();
 	                    p << 0; p << id; p << name; p << team;
 	                    socket.send(p);
-	                    player.SetGroundGroup(Game::scene.GetModelGroup("ground"));
 	                }
 	                break;
 	            }
@@ -315,8 +316,9 @@ GameLoop@ mainGameLoop = function()
                         break;
                     }
 
-	                clients[clients.find(Client(newId))].model.SetPosition(pos);
-                    clients[clients.find(Client(newId))].chel.SetOrientation(QuaternionFromEuler(Vector3(radians(-90.0), radians(-90.0), 0)));
+	                clients[cl].model.SetPosition(pos);
+                    clients[cl].chel.SetOrientation(QuaternionFromEuler(Vector3(radians(-90.0), radians(-90.0), 0)));
+                    clients[cl].orient = Quaternion(orient.y, orient.z, orient.x, orient.w) * QuaternionFromEuler(Vector3(0, radians(90), 0));
                     
                     euler = EulerFromQuaternion(orient); 
                     auto euler1 = euler; euler1.x = radians(90.0);
@@ -350,12 +352,12 @@ GameLoop@ mainGameLoop = function()
                     Game::scene.GetSoundManager().SetPosition(clients[it].model.GetPosition(), weapons[weapon].sound, id0);
                     Game::scene.GetSoundManager().Play(weapons[weapon].sound, id0);
 
-                    /*auto tracer = Game::scene.CloneModel(Game::scene.GetModel("tracer"), false, "tracer-copy" + to_string(tracerCounter++));
-                    tracer.SetPosition(clients[it].model.GetPosition() + Vector3(0, 2.7, 0) + (Game::scene.GetBone("Body-chel" + to_string(id0)).GetOrientation() * Vector3(0.6, -0.3, -11)));
-                    tracer.SetOrientation(Game::scene.GetBone("Body-chel" + to_string(id0)).GetOrientation());
+                    auto tracer = Game::scene.CloneModel(Game::scene.GetModel("tracer"), false, "tracer-copy" + to_string(tracerCounter++));
+                    tracer.SetPosition(clients[it].model.GetPosition() + Vector3(0, 2.5, 0) + clients[it].orient * Vector3(0.6, -0.3, -11));
+                    tracer.SetOrientation(clients[it].orient * QuaternionFromEuler(Vector3(1.57, 0.0, 0.0)));
                     tracer.SetSize(Vector3(0.01, rnd(1, 10), 0.01));
                     tracer.SetIsDrawable(true);
-                    tracers.insertLast(tracer);*/
+                    tracers.insertLast(tracer);
 
                     switch(weapon)
                     {
@@ -542,7 +544,9 @@ GameLoop@ mainGameLoop = function()
 	
 	        for(uint i = 0; i < tracers.length(); i++)
 	        {
-	            if((Game::camera.GetPosition() - tracers[i].GetPosition()).length() > 500.0)
+                Ray ray(tracers[i].GetPosition(), tracers[i].GetPosition() + (tracers[i].GetOrientation() * QuaternionFromEuler(Vector3(-1.57, 0.0, 0.0)) * Vector3(0, 0, -17)));
+                RaycastInfo info;
+	            if((Game::camera.GetPosition() - tracers[i].GetPosition()).length() > 500.0 || Game::scene.GetModel(currentMap + ":ground").GetRigidBody().raycast(ray, info))
 	            {
 	                Game::scene.RemoveModel(tracers[i]);
 	                tracers.removeAt(i);
@@ -556,8 +560,8 @@ GameLoop@ mainGameLoop = function()
 		            	weapons[i].flash.SetIsDrawable(false);
 	
 						auto tracer = Game::scene.CloneModel(Game::scene.GetModel("tracer"), false, "tracer-copy" + to_string(tracerCounter++));
-		            	tracer.SetPosition(Game::camera.GetPosition() + Game::camera.GetOrientation() * Vector3(0.6, -0.3, -11));
-	   	                tracer.SetOrientation(Game::camera.GetOrientation() * QuaternionFromEuler(Vector3(1.57, 0.0, 0.0)));
+		            	tracer.SetPosition(Game::camera.GetPosition() + tracerOrient * Vector3(0.6, -0.3, -11));
+	   	                tracer.SetOrientation(tracerOrient * QuaternionFromEuler(Vector3(1.57, 0.0, 0.0)));
 	   	                tracer.SetSize(Vector3(0.01, rnd(1, 10), 0.01));
 	   	                tracer.SetIsDrawable(true);
 	   	                tracers.insertLast(tracer);

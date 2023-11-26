@@ -14,6 +14,8 @@ string currentMap = "town";
 
 string name, password, lastIp;
 
+Quaternion tracerOrient;
+
 PhysicalMaterial mat;
 
 Clock physicsTime, logoTime, delay, buttonTimer, chatTimer;
@@ -59,6 +61,7 @@ class Client
     bool prevOnGround = true;
     Model@ model;
     Model@ chel;
+    Quaternion orient;
     Clock footsteps;
 };
 
