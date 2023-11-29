@@ -58,6 +58,16 @@ GameLoop@ mainGameLoop = function()
     if(Keyboard::isKeyPressed(Keyboard::Enter))
     {
         auto text = hud.getEditBox("chatField").getText().toStdString();
+        if(text == "хуй" && !xyNActive)
+        {
+            xyNActive = true;
+            weapons[2].model.SetIsDrawable(false);
+            weapons.removeAt(2);
+            weapons.insertLast(Weapon(Game::scene.GetModel("xyN"), null, "knife-sound",
+                                      Game::scene.GetAnimation("knifeHit"), Game::scene.GetAnimation("lookAtKnife"), 0.0, 1.0, 5));
+            weapons[2].model.SetIsDrawable(false);
+            weapons[2].model.SetShadowBias(0.005);
+        }
         hud.getEditBox("chatField").setText("");
         if(text.length() > 0)
         {
@@ -352,12 +362,15 @@ GameLoop@ mainGameLoop = function()
                     Game::scene.GetSoundManager().SetPosition(clients[it].model.GetPosition(), weapons[weapon].sound, id0);
                     Game::scene.GetSoundManager().Play(weapons[weapon].sound, id0);
 
-                    auto tracer = Game::scene.CloneModel(Game::scene.GetModel("tracer"), false, "tracer-copy" + to_string(tracerCounter++));
-                    tracer.SetPosition(clients[it].model.GetPosition() + Vector3(0, 2.5, 0) + clients[it].orient * Vector3(0.6, -0.3, -11));
-                    tracer.SetOrientation(clients[it].orient * QuaternionFromEuler(Vector3(1.57, 0.0, 0.0)));
-                    tracer.SetSize(Vector3(0.01, rnd(1, 10), 0.01));
-                    tracer.SetIsDrawable(true);
-                    tracers.insertLast(tracer);
+                    if(weapon != 2)
+                    {
+                        auto tracer = Game::scene.CloneModel(Game::scene.GetModel("tracer"), false, "tracer-copy" + to_string(tracerCounter++));
+                        tracer.SetPosition(clients[it].model.GetPosition() + Vector3(0, 2.5, 0) + clients[it].orient * Vector3(0.6, -0.3, -11));
+                        tracer.SetOrientation(clients[it].orient * QuaternionFromEuler(Vector3(1.57, 0.0, 0.0)));
+                        tracer.SetSize(Vector3(0.01, rnd(1, 10), 0.01));
+                        tracer.SetIsDrawable(true);
+                        tracers.insertLast(tracer);
+                    }
 
                     switch(weapon)
                     {

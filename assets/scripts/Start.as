@@ -26,7 +26,7 @@ void Start()
                               Game::scene.GetAnimation("rifleShoot"), Game::scene.GetAnimation("lookAtRifle"), 0.03, 0.1, 1000));
     weapons.insertLast(Weapon(Game::scene.GetModel("deagle"), Game::scene.GetModel("flash1"), "deagle-shot",
                               Game::scene.GetAnimation("deagleShoot"), Game::scene.GetAnimation("lookAtDeagle"), 0.06, 0.3, 1000));
-    weapons.insertLast(Weapon(Game::scene.GetModel("knife"), null, "knife-sound",
+    weapons.insertLast(Weapon(Game::scene.GetModel(xyNActive ? "xyN" : "knife"), null, "knife-sound",
                               Game::scene.GetAnimation("knifeHit"), Game::scene.GetAnimation("lookAtKnife"), 0.0, 1.0, 5));
     for(uint i = 0; i < weapons.length(); i++)
     {
@@ -39,6 +39,7 @@ void Start()
         Game::scene.GetModel(mapNames[i] + ":ground").Unload(false);
         Game::scene.GetModel(mapNames[i] + ":ground").SetShadowBias(-0.0001);
     }
+
     Game::scene.GetModel("chel").SetShadowBias(0.005);
     Game::scene.GetModel("chel").SetIsDrawable(true);
     Game::scene.GetModel("lobby").SetIsDrawable(true);
