@@ -17,6 +17,7 @@ GameLoop@ mainGameLoop = function()
     }
 
     pauseMenu.getLabel("sensVal").setText(to_string(Game::mouseSensitivity));
+    hud.getPanel("tab").setVisible(Keyboard::isKeyPressed(Keyboard::Tab));
 
     if(Keyboard::isKeyPressed(Keyboard::T) && !pause)
         chatActive = true;
@@ -139,8 +140,8 @@ GameLoop@ mainGameLoop = function()
 
         for(uint i = 0; i < clients.length(); i++)
         {
-            Game::scene.GetModel("flash-copy" + to_string(clients[i].id)).SetIsDrawable(false);
-            Game::scene.GetModel("flash-copy1" + to_string(clients[i].id)).SetIsDrawable(false);
+            Game::scene.GetModel("flash-rifle" + to_string(clients[i].id)).SetIsDrawable(false);
+            Game::scene.GetModel("flash-deagle" + to_string(clients[i].id)).SetIsDrawable(false);
             Game::scene.GetLight("light-copy" + to_string(clients[i].id)).SetColor(Vector3(0, 0, 0));
         }
     }
@@ -171,8 +172,8 @@ GameLoop@ mainGameLoop = function()
 	                    Model@ rifle = @Game::scene.CloneModel(Game::scene.GetModel("rifle-copy"), true, "rifle-copy" + to_string(newId));
                         Model@ deagle = @Game::scene.CloneModel(Game::scene.GetModel("deagle-copy"), true, "deagle-copy" + to_string(newId));
                         Model@ knife = @Game::scene.CloneModel(Game::scene.GetModel("knife-copy"), true, "knife-copy" + to_string(newId));
-                        Model@ flash = @Game::scene.CloneModel(Game::scene.GetModel("flash"), true, "flash-copy" + to_string(newId));
-                        Model@ flash1 = @Game::scene.CloneModel(Game::scene.GetModel("flash1"), true, "flash-copy1" + to_string(newId));
+                        Model@ flash = @Game::scene.CloneModel(Game::scene.GetModel("flash"), true, "flash-rifle" + to_string(newId));
+                        Model@ flash1 = @Game::scene.CloneModel(Game::scene.GetModel("flash1"), true, "flash-deagle" + to_string(newId));
                         Light@ light = @Game::scene.CloneLight(Game::scene.GetLight("light"), true, "light-copy" + to_string(newId));
 	                    
                         rifle.SetIsDrawable(true);
@@ -205,6 +206,7 @@ GameLoop@ mainGameLoop = function()
                         player.SetGroundGroup(Game::scene.GetModelGroup("ground"));
                         
 	                    clients.insertLast(Client(newId, newTeam, newName, model, chel));
+                        clients[clients.length() - 1].tabId = hud.getListView("team" + to_string(newTeam) + "tab").addItem({ to_string(newId), newName, "0", "0" });
 	                    p.clear();
 	                    p << 0; p << id; p << name; p << team;
 	                    socket.send(p);
@@ -218,7 +220,13 @@ GameLoop@ mainGameLoop = function()
 
                     if(id == newId)
                     {
+                        int tmpTeam = team;
                         p >> pos.x >> pos.y >> pos.z >> team;
+                        if(team != tmpTeam)
+                        {
+                            hud.getListView("team" + to_string(tmpTeam) + "tab").removeItem(tabId);
+                            tabId = hud.getListView("team" + to_string(team) + "tab").addItem({ to_string(id), name, to_string(kills), to_string(deaths) });
+                        }
                         Game::scene.GetModel("player").GetRigidBody().setLinearVelocity(Vector3(0, 0, 0));
                         Game::scene.GetModel("player").GetRigidBody().setAngularVelocity(Vector3(0, 0, 0));
                         Game::scene.GetModel("player").SetPosition(pos);
@@ -375,11 +383,11 @@ GameLoop@ mainGameLoop = function()
                     switch(weapon)
                     {
                     case 0:
-                        Game::scene.GetModel("flash-copy" + to_string(id0)).SetIsDrawable(true);
+                        Game::scene.GetModel("flash-rifle" + to_string(id0)).SetIsDrawable(true);
                         Game::scene.GetLight("light-copy" + to_string(id0)).SetColor(Vector3(25, 10, 2));
                         break;
                     case 1:
-                        Game::scene.GetModel("flash-copy1" + to_string(id0)).SetIsDrawable(true);
+                        Game::scene.GetModel("flash-deagle" + to_string(id0)).SetIsDrawable(true);
                         Game::scene.GetLight("light-copy" + to_string(id0)).SetColor(Vector3(25, 10, 2));
                         break;
                     default: break;
@@ -431,6 +439,7 @@ GameLoop@ mainGameLoop = function()
                     p >> newId;
                     int cl = clients.find(Client(newId));
                     hud.getChatBox("chat").addLine(clients[cl].name + " disconnected", tgui::Color(150, 150, 255));
+                    hud.getListView("team" + to_string(clients[cl].team) + "tab").removeItem(clients[cl].tabId);
                     Game::scene.RemoveModel(clients[cl].model);
                     Game::scene.RemoveModel(clients[cl].chel);
                     Game::scene.RemoveLight(Game::scene.GetLight("light-copy" + to_string(newId)));
@@ -453,12 +462,20 @@ GameLoop@ mainGameLoop = function()
                     if(newId == id)
                     {
                         p >> health >> kills >> deaths;
+                        hud.getListView("team" + to_string(team) + "tab").changeItem(tabId, { to_string(id), name, to_string(kills), to_string(deaths) });
                         break;
                     }
 
                     int cl = clients.find(Client(newId));
                     if(cl < 0) break;
-	                p >> clients[cl].health >> clients[cl].kills >> clients[cl].deaths;
+                    int tmpTeam = clients[cl].team;
+	                p >> clients[cl].health >> clients[cl].kills >> clients[cl].deaths >> clients[cl].team;
+                    if(clients[cl].team != tmpTeam)
+                    {
+                        hud.getListView("team" + to_string(tmpTeam) + "tab").removeItem(clients[cl].tabId);
+                        clients[cl].tabId = hud.getListView("team" + to_string(clients[cl].team) + "tab").addItem({ "", "", "", "" });
+                    }
+                    hud.getListView("team" + to_string(clients[cl].team) + "tab").changeItem(clients[cl].tabId, { to_string(clients[cl].id), clients[cl].name, to_string(clients[cl].kills), to_string(clients[cl].deaths) });
 	                if(clients[cl].health > 0)
                     {
 	                    clients[cl].chel.SetMaterial(Game::scene.GetMaterial("character" + to_string(clients[cl].team)));
@@ -499,6 +516,8 @@ GameLoop@ mainGameLoop = function()
     }
     
     hud.getLabel("score").setText(to_string(score[team]) + "-" + to_string(score[(team < 1 ? 1 : 0)]));
+    hud.getLabel("team0score").setText(to_string(score[0]));
+    hud.getLabel("team1score").setText(to_string(score[1]));
 
     for(uint i = 0; i < clients.length(); i++)
     {

@@ -7,6 +7,7 @@ int health = 100;
 int id = 0, team = 0, kills = 0, deaths = 0, lastPort = 0;
 uint tracerCounter = 0;
 uint currentWeapon = 0;
+uint64 tabId;
 
 const float initialExposure = 1.5;
 
@@ -60,6 +61,7 @@ class Client
     string name;
     int id, team, kills, deaths;
     int health = 100;
+    uint64 tabId;
     bool prevOnGround = true;
     Model@ model;
     Model@ chel;

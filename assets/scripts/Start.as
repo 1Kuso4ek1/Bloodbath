@@ -228,6 +228,10 @@ void Start()
         pauseMenu.setOpacity(0.0);
         hud.getEditBox("chatField").setVisible(false);
         hud.getEditBox("chatField").setEnabled(false);
+        hud.getListView("team0tab").removeAllItems();
+        hud.getListView("team1tab").removeAllItems();
+        tabId = hud.getListView("team" + to_string(team) + "tab").addItem({ to_string(id), name, "0", "0" });
+        hud.getLabel("serverName").setText(serverConfig.name);
         chatTimer.restart();
         socket.setBlocking(false);
 

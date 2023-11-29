@@ -1,3 +1,28 @@
+Renderer.1 {
+    BorderColor = rgba(240, 240, 240, 215);
+    TextColor = rgba(255, 255, 255, 215);
+    TextureBackground = None;
+
+    Scrollbar {
+        ArrowBackgroundColor = rgba(160, 160, 160, 215);
+        ArrowBackgroundColorHover = rgba(170, 170, 170, 215);
+        ArrowColor = rgba(200, 200, 200, 215);
+        ArrowColorHover = rgba(225, 225, 225, 215);
+        TextureArrowDown = None;
+        TextureArrowDownHover = None;
+        TextureArrowUp = None;
+        TextureArrowUpHover = None;
+        TextureThumb = None;
+        TextureThumbHover = None;
+        TextureTrack = None;
+        TextureTrackHover = None;
+        ThumbColor = rgba(185, 185, 185, 215);
+        ThumbColorHover = rgba(195, 195, 195, 215);
+        TrackColor = rgba(160, 160, 160, 215);
+        TrackColorHover = rgba(170, 170, 170, 215);
+    }
+}
+
 ChatBox.chat {
     LinesStartFromTop = false;
     NewLinesBelowOthers = true;
@@ -159,5 +184,207 @@ Label.score {
             ThumbColorHover = #E6E6E6;
             TrackColor = #F5F5F5;
         }
+    }
+}
+
+Panel.tab {
+    Position = (670, 320);
+    Size = (580, 460);
+
+    Renderer {
+        BackgroundColor = #282828D7;
+        BorderColor = rgba(240, 240, 240, 215);
+        Borders = (1, 1, 1, 1);
+        Padding = (0, 0, 0, 0);
+        TextureBackground = None;
+    }
+
+    ListView.team0tab {
+        ExpandLastColumn = 1;
+        HeaderHeight = 0;
+        HeaderSeparatorHeight = 0;
+        HeaderVisible = true;
+        ItemHeight = 20;
+        Position = (60, 48);
+        ResizableColumns = true;
+        SeparatorWidth = 1;
+        ShowVerticalGridLines = 1;
+        Size = (460, 194);
+        TextSize = 13;
+
+        Renderer {
+            BackgroundColor = #282828D7;
+            BackgroundColorHover = #282828D7;
+            BorderColor = rgba(240, 240, 240, 215);
+            Borders = 1;
+            HeaderBackgroundColor = #161616D7;
+            SelectedBackgroundColor = rgba(0, 110, 200, 130);
+            SelectedTextColor = rgba(255, 255, 255, 245);
+            TextColor = rgba(255, 255, 255, 215);
+            TextColorHover = rgba(255, 255, 255, 235);
+            TextureBackground = None;
+            TextureHeaderBackground = None;
+
+            Scrollbar {
+                ArrowBackgroundColor = rgba(160, 160, 160, 215);
+                ArrowBackgroundColorHover = rgba(170, 170, 170, 215);
+                ArrowColor = rgba(200, 200, 200, 215);
+                ArrowColorHover = rgba(225, 225, 225, 215);
+                TextureArrowDown = None;
+                TextureArrowDownHover = None;
+                TextureArrowUp = None;
+                TextureArrowUpHover = None;
+                TextureThumb = None;
+                TextureThumbHover = None;
+                TextureTrack = None;
+                TextureTrackHover = None;
+                ThumbColor = rgba(185, 185, 185, 215);
+                ThumbColorHover = rgba(195, 195, 195, 215);
+                TrackColor = rgba(160, 160, 160, 215);
+                TrackColorHover = rgba(170, 170, 170, 215);
+            }
+        }
+
+        Column {
+            Alignment = Center;
+            Text = ID;
+            Width = 35;
+        }
+
+        Column {
+            Alignment = Center;
+            Text = Name;
+            Width = 260;
+        }
+
+        Column {
+            Alignment = Center;
+            Text = Kills;
+            Width = 80;
+        }
+
+        Column {
+            Alignment = Center;
+            Text = Deaths;
+            Width = 80;
+        }
+    }
+
+    Label.serverName {
+        HorizontalAlignment = Center;
+        Renderer = &1;
+        Size = (579, 48);
+        Text = Label;
+        TextSize = 25;
+        VerticalAlignment = Center;
+    }
+
+    Label.team0score {
+        HorizontalAlignment = Center;
+        Position = (0, 120);
+        Renderer = &1;
+        Size = (59, 48);
+        Text = 0;
+        TextSize = 25;
+        VerticalAlignment = Center;
+    }
+
+    Label.Label3 {
+        HorizontalAlignment = Center;
+        Position = (0, 100);
+        Renderer = &1;
+        Size = (62, 18);
+        Text = "Team 0";
+        TextSize = 13;
+    }
+
+    ListView.team1tab {
+        ExpandLastColumn = 1;
+        HeaderHeight = 0;
+        HeaderSeparatorHeight = 0;
+        HeaderVisible = true;
+        ItemHeight = 20;
+        Position = (60, 248);
+        ResizableColumns = true;
+        SeparatorWidth = 1;
+        ShowVerticalGridLines = 1;
+        Size = (460, 194);
+        TextSize = 13;
+
+        Renderer {
+            BackgroundColor = #282828D7;
+            BackgroundColorHover = #282828D7;
+            BorderColor = rgba(240, 240, 240, 215);
+            Borders = 1;
+            HeaderBackgroundColor = #161616D7;
+            SelectedBackgroundColor = rgba(0, 110, 200, 130);
+            SelectedTextColor = rgba(255, 255, 255, 245);
+            TextColor = rgba(255, 255, 255, 215);
+            TextColorHover = rgba(255, 255, 255, 235);
+            TextureBackground = None;
+            TextureHeaderBackground = None;
+
+            Scrollbar {
+                ArrowBackgroundColor = rgba(160, 160, 160, 215);
+                ArrowBackgroundColorHover = rgba(170, 170, 170, 215);
+                ArrowColor = rgba(200, 200, 200, 215);
+                ArrowColorHover = rgba(225, 225, 225, 215);
+                TextureArrowDown = None;
+                TextureArrowDownHover = None;
+                TextureArrowUp = None;
+                TextureArrowUpHover = None;
+                TextureThumb = None;
+                TextureThumbHover = None;
+                TextureTrack = None;
+                TextureTrackHover = None;
+                ThumbColor = rgba(185, 185, 185, 215);
+                ThumbColorHover = rgba(195, 195, 195, 215);
+                TrackColor = rgba(160, 160, 160, 215);
+                TrackColorHover = rgba(170, 170, 170, 215);
+            }
+        }
+
+        Column {
+            Alignment = Center;
+            Text = ID;
+            Width = 35;
+        }
+
+        Column {
+            Alignment = Center;
+            Text = Name;
+            Width = 260;
+        }
+
+        Column {
+            Alignment = Center;
+            Text = Kills;
+            Width = 80;
+        }
+
+        Column {
+            Alignment = Center;
+            Text = Deaths;
+            Width = 80;
+        }
+    }
+
+    Label.team1score {
+        HorizontalAlignment = Center;
+        Position = (0, 320);
+        Renderer = &1;
+        Size = (59, 48);
+        Text = 0;
+        TextSize = 25;
+        VerticalAlignment = Center;
+    }
+
+    Label.Label5 {
+        HorizontalAlignment = Center;
+        Position = (0, 300);
+        Renderer = &1;
+        Size = (62, 18);
+        Text = "Team 1";
+        TextSize = 13;
     }
 }
