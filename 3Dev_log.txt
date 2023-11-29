@@ -1,282 +1,320 @@
-Sun Nov 26 18:34:57 2023
+Wed Nov 29 14:38:58 2023
 	Info: Texture assets/textures/sky1.hdr loaded
-Sun Nov 26 18:34:57 2023
+Wed Nov 29 14:38:58 2023
 	Info: Renderer successfully initialized
-Sun Nov 26 18:34:57 2023
+Wed Nov 29 14:38:58 2023
 	Info: Texture assets/textures/Concrete031_2K-JPG_Roughness.jpg loaded
-Sun Nov 26 18:34:57 2023
+Wed Nov 29 14:38:58 2023
 	Info: Texture assets/textures/Concrete031_2K-JPG_AmbientOcclusion.jpg loaded
-Sun Nov 26 18:34:57 2023
+Wed Nov 29 14:38:58 2023
 	Info: Texture assets/textures/Concrete031_2K-JPG_NormalGL.jpg loaded
-Sun Nov 26 18:34:57 2023
+Wed Nov 29 14:38:58 2023
 	Info: Texture assets/textures/Concrete031_2K-JPG_Color.jpg loaded
-Sun Nov 26 18:34:57 2023
+Wed Nov 29 14:38:58 2023
 	Info: Texture assets/textures/blood_normal.png loaded
-Sun Nov 26 18:34:57 2023
+Wed Nov 29 14:38:58 2023
 	Info: Texture assets/textures/pngwing.com.png loaded
-Sun Nov 26 18:34:57 2023
+Wed Nov 29 14:38:58 2023
 	Info: Texture assets/textures/character.jpg loaded
-Sun Nov 26 18:34:57 2023
+Wed Nov 29 14:38:58 2023
 	Info: Texture assets/textures/DesertEagle_Desert_Eagle_Roughness.png loaded
-Sun Nov 26 18:34:58 2023
+Wed Nov 29 14:38:58 2023
 	Info: Texture assets/textures/DesertEagle_Desert_Eagle_Metallic.png loaded
-Sun Nov 26 18:34:58 2023
+Wed Nov 29 14:38:59 2023
 	Info: Texture assets/textures/DesertEagle_Desert_Eagle_AO.png loaded
-Sun Nov 26 18:34:58 2023
+Wed Nov 29 14:38:59 2023
 	Info: Texture assets/textures/DesertEagle_Desert_Eagle_Normal.png loaded
-Sun Nov 26 18:34:58 2023
+Wed Nov 29 14:38:59 2023
 	Info: Texture assets/textures/DesertEagle_Desert_Eagle_BaseColor.png loaded
-Sun Nov 26 18:34:58 2023
+Wed Nov 29 14:38:59 2023
 	Info: Texture assets/textures/muzzle-flash.png loaded
-Sun Nov 26 18:34:58 2023
+Wed Nov 29 14:38:59 2023
 	Info: Texture assets/textures/muzzle-flash.png loaded
-Sun Nov 26 18:34:58 2023
+Wed Nov 29 14:38:59 2023
 	Info: Texture assets/textures/roughness.png loaded
-Sun Nov 26 18:34:58 2023
+Wed Nov 29 14:38:59 2023
 	Info: Texture assets/textures/metalness.png loaded
-Sun Nov 26 18:34:59 2023
+Wed Nov 29 14:39:00 2023
 	Info: Texture assets/textures/normal.png loaded
-Sun Nov 26 18:34:59 2023
+Wed Nov 29 14:39:00 2023
 	Info: Texture assets/textures/color.png loaded
-Sun Nov 26 18:34:59 2023
+Wed Nov 29 14:39:00 2023
 	Info: Texture assets/textures/templategrid_albedo.png loaded
-Sun Nov 26 18:34:59 2023
+Wed Nov 29 14:39:00 2023
 	Info: Texture assets/textures/Wood_ak-47_Roughness.png loaded
-Sun Nov 26 18:34:59 2023
+Wed Nov 29 14:39:00 2023
 	Info: Texture assets/textures/Wood_ak-47_Metallic.png loaded
-Sun Nov 26 18:34:59 2023
+Wed Nov 29 14:39:00 2023
 	Info: Texture assets/textures/Wood_ak-47_Normal_OpenGL.png loaded
-Sun Nov 26 18:34:59 2023
+Wed Nov 29 14:39:01 2023
 	Info: Texture assets/textures/Wood_ak-47_Base_Color.png loaded
-Sun Nov 26 18:34:59 2023
+Wed Nov 29 14:39:01 2023
 	Info: Texture assets/textures/Metall_ak-47_Roughness.png loaded
-Sun Nov 26 18:34:59 2023
+Wed Nov 29 14:39:01 2023
 	Info: Texture assets/textures/Metall_ak-47_Metallic.png loaded
-Sun Nov 26 18:34:59 2023
+Wed Nov 29 14:39:01 2023
 	Info: Texture assets/textures/Metall_ak-47_Normal_OpenGL.png loaded
-Sun Nov 26 18:35:00 2023
+Wed Nov 29 14:39:01 2023
 	Info: Texture assets/textures/Metall_ak-47_Base_Color.png loaded
-Sun Nov 26 18:35:00 2023
+Wed Nov 29 14:39:01 2023
 	Info: Model assets/models/plane.fbx loaded:
         Meshes: 1
         Bones: 0
         Animations: 0
-Sun Nov 26 18:35:00 2023
+Wed Nov 29 14:39:01 2023
 	Info: Model assets/models/LowPolyCharacter.fbx loaded:
         Meshes: 1
         Bones: 15
         Animations: 0
-Sun Nov 26 18:35:00 2023
+Wed Nov 29 14:39:01 2023
 	Info: Model assets/models/DesertEagle.fbx loaded:
         Meshes: 1
         Bones: 0
         Animations: 0
-Sun Nov 26 18:35:00 2023
+Wed Nov 29 14:39:01 2023
 	Info: Model assets/models/DesertEagle.fbx loaded:
         Meshes: 1
         Bones: 0
         Animations: 0
-Sun Nov 26 18:35:00 2023
+Wed Nov 29 14:39:01 2023
 	Info: Model assets/models/plane.fbx loaded:
         Meshes: 1
         Bones: 0
         Animations: 0
-Sun Nov 26 18:35:00 2023
+Wed Nov 29 14:39:01 2023
 	Info: Model assets/models/plane.fbx loaded:
         Meshes: 1
         Bones: 0
         Animations: 0
-Sun Nov 26 18:35:00 2023
+Wed Nov 29 14:39:01 2023
 	Info: Model assets/models/knife.fbx loaded:
         Meshes: 1
         Bones: 0
         Animations: 0
-Sun Nov 26 18:35:00 2023
+Wed Nov 29 14:39:01 2023
 	Info: Model assets/models/knife.fbx loaded:
         Meshes: 1
         Bones: 0
         Animations: 0
-Sun Nov 26 18:35:00 2023
+Wed Nov 29 14:39:01 2023
 	Info: Model assets/models/ak-47.fbx loaded:
         Meshes: 2
         Bones: 0
         Animations: 0
-Sun Nov 26 18:35:00 2023
+Wed Nov 29 14:39:01 2023
 	Info: Model assets/models/ak-47.fbx loaded:
         Meshes: 2
         Bones: 0
         Animations: 0
-Sun Nov 26 18:35:00 2023
+Wed Nov 29 14:39:01 2023
 	Info: Model assets/models/what.fbx loaded:
         Meshes: 1
         Bones: 0
         Animations: 0
-Sun Nov 26 18:35:00 2023
+Wed Nov 29 14:39:01 2023
 	Info: Sound "assets/sounds/metal-pipe.mp3" successfully loaded
-Sun Nov 26 18:35:00 2023
+Wed Nov 29 14:39:01 2023
 	Info: Sound "assets/sounds/footstep1.ogg" successfully loaded
-Sun Nov 26 18:35:00 2023
+Wed Nov 29 14:39:01 2023
 	Info: Sound "assets/sounds/footstep2.ogg" successfully loaded
-Sun Nov 26 18:35:00 2023
+Wed Nov 29 14:39:01 2023
 	Info: Sound "assets/sounds/footstep3.ogg" successfully loaded
-Sun Nov 26 18:35:00 2023
+Wed Nov 29 14:39:01 2023
 	Info: Sound "assets/sounds/footstep4.ogg" successfully loaded
-Sun Nov 26 18:35:00 2023
+Wed Nov 29 14:39:01 2023
 	Info: Sound "assets/sounds/jump.mp3" successfully loaded
-Sun Nov 26 18:35:00 2023
+Wed Nov 29 14:39:01 2023
 	Info: Sound "assets/sounds/land.mp3" successfully loaded
-Sun Nov 26 18:35:00 2023
+Wed Nov 29 14:39:01 2023
 	Info: Sound "assets/sounds/ak47-shot.mp3" successfully loaded
-Sun Nov 26 18:35:00 2023
+Wed Nov 29 14:39:01 2023
 	Info: Sound "assets/sounds/I-Cant-Stop-Mastered.mp3" successfully loaded
-Sun Nov 26 18:35:00 2023
+Wed Nov 29 14:39:01 2023
 	Info: Sound "assets/sounds/hit1.ogg" successfully loaded
-Sun Nov 26 18:35:00 2023
+Wed Nov 29 14:39:01 2023
 	Info: Sound "assets/sounds/hit2.ogg" successfully loaded
-Sun Nov 26 18:35:00 2023
+Wed Nov 29 14:39:01 2023
 	Info: Sound "assets/sounds/deagle-shot.mp3" successfully loaded
-Sun Nov 26 18:35:00 2023
+Wed Nov 29 14:39:01 2023
 	Info: Sound "assets/sounds/knife-sound.mp3" successfully loaded
-Sun Nov 26 18:35:00 2023
+Wed Nov 29 14:39:01 2023
 	Info: Sound "assets/sounds/headshot.mp3" successfully loaded
-Sun Nov 26 18:35:00 2023
-	Info: Build completed successfully in 0.017103 s
-Sun Nov 26 18:35:06 2023
-	Info: Model assets/models/arena.obj loaded:
-        Meshes: 10
+Wed Nov 29 14:39:02 2023
+	Info: Build completed successfully in 0.017444 s
+Wed Nov 29 14:39:08 2023
+	Info: Texture assets/textures/character1.jpg loaded
+Wed Nov 29 14:39:08 2023
+	Info: Model assets/models/map.obj loaded:
+        Meshes: 2
         Bones: 0
         Animations: 0
-Sun Nov 26 18:35:06 2023
-	Info: Texture assets/textures/MetalPlates001_2K-JPG_Roughness.jpg loaded
-Sun Nov 26 18:35:06 2023
-	Info: Texture assets/textures/MetalPlates001_2K-JPG_Metalness.jpg loaded
-Sun Nov 26 18:35:06 2023
-	Info: Texture assets/textures/MetalPlates001_2K-JPG_NormalGL.jpg loaded
-Sun Nov 26 18:35:06 2023
-	Info: Texture assets/textures/MetalPlates001_2K-JPG_Color.jpg loaded
-Sun Nov 26 18:35:07 2023
-	Info: Texture assets/textures/DiamondPlate006C_2K-JPG_Roughness.jpg loaded
-Sun Nov 26 18:35:07 2023
-	Info: Texture assets/textures/DiamondPlate006C_2K-JPG_Metalness.jpg loaded
-Sun Nov 26 18:35:07 2023
-	Info: Texture assets/textures/DiamondPlate006C_2K-JPG_AmbientOcclusion.jpg loaded
-Sun Nov 26 18:35:07 2023
-	Info: Texture assets/textures/DiamondPlate006C_2K-JPG_NormalGL.jpg loaded
-Sun Nov 26 18:35:07 2023
-	Info: Texture assets/textures/DiamondPlate006C_2K-JPG_Color.jpg loaded
-Sun Nov 26 18:35:07 2023
-	Info: Texture assets/textures/Concrete031_2K-JPG_Roughness.jpg loaded
-Sun Nov 26 18:35:07 2023
-	Info: Texture assets/textures/Concrete031_2K-JPG_AmbientOcclusion.jpg loaded
-Sun Nov 26 18:35:07 2023
-	Info: Texture assets/textures/Concrete031_2K-JPG_NormalGL.jpg loaded
-Sun Nov 26 18:35:07 2023
-	Info: Texture assets/textures/Concrete031_2K-JPG_Color.jpg loaded
-Sun Nov 26 18:35:07 2023
-	Info: Texture assets/textures/ptitsa.png loaded
-Sun Nov 26 18:35:13 2023
+Wed Nov 29 14:39:08 2023
+	Info: Texture assets/textures/map_roughness.jpg loaded
+Wed Nov 29 14:39:09 2023
+	Info: Texture assets/textures/map_metalness.jpg loaded
+Wed Nov 29 14:39:09 2023
+	Info: Texture assets/textures/map_normal.jpg loaded
+Wed Nov 29 14:39:09 2023
+	Info: Texture assets/textures/map_color.jpg loaded
+Wed Nov 29 14:39:09 2023
 	Info: Model assets/models/LowPolyCharacter.fbx loaded:
         Meshes: 1
         Bones: 15
         Animations: 0
-Sun Nov 26 18:35:13 2023
+Wed Nov 29 14:39:09 2023
 	Info: Model assets/models/ak-47.fbx loaded:
         Meshes: 2
         Bones: 0
         Animations: 0
-Sun Nov 26 18:35:13 2023
+Wed Nov 29 14:39:09 2023
 	Info: Model assets/models/DesertEagle.fbx loaded:
         Meshes: 1
         Bones: 0
         Animations: 0
-Sun Nov 26 18:35:13 2023
+Wed Nov 29 14:39:09 2023
 	Info: Model assets/models/knife.fbx loaded:
         Meshes: 1
         Bones: 0
         Animations: 0
-Sun Nov 26 18:35:13 2023
+Wed Nov 29 14:39:09 2023
 	Info: Model assets/models/plane.fbx loaded:
         Meshes: 1
         Bones: 0
         Animations: 0
-Sun Nov 26 18:35:13 2023
+Wed Nov 29 14:39:09 2023
 	Info: Model assets/models/plane.fbx loaded:
         Meshes: 1
         Bones: 0
         Animations: 0
-Sun Nov 26 18:35:13 2023
-	Info: Texture assets/textures/character1.jpg loaded
-Sun Nov 26 18:36:49 2023
+Wed Nov 29 14:39:50 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Wed Nov 29 14:39:53 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Wed Nov 29 14:39:54 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Wed Nov 29 14:39:55 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Wed Nov 29 14:39:56 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Wed Nov 29 14:39:56 2023
+	Info: Texture assets/textures/character-dead.jpg loaded
+Wed Nov 29 14:40:15 2023
+	Info: Model assets/models/LowPolyCharacter.fbx loaded:
+        Meshes: 1
+        Bones: 15
+        Animations: 0
+Wed Nov 29 14:40:15 2023
+	Info: Model assets/models/ak-47.fbx loaded:
+        Meshes: 2
+        Bones: 0
+        Animations: 0
+Wed Nov 29 14:40:15 2023
+	Info: Model assets/models/DesertEagle.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Wed Nov 29 14:40:15 2023
+	Info: Model assets/models/knife.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Wed Nov 29 14:40:15 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Wed Nov 29 14:40:15 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Wed Nov 29 14:40:47 2023
+	Warning: Could not find an animation with name "Default-chel-chel2", function will return nullptr
+Wed Nov 29 14:40:48 2023
+	Warning:  (0, 0): There is an 
+Wed Nov 29 14:40:15 2023
+	Info: Model assets/models/DesertEagle.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Wed Nov 29 14:40:15 2023
+	Info: Model assets/models/knife.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Wed Nov 29 14:40:15 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Wed Nov 29 14:40:15 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Wed Nov 29 14:40:30 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Wed Nov 29 14:40:32 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Wed Nov 29 14:40:38 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Wed Nov 29 14:40:38 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Wed Nov 29 14:40:38 2023
+	Info: Model assets/models/plane.fbx loaded:
+        Meshes: 1
+        Bones: 0
+        Animations: 0
+Wed Nov 29 14:40:38 2023
+	Info: Texture assets/textures/character-dead.jpg loaded
+Wed Nov 29 14:40:47 2023
+	Warning: Could not find an animation with name "Default-chel-chel2", function will return nullptr
+Wed Nov 29 14:40:48 2023
 	Warning: Could not find an animation with name "Default-chel-chel1", function will return nullptr
-Sun Nov 26 18:36:50 2023
+Wed Nov 29 14:40:48 2023
 	Warning:  (0, 0): There is an external reference to an object in module 'module', preventing it from being deleted
-Sun Nov 26 18:36:50 2023
+Wed Nov 29 14:40:48 2023
 	Info:  (0, 0): The function in previous message is named '$void Start()$3'. The func type is 1
-Sun Nov 26 18:36:50 2023
+Wed Nov 29 14:40:48 2023
 	Warning:  (0, 0): There is an external reference to an object in module 'module', preventing it from being deleted
-Sun Nov 26 18:36:50 2023
+Wed Nov 29 14:40:48 2023
 	Info:  (0, 0): The function in previous message is named '$void Start()$4'. The func type is 1
-Sun Nov 26 18:36:50 2023
+Wed Nov 29 14:40:48 2023
 	Warning:  (0, 0): There is an external reference to an object in module 'module', preventing it from being deleted
-Sun Nov 26 18:36:50 2023
+Wed Nov 29 14:40:48 2023
 	Info:  (0, 0): The function in previous message is named '$void Start()$5'. The func type is 1
-Sun Nov 26 18:36:50 2023
+Wed Nov 29 14:40:48 2023
 	Warning:  (0, 0): There is an external reference to an object in module 'module', preventing it from being deleted
-Sun Nov 26 18:36:50 2023
+Wed Nov 29 14:40:48 2023
 	Info:  (0, 0): The function in previous message is named '$void $void Start()$5()$0'. The func type is 1
-Sun Nov 26 18:36:50 2023
+Wed Nov 29 14:40:48 2023
 	Warning:  (0, 0): There is an external reference to an object in module 'module', preventing it from being deleted
-Sun Nov 26 18:36:50 2023
-	Info:  (0, 0): The function in previous message is named '$void $void Start()$5()$1'. The func type is 1
- 0
-        Animations: 0
-Sun Nov 26 18:36:01 2023
-	Info: Model assets/models/plane.fbx loaded:
-        Meshes: 1
-        Bones: 0
-        Animations: 0
-Sun Nov 26 18:36:01 2023
-	Info: Model assets/models/plane.fbx loaded:
-        Meshes: 1
-        Bones: 0
-        Animations: 0
-Sun Nov 26 18:36:01 2023
-	Info: Model assets/models/plane.fbx loaded:
-        Meshes: 1
-        Bones: 0
-        Animations: 0
-Sun Nov 26 18:36:19 2023
-	Info: Model assets/models/plane.fbx loaded:
-        Meshes: 1
-        Bones: 0
-        Animations: 0
-Sun Nov 26 18:36:21 2023
-	Info: Model assets/models/plane.fbx loaded:
-        Meshes: 1
-        Bones: 0
-        Animations: 0
-Sun Nov 26 18:36:45 2023
-	Info: Model assets/models/plane.fbx loaded:
-        Meshes: 1
-        Bones: 0
-        Animations: 0
-Sun Nov 26 18:36:49 2023
-	Warning:  (0, 0): There is an external reference to an object in module 'module', preventing it from being deleted
-Sun Nov 26 18:36:49 2023
-	Info:  (0, 0): The function in previous message is named '$void Start()$3'. The func type is 1
-Sun Nov 26 18:36:49 2023
-	Warning:  (0, 0): There is an external reference to an object in module 'module', preventing it from being deleted
-Sun Nov 26 18:36:49 2023
-	Info:  (0, 0): The function in previous message is named '$void Start()$4'. The func type is 1
-Sun Nov 26 18:36:49 2023
-	Warning:  (0, 0): There is an external reference to an object in module 'module', preventing it from being deleted
-Sun Nov 26 18:36:49 2023
-	Info:  (0, 0): The function in previous message is named '$void Start()$5'. The func type is 1
-Sun Nov 26 18:36:49 2023
-	Warning:  (0, 0): There is an external reference to an object in module 'module', preventing it from being deleted
-Sun Nov 26 18:36:49 2023
-	Info:  (0, 0): The function in previous message is named '$void $void Start()$5()$0'. The func type is 1
-Sun Nov 26 18:36:49 2023
-	Warning:  (0, 0): There is an external reference to an object in module 'module', preventing it from being deleted
-Sun Nov 26 18:36:49 2023
+Wed Nov 29 14:40:48 2023
 	Info:  (0, 0): The function in previous message is named '$void $void Start()$5()$1'. The func type is 1

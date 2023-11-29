@@ -539,7 +539,9 @@ GameLoop@ mainGameLoop = function()
 	        for(uint i = 0; i < tracers.length(); i++)
 	        {
 	            tracers[i].Move(tracers[i].GetOrientation() * QuaternionFromEuler(Vector3(-1.57, 0.0, 0.0)) * Vector3(0, 0, -17));
-	            tracers[i].Expand(Vector3(0.015, -0.0005, 0.015));
+	            //tracers[i].Expand(Vector3(0.015, -0.0005, 0.015));
+	            float y = tracers[i].GetSize().y;
+	            tracers[i].SetSize((Vector3(0.01, 0.0, 0.01) * (Game::camera.GetPosition() - tracers[i].GetPosition()).length() / 10.0) + Vector3(0, y, 0));
 	        }
 	
 	        for(uint i = 0; i < tracers.length(); i++)
@@ -561,7 +563,7 @@ GameLoop@ mainGameLoop = function()
 	
 						auto tracer = Game::scene.CloneModel(Game::scene.GetModel("tracer"), false, "tracer-copy" + to_string(tracerCounter++));
 		            	tracer.SetPosition(Game::camera.GetPosition() + tracerOrient * Vector3(0.6, -0.3, -11));
-	   	                tracer.SetOrientation(tracerOrient * QuaternionFromEuler(Vector3(1.57, 0.0, 0.0)));
+	   	                tracer.SetOrientation(tracerOrient * QuaternionFromEuler(Vector3(1.57, 0.005, -0.1)));
 	   	                tracer.SetSize(Vector3(0.01, rnd(1, 10), 0.01));
 	   	                tracer.SetIsDrawable(true);
 	   	                tracers.insertLast(tracer);
