@@ -1,120 +1,29 @@
-EditBox.ip {
-    DefaultText = Address;
-    Position = (0, 290);
-    Size = (140, 22);
-    TextSize = 13;
-
-    Renderer {
-        BackgroundColor = #F5F5F5;
-        BackgroundColorDisabled = #E6E6E6;
-        BackgroundColorHover = white;
-        BorderColor = #3C3C3C;
-        BorderColorDisabled = #7D7D7D;
-        BorderColorHover = black;
-        Borders = (1, 1, 1, 1);
-        CaretColor = black;
-        CaretWidth = 1;
-        DefaultTextColor = black;
-        DefaultTextStyle = Italic;
-        Opacity = 0.5;
-        Padding = (0, 0, 0, 0);
-        SelectedTextBackgroundColor = #006EFF;
-        SelectedTextColor = white;
-        TextColor = #3C3C3C;
-        TextColorDisabled = #7D7D7D;
-        Texture = None;
-        TextureDisabled = None;
-        TextureFocused = None;
-        TextureHover = None;
-    }
-}
-
-EditBox.port {
-    DefaultText = Port;
-    InputValidator = UInt;
-    Position = (150, 290);
-    Size = (40, 22);
-    TextSize = 13;
-
-    Renderer {
-        BackgroundColor = #F5F5F5;
-        BackgroundColorDisabled = #E6E6E6;
-        BackgroundColorHover = white;
-        BorderColor = #3C3C3C;
-        BorderColorDisabled = #7D7D7D;
-        BorderColorHover = black;
-        Borders = (1, 1, 1, 1);
-        CaretColor = black;
-        CaretWidth = 1;
-        DefaultTextColor = black;
-        DefaultTextStyle = Italic;
-        Opacity = 0.5;
-        Padding = (0, 0, 0, 0);
-        SelectedTextBackgroundColor = #006EFF;
-        SelectedTextColor = white;
-        TextColor = #3C3C3C;
-        TextColorDisabled = #7D7D7D;
-        Texture = None;
-        TextureDisabled = None;
-        TextureFocused = None;
-        TextureHover = None;
-    }
-}
-
-Button.connect {
-    Position = (0, 380);
-    Size = (91, 22);
-    Text = Connect;
-    TextSize = 13;
-
-    Renderer {
-        BackgroundColor = #F5F5F5;
-        BackgroundColorDisabled = #E6E6E6;
-        BackgroundColorDown = #EBEBEB;
-        BackgroundColorHover = white;
-        BorderColor = #3C3C3C;
-        BorderColorDisabled = #7D7D7D;
-        BorderColorDown = black;
-        BorderColorFocused = #1E1EB4;
-        BorderColorHover = black;
-        Borders = (1, 1, 1, 1);
-        Opacity = 0.5;
-        TextColor = #3C3C3C;
-        TextColorDisabled = #7D7D7D;
-        TextColorDown = black;
-        TextColorHover = black;
-        Texture = None;
-        TextureDisabled = None;
-        TextureDown = None;
-        TextureDownFocused = None;
-        TextureDownHover = None;
-        TextureFocused = None;
-        TextureHover = None;
-    }
-}
-
 Button.play {
-    Position = (100, 380);
-    Size = (91, 22);
-    Text = "Play alone";
-    TextSize = 13;
+    Enabled = false;
+    Position = (200, 393.077);
+    Size = (181, 43.7583);
+    Text = Play;
+    TextSize = 26;
 
     Renderer {
-        BackgroundColor = #F5F5F5;
-        BackgroundColorDisabled = #E6E6E6;
-        BackgroundColorDown = #EBEBEB;
-        BackgroundColorHover = white;
-        BorderColor = #3C3C3C;
+        BackgroundColor = black;
+        BackgroundColorDisabled = black;
+        BackgroundColorDown = black;
+        BackgroundColorHover = black;
+        BorderColor = black;
         BorderColorDisabled = #7D7D7D;
         BorderColorDown = black;
-        BorderColorFocused = #1E1EB4;
+        BorderColorFocused = black;
         BorderColorHover = black;
         Borders = (1, 1, 1, 1);
-        Opacity = 0.5;
-        TextColor = #3C3C3C;
+        Opacity = 1;
+        RoundedBorderRadius = 0;
+        TextColor = white;
         TextColorDisabled = #7D7D7D;
-        TextColorDown = black;
-        TextColorHover = black;
+        TextColorDown = #FF000064;
+        TextColorDownFocused = #FF000064;
+        TextColorDownHover = #FF000064;
+        TextColorHover = red;
         Texture = None;
         TextureDisabled = None;
         TextureDown = None;
@@ -126,7 +35,7 @@ Button.play {
 }
 
 Label.info {
-    Position = (0, 410);
+    Position = (1720, 670);
     Size = (189, 402.615);
     TextSize = 13;
 
@@ -160,27 +69,29 @@ Label.info {
 }
 
 Button.exit {
-    Position = (0, 1055);
+    Position = (250, 1045);
     Size = (91, 22);
     Text = Exit;
     TextSize = 13;
 
     Renderer {
-        BackgroundColor = #F5F5F5;
+        BackgroundColor = black;
         BackgroundColorDisabled = #E6E6E6;
-        BackgroundColorDown = #EBEBEB;
-        BackgroundColorHover = white;
-        BorderColor = #3C3C3C;
+        BackgroundColorDown = black;
+        BackgroundColorHover = black;
+        BorderColor = black;
         BorderColorDisabled = #7D7D7D;
         BorderColorDown = black;
-        BorderColorFocused = #1E1EB4;
+        BorderColorFocused = black;
         BorderColorHover = black;
         Borders = (1, 1, 1, 1);
-        Opacity = 0.5;
-        TextColor = #3C3C3C;
+        Opacity = 1;
+        TextColor = white;
         TextColorDisabled = #7D7D7D;
-        TextColorDown = black;
-        TextColorHover = black;
+        TextColorDown = #FF000064;
+        TextColorDownFocused = #FF000064;
+        TextColorDownHover = #FF000064;
+        TextColorHover = red;
         Texture = None;
         TextureDisabled = None;
         TextureDown = None;
@@ -191,68 +102,163 @@ Button.exit {
     }
 }
 
-EditBox.nickname {
-    DefaultText = Nickname;
-    MaximumCharacters = 30;
-    Position = (0, 320);
-    Size = (190, 22);
-    TextSize = 13;
+Button.Button1 {
+    Enabled = false;
+    Position = (200, 453.077);
+    Size = (181, 43.7583);
+    Text = "(Coming soon)";
+    TextSize = 16;
 
     Renderer {
-        BackgroundColor = #F5F5F5;
-        BackgroundColorDisabled = #E6E6E6;
-        BackgroundColorHover = white;
-        BorderColor = #3C3C3C;
-        BorderColorDisabled = #7D7D7D;
+        BackgroundColor = black;
+        BackgroundColorDisabled = black;
+        BackgroundColorDown = black;
+        BackgroundColorHover = black;
+        BorderColor = black;
+        BorderColorDisabled = black;
+        BorderColorDown = black;
+        BorderColorFocused = black;
         BorderColorHover = black;
         Borders = (1, 1, 1, 1);
-        CaretColor = black;
-        CaretWidth = 1;
-        DefaultTextColor = black;
-        DefaultTextStyle = Italic;
-        Opacity = 0.5;
-        Padding = (0, 0, 0, 0);
-        SelectedTextBackgroundColor = #006EFF;
-        SelectedTextColor = white;
-        TextColor = #3C3C3C;
+        Opacity = 1;
+        RoundedBorderRadius = 0;
+        TextColor = white;
         TextColorDisabled = #7D7D7D;
+        TextColorDown = #FF000064;
+        TextColorDownFocused = #FF000064;
+        TextColorDownHover = #FF000064;
+        TextColorHover = red;
         Texture = None;
         TextureDisabled = None;
+        TextureDown = None;
+        TextureDownFocused = None;
+        TextureDownHover = None;
         TextureFocused = None;
         TextureHover = None;
     }
 }
 
-EditBox.password {
-    DefaultText = "Password (optional)";
-    MaximumCharacters = 30;
-    PasswordCharacter = "*";
-    Position = (0, 350);
-    Size = (190, 22);
+Button.Button2 {
+    Enabled = false;
+    Position = (200, 513.077);
+    Size = (181, 43.7583);
+    Text = "(Coming soon)";
+    TextSize = 16;
+
+    Renderer {
+        BackgroundColor = black;
+        BackgroundColorDisabled = black;
+        BackgroundColorDown = black;
+        BackgroundColorHover = black;
+        BorderColor = black;
+        BorderColorDisabled = black;
+        BorderColorDown = black;
+        BorderColorFocused = black;
+        BorderColorHover = black;
+        Borders = (1, 1, 1, 1);
+        Opacity = 1;
+        RoundedBorderRadius = 0;
+        TextColor = white;
+        TextColorDisabled = #7D7D7D;
+        TextColorDown = #FF000064;
+        TextColorDownFocused = #FF000064;
+        TextColorDownHover = #FF000064;
+        TextColorHover = red;
+        Texture = None;
+        TextureDisabled = None;
+        TextureDown = None;
+        TextureDownFocused = None;
+        TextureDownHover = None;
+        TextureFocused = None;
+        TextureHover = None;
+    }
+}
+
+Label.name {
+    HorizontalAlignment = Center;
+    Position = (1580, 380);
+    Size = (238, 27);
+    Text = Label;
+    TextSize = 20;
+
+    Renderer {
+        BackgroundColor = transparent;
+        BorderColor = #3C3C3C;
+        Borders = (0, 0, 0, 0);
+        TextColor = white;
+        TextureBackground = None;
+
+        Scrollbar {
+            ArrowBackgroundColor = #F5F5F5;
+            ArrowBackgroundColorHover = white;
+            ArrowColor = #3C3C3C;
+            ArrowColorHover = black;
+            TextureArrowDown = None;
+            TextureArrowDownHover = None;
+            TextureArrowUp = None;
+            TextureArrowUpHover = None;
+            TextureThumb = None;
+            TextureThumbHover = None;
+            TextureTrack = None;
+            TextureTrackHover = None;
+            ThumbColor = #DCDCDC;
+            ThumbColorHover = #E6E6E6;
+            TrackColor = #F5F5F5;
+        }
+    }
+}
+
+ProgressBar.exp {
+    Maximum = 50;
+    Minimum = 0;
+    Position = (1580, 410);
+    Size = (240, 22);
+    TextSize = 13;
+    Value = 0;
+
+    Renderer {
+        BackgroundColor = black;
+        BorderColor = white;
+        Borders = (1, 1, 1, 1);
+        FillColor = red;
+        TextColor = #3C3C3C;
+        TextColorFilled = white;
+        TextureBackground = None;
+        TextureFill = None;
+    }
+}
+
+Label.lvl {
+    HorizontalAlignment = Center;
+    Position = (1580, 435);
+    Size = (239, 18);
+    Text = "0 lvl";
     TextSize = 13;
 
     Renderer {
-        BackgroundColor = #F5F5F5;
-        BackgroundColorDisabled = #E6E6E6;
-        BackgroundColorHover = white;
+        BackgroundColor = transparent;
         BorderColor = #3C3C3C;
-        BorderColorDisabled = #7D7D7D;
-        BorderColorHover = black;
-        Borders = (1, 1, 1, 1);
-        CaretColor = black;
-        CaretWidth = 1;
-        DefaultTextColor = black;
-        DefaultTextStyle = Italic;
-        Opacity = 0.5;
-        Padding = (0, 0, 0, 0);
-        SelectedTextBackgroundColor = #006EFF;
-        SelectedTextColor = white;
-        TextColor = #3C3C3C;
-        TextColorDisabled = #7D7D7D;
-        Texture = None;
-        TextureDisabled = None;
-        TextureFocused = None;
-        TextureHover = None;
+        Borders = (0, 0, 0, 0);
+        TextColor = white;
+        TextureBackground = None;
+
+        Scrollbar {
+            ArrowBackgroundColor = #F5F5F5;
+            ArrowBackgroundColorHover = white;
+            ArrowColor = #3C3C3C;
+            ArrowColorHover = black;
+            TextureArrowDown = None;
+            TextureArrowDownHover = None;
+            TextureArrowUp = None;
+            TextureArrowUpHover = None;
+            TextureThumb = None;
+            TextureThumbHover = None;
+            TextureTrack = None;
+            TextureTrackHover = None;
+            ThumbColor = #DCDCDC;
+            ThumbColorHover = #E6E6E6;
+            TrackColor = #F5F5F5;
+        }
     }
 }
 
@@ -273,6 +279,217 @@ Panel.loadingPanel {
         Renderer {
             Texture = "textures/idn.png" Smooth;
             TransparentTexture = false;
+        }
+    }
+
+    Label.loadingStatus {
+        HorizontalAlignment = Center;
+        Position = (0, 1060);
+        Size = (1920, 18);
+        Text = "Connecting to";
+        TextSize = 13;
+
+        Renderer {
+            BorderColor = rgba(240, 240, 240, 215);
+            TextColor = white;
+            TextureBackground = None;
+
+            Scrollbar {
+                ArrowBackgroundColor = rgba(160, 160, 160, 215);
+                ArrowBackgroundColorHover = rgba(170, 170, 170, 215);
+                ArrowColor = rgba(200, 200, 200, 215);
+                ArrowColorHover = rgba(225, 225, 225, 215);
+                TextureArrowDown = None;
+                TextureArrowDownHover = None;
+                TextureArrowUp = None;
+                TextureArrowUpHover = None;
+                TextureThumb = None;
+                TextureThumbHover = None;
+                TextureTrack = None;
+                TextureTrackHover = None;
+                ThumbColor = rgba(185, 185, 185, 215);
+                ThumbColorHover = rgba(195, 195, 195, 215);
+                TrackColor = rgba(160, 160, 160, 215);
+                TrackColorHover = rgba(170, 170, 170, 215);
+            }
+        }
+    }
+
+    ChildWindow.welcome {
+        Position = (830, 447.5);
+        Size = (250, 200);
+        Title = "Welcome to Bloodbath!";
+        TitleAlignment = Center;
+        TitleButtons = None;
+        TitleTextSize = 13;
+
+        Renderer {
+            BackgroundColor = #000000E6;
+            BorderBelowTitleBar = 1;
+            BorderColor = white;
+            Borders = (1, 1, 1, 1);
+            DistanceToSide = 3;
+            PaddingBetweenButtons = 1;
+            ShowTextOnTitleButtons = true;
+            TextureBackground = None;
+            TextureTitleBar = None;
+            TitleBarColor = #303030;
+            TitleColor = white;
+
+            CloseButton {
+                BackgroundColor = #F5F5F5;
+                BackgroundColorDisabled = #E6E6E6;
+                BackgroundColorDown = #EBEBEB;
+                BackgroundColorHover = white;
+                BorderColor = #3C3C3C;
+                BorderColorDisabled = #7D7D7D;
+                BorderColorDown = black;
+                BorderColorFocused = #1E1EB4;
+                BorderColorHover = black;
+                Borders = (1, 1, 1, 1);
+                TextColor = #3C3C3C;
+                TextColorDisabled = #7D7D7D;
+                TextColorDown = black;
+                TextColorHover = black;
+                Texture = None;
+                TextureDisabled = None;
+                TextureDown = None;
+                TextureDownFocused = None;
+                TextureDownHover = None;
+                TextureFocused = None;
+                TextureHover = None;
+            }
+        }
+
+        Button.confirm {
+            Position = (60, 140);
+            Size = (121, 22);
+            Text = Confirm;
+            TextSize = 13;
+
+            Renderer {
+                BackgroundColor = black;
+                BackgroundColorDisabled = #E6E6E6;
+                BackgroundColorDown = #0A0A0A;
+                BackgroundColorHover = #111111;
+                BorderColor = white;
+                BorderColorDisabled = #7D7D7D;
+                BorderColorDown = black;
+                BorderColorFocused = #1E1EB4;
+                BorderColorHover = #8D8D8D;
+                Borders = (1, 1, 1, 1);
+                TextColor = white;
+                TextColorDisabled = #7D7D7D;
+                TextColorDown = white;
+                TextColorHover = white;
+                Texture = None;
+                TextureDisabled = None;
+                TextureDown = None;
+                TextureDownFocused = None;
+                TextureDownHover = None;
+                TextureFocused = None;
+                TextureHover = None;
+            }
+        }
+
+        EditBox.nickname {
+            DefaultText = Nickname;
+            MaximumCharacters = 30;
+            Position = (30, 20);
+            Size = (190, 22);
+            TextSize = 13;
+
+            Renderer {
+                BackgroundColor = black;
+                BackgroundColorDisabled = #E6E6E6;
+                BackgroundColorHover = white;
+                BorderColor = white;
+                BorderColorDisabled = #7D7D7D;
+                BorderColorHover = black;
+                Borders = (1, 1, 1, 1);
+                CaretColor = black;
+                CaretWidth = 1;
+                DefaultTextColor = white;
+                DefaultTextStyle = Italic;
+                Opacity = 0.5;
+                Padding = (0, 0, 0, 0);
+                SelectedTextBackgroundColor = #006EFF;
+                SelectedTextColor = white;
+                TextColor = white;
+                TextColorDisabled = #7D7D7D;
+                Texture = None;
+                TextureDisabled = None;
+                TextureFocused = None;
+                TextureHover = None;
+            }
+        }
+
+        EditBox.password {
+            DefaultText = "Password (optional)";
+            MaximumCharacters = 30;
+            PasswordCharacter = "*";
+            Position = (30, 50);
+            Size = (190, 22);
+            TextSize = 13;
+
+            Renderer {
+                BackgroundColor = black;
+                BackgroundColorDisabled = #E6E6E6;
+                BackgroundColorHover = white;
+                BorderColor = white;
+                BorderColorDisabled = #7D7D7D;
+                BorderColorHover = black;
+                Borders = (1, 1, 1, 1);
+                CaretColor = black;
+                CaretWidth = 1;
+                DefaultTextColor = white;
+                DefaultTextStyle = Italic;
+                Opacity = 0.5;
+                Padding = (0, 0, 0, 0);
+                SelectedTextBackgroundColor = #006EFF;
+                SelectedTextColor = white;
+                TextColor = white;
+                TextColorDisabled = #7D7D7D;
+                Texture = None;
+                TextureDisabled = None;
+                TextureFocused = None;
+                TextureHover = None;
+            }
+        }
+
+        Label.warning {
+            HorizontalAlignment = Center;
+            Position = (0, 80);
+            Size = (250, 48);
+            Text = "With no password specified,\n you will not be able to track your\n statistics";
+            TextSize = 13;
+
+            Renderer {
+                BackgroundColor = transparent;
+                BorderColor = #3C3C3C;
+                Borders = (0, 0, 0, 0);
+                TextColor = #969696;
+                TextStyle = Italic;
+                TextureBackground = None;
+
+                Scrollbar {
+                    ArrowBackgroundColor = #F5F5F5;
+                    ArrowBackgroundColorHover = white;
+                    ArrowColor = #3C3C3C;
+                    ArrowColorHover = black;
+                    TextureArrowDown = None;
+                    TextureArrowDownHover = None;
+                    TextureArrowUp = None;
+                    TextureArrowUpHover = None;
+                    TextureThumb = None;
+                    TextureThumbHover = None;
+                    TextureTrack = None;
+                    TextureTrackHover = None;
+                    ThumbColor = #DCDCDC;
+                    ThumbColorHover = #E6E6E6;
+                    TrackColor = #F5F5F5;
+                }
+            }
         }
     }
 }

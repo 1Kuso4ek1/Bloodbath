@@ -17,7 +17,7 @@
     "renderer" :
     {
     	"shadersDir" : "assets/shaders/",
-        "hdriPath" : "assets/textures/sky1.hdr",
+        "hdriPath" : "assets/textures/black.jpg",
         "skyboxSideSize" : 512,
         "irradianceSideSize" : 32,
         "prefilteredSideSize" : 512,

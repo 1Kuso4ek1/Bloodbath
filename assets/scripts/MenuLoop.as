@@ -2,20 +2,18 @@ Clock updateInfo, ping;
 
 GameLoop@ menuLoop = function()
 {
-    if(logoTime.getElapsedTime().asSeconds() > 1.5 && logo)
+    if(logoTime.getElapsedTime().asSeconds() > 1.5 && logo && updateMenu)
     {
         menu.getPanel("loadingPanel").hideWithEffect(tgui::Fade, seconds(3.0));
         logo = false;
     }
     else if(logo) return;
 
-    if(updatePhysics)
+    if(updatePhysics && updateMenu)
     {
         Game::exposure = lerp(Game::exposure, initialExposure, 0.015);
         Game::blurIterations = int(lerp(Game::blurIterations, 16, 0.8));
         Game::bloomStrength = lerp(Game::bloomStrength, 0.3, 0.002 + Game::exposure / 100.0);
-
-        Game::camera.SetFOV(lerp(Game::camera.GetFOV(), 90.0, 0.002));
     }
 
     if(!socket.isBlocking() && updateInfo.getElapsedTime().asSeconds() >= 2.0)
@@ -32,8 +30,10 @@ GameLoop@ menuLoop = function()
             if(event == -1)
             {
                 string stats;
-                upd >> id >> serverConfig.name >> serverConfig.allowBhop >> serverConfig.enableFullGUI >> serverConfig.maxPlayers >> serverConfig.jumpForce >> serverConfig.maxSpeed >> numPlayers >> team >> currentMap >> stats;
+                upd >> id >> serverConfig.name >> serverConfig.allowBhop >> serverConfig.enableFullGUI >> serverConfig.maxPlayers >> serverConfig.jumpForce >> serverConfig.maxSpeed >> numPlayers >> team >> currentMap >> stats >> exp;
                 menu.getLabel("info").setText("Connected to " + serverConfig.name + "\n" + to_string(numPlayers - 1) + "/" + to_string(serverConfig.maxPlayers) + " players\n" + "ID: " + to_string(id) + "\nPing: " + to_string(ping.getElapsedTime().asMilliseconds()) + "\nMap: " + currentMap + "\n" + stats);
+                menu.getProgressBar("exp").setValue(exp - (50 * int(floor(exp / 50))));
+                menu.getLabel("lvl").setText(to_string(int(floor(exp / 50))) + " lvl");
                 menu.getButton("play").setText("Play");
                 break;
             }

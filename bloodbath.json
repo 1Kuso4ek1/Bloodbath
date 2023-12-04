@@ -2455,240 +2455,6 @@
 			"keyframes" : 
 			[
 				{
-					"name" : "Bone.012-chel",
-					"posStamps" : 
-					[
-						0.0,
-						5.0,
-						10.0
-					],
-					"positions" : 
-					[
-						{
-							"x" : 0.0,
-							"y" : 0.70552700757980347,
-							"z" : 0.0
-						},
-						{
-							"x" : 0.0,
-							"y" : 0.70552700757980347,
-							"z" : 0.0
-						},
-						{
-							"x" : 0.0,
-							"y" : 0.70552700757980347,
-							"z" : 0.0
-						}
-					],
-					"rotStamps" : 
-					[
-						0.0,
-						5.0,
-						10.0
-					],
-					"rotations" : 
-					[
-						{
-							"w" : 0.99979758262634277,
-							"x" : 0.020119408145546913,
-							"y" : 0.0,
-							"z" : 0.0
-						},
-						{
-							"w" : 0.99979758262634277,
-							"x" : 0.020119408145546913,
-							"y" : 0.0,
-							"z" : 0.0
-						},
-						{
-							"w" : 0.99979758262634277,
-							"x" : 0.020119408145546913,
-							"y" : 0.0,
-							"z" : 0.0
-						}
-					],
-					"scaleStamps" : 
-					[
-						0.0,
-						5.0,
-						10.0
-					],
-					"scales" : 
-					[
-						{
-							"x" : 1.0,
-							"y" : 1.0,
-							"z" : 1.0
-						},
-						{
-							"x" : 1.0,
-							"y" : 1.0,
-							"z" : 1.0
-						},
-						{
-							"x" : 1.0,
-							"y" : 1.0,
-							"z" : 1.0
-						}
-					]
-				},
-				{
-					"name" : "Bone.009-chel",
-					"posStamps" : 
-					[
-						0.0,
-						5.0,
-						10.0
-					],
-					"positions" : 
-					[
-						{
-							"x" : 0.0,
-							"y" : 0.72498100996017456,
-							"z" : 0.0
-						},
-						{
-							"x" : 0.0,
-							"y" : 0.72498100996017456,
-							"z" : 0.0
-						},
-						{
-							"x" : 0.0,
-							"y" : 0.72498100996017456,
-							"z" : 0.0
-						}
-					],
-					"rotStamps" : 
-					[
-						0.0,
-						5.0,
-						10.0
-					],
-					"rotations" : 
-					[
-						{
-							"w" : 0.9998207688331604,
-							"x" : -0.01893211342394352,
-							"y" : 0.0,
-							"z" : 0.0
-						},
-						{
-							"w" : 0.90459251403808594,
-							"x" : -0.017128931358456612,
-							"y" : 0.0080639636144042015,
-							"z" : -0.42586478590965271
-						},
-						{
-							"w" : 0.99415624141693115,
-							"x" : -0.088001713156700134,
-							"y" : 0.031433217227458954,
-							"z" : 0.05429447814822197
-						}
-					],
-					"scaleStamps" : 
-					[
-						0.0,
-						5.0,
-						10.0
-					],
-					"scales" : 
-					[
-						{
-							"x" : 1.0,
-							"y" : 1.0,
-							"z" : 1.0
-						},
-						{
-							"x" : 1.0,
-							"y" : 1.0,
-							"z" : 1.0
-						},
-						{
-							"x" : 1.0,
-							"y" : 1.0,
-							"z" : 1.0
-						}
-					]
-				},
-				{
-					"name" : "Bone.008-chel",
-					"posStamps" : 
-					[
-						0.0,
-						5.0,
-						10.0
-					],
-					"positions" : 
-					[
-						{
-							"x" : 0.0,
-							"y" : 0.28943300247192383,
-							"z" : 0.0
-						},
-						{
-							"x" : 0.0,
-							"y" : 0.28943300247192383,
-							"z" : 0.0
-						},
-						{
-							"x" : 0.0,
-							"y" : 0.28943300247192383,
-							"z" : 0.0
-						}
-					],
-					"rotStamps" : 
-					[
-						0.0,
-						5.0,
-						10.0
-					],
-					"rotations" : 
-					[
-						{
-							"w" : 0.88812774419784546,
-							"x" : -0.45927172899246216,
-							"y" : -0.013950102031230927,
-							"z" : -0.010199965909123421
-						},
-						{
-							"w" : 0.8823121190071106,
-							"x" : -0.46437856554985046,
-							"y" : -0.042032107710838318,
-							"z" : -0.064207226037979126
-						},
-						{
-							"w" : 0.88232791423797607,
-							"x" : -0.46837905049324036,
-							"y" : 0.04185173287987709,
-							"z" : -0.019868256524205208
-						}
-					],
-					"scaleStamps" : 
-					[
-						0.0,
-						5.0,
-						10.0
-					],
-					"scales" : 
-					[
-						{
-							"x" : 1.0,
-							"y" : 1.0,
-							"z" : 1.0
-						},
-						{
-							"x" : 1.0,
-							"y" : 1.0,
-							"z" : 1.0
-						},
-						{
-							"x" : 1.0,
-							"y" : 1.0,
-							"z" : 1.0
-						}
-					]
-				},
-				{
 					"name" : "Bone.011-chel",
 					"posStamps" : 
 					[
@@ -3469,6 +3235,84 @@
 					]
 				},
 				{
+					"name" : "Left-Hand-chel",
+					"posStamps" : 
+					[
+						0.0,
+						5.0,
+						10.0
+					],
+					"positions" : 
+					[
+						{
+							"x" : 0.0,
+							"y" : 0.58690398931503296,
+							"z" : 0.0
+						},
+						{
+							"x" : 0.0,
+							"y" : 0.58690398931503296,
+							"z" : -7.4505805969238281e-08
+						},
+						{
+							"x" : 0.0,
+							"y" : 0.56811702251434326,
+							"z" : 0.0
+						}
+					],
+					"rotStamps" : 
+					[
+						0.0,
+						5.0,
+						10.0
+					],
+					"rotations" : 
+					[
+						{
+							"w" : 0.87060326337814331,
+							"x" : 0.056676063686609268,
+							"y" : -0.47715425491333008,
+							"z" : -0.10564858466386795
+						},
+						{
+							"w" : 0.76685404777526855,
+							"x" : 0.44341924786567688,
+							"y" : -0.43978935480117798,
+							"z" : -0.14804862439632416
+						},
+						{
+							"w" : 0.96135026216506958,
+							"x" : 0.12616412341594696,
+							"y" : -0.20187990367412567,
+							"z" : -0.13833349943161011
+						}
+					],
+					"scaleStamps" : 
+					[
+						0.0,
+						5.0,
+						10.0
+					],
+					"scales" : 
+					[
+						{
+							"x" : 1.0,
+							"y" : 1.0,
+							"z" : 1.0
+						},
+						{
+							"x" : 1.0,
+							"y" : 1.0,
+							"z" : 1.0
+						},
+						{
+							"x" : 1.0,
+							"y" : 1.0,
+							"z" : 1.0
+						}
+					]
+				},
+				{
 					"name" : "Left-Arm.0-chel",
 					"posStamps" : 
 					[
@@ -3547,7 +3391,7 @@
 					]
 				},
 				{
-					"name" : "Left-Hand-chel",
+					"name" : "Bone.012-chel",
 					"posStamps" : 
 					[
 						0.0,
@@ -3558,17 +3402,17 @@
 					[
 						{
 							"x" : 0.0,
-							"y" : 0.58690398931503296,
+							"y" : 0.70552700757980347,
 							"z" : 0.0
 						},
 						{
 							"x" : 0.0,
-							"y" : 0.58690398931503296,
-							"z" : -7.4505805969238281e-08
+							"y" : 0.70552700757980347,
+							"z" : 0.0
 						},
 						{
 							"x" : 0.0,
-							"y" : 0.56811702251434326,
+							"y" : 0.70552700757980347,
 							"z" : 0.0
 						}
 					],
@@ -3581,22 +3425,178 @@
 					"rotations" : 
 					[
 						{
-							"w" : 0.87060326337814331,
-							"x" : 0.056676063686609268,
-							"y" : -0.47715425491333008,
-							"z" : -0.10564858466386795
+							"w" : 0.99979758262634277,
+							"x" : 0.020119408145546913,
+							"y" : 0.0,
+							"z" : 0.0
 						},
 						{
-							"w" : 0.76685404777526855,
-							"x" : 0.44341924786567688,
-							"y" : -0.43978935480117798,
-							"z" : -0.14804862439632416
+							"w" : 0.99979758262634277,
+							"x" : 0.020119408145546913,
+							"y" : 0.0,
+							"z" : 0.0
 						},
 						{
-							"w" : 0.96135026216506958,
-							"x" : 0.12616412341594696,
-							"y" : -0.20187990367412567,
-							"z" : -0.13833349943161011
+							"w" : 0.99979758262634277,
+							"x" : 0.020119408145546913,
+							"y" : 0.0,
+							"z" : 0.0
+						}
+					],
+					"scaleStamps" : 
+					[
+						0.0,
+						5.0,
+						10.0
+					],
+					"scales" : 
+					[
+						{
+							"x" : 1.0,
+							"y" : 1.0,
+							"z" : 1.0
+						},
+						{
+							"x" : 1.0,
+							"y" : 1.0,
+							"z" : 1.0
+						},
+						{
+							"x" : 1.0,
+							"y" : 1.0,
+							"z" : 1.0
+						}
+					]
+				},
+				{
+					"name" : "Bone.008-chel",
+					"posStamps" : 
+					[
+						0.0,
+						5.0,
+						10.0
+					],
+					"positions" : 
+					[
+						{
+							"x" : 0.0,
+							"y" : 0.28943300247192383,
+							"z" : 0.0
+						},
+						{
+							"x" : 0.0,
+							"y" : 0.28943300247192383,
+							"z" : 0.0
+						},
+						{
+							"x" : 0.0,
+							"y" : 0.28943300247192383,
+							"z" : 0.0
+						}
+					],
+					"rotStamps" : 
+					[
+						0.0,
+						5.0,
+						10.0
+					],
+					"rotations" : 
+					[
+						{
+							"w" : 0.88812774419784546,
+							"x" : -0.45927172899246216,
+							"y" : -0.013950102031230927,
+							"z" : -0.010199965909123421
+						},
+						{
+							"w" : 0.8823121190071106,
+							"x" : -0.46437856554985046,
+							"y" : -0.042032107710838318,
+							"z" : -0.064207226037979126
+						},
+						{
+							"w" : 0.88232791423797607,
+							"x" : -0.46837905049324036,
+							"y" : 0.04185173287987709,
+							"z" : -0.019868256524205208
+						}
+					],
+					"scaleStamps" : 
+					[
+						0.0,
+						5.0,
+						10.0
+					],
+					"scales" : 
+					[
+						{
+							"x" : 1.0,
+							"y" : 1.0,
+							"z" : 1.0
+						},
+						{
+							"x" : 1.0,
+							"y" : 1.0,
+							"z" : 1.0
+						},
+						{
+							"x" : 1.0,
+							"y" : 1.0,
+							"z" : 1.0
+						}
+					]
+				},
+				{
+					"name" : "Bone.009-chel",
+					"posStamps" : 
+					[
+						0.0,
+						5.0,
+						10.0
+					],
+					"positions" : 
+					[
+						{
+							"x" : 0.0,
+							"y" : 0.72498100996017456,
+							"z" : 0.0
+						},
+						{
+							"x" : 0.0,
+							"y" : 0.72498100996017456,
+							"z" : 0.0
+						},
+						{
+							"x" : 0.0,
+							"y" : 0.72498100996017456,
+							"z" : 0.0
+						}
+					],
+					"rotStamps" : 
+					[
+						0.0,
+						5.0,
+						10.0
+					],
+					"rotations" : 
+					[
+						{
+							"w" : 0.9998207688331604,
+							"x" : -0.01893211342394352,
+							"y" : 0.0,
+							"z" : 0.0
+						},
+						{
+							"w" : 0.90459251403808594,
+							"x" : -0.017128931358456612,
+							"y" : 0.0080639636144042015,
+							"z" : -0.42586478590965271
+						},
+						{
+							"w" : 0.99415624141693115,
+							"x" : -0.088001713156700134,
+							"y" : 0.031433217227458954,
+							"z" : 0.05429447814822197
 						}
 					],
 					"scaleStamps" : 
@@ -6025,20 +6025,20 @@
 			"light"
 		],
 		"far" : 1000.0,
-		"fov" : 79.070037841796875,
+		"fov" : 70.0,
 		"near" : 0.0099999997764825821,
 		"orientation" : 
 		{
-			"w" : -0.71106880903244019,
-			"x" : 0.013018270023167133,
-			"y" : 0.7082940936088562,
-			"z" : 0.012952456250786781
+			"w" : 0.70940995216369629,
+			"x" : -0.019957052543759346,
+			"y" : -0.70972687005996704,
+			"z" : -0.019951174035668373
 		},
 		"position" : 
 		{
-			"x" : -8.0644941329956055,
-			"y" : 4.4075746536254883,
-			"z" : -0.35963594913482666
+			"x" : -5.8185396194458008,
+			"y" : 3.9331953525543213,
+			"z" : 0.0
 		},
 		"speed" : 1.0
 	},
@@ -6085,6 +6085,38 @@
 				"quadratic" : 0.0
 			},
 			"castShadows" : true,
+			"color" : 
+			{
+				"b" : 10.0,
+				"g" : 10.0,
+				"r" : 10.0
+			},
+			"cutoff" : 10.0,
+			"name" : "lobbyLight",
+			"orientation" : 
+			{
+				"w" : 0.42520353198051453,
+				"x" : -0.79192376136779785,
+				"y" : -0.11375975608825684,
+				"z" : 0.42322632670402527
+			},
+			"outerCutoff" : 14.0,
+			"perspectiveShadows" : true,
+			"position" : 
+			{
+				"x" : -15.0,
+				"y" : 12.199999809265137,
+				"z" : -5.0
+			}
+		},
+		{
+			"attenuation" : 
+			{
+				"constant" : 1.0,
+				"linear" : 0.0,
+				"quadratic" : 0.0
+			},
+			"castShadows" : false,
 			"color" : 
 			{
 				"b" : 0.0,
@@ -6175,9 +6207,13 @@
 			}
 		},
 		{
+			"ao" : 
+			{
+				"filename" : "assets/textures/PaintedMetal016_2K-JPG_AmbientOcclusion.jpg"
+			},
 			"color" : 
 			{
-				"filename" : "assets/textures/MetalPlates001_2K-JPG_Color.jpg"
+				"filename" : "assets/textures/PaintedMetal016_2K-JPG_Color.jpg"
 			},
 			"emission" : 
 			{
@@ -6188,12 +6224,12 @@
 			},
 			"metalness" : 
 			{
-				"filename" : "assets/textures/MetalPlates001_2K-JPG_Metalness.jpg"
+				"filename" : "assets/textures/PaintedMetal016_2K-JPG_Metalness.jpg"
 			},
 			"name" : "arenaMat2",
 			"normal" : 
 			{
-				"filename" : "assets/textures/MetalPlates001_2K-JPG_NormalGL.jpg"
+				"filename" : "assets/textures/PaintedMetal016_2K-JPG_NormalGL.jpg"
 			},
 			"opacity" : 
 			{
@@ -6201,17 +6237,17 @@
 			},
 			"roughness" : 
 			{
-				"filename" : "assets/textures/MetalPlates001_2K-JPG_Roughness.jpg"
+				"filename" : "assets/textures/PaintedMetal016_2K-JPG_Roughness.jpg"
 			}
 		},
 		{
 			"ao" : 
 			{
-				"filename" : "assets/textures/DiamondPlate006C_2K-JPG_AmbientOcclusion.jpg"
+				"filename" : "assets/textures/DiamondPlate006B_2K-JPG_AmbientOcclusion.jpg"
 			},
 			"color" : 
 			{
-				"filename" : "assets/textures/DiamondPlate006C_2K-JPG_Color.jpg"
+				"filename" : "assets/textures/DiamondPlate006B_2K-JPG_Color.jpg"
 			},
 			"emission" : 
 			{
@@ -6222,12 +6258,12 @@
 			},
 			"metalness" : 
 			{
-				"filename" : "assets/textures/DiamondPlate006C_2K-JPG_Metalness.jpg"
+				"filename" : "assets/textures/DiamondPlate006B_2K-JPG_Metalness.jpg"
 			},
 			"name" : "arenaMat3",
 			"normal" : 
 			{
-				"filename" : "assets/textures/DiamondPlate006C_2K-JPG_NormalGL.jpg"
+				"filename" : "assets/textures/DiamondPlate006B_2K-JPG_NormalGL.jpg"
 			},
 			"opacity" : 
 			{
@@ -6235,7 +6271,75 @@
 			},
 			"roughness" : 
 			{
-				"filename" : "assets/textures/DiamondPlate006C_2K-JPG_Roughness.jpg"
+				"filename" : "assets/textures/DiamondPlate006B_2K-JPG_Roughness.jpg"
+			}
+		},
+		{
+			"ao" : 
+			{
+				"filename" : "assets/textures/Planks034B_2K-JPG_AmbientOcclusion.jpg"
+			},
+			"color" : 
+			{
+				"filename" : "assets/textures/Planks034B_2K-JPG_Color.jpg"
+			},
+			"emission" : 
+			{
+				"b" : 0.0,
+				"g" : 0.0,
+				"r" : 0.0,
+				"strength" : 1.0
+			},
+			"metalness" : 
+			{
+				"value" : 0.0
+			},
+			"name" : "arenaMat4",
+			"normal" : 
+			{
+				"filename" : "assets/textures/Planks034B_2K-JPG_NormalGL.jpg"
+			},
+			"opacity" : 
+			{
+				"value" : 1.0
+			},
+			"roughness" : 
+			{
+				"filename" : "assets/textures/Planks034B_2K-JPG_Roughness.jpg"
+			}
+		},
+		{
+			"ao" : 
+			{
+				"filename" : "assets/textures/DiamondPlate007B_2K-JPG_AmbientOcclusion.jpg"
+			},
+			"color" : 
+			{
+				"filename" : "assets/textures/DiamondPlate007B_2K-JPG_Color.jpg"
+			},
+			"emission" : 
+			{
+				"b" : 0.0,
+				"g" : 0.0,
+				"r" : 0.0,
+				"strength" : 1.0
+			},
+			"metalness" : 
+			{
+				"filename" : "assets/textures/DiamondPlate007B_2K-JPG_Metalness.jpg"
+			},
+			"name" : "arenaMat5",
+			"normal" : 
+			{
+				"filename" : "assets/textures/DiamondPlate007B_2K-JPG_NormalGL.jpg"
+			},
+			"opacity" : 
+			{
+				"value" : 1.0
+			},
+			"roughness" : 
+			{
+				"filename" : "assets/textures/DiamondPlate007B_2K-JPG_Roughness.jpg"
 			}
 		},
 		{
@@ -6467,6 +6571,60 @@
 		{
 			"color" : 
 			{
+				"filename" : "assets/textures/Tiles074_2K-JPG_Color.jpg"
+			},
+			"emission" : 
+			{
+				"b" : 0.0,
+				"g" : 0.0,
+				"r" : 0.0,
+				"strength" : 1.0
+			},
+			"metalness" : 
+			{
+				"value" : 0.0
+			},
+			"name" : "lobbyMat",
+			"normal" : 
+			{
+				"filename" : "assets/textures/Tiles074_2K-JPG_NormalGL.jpg"
+			},
+			"opacity" : 
+			{
+				"value" : 1.0
+			},
+			"roughness" : 
+			{
+				"filename" : "assets/textures/Tiles074_2K-JPG_Roughness.jpg"
+			}
+		},
+		{
+			"color" : 
+			{
+				"filename" : "assets/textures/bloodbath.png"
+			},
+			"emission" : 
+			{
+				"filename" : "assets/textures/bloodbath.png",
+				"strength" : 5.0
+			},
+			"metalness" : 
+			{
+				"value" : 0.0
+			},
+			"name" : "logo",
+			"opacity" : 
+			{
+				"value" : 0.98999994993209839
+			},
+			"roughness" : 
+			{
+				"value" : 0.0
+			}
+		},
+		{
+			"color" : 
+			{
 				"filename" : "assets/textures/templategrid_albedo.png"
 			},
 			"emission" : 
@@ -6644,10 +6802,10 @@
 				"material" : 
 				[
 					{
-						"name" : "arenaMat2"
+						"name" : "arenaMat5"
 					},
 					{
-						"name" : "arenaMat3"
+						"name" : "arenaMat4"
 					},
 					{
 						"name" : "arenaMat"
@@ -7132,7 +7290,7 @@
 				"material" : 
 				[
 					{
-						"name" : "arenaMat"
+						"name" : "lobbyMat"
 					}
 				],
 				"name" : "lobby",
@@ -7145,7 +7303,7 @@
 				},
 				"position" : 
 				{
-					"x" : 0.0,
+					"x" : 6.5999999046325684,
 					"y" : -1.0,
 					"z" : 0.0
 				},
@@ -7160,6 +7318,43 @@
 					"x" : 10.0,
 					"y" : 1.0,
 					"z" : 10.0
+				}
+			},
+			{
+				"drawable" : true,
+				"filename" : "assets/models/plane.fbx",
+				"immediateLoad" : true,
+				"material" : 
+				[
+					{
+						"name" : "logo"
+					}
+				],
+				"name" : "lobby1",
+				"orientation" : 
+				{
+					"w" : 0.7071068286895752,
+					"x" : 0.0,
+					"y" : -0.7071068286895752,
+					"z" : 0.0
+				},
+				"position" : 
+				{
+					"x" : 23.0,
+					"y" : 15.0,
+					"z" : 0.0
+				},
+				"rigidBody" : 
+				{
+					"active" : false,
+					"collider" : 0,
+					"type" : 0
+				},
+				"size" : 
+				{
+					"x" : 10.0,
+					"y" : 3.0,
+					"z" : 1.0
 				}
 			},
 			{

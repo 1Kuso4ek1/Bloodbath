@@ -1,5 +1,12 @@
 GameLoop@ mainGameLoop = function()
 {
+    if(enableShadows)
+    {
+        Game::scene.GetLight("shadowSource").SetIsCastingShadows(true);
+        enableShadows = false;
+    }
+    else enableShadows = !Game::scene.GetLight("shadowSource").IsCastingShadows();
+
     hud.getProgressBar("health").setValue(health);
 
     if(Game::mouseSensitivity != pauseMenu.getSlider("sensitivity").getValue())

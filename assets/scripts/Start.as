@@ -40,11 +40,17 @@ void Start()
         Game::scene.GetModel(mapNames[i] + ":ground").SetShadowBias(-0.0001);
     }
 
+    Game::scene.LoadEnvironment("assets/textures/black.jpg");
+
     Game::scene.GetModel("chel").SetShadowBias(0.005);
     Game::scene.GetModel("chel").SetIsDrawable(true);
     Game::scene.GetModel("lobby").SetIsDrawable(true);
+    Game::scene.GetModel("lobby1").SetIsDrawable(true);
+    Game::scene.GetLight("lobbyLight").SetIsCastingShadows(true);
+    Game::scene.GetLight("lobbyLight").SetColor(Vector3(1, 1, 1));
+    Game::scene.GetLight("shadowSource").SetIsCastingShadows(false);
     Game::scene.GetAnimation("Menu-Idle").Play();
-    Game::camera.SetFOV(10.0);
+    Game::camera.SetFOV(90.0);
 
     mat.setBounciness(0.01);
     mat.setFrictionCoefficient(0.05);
@@ -166,23 +172,25 @@ void Start()
         if(sens.length() > 0)
             Game::mouseSensitivity = stof(sens);
 
-        menu.getEditBox("ip").setText(lastIp);
-        menu.getEditBox("port").setText(to_string(lastPort));
+        /*menu.getEditBox("ip").setText(lastIp);
+        menu.getEditBox("port").setText(to_string(lastPort));*/
         menu.getEditBox("nickname").setText(name);
         menu.getEditBox("password").setText(password);
 
         data.close();
     }
 
+    menu.getLabel("loadingStatus").setText("Connected to " + lastIp);
+
     menu.getButton("exit").onPress(function()
     {
         engine.Close();
     });
 
-    menu.getButton("connect").onPress(function()
+    lambda@ connect = function()
     {
-        auto ip = menu.getEditBox("ip").getText().toStdString();
-        auto port = stoi(menu.getEditBox("port").getText().toStdString());
+        auto ip = lastIp;
+        auto port = lastPort;
         name = menu.getEditBox("nickname").getText().toStdString();
         password = menu.getEditBox("password").getText().toStdString();
         file data;
@@ -197,11 +205,19 @@ void Start()
 
             data.close();
         }
-        int status = socket.connect(ResolveIp(ip), port, seconds(5));
+        int status = socket.connect(ResolveIp(ip), port, seconds(1));
         if(status == Socket::Done)
+        {
             socket.setBlocking(false);
-        else menu.getLabel("info").setText("Failed to connect!");
-    });
+            menu.getButton("play").setEnabled(true);
+            menu.getLabel("loadingStatus").setText("Connected to " + lastIp);
+            menu.getLabel("name").setText(name);
+            updateMenu = true;
+        }
+        else menu.getLabel("loadingStatus").setText("Failed to connect to " + ip + ", please try again later");
+    };
+
+    menu.getButton("confirm").onPress(connect);
 
     menu.getButton("play").onPress(function()
     {
@@ -216,6 +232,7 @@ void Start()
         Game::scene.GetSoundManager().Stop("menu-music");
         Game::scene.GetAnimation("Menu-Idle").Stop();
         Game::scene.GetModel("chel").DefaultPose();
+        Game::scene.LoadEnvironment("assets/textures/sky1.hdr");
         //Game::scene.GetModel("chel").SetIsDrawable(false);
         Game::scene.GetModel("enemy:ground").GetRigidBody().setIsActive(false);
         //Game::scene.GetSoundManager().Play("game-music");
@@ -242,6 +259,9 @@ void Start()
         Game::scene.GetModel(currentMap + ":ground").Load();
         Game::scene.GetModel(currentMap + ":ground").SetIsDrawable(true);
         Game::scene.GetModel("lobby").SetIsDrawable(false);
+        Game::scene.GetModel("lobby1").SetIsDrawable(false);
+        Game::scene.GetLight("lobbyLight").SetIsCastingShadows(false);
+        Game::scene.GetLight("lobbyLight").SetColor(Vector3(0, 0, 0));
         
         Game::scene.GetModel(currentMap + ":ground").GetRigidBody().setMaterial(mat);
 
@@ -271,6 +291,13 @@ void Start()
             }
         });
     });
+
+    if(name.length() > 0)
+    {
+        menu.getChildWindow("welcome").setVisible(false);
+        connect();
+    }
+    else menu.getLabel("loadingStatus").setText("");
 
     Game::scene.GetSoundManager().Play("menu-music");
 }

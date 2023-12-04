@@ -4,7 +4,7 @@ TcpSocket socket;
 tgui::Gui@ menu, hud, pauseMenu;
 
 int health = 100;
-int id = 0, team = 0, kills = 0, deaths = 0, lastPort = 0;
+int id = 0, team = 0, kills = 0, deaths = 0, lastPort = 0, exp = 0;
 uint tracerCounter = 0;
 uint currentWeapon = 0;
 uint64 tabId;
@@ -23,7 +23,7 @@ Clock physicsTime, logoTime, delay, buttonTimer, chatTimer;
 
 bool pause = false, updatePhysics = true, chatActive = false,
      logo = true, hidden = false, freeCamera = false, removeFlash = false, 
-     xyNActive = false;
+     xyNActive = false, enableShadows = false, updateMenu = false;
 
 array<int> score = { 0, 0 };
 array<Weapon> weapons;
@@ -32,6 +32,7 @@ array<Model@> tracers;
 array<string> mapNames = { "town", "big arena", "arena" };
 
 funcdef void GameLoop();
+funcdef void lambda();
 
 GameLoop@ currentLoop = @menuLoop;/*@mainGameLoop;*/
 
