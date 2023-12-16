@@ -12,6 +12,11 @@ uniform sampler2D gnormal;
 uniform sampler2D gemission;
 uniform sampler2D gcombined;
 uniform sampler2D opacity;
+uniform sampler2D ssao;
+uniform sampler2D decalsAlbedo;
+uniform sampler2D decalsNormal;
+uniform sampler2D decalsEmission;
+uniform sampler2D decalsCombined;
 uniform samplerCube irradiance;
 uniform samplerCube prefilteredMap;
 uniform sampler2D lut;
@@ -19,6 +24,9 @@ uniform sampler2D lut;
 uniform vec3 nirradiance;
 
 uniform mat4 lspace[maxShadows];
+uniform mat4 invView;
+
+uniform bool ssaoEnabled;
 
 in vec2 coord;
 uniform vec3 campos;
@@ -139,17 +147,28 @@ vec3 CalcLight(Light light, float rough, float metal, vec3 albedo, vec3 irr, vec
 
 void main()
 {
-    pos = texture(gposition, coord).xyz;
+    pos = (invView * texture(gposition, coord)).xyz;
     vec4 albedo = texture(galbedo, coord);
-    vec3 alb = albedo.xyz;
+    
+    vec4 decalsAlbedo = texture(decalsAlbedo, coord);
+    vec3 alb = mix(albedo.xyz, decalsAlbedo.xyz, decalsAlbedo.w);
     float alpha = albedo.w;
-    norm = texture(gnormal, coord).xyz;
+    
+    norm = texture(decalsNormal, coord).xyz;
+    if(length(norm) <= 0.0 || decalsAlbedo.w < 0.1)
+        norm = mat3(invView) * texture(gnormal, coord).xyz;
+
+    vec3 decalsEmission = texture(decalsEmission, coord).xyz;
     vec3 emission = texture(gemission, coord).xyz;
-    vec4 combined = texture(gcombined, coord);
+    emission = mix(emission, decalsEmission.xyz, decalsAlbedo.w);
+
+    vec4 combined = texture(decalsCombined, coord);
+    if(length(combined) == 0.0 || decalsAlbedo.w < 0.1)
+        combined = texture(gcombined, coord);
 
     float metal = combined.x;
     float rough = combined.y;
-    float ao = combined.z;
+    float ao = combined.z == 1.0 && ssaoEnabled ? texture(ssao, coord).r : combined.z;
     float shadowBias = combined.w;
     
     vec3 irr = (nirradiance.x < 0.0 ? texture(irradiance, norm).xyz : nirradiance);

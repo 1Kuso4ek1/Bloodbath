@@ -35,10 +35,7 @@ void Start()
     }
 
     for(uint i = 0; i < mapNames.length(); i++)
-    {
         Game::scene.GetModel(mapNames[i] + ":ground").Unload(false);
-        Game::scene.GetModel(mapNames[i] + ":ground").SetShadowBias(-0.0001);
-    }
 
     Game::scene.LoadEnvironment("assets/textures/black.jpg");
 
@@ -110,13 +107,28 @@ void Start()
             Game::scene.GetModel(currentMap + ":ground").GetRigidBody().raycast(ray, info1);
             if(hit != -1 && ((info.worldPoint - Game::camera.GetPosition()).length() < (info1.worldPoint - Game::camera.GetPosition()).length()))
             {
-                auto pos = clients[hit].model.GetPosition();
-                pos.y = 0.01;
-                auto model = Game::scene.CloneModel(Game::scene.GetModel("blood"), true);
-                model.SetPosition(pos + Vector3(rnd(-5, 5), 0, rnd(-5, 5)));
+                //auto pos = clients[hit].model.GetPosition();
+                //pos.y = 0.01;
+                auto pos = info1.worldPoint;
+                auto model = Game::scene.CloneModel(Game::scene.GetModel("blood-decal"), true, "decal" + to_string(decalCounter++));
+                model.SetOrientation(LookAt(pos, pos + (QuaternionFromEuler(Vector3(1.57, 0, 0)) * Game::camera.GetOrientation() * info1.worldNormal), info1.worldNormal));
+                model.SetPosition(pos/* + Vector3(rnd(-5, 5), 0, rnd(-5, 5))*/);
                 model.SetIsDrawable(true);
             }
             else hit = -1;
+            
+            auto pos = info1.worldPoint;
+            auto model = Game::scene.CloneModel(Game::scene.GetModel("bullet-decal"), true, "decal" + to_string(decalCounter++));
+            model.SetOrientation(LookAt(pos, pos + (QuaternionFromEuler(Vector3(1.57, 0, 0)) * Game::camera.GetOrientation() * info1.worldNormal), info1.worldNormal));
+            model.SetPosition(pos/* + Vector3(rnd(-5, 5), 0, rnd(-5, 5))*/);
+            model.SetIsDrawable(true);
+
+            if(decalCounter - decalRemoveCounter > 200)
+                Game::scene.RemoveModel(Game::scene.GetModel("decal" + to_string(decalRemoveCounter++)));
+            
+            Log::Write(Game::camera.GetOrientation().to_string());
+            Log::Write(info1.worldNormal.to_string());
+            Log::Write((Game::camera.GetOrientation() * info1.worldNormal).to_string());
             
             // code = 2, myId, damagedId, weaponId
             Packet p; p << 2; p << id; p << (hit == -1 ? -1 : clients[hit].id); p << hs; p << currentWeapon;
@@ -258,6 +270,8 @@ void Start()
             Game::scene.GetModel(mapNames[i] + ":ground").Unload(true);
         Game::scene.GetModel(currentMap + ":ground").Load();
         Game::scene.GetModel(currentMap + ":ground").SetIsDrawable(true);
+        for(uint i = 0; i < weapons.length(); i++)
+            weapons[i].model.Load();
         Game::scene.GetModel("lobby").SetIsDrawable(false);
         Game::scene.GetModel("lobby1").SetIsDrawable(false);
         Game::scene.GetLight("lobbyLight").SetIsCastingShadows(false);

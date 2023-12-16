@@ -6,6 +6,8 @@ tgui::Gui@ menu, hud, pauseMenu;
 int health = 100;
 int id = 0, team = 0, kills = 0, deaths = 0, lastPort = 0, exp = 0;
 uint tracerCounter = 0;
+uint decalCounter = 0;
+uint decalRemoveCounter = 0;
 uint currentWeapon = 0;
 uint64 tabId;
 

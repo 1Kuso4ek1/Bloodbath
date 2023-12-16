@@ -417,7 +417,7 @@ GameLoop@ mainGameLoop = function()
                             Game::scene.GetSoundManager().Play("hit" + hitNum, id1);
                         }
                         pos.y = 0.01;
-                        auto model = Game::scene.CloneModel(Game::scene.GetModel("blood"), true);
+                        auto model = Game::scene.CloneModel(Game::scene.GetModel("blood-decal"), true);
                         model.SetPosition(pos + Vector3(rnd(-5, 5), 0, rnd(-5, 5)));
                         model.SetIsDrawable(true);
                     }
@@ -453,6 +453,8 @@ GameLoop@ mainGameLoop = function()
                     Game::scene.RemoveModel(Game::scene.GetModel("rifle-copy" + to_string(newId)));
                     Game::scene.RemoveModel(Game::scene.GetModel("deagle-copy" + to_string(newId)));
                     Game::scene.RemoveModel(Game::scene.GetModel("knife-copy" + to_string(newId)));
+                    Game::scene.RemoveModel(Game::scene.GetModel("flash-rifle" + to_string(newId)));
+                    Game::scene.RemoveModel(Game::scene.GetModel("flash-deagle" + to_string(newId)));
                     Game::scene.RemoveAnimation(Game::scene.GetAnimation("Default-chel-chel" + to_string(newId)));
                     Game::scene.RemoveAnimation(Game::scene.GetAnimation("Death-chel-chel" + to_string(newId)));
                     Game::scene.RemoveAnimation(Game::scene.GetAnimation("Jump-chel-chel" + to_string(newId)));
@@ -541,7 +543,9 @@ GameLoop@ mainGameLoop = function()
 	        Game::scene.GetAnimation("walk").Pause();
 	    Game::camera.SetPosition(Game::scene.GetModel("player").GetPosition() + Vector3(0, 1.15, 0) + Game::camera.GetOrientation() * Vector3(0, 0.6, -0.4));
 
-	    hud.getLabel("velocity").setText(to_string(int(Game::scene.GetModel("player").GetRigidBody().getLinearVelocity().length())));
+		int vel = int(Game::scene.GetModel("player").GetRigidBody().getLinearVelocity().length());
+	    hud.getLabel("velocity").setText(to_string(vel));
+	    if(vel < 0) Game::scene.GetModel("player").GetRigidBody().setLinearVelocity(Vector3(0, 0, 0));//engine.Close();
 
 	    p.clear();
 	    auto pos = Game::scene.GetModel("player").GetPosition();
