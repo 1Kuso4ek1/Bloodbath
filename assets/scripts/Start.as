@@ -19,6 +19,7 @@ void Start()
     Game::manageCameraMovement = false;
     Game::mouseCursorVisible = true;
     Game::mouseCursorGrabbed = false;
+    Game::dofFocusDistance = 0.0;
 
     weapons.removeRange(0, weapons.length());
     
@@ -79,7 +80,11 @@ void Start()
         if(Mouse::isButtonPressed(Mouse::Left) && weapons[currentWeapon].IsReady() && !pause && Game::scene.GetAnimation("deploy").GetState() != Playing)
         {
             if(currentWeapon != 2)
+            {
+                auto size = rnd(0.1, 0.6);
+                weapons[currentWeapon].flash.SetSize(Vector3(size, size, size));
                 weapons[currentWeapon].flash.SetIsDrawable(true);
+            }
             weapons[currentWeapon].inspect.Stop();
             weapons[currentWeapon].shoot.Play();
             if(currentWeapon != 2)
@@ -110,25 +115,22 @@ void Start()
                 //auto pos = clients[hit].model.GetPosition();
                 //pos.y = 0.01;
                 auto pos = info1.worldPoint;
-                auto model = Game::scene.CloneModel(Game::scene.GetModel("blood-decal"), true, "decal" + to_string(decalCounter++));
+                auto model = Game::scene.CloneModel(Game::scene.GetModel("blood-decal"), true, "decal" + to_string(decalCounter++) + ":decals");
                 model.SetOrientation(LookAt(pos, pos + (QuaternionFromEuler(Vector3(1.57, 0, 0)) * Game::camera.GetOrientation() * info1.worldNormal), info1.worldNormal));
-                model.SetPosition(pos/* + Vector3(rnd(-5, 5), 0, rnd(-5, 5))*/);
+                model.SetPosition(pos);
                 model.SetIsDrawable(true);
+
             }
             else hit = -1;
             
             auto pos = info1.worldPoint;
-            auto model = Game::scene.CloneModel(Game::scene.GetModel("bullet-decal"), true, "decal" + to_string(decalCounter++));
+            auto model = Game::scene.CloneModel(Game::scene.GetModel("bullet-decal"), true, "decal" + to_string(decalCounter++) + ":decals");
             model.SetOrientation(LookAt(pos, pos + (QuaternionFromEuler(Vector3(1.57, 0, 0)) * Game::camera.GetOrientation() * info1.worldNormal), info1.worldNormal));
-            model.SetPosition(pos/* + Vector3(rnd(-5, 5), 0, rnd(-5, 5))*/);
+            model.SetPosition(pos);
             model.SetIsDrawable(true);
 
             if(decalCounter - decalRemoveCounter > 200)
-                Game::scene.RemoveModel(Game::scene.GetModel("decal" + to_string(decalRemoveCounter++)));
-            
-            Log::Write(Game::camera.GetOrientation().to_string());
-            Log::Write(info1.worldNormal.to_string());
-            Log::Write((Game::camera.GetOrientation() * info1.worldNormal).to_string());
+                Game::scene.RemoveModel(Game::scene.GetModel("decal" + to_string(decalRemoveCounter++) + ":decals"));
             
             // code = 2, myId, damagedId, weaponId
             Packet p; p << 2; p << id; p << (hit == -1 ? -1 : clients[hit].id); p << hs; p << currentWeapon;
@@ -143,14 +145,14 @@ void Start()
         }
     });
 
-    player.AddCustomEvent(function()
+    /*player.AddCustomEvent(function()
     {
         if(Keyboard::isKeyPressed(Keyboard::F) && weapons[currentWeapon].inspect.GetState() != Playing)
         {
             weapons[currentWeapon].shoot.Stop();
             weapons[currentWeapon].inspect.Play();
         }
-    });
+    });*/
     
     player.AddCustomEvent(function()
     {
@@ -217,7 +219,9 @@ void Start()
 
             data.close();
         }
-        int status = socket.connect(ResolveIp(ip), port, seconds(1));
+        int i = 0, status;
+        while((status = socket.connect(ResolveIp(ip), port, seconds(1))) != Socket::Done && i < 3);
+
         if(status == Socket::Done)
         {
             socket.setBlocking(false);

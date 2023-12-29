@@ -3,9 +3,9 @@
     "window" :
     {
         "title" : "Bloodbath",
-        "width" : 1280,
-        "height" : 720,
-        "fullscreen" : false,
+        "width" : 1920,
+        "height" : 1080,
+        "fullscreen" : true,
         "vsync" : false,
         "maxFps" : 60
     },
@@ -23,11 +23,12 @@
         "prefilteredSideSize" : 512,
         "shadowMapResolution" : 8192,
         "bloomResolutionScale" : 6,
-        "ssaoSamples" : 0,
-        "ssaoStrength" : 0.0,
-        "ssaoRadius" : 0.7,
+        "renderResolutionScale" : 1,
+        "ssaoSamples" : 64,
+        "ssaoStrength" : 4.5,
+        "ssaoRadius" : 0.35,
         "exposure" : 1.0,
-        "useRGBA16F" : false
+        "useRGBA16F" : true
     },
     "log" :
     {

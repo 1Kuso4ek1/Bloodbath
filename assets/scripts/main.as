@@ -21,22 +21,25 @@ Quaternion tracerOrient;
 
 PhysicalMaterial mat;
 
-Clock physicsTime, logoTime, delay, buttonTimer, chatTimer;
+Clock physicsTime, networkTime, logoTime, delay, buttonTimer, chatTimer;
 
 bool pause = false, updatePhysics = true, chatActive = false,
-     logo = true, hidden = false, freeCamera = false, removeFlash = false, 
-     xyNActive = false, enableShadows = false, updateMenu = false;
+     logo = true, hidden = false, freeCamera = false,
+     removeFlash = false, xyNActive = false, enableShadows = false,
+     updateMenu = false, freeCameraFollowPlayer = false;
 
 array<int> score = { 0, 0 };
 array<Weapon> weapons;
 array<Model@> tracers;
 
-array<string> mapNames = { "town", "big arena", "arena" };
+array<string> mapNames = { "town", "big arena", "$7000$" };
 
 funcdef void GameLoop();
 funcdef void lambda();
 
 GameLoop@ currentLoop = @menuLoop;/*@mainGameLoop;*/
+
+Model@ follow = null;
 
 class Client
 {
