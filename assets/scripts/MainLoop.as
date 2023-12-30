@@ -636,7 +636,9 @@ GameLoop@ mainGameLoop = function()
 		            	weapons[i].flash.SetIsDrawable(false);
 	
 						auto tracer = Game::scene.CloneModel(Game::scene.GetModel("tracer"), false, "tracer-copy" + to_string(tracerCounter++));
-		            	tracer.SetPosition(Game::camera.GetPosition() + tracerOrient * Vector3(0.6, -0.3, -11));
+                        if(i == 0)
+		            	    tracer.SetPosition(Game::camera.GetPosition() + tracerOrient * Vector3(0.52, -0.48, -11));
+                        else tracer.SetPosition(Game::camera.GetPosition() + tracerOrient * Vector3(0.4, -0.3, -11));
 	   	                tracer.SetOrientation(tracerOrient * QuaternionFromEuler(Vector3(1.57, 0.005, -0.1)));
 	   	                tracer.SetSize(Vector3(0.01, rnd(1, 10), 0.01));
 	   	                tracer.SetIsDrawable(true);
