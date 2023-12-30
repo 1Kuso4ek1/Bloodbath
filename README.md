@@ -5,11 +5,8 @@ A multiplayer shooter made with 3Dev. (In development)
 - Cool movement with bunnyhopping, surfing and vaulting!
 - Working multiplayer!
 - Cool graphics!
-- Blood!
+- Decals!
 - True First Person!
-- Metal pipe falling sound effect!
-- A FUCKING DILDO WTF 🤨🤨🤨
-- AMOGUS!
 ## Main server
 SLAUGHTERHOUSE #1
 IP **85.92.110.39** Port **2000**
