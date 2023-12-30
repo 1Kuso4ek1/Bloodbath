@@ -71,7 +71,7 @@ class Client
     bool prevOnGround = true;
     Model@ model;
     Model@ chel;
-    Quaternion orient;
+    Quaternion orient, tracerOrient;
     Clock footsteps;
 };
 

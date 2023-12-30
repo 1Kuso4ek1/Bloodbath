@@ -95,24 +95,23 @@ GameLoop@ mainGameLoop = function()
         else hud.setOpacity(1.0);
     }
 
-    /*if(Keyboard::isKeyPressed(Keyboard::F2) && buttonTimer.getElapsedTime().asSeconds() > 0.3)
+    if(Keyboard::isKeyPressed(Keyboard::F2) && buttonTimer.getElapsedTime().asSeconds() > 0.3)
     {
     	buttonTimer.restart();
         if(!freeCameraFollowPlayer)
         {
             RaycastInfo info;
-            Ray ray(Game::camera.GetPosition(true), Game::camera.GetPosition(true) + (Game::camera.GetOrientation() * Vector3(0, 0, 1000)));
+            Ray ray(Game::camera.GetPosition(true), Game::camera.GetPosition(true) + (Game::camera.GetOrientation() * Vector3(0, 0, -1000)));
             for(uint i = 0; i < clients.length(); i++)
                 if(clients[i].model.GetRigidBody().raycast(ray, info))
                 {
                     @follow = @clients[i].model;
-                    Log::Write("hit");
                     freeCameraFollowPlayer = true;
                     break;
                 }
         }
         else freeCameraFollowPlayer = false;
-    }*/
+    }
 
     if(Keyboard::isKeyPressed(Keyboard::Escape) && buttonTimer.getElapsedTime().asSeconds() > 0.3)
     {
@@ -192,8 +191,10 @@ GameLoop@ mainGameLoop = function()
 	                if(clients.find(Client(newId)) < 0 && newId != id)
 	                {
 	                    Model@ model = @Game::scene.CloneModel(Game::scene.GetModel("enemy:ground"), true, "enemy" + to_string(newId) + ":ground");
+                        model.SetPosition(Vector3(0, 1000, 0));
 	                    model.GetRigidBody().setIsActive(true);
 	                    Model@ chel = @Game::scene.CloneModel(Game::scene.GetModel("chel"), true, "chel" + to_string(newId));
+                        chel.SetPosition(Vector3(0, 1000, 0));
 	                    chel.SetIsDrawable(true);
 	                    Model@ rifle = @Game::scene.CloneModel(Game::scene.GetModel("rifle-copy"), true, "rifle-copy" + to_string(newId));
                         Model@ deagle = @Game::scene.CloneModel(Game::scene.GetModel("deagle-copy"), true, "deagle-copy" + to_string(newId));
@@ -366,7 +367,8 @@ GameLoop@ mainGameLoop = function()
 	                clients[cl].model.SetPosition(pos);
                     clients[cl].chel.SetPosition(pos - Vector3(0, 0.7, 0));
                     clients[cl].chel.SetOrientation(QuaternionFromEuler(Vector3(radians(-90.0), radians(-90.0), 0)));
-                    clients[cl].orient = Quaternion(orient.y, orient.z, orient.x, orient.w) * QuaternionFromEuler(Vector3(0, radians(90), 0));
+                    clients[cl].orient = Quaternion(orient.y, orient.z, orient.x, orient.w);
+                    clients[cl].tracerOrient = clients[cl].orient * QuaternionFromEuler(Vector3(0, radians(90), 0));
                     
                     auto euler = EulerFromQuaternion(orient);
                     auto euler1 = euler; euler1.x = radians(90.0);
@@ -401,8 +403,8 @@ GameLoop@ mainGameLoop = function()
                     if(weapon != 2)
                     {
                         auto tracer = Game::scene.CloneModel(Game::scene.GetModel("tracer"), false, "tracer-copy" + to_string(tracerCounter++));
-                        tracer.SetPosition(clients[it].model.GetPosition() + Vector3(0, 2.5, 0) + clients[it].orient * Vector3(0.6, -0.3, -11));
-                        tracer.SetOrientation(clients[it].orient * QuaternionFromEuler(Vector3(1.57, 0.0, 0.0)));
+                        tracer.SetPosition(clients[it].model.GetPosition() + Vector3(0, 2.5, 0) + clients[it].tracerOrient * Vector3(0.6, -0.3, -11));
+                        tracer.SetOrientation(clients[it].tracerOrient * QuaternionFromEuler(Vector3(1.57, 0.0, 0.0)));
                         tracer.SetSize(Vector3(0.01, rnd(1, 10), 0.01));
                         tracer.SetIsDrawable(true);
                         tracers.insertLast(tracer);
@@ -421,6 +423,9 @@ GameLoop@ mainGameLoop = function()
                     default: break;
                     }
 
+                    RaycastInfo info;
+                    Ray ray(clients[it].model.GetPosition() + Vector3(0, 2.8, 0), clients[it].model.GetPosition() + Vector3(0, 2.8, 0) + clients[it].tracerOrient * Vector3(0, 0, -1000));
+                    bool hit = Game::scene.GetModel(currentMap + ":ground").GetRigidBody().raycast(ray, info);
                     if(id1 > -1)
                     {
                         auto hitNum = to_string(int(rnd(1, 3)));
@@ -428,20 +433,36 @@ GameLoop@ mainGameLoop = function()
                         {
                             pos = Game::camera.GetPosition();
                             Game::scene.GetSoundManager().PlayMono("hit" + hitNum, id);
-                            break;
                         }
                         else
                         {
-                            it = clients.find(Client(id1));
+                            int it = clients.find(Client(id1));
                             pos = clients[it].model.GetPosition();
                             Game::scene.GetSoundManager().SetPosition(pos, "hit" + hitNum, id1);
                             Game::scene.GetSoundManager().Play("hit" + hitNum, id1);
                         }
-                        pos.y = 0.01;
-                        auto model = Game::scene.CloneModel(Game::scene.GetModel("blood-decal"), true, "decal" + to_string(decalCounter++) + ":decals");
-                        // Need raycast from "hitter" to map
+                        
+                        if(hit)
+                        {
+                            auto model = Game::scene.CloneModel(Game::scene.GetModel("blood-decal"), true, "decal" + to_string(decalCounter++) + ":decals");
+                            auto pos = info.worldPoint;
+                            model.SetPosition(pos);
+                            model.SetOrientation(LookAt(pos, pos + (QuaternionFromEuler(Vector3(1.57, 0, 0)) * clients[it].tracerOrient * info.worldNormal), info.worldNormal));
+                            model.SetIsDrawable(true);
+                            if(decalCounter - decalRemoveCounter > 200)
+                                Game::scene.RemoveModel(Game::scene.GetModel("decal" + to_string(decalRemoveCounter++) + ":decals"));
+                        }
+                    }
+
+                    if(hit)
+                    {
+                        auto model = Game::scene.CloneModel(Game::scene.GetModel("bullet-decal"), true, "decal" + to_string(decalCounter++) + ":decals");
+                        auto pos = info.worldPoint;
                         model.SetPosition(pos);
+                        model.SetOrientation(LookAt(pos, pos + (QuaternionFromEuler(Vector3(1.57, 0, 0)) * clients[it].tracerOrient * info.worldNormal), info.worldNormal));
                         model.SetIsDrawable(true);
+                        if(decalCounter - decalRemoveCounter > 200)
+                            Game::scene.RemoveModel(Game::scene.GetModel("decal" + to_string(decalRemoveCounter++) + ":decals"));
                     }
                     break;
                 }
@@ -632,10 +653,6 @@ GameLoop@ mainGameLoop = function()
 			    Game::bloomStrength = lerp(Game::bloomStrength, 1.0, 0.15);
 			}
 	    }
-        else if(freeCameraFollowPlayer)
-        {
-            Game::camera.SetOrientation(LookAt(Game::camera.GetPosition(true), follow.GetPosition(), Vector3(0, 1, 0)));
-        }
 	
         if(Keyboard::isKeyPressed(Keyboard::Q) && buttonTimer.getElapsedTime().asSeconds() > 0.3)
         {
@@ -677,4 +694,21 @@ GameLoop@ mainGameLoop = function()
 	        p.clear();
 	    }
 	}
+    else
+    {
+        if(freeCameraFollowPlayer)
+            Game::camera.SetOrientation(LookAt(Game::camera.GetPosition(true), follow.GetPosition(), Vector3(0, 1, 0)));
+        if(Keyboard::isKeyPressed(Keyboard::U))
+            Game::dofMinDistance += 0.001;
+        if(Keyboard::isKeyPressed(Keyboard::J))
+            Game::dofMinDistance -= 0.001;
+        if(Keyboard::isKeyPressed(Keyboard::I))
+            Game::dofMaxDistance += 0.001;
+        if(Keyboard::isKeyPressed(Keyboard::K))
+            Game::dofMaxDistance -= 0.001;
+        if(Keyboard::isKeyPressed(Keyboard::O))
+            Game::dofFocusDistance += 0.001;
+        if(Keyboard::isKeyPressed(Keyboard::L))
+            Game::dofFocusDistance -= 0.001;
+    }
 };
