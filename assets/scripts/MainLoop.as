@@ -35,6 +35,8 @@ GameLoop@ mainGameLoop = function()
     Game::scene.GetAnimation("HoldPistol-chel").Stop();
     Game::scene.GetAnimation("HoldKnife-chel").Stop();
 
+    if(!hat.isEmpty())
+        Game::scene.GetModel(hat).SetIsDrawable(true);
     Game::scene.GetBone("Bone.014-chel").SetSize(Vector3(1, 1, 1));
 
     for(uint i = 0; i < weapons.length(); i++)
@@ -209,6 +211,39 @@ GameLoop@ mainGameLoop = function()
                         Model@ flash = @Game::scene.CloneModel(Game::scene.GetModel("flash"), true, "flash-rifle" + to_string(newId));
                         Model@ flash1 = @Game::scene.CloneModel(Game::scene.GetModel("flash1"), true, "flash-deagle" + to_string(newId));
                         Light@ light = @Game::scene.CloneLight(Game::scene.GetLight("light"), true, "light-copy" + to_string(newId));
+
+                        string tmp;
+                        p >> tmp;
+                        Log::Write(tmp);
+                        if(!tmp.isEmpty())
+                        {
+                            Model@ frontPatchModel = @Game::scene.CloneModel(Game::scene.GetModel("patch:decals"), true, "frontPatch" + to_string(newId) + ":decals");
+                            frontPatchModel.SetMaterial(Game::scene.GetMaterial(tmp));
+                            frontPatchModel.SetIsDrawable(true);
+                            cast<Node>(Game::scene.GetBone("Body-chel" + to_string(newId))).AddChild(cast<Node>(frontPatchModel));
+	                        cast<Node>(frontPatchModel).SetParent(cast<Node>(Game::scene.GetBone("Body-chel" + to_string(newId))));
+                        }
+                        p >> tmp;
+                        Log::Write(tmp);
+                        if(!tmp.isEmpty())
+                        {
+                            Model@ backPatchModel = @Game::scene.CloneModel(Game::scene.GetModel("patch1:decals"), true, "backPatch" + to_string(newId) + ":decals");
+                            backPatchModel.SetMaterial(Game::scene.GetMaterial(tmp));
+                            backPatchModel.SetIsDrawable(true);
+                            cast<Node>(Game::scene.GetBone("Body-chel" + to_string(newId))).AddChild(cast<Node>(backPatchModel));
+	                        cast<Node>(backPatchModel).SetParent(cast<Node>(Game::scene.GetBone("Body-chel" + to_string(newId))));
+                        }
+                        p >> tmp;
+                        Log::Write(tmp);
+                        if(!tmp.isEmpty())
+                        {
+                            Model@ hatModel = @Game::scene.CloneModel(Game::scene.GetModel(tmp), true, tmp + to_string(newId));
+                            hatModel.Load();
+                            hatModel.SetShadowBias(0.005);
+                            hatModel.SetIsDrawable(true);
+                            cast<Node>(Game::scene.GetBone("Bone.014-chel" + to_string(newId))).AddChild(cast<Node>(hatModel));
+	                        cast<Node>(hatModel).SetParent(cast<Node>(Game::scene.GetBone("Bone.014-chel" + to_string(newId))));
+                        }
 	                    
                         rifle.SetIsDrawable(true);
 	                    deagle.SetIsDrawable(true);
@@ -374,7 +409,7 @@ GameLoop@ mainGameLoop = function()
                         Game::scene.GetAnimation("HoldKnife-chel-chel" + to_string(newId)).Play();
                         break;
                     }
-                    
+
                     float offset = (moving && onGround ? sin(logoTime.getElapsedTime().asSeconds() * 20) * 0.05 : 0.0);
 
 	                clients[cl].model.SetPosition(pos);
@@ -615,6 +650,8 @@ GameLoop@ mainGameLoop = function()
 
             Game::scene.GetBone("Body-chel").SetOrientation(slerp(Game::scene.GetBone("Body-chel").GetOrientation(), QuaternionFromEuler(euler1), 0.5));
 
+            if(!hat.isEmpty())
+                Game::scene.GetModel(hat).SetIsDrawable(false);
             Game::scene.GetBone("Bone.014-chel").SetSize(Vector3(1.0, 1.0, 0.1));
             Game::scene.GetBone("Bone.013-chel").SetOrientation(QuaternionFromEuler(euler2));
             Game::scene.GetBone("Bone.014-chel").SetOrientation(QuaternionFromEuler(euler2));

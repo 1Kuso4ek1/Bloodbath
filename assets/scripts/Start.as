@@ -220,7 +220,7 @@ void Start()
             data.close();
         }
         int i = 0, status;
-        while((status = socket.connect(ResolveIp(ip), port, seconds(1))) != Socket::Done && i < 3);
+        while((status = socket.connect(ResolveIp(ip), port, seconds(1))) != Socket::Done && i++ < 5);
 
         if(status == Socket::Done)
         {
@@ -234,6 +234,58 @@ void Start()
     };
 
     menu.getButton("confirm").onPress(connect);
+
+    menu.getButton("customize").onPress(function()
+    {
+        menu.getChildWindow("inventory").setVisible(true);
+        menu.getChildWindow("inventory").setEnabled(true);
+    });
+
+    menu.getButton("applyFront").onPress(function()
+    {
+        auto prev = frontPath;
+        frontPath = inventory[menu.getListView("items").getSelectedItemIndex()];
+        if(frontPath.findFirst("patch") >= 0)
+        {
+            Game::scene.GetModel("patch:decals").SetMaterial(Game::scene.GetMaterial(frontPath));
+            Game::scene.GetModel("patch:decals").SetIsDrawable(prev == frontPath ? false : true);
+            if(prev == frontPath)
+                frontPath = "";
+        }
+    });
+
+    menu.getButton("applyBack").onPress(function()
+    {
+        auto prev = backPath;
+        backPath = inventory[menu.getListView("items").getSelectedItemIndex()];
+        if(backPath.findFirst("patch") >= 0)
+        {
+            Game::scene.GetModel("patch1:decals").SetMaterial(Game::scene.GetMaterial(backPath));
+            Game::scene.GetModel("patch1:decals").SetIsDrawable(prev == backPath ? false : true);
+            if(prev == backPath)
+                backPath = "";
+        }
+    });
+
+    menu.getButton("applyHat").onPress(function()
+    {
+        auto prev = hat;
+        hat = inventory[menu.getListView("items").getSelectedItemIndex()];
+        if(hat.findFirst("hat") >= 0)
+        {
+            Game::scene.GetModel(hat).Load();
+            Game::scene.GetModel(hat).SetShadowBias(0.005);
+            Game::scene.GetModel(hat).SetIsDrawable(prev == hat ? false : true);
+            if(prev == hat)
+                hat = "";
+        }
+    });
+
+    menu.getButton("closeInventory").onPress(function()
+    {
+        menu.getChildWindow("inventory").setVisible(false);
+        menu.getChildWindow("inventory").setEnabled(false);
+    });
 
     menu.getButton("play").onPress(function()
     {

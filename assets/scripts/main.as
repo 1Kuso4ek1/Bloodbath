@@ -15,7 +15,7 @@ const float initialExposure = 1.5;
 
 string currentMap = "town";
 
-string name, password, lastIp;
+string name, password, lastIp, frontPath, backPath, hat;
 
 Quaternion tracerOrient;
 
@@ -26,13 +26,14 @@ Clock physicsTime, networkTime, logoTime, delay, buttonTimer, chatTimer;
 bool pause = false, updatePhysics = true, chatActive = false,
      logo = true, hidden = false, freeCamera = false,
      removeFlash = false, xyNActive = false, enableShadows = false,
-     updateMenu = false, freeCameraFollowPlayer = false;
+     updateMenu = false, freeCameraFollowPlayer = false, updateInventory = true;
 
 array<int> score = { 0, 0 };
 array<Weapon> weapons;
 array<Model@> tracers;
 
 array<string> mapNames = { "town", "big arena", "$7000$" };
+array<string> inventory;
 
 funcdef void GameLoop();
 funcdef void lambda();

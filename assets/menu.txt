@@ -102,11 +102,10 @@ Button.exit {
     }
 }
 
-Button.Button1 {
-    Enabled = false;
+Button.customize {
     Position = (200, 453.077);
     Size = (181, 43.7583);
-    Text = "(Coming soon)";
+    Text = Customize;
     TextSize = 16;
 
     Renderer {
@@ -490,6 +489,240 @@ Panel.loadingPanel {
                     TrackColor = #F5F5F5;
                 }
             }
+        }
+    }
+}
+
+ChildWindow.inventory {
+    Enabled = false;
+    Position = (95, 660);
+    Size = (400, 310);
+    Title = Inventory;
+    TitleAlignment = Center;
+    TitleButtons = None;
+    TitleTextSize = 13;
+    Visible = false;
+
+    Renderer {
+        BackgroundColor = #000000E6;
+        BorderBelowTitleBar = 1;
+        BorderColor = black;
+        Borders = (1, 1, 1, 1);
+        DistanceToSide = 3;
+        PaddingBetweenButtons = 1;
+        ShowTextOnTitleButtons = false;
+        TextureBackground = None;
+        TextureTitleBar = None;
+        TitleBarColor = #303030;
+        TitleColor = white;
+
+        CloseButton {
+            BackgroundColor = #F5F5F5;
+            BackgroundColorDisabled = #E6E6E6;
+            BackgroundColorDown = #EBEBEB;
+            BackgroundColorHover = white;
+            BorderColor = #3C3C3C;
+            BorderColorDisabled = #7D7D7D;
+            BorderColorDown = black;
+            BorderColorFocused = #1E1EB4;
+            BorderColorHover = black;
+            Borders = (1, 1, 1, 1);
+            TextColor = #3C3C3C;
+            TextColorDisabled = #7D7D7D;
+            TextColorDown = black;
+            TextColorHover = black;
+            Texture = None;
+            TextureDisabled = None;
+            TextureDown = None;
+            TextureDownFocused = None;
+            TextureDownHover = None;
+            TextureFocused = None;
+            TextureHover = None;
+        }
+    }
+
+    ListView.items {
+        ExpandLastColumn = 0;
+        HeaderHeight = 0;
+        HeaderSeparatorHeight = 0;
+        HeaderVisible = true;
+        ItemHeight = 20;
+        ResizableColumns = false;
+        SeparatorWidth = 1;
+        ShowVerticalGridLines = 1;
+        Size = (250, 247);
+        TextSize = 13;
+
+        Renderer {
+            BackgroundColor = rgb(80, 80, 80);
+            BackgroundColorHover = rgb(100, 100, 100);
+            BorderColor = Black;
+            Borders = (1, 1, 1, 1);
+            HeaderBackgroundColor = rgb( 95, 95, 95);
+            HeaderTextColor = rgb(210, 210, 210);
+            SelectedBackgroundColor = rgb(10, 110, 255);
+            SelectedBackgroundColorHover = rgb(30, 150, 255);
+            SelectedTextColor = White;
+            TextColor = rgb(190, 190, 190);
+            TextColorHover = rgb(250, 250, 250);
+            TextureBackground = None;
+            TextureHeaderBackground = None;
+
+            Scrollbar {
+                ArrowBackgroundColor = rgb(80, 80, 80);
+                ArrowColor = rgb(190, 190, 190);
+                TextureArrowDown = "themes/Black.png" Part(1, 230, 20, 20) Middle(0, 1, 20, 19) Smooth;
+                TextureArrowDownHover = "themes/Black.png" Part(306, 225, 20, 20) Middle(0, 1, 20, 19) Smooth;
+                TextureArrowUp = "themes/Black.png" Part(284, 225, 20, 20) Middle(0, 0, 20, 19) Smooth;
+                TextureArrowUpHover = "themes/Black.png" Part(285, 171, 20, 20) Middle(0, 0, 20, 19) Smooth;
+                TextureThumb = "themes/Black.png" Part(23, 230, 20, 20) Smooth;
+                TextureThumbHover = "themes/Black.png" Part(306, 193, 20, 20) Smooth;
+                TextureTrack = "themes/Black.png" Part(255, 1, 20, 20) Smooth;
+                TextureTrackHover = "themes/Black.png" Part(284, 203, 20, 20) Smooth;
+                ThumbColor = rgb(190, 190, 190);
+                TrackColor = rgb(80, 80, 80);
+            }
+        }
+
+        Column {
+            Alignment = Center;
+            Expanded = true;
+            Text = Items;
+        }
+    }
+
+    Button.applyHat {
+        Position = (260, 190);
+        Size = (130, 22);
+        Text = "Apply hat";
+        TextSize = 13;
+
+        Renderer {
+            BackgroundColor = black;
+            BackgroundColorDisabled = #E6E6E6;
+            BackgroundColorDown = black;
+            BackgroundColorHover = black;
+            BorderColor = black;
+            BorderColorDisabled = #7D7D7D;
+            BorderColorDown = black;
+            BorderColorFocused = black;
+            BorderColorHover = black;
+            Borders = (1, 1, 1, 1);
+            TextColor = white;
+            TextColorDisabled = #7D7D7D;
+            TextColorDown = #FF000064;
+            TextColorDownFocused = #FF000064;
+            TextColorDownHover = #FF000064;
+            TextColorFocused = #FF000064;
+            TextColorHover = red;
+            Texture = None;
+            TextureDisabled = None;
+            TextureDown = None;
+            TextureDownFocused = None;
+            TextureDownHover = None;
+            TextureFocused = None;
+            TextureHover = None;
+        }
+    }
+
+    Button.closeInventory {
+        Position = (175, 255);
+        Text = Close;
+        TextSize = 13;
+
+        Renderer {
+            BackgroundColor = black;
+            BackgroundColorDisabled = #E6E6E6;
+            BackgroundColorDown = black;
+            BackgroundColorHover = black;
+            BorderColor = black;
+            BorderColorDisabled = #7D7D7D;
+            BorderColorDown = black;
+            BorderColorFocused = black;
+            BorderColorHover = black;
+            Borders = (1, 1, 1, 1);
+            TextColor = white;
+            TextColorDisabled = #7D7D7D;
+            TextColorDown = #FF000064;
+            TextColorDownFocused = #FF000064;
+            TextColorDownHover = #FF000064;
+            TextColorFocused = #FF000064;
+            TextColorHover = red;
+            Texture = None;
+            TextureDisabled = None;
+            TextureDown = None;
+            TextureDownFocused = None;
+            TextureDownHover = None;
+            TextureFocused = None;
+            TextureHover = None;
+        }
+    }
+
+    Button.applyBack {
+        Position = (260, 110);
+        Size = (130, 22);
+        Text = "Apply back patch";
+        TextSize = 13;
+
+        Renderer {
+            BackgroundColor = black;
+            BackgroundColorDisabled = #E6E6E6;
+            BackgroundColorDown = black;
+            BackgroundColorHover = black;
+            BorderColor = black;
+            BorderColorDisabled = #7D7D7D;
+            BorderColorDown = black;
+            BorderColorFocused = black;
+            BorderColorHover = black;
+            Borders = (1, 1, 1, 1);
+            TextColor = white;
+            TextColorDisabled = #7D7D7D;
+            TextColorDown = #FF000064;
+            TextColorDownFocused = #FF000064;
+            TextColorDownHover = #FF000064;
+            TextColorFocused = #FF000064;
+            TextColorHover = red;
+            Texture = None;
+            TextureDisabled = None;
+            TextureDown = None;
+            TextureDownFocused = None;
+            TextureDownHover = None;
+            TextureFocused = None;
+            TextureHover = None;
+        }
+    }
+
+    Button.applyFront {
+        Position = (260, 30);
+        Size = (130, 22);
+        Text = "Apply front path";
+        TextSize = 13;
+
+        Renderer {
+            BackgroundColor = black;
+            BackgroundColorDisabled = #E6E6E6;
+            BackgroundColorDown = black;
+            BackgroundColorHover = black;
+            BorderColor = black;
+            BorderColorDisabled = #7D7D7D;
+            BorderColorDown = black;
+            BorderColorFocused = black;
+            BorderColorHover = black;
+            Borders = (1, 1, 1, 1);
+            TextColor = white;
+            TextColorDisabled = #7D7D7D;
+            TextColorDown = #FF000064;
+            TextColorDownFocused = #FF000064;
+            TextColorDownHover = #FF000064;
+            TextColorFocused = #FF000064;
+            TextColorHover = red;
+            Texture = None;
+            TextureDisabled = None;
+            TextureDown = None;
+            TextureDownFocused = None;
+            TextureDownHover = None;
+            TextureFocused = None;
+            TextureHover = None;
         }
     }
 }
