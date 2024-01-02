@@ -49,13 +49,13 @@ void main()
     float rough = (nroughness < 0.0 ? texture(roughness, decalUv).x : nroughness);
     float metal = (nmetalness < 0.0 ? texture(metalness, decalUv).x : nmetalness);
     float ao = (nao ? texture(ao, decalUv).x : 1.0);
-    float alpha = (nopacity < 0.0 ? texture(opacity, decalUv).x : nopacity) * texture(albedo, decalUv).w;
+    float alpha = (nopacity < 0.0 ? texture(opacity, decalUv).x : nopacity) * (nalbedo.x < 0.0 ? texture(albedo, decalUv).w : 1.0);
 
     vec3 norm = vec3(0.0);
     if(nnormalMap)
     {
-        vec3 posdx = worldPos.xyz - (invView * texture(gposition, uv + vec2(0.00001, 0.0))).xyz;
-        vec3 posdy = worldPos.xyz - (invView * texture(gposition, uv + vec2(0.0, 0.00001))).xyz;
+        vec3 posdx = worldPos.xyz - (invView * texture(gposition, uv + vec2(0.01, 0.0))).xyz;
+        vec3 posdy = worldPos.xyz - (invView * texture(gposition, uv + vec2(0.0, 0.01))).xyz;
 
         vec3 normal = normalize(cross(posdx, posdy));
         mat3 tbn = mat3(normalize(posdx), normalize(posdy), normal);

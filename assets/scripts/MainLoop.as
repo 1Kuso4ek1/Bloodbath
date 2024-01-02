@@ -45,8 +45,8 @@ GameLoop@ mainGameLoop = function()
             currentWeapon = i;
             weapons[currentWeapon].model.SetIsDrawable(true);
             Game::scene.GetAnimation("knifeHit").Stop();
-            Game::scene.GetBone("Left-Arm.0-chel").SetOrientation(QuaternionFromEuler(Vector3(0, radians(60), radians(-90))));
-            Game::scene.GetBone("Right-Arm.0-chel").SetOrientation(QuaternionFromEuler(Vector3(0, radians(-60), radians(90))));
+            Game::scene.GetBone("Left-Arm.0-chel").SetOrientation(QuaternionFromEuler(Vector3(0, radians(80), radians(-90))));
+            Game::scene.GetBone("Right-Arm.0-chel").SetOrientation(QuaternionFromEuler(Vector3(0, radians(-80), radians(90))));
             switch(i)
             {
             case 0:
@@ -165,6 +165,13 @@ GameLoop@ mainGameLoop = function()
 
         for(uint i = 0; i < clients.length(); i++)
         {
+            if(clients[i].team == team)
+            {
+                auto screenPos = Game::camera.WorldPositionToScreen(clients[i].model.GetPosition() + Vector3(0, 3, 0));
+                hud.getLabel("client" + to_string(clients[i].id)).setPosition(screenPos.x, screenPos.y);
+            }
+            else hud.getLabel("client" + to_string(clients[i].id)).setPosition(-1000, -1000);
+
             Game::scene.GetModel("flash-rifle" + to_string(clients[i].id)).SetIsDrawable(false);
             Game::scene.GetModel("flash-deagle" + to_string(clients[i].id)).SetIsDrawable(false);
             Game::scene.GetLight("light-copy" + to_string(clients[i].id)).SetColor(Vector3(0, 0, 0));
@@ -229,6 +236,10 @@ GameLoop@ mainGameLoop = function()
 
                         cast<Node>(model).AddChild(cast<Node>(light));
 	                    cast<Node>(light).SetParent(cast<Node>(model));
+
+                        hud.copyLabel(hud.getLabel("name"), "client" + to_string(newId));
+                        hud.getLabel("client" + to_string(newId)).setText(newName);
+                        hud.getLabel("client" + to_string(newId)).setPosition(-1000, -1000);
 
                         player.SetGroundGroup(Game::scene.GetModelGroup("ground"));
                         
@@ -363,9 +374,11 @@ GameLoop@ mainGameLoop = function()
                         Game::scene.GetAnimation("HoldKnife-chel-chel" + to_string(newId)).Play();
                         break;
                     }
+                    
+                    float offset = (moving && onGround ? sin(logoTime.getElapsedTime().asSeconds() * 20) * 0.05 : 0.0);
 
 	                clients[cl].model.SetPosition(pos);
-                    clients[cl].chel.SetPosition(pos - Vector3(0, 0.7, 0));
+                    clients[cl].chel.SetPosition(pos - Vector3(0, 0.7 + offset, 0));
                     clients[cl].chel.SetOrientation(QuaternionFromEuler(Vector3(radians(-90.0), radians(-90.0), 0)));
                     clients[cl].orient = Quaternion(orient.y, orient.z, orient.x, orient.w);
                     clients[cl].tracerOrient = clients[cl].orient * QuaternionFromEuler(Vector3(0, radians(90), 0));
@@ -574,7 +587,10 @@ GameLoop@ mainGameLoop = function()
 	{
         player.Update();
         
-	    Game::camera.SetPosition(Game::scene.GetModel("player").GetPosition() + Vector3(0, 1.65, 0) + Game::camera.GetOrientation() * Vector3(0, 0.6, -0.5));
+        float offset = (player.IsMoving() && player.IsOnGround() && !player.BhopDelayActive() ? sin(logoTime.getElapsedTime().asSeconds() * 20) * 0.05 : 0.0);
+        float offset1 = (player.IsMoving() && player.IsOnGround() && !player.BhopDelayActive() ? sin(logoTime.getElapsedTime().asSeconds() * 10) * 0.05 : 0.0);
+
+	    Game::camera.SetPosition(Game::scene.GetModel("player").GetPosition() + Vector3(0, 1.65, 0) + Game::camera.GetOrientation() * Vector3(offset1, 0.6, -0.5));
 
 		int vel = int(Game::scene.GetModel("player").GetRigidBody().getLinearVelocity().length());
 	    hud.getLabel("velocity").setText(to_string(vel));
@@ -586,30 +602,30 @@ GameLoop@ mainGameLoop = function()
 	    auto orient1 = orient = orient * QuaternionFromEuler(Vector3(0, radians(-90), 0));
 	    orient1.x = orient.z; orient1.y = orient.x; orient1.z = orient.y;
 
-	    Game::scene.GetModel("chel").SetPosition(pos - Vector3(0, 0.7, 0));
+	    Game::scene.GetModel("chel").SetPosition(pos - Vector3(0, 0.7 + offset, 0));
 	    Game::scene.GetModel("chel").SetOrientation(QuaternionFromEuler(Vector3(radians(-90.0), radians(-90.0), 0)));
 
-		auto euler = EulerFromQuaternion(orient1);
-	    auto euler1 = euler; euler1.x = radians(90.0);
-	    auto euler2 = euler; euler2.x /= 2; euler2.y = euler2.z = 0.0;
-	    auto euler3 = euler; euler3.y = euler3.x; euler3.x = radians(5.5); euler3.z = radians(-90);
-	    euler.x = radians(-5); euler.y = player.IsMoving() || !player.IsOnGround() ? radians(-40) : radians(-35);
-
-	    Game::scene.GetBone("Body-chel").SetOrientation(slerp(Game::scene.GetBone("Body-chel").GetOrientation(), QuaternionFromEuler(euler1), 0.5));
-
-	    Game::scene.GetBone("Bone.014-chel").SetSize(Vector3(1.0, 1.0, 0.1));
-	    Game::scene.GetBone("Bone.013-chel").SetOrientation(QuaternionFromEuler(euler2));
-	    Game::scene.GetBone("Bone.014-chel").SetOrientation(QuaternionFromEuler(euler2));
-
-	    Game::scene.GetBone("Left-Arm.0-chel").SetOrientation(slerp(Game::scene.GetBone("Left-Arm.0-chel").GetOrientation(), QuaternionFromEuler(euler3 + Vector3(0.0, 0.057, 0.0)), 0.5));
-	    Game::scene.GetBone("Right-Arm.0-chel").SetOrientation(slerp(Game::scene.GetBone("Right-Arm.0-chel").GetOrientation(), QuaternionFromEuler(Vector3(-0.25, -euler3.y - 0.03, 1.57)), 0.5));
-
-		Game::scene.GetBone("Bone.007-chel").SetOrientation(slerp(Game::scene.GetBone("Bone.007-chel").GetOrientation(), QuaternionFromEuler(euler) * QuaternionFromEuler(player.IsMoving() || !player.IsOnGround() ? Vector3(0, 0, 1.57) : Vector3(-0.05, radians(20), radians(60.0))), 0.07));
-		euler.y = -euler.y;
-		Game::scene.GetBone("Bone.010-chel").SetOrientation(slerp(Game::scene.GetBone("Bone.010-chel").GetOrientation(), QuaternionFromEuler(euler) * QuaternionFromEuler(Vector3(0, 0, -1.57)), 0.1));
-
-		if(updatePhysics)
+        if(updatePhysics)
 	    {
+            auto euler = EulerFromQuaternion(orient1);
+            auto euler1 = euler; euler1.x = radians(90.0);
+            auto euler2 = euler; euler2.x /= 2; euler2.y = euler2.z = 0.0;
+            auto euler3 = euler; euler3.y = euler3.x; euler3.x = radians(5.5); euler3.z = radians(-90);
+            euler.x = radians(-5); euler.y = player.IsMoving() || !player.IsOnGround() ? radians(-40) : radians(-35);
+
+            Game::scene.GetBone("Body-chel").SetOrientation(slerp(Game::scene.GetBone("Body-chel").GetOrientation(), QuaternionFromEuler(euler1), 0.5));
+
+            Game::scene.GetBone("Bone.014-chel").SetSize(Vector3(1.0, 1.0, 0.1));
+            Game::scene.GetBone("Bone.013-chel").SetOrientation(QuaternionFromEuler(euler2));
+            Game::scene.GetBone("Bone.014-chel").SetOrientation(QuaternionFromEuler(euler2));
+
+            Game::scene.GetBone("Left-Arm.0-chel").SetOrientation(slerp(Game::scene.GetBone("Left-Arm.0-chel").GetOrientation(), QuaternionFromEuler(euler3 + Vector3(0.0, 0.057, 0.0)), 0.5));
+            Game::scene.GetBone("Right-Arm.0-chel").SetOrientation(slerp(Game::scene.GetBone("Right-Arm.0-chel").GetOrientation(), QuaternionFromEuler(Vector3(-0.25, -euler3.y - 0.03, 1.57)), 0.5));
+
+            Game::scene.GetBone("Bone.007-chel").SetOrientation(slerp(Game::scene.GetBone("Bone.007-chel").GetOrientation(), QuaternionFromEuler(euler) * QuaternionFromEuler(player.IsMoving() || !player.IsOnGround() ? Vector3(0, 0, 1.57) : Vector3(-0.05, radians(20), radians(60.0))), 0.07));
+            euler.y = -euler.y;
+            Game::scene.GetBone("Bone.010-chel").SetOrientation(slerp(Game::scene.GetBone("Bone.010-chel").GetOrientation(), QuaternionFromEuler(euler) * QuaternionFromEuler(Vector3(0, 0, -1.57)), 0.1));
+
 	        for(uint i = 0; i < tracers.length(); i++)
 	        {
 	            tracers[i].Move(tracers[i].GetOrientation() * QuaternionFromEuler(Vector3(-1.57, 0.0, 0.0)) * Vector3(0, 0, -17));

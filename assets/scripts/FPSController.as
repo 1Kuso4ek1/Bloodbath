@@ -45,7 +45,7 @@ class FPSController
         isRunning = !Keyboard::isKeyPressed(Keyboard::LShift);
         auto v = Game::camera.Move(isRunning ? 1.0 : 0.5, true); v.y = 0.0; v *= 250;
         moving = v.length() > 0;
-        if(moving && onGround && isRunning && footstepDelay.getElapsedTime().asSeconds() >= 0.3 && bhopDelay.getElapsedTime().asSeconds() >= 0.3)
+        if(moving && onGround && isRunning && footstepDelay.getElapsedTime().asSeconds() >= 0.3 && !BhopDelayActive())
         {
             auto soundNum = to_string(int(rnd(1, 5)));
             //Game::scene.GetSoundManager().SetPosition(playerModel.GetPosition(), "footstep" + soundNum, id);
@@ -53,7 +53,7 @@ class FPSController
             footstepDelay.restart();
         }
         if((!Keyboard::isKeyPressed(Keyboard::LControl) || !onGround) && serverConfig.allowBhop)
-            playerRB.applyWorldForceAtCenterOfMass((onGround && bhopDelay.getElapsedTime().asSeconds() >= 0.3) ? v : 
+            playerRB.applyWorldForceAtCenterOfMass((onGround && !BhopDelayActive()) ? v : 
 v / (Dot(normalize(v), normalize(playerRB.getLinearVelocity())) < -0.01 ? 0.75 : (serverConfig.allowBhop ? 100.0 : 50.0)));
         else if(!serverConfig.allowBhop && onGround)
             playerRB.applyWorldForceAtCenterOfMass(v);
@@ -65,10 +65,10 @@ v / (Dot(normalize(v), normalize(playerRB.getLinearVelocity())) < -0.01 ? 0.75 :
         if(vel.x < -maxSpeed) vel.x = -maxSpeed;
         if(vel.z < -maxSpeed) vel.z = -maxSpeed;
 
-        if(onGround && bhopDelay.getElapsedTime().asSeconds() >= 0.3 && !Keyboard::isKeyPressed(Keyboard::LControl))
+        if(onGround && !BhopDelayActive() && !Keyboard::isKeyPressed(Keyboard::LControl))
             playerRB.setLinearVelocity(vel);
 
-        if((onGround && !Keyboard::isKeyPressed(Keyboard::LControl) && bhopDelay.getElapsedTime().asSeconds() >= 0.3))
+        if((onGround && !Keyboard::isKeyPressed(Keyboard::LControl) && !BhopDelayActive()))
             playerRB.setLinearVelocity(
                 Vector3(playerRB.getLinearVelocity().x / 1.3,
                         playerRB.getLinearVelocity().y,
@@ -151,6 +151,11 @@ v / (Dot(normalize(v), normalize(playerRB.getLinearVelocity())) < -0.01 ? 0.75 :
     void SetGroundGroup(ModelGroup ground)
     {
         this.ground = ground;
+    }
+
+    bool BhopDelayActive()
+    {
+        return bhopDelay.getElapsedTime().asSeconds() < 0.3;
     }
 
     bool IsMoving()
