@@ -13,6 +13,8 @@ uint64 tabId;
 
 const float initialExposure = 1.5;
 
+const string version = "03.01.23";
+
 string currentMap = "town";
 
 string name, password, lastIp, frontPath, backPath, hat;
@@ -26,7 +28,7 @@ Clock physicsTime, networkTime, logoTime, delay, buttonTimer, chatTimer;
 bool pause = false, updatePhysics = true, chatActive = false,
      logo = true, hidden = false, freeCamera = false,
      removeFlash = false, xyNActive = false, enableShadows = false,
-     updateMenu = false, freeCameraFollowPlayer = false, updateInventory = true;
+     updateMenu = false, freeCameraFollowPlayer = false, night = false;
 
 array<int> score = { 0, 0 };
 array<Weapon> weapons;
@@ -70,6 +72,7 @@ class Client
     int health = 100;
     uint64 tabId;
     bool prevOnGround = true;
+    bool reloading = false;
     Model@ model;
     Model@ chel;
     Quaternion orient, tracerOrient;

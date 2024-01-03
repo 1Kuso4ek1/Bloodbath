@@ -23,12 +23,12 @@ void Start()
 
     weapons.removeRange(0, weapons.length());
     
-    weapons.insertLast(Weapon(Game::scene.GetModel("rifle"), Game::scene.GetModel("flash"), "ak47-shot",
-                              Game::scene.GetAnimation("rifleShoot"), Game::scene.GetAnimation("lookAtRifle"), 0.03, 0.1, 1000));
-    weapons.insertLast(Weapon(Game::scene.GetModel("deagle"), Game::scene.GetModel("flash1"), "deagle-shot",
-                              Game::scene.GetAnimation("deagleShoot"), Game::scene.GetAnimation("lookAtDeagle"), 0.06, 0.3, 1000));
-    weapons.insertLast(Weapon(Game::scene.GetModel(xyNActive ? "xyN" : "knife"), null, "knife-sound",
-                              Game::scene.GetAnimation("knifeHit"), Game::scene.GetAnimation("lookAtKnife"), 0.0, 0.75, 5));
+    weapons.insertLast(Weapon(Game::scene.GetModel("rifle"), Game::scene.GetModel("flash"), "ak47-shot", "ak47-reload",
+                              Game::scene.GetAnimation("rifleShoot"), Game::scene.GetAnimation("lookAtRifle"), 0.03, 0.1, 1000, 30, 2.2));
+    weapons.insertLast(Weapon(Game::scene.GetModel("deagle"), Game::scene.GetModel("flash1"), "deagle-shot", "deagle-reload",
+                              Game::scene.GetAnimation("deagleShoot"), Game::scene.GetAnimation("lookAtDeagle"), 0.06, 0.3, 1000, 7, 1.7));
+    weapons.insertLast(Weapon(Game::scene.GetModel(xyNActive ? "xyN" : "knife"), null, "knife-sound", "",
+                              Game::scene.GetAnimation("knifeHit"), Game::scene.GetAnimation("lookAtKnife"), 0.0, 0.75, 5, 0, 0));
     for(uint i = 0; i < weapons.length(); i++)
     {
         //weapons[i].model.SetIsDrawable(false);
@@ -140,19 +140,21 @@ void Start()
                 Game::camera.SetOrientation(Game::camera.GetOrientation() * QuaternionFromEuler(Vector3(weapons[currentWeapon].recoil, 0.0, 0.0)));
 
             weapons[currentWeapon].clock.restart();
+            weapons[currentWeapon].currentAmmo--;
 
             removeFlash = false;
         }
     });
 
-    /*player.AddCustomEvent(function()
+    player.AddCustomEvent(function()
     {
-        if(Keyboard::isKeyPressed(Keyboard::F) && weapons[currentWeapon].inspect.GetState() != Playing)
+        if(Keyboard::isKeyPressed(Keyboard::R))
         {
-            weapons[currentWeapon].shoot.Stop();
-            weapons[currentWeapon].inspect.Play();
+            if(!weapons[currentWeapon].reloadSound.isEmpty())
+                Game::scene.GetSoundManager().PlayMono(weapons[currentWeapon].reloadSound, id);
+            weapons[currentWeapon].Reload();
         }
-    });*/
+    });
     
     player.AddCustomEvent(function()
     {
@@ -299,7 +301,13 @@ void Start()
         Game::scene.GetSoundManager().Stop("menu-music");
         Game::scene.GetAnimation("Menu-Idle").Stop();
         Game::scene.GetModel("chel").DefaultPose();
-        Game::scene.LoadEnvironment("assets/textures/sky1.hdr");
+
+        if(night)
+        {
+            Game::scene.LoadEnvironment("assets/textures/night.hdr");
+            Game::scene.GetLight("light1").SetColor(Vector3(3, 3, 3));
+        }
+        else Game::scene.LoadEnvironment("assets/textures/sky1.hdr");
         //Game::scene.GetModel("chel").SetIsDrawable(false);
         Game::scene.GetModel("enemy:ground").GetRigidBody().setIsActive(false);
         //Game::scene.GetSoundManager().Play("game-music");

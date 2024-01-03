@@ -7630,16 +7630,16 @@
 		"near" : 0.0099999997764825821,
 		"orientation" : 
 		{
-			"w" : 0.71098893880844116,
-			"x" : -0.023113943636417389,
-			"y" : -0.70976388454437256,
-			"z" : -0.023059772327542305
+			"w" : 0.70576047897338867,
+			"x" : -0.01523972675204277,
+			"y" : -0.71538525819778442,
+			"z" : -0.015433111228048801
 		},
 		"position" : 
 		{
-			"x" : -5.3794856071472168,
-			"y" : 4.4400324821472168,
-			"z" : 0.0098676877096295357
+			"x" : -5.668304443359375,
+			"y" : 4.560513973236084,
+			"z" : 0.017529100179672241
 		},
 		"speed" : 1.0
 	},
@@ -7649,8 +7649,8 @@
 			"attenuation" : 
 			{
 				"constant" : 0.0,
-				"linear" : 0.0,
-				"quadratic" : 60.0
+				"linear" : 2.0,
+				"quadratic" : 0.0
 			},
 			"castShadows" : false,
 			"color" : 
@@ -7682,8 +7682,8 @@
 			"attenuation" : 
 			{
 				"constant" : 1.0,
-				"linear" : 1.0,
-				"quadratic" : 12.0
+				"linear" : 2.0,
+				"quadratic" : 0.0
 			},
 			"castShadows" : false,
 			"color" : 
@@ -7692,23 +7692,23 @@
 				"g" : 0.0,
 				"r" : 0.0
 			},
-			"cutoff" : 10.0,
+			"cutoff" : 20.0,
 			"name" : "light1",
 			"orientation" : 
 			{
 				"w" : -4.3711388286737929e-08,
 				"x" : 1.0,
 				"y" : 0.0,
-				"z" : 0.0
+				"z" : -0.0
 			},
-			"outerCutoff" : 20.0,
+			"outerCutoff" : 30.0,
 			"parent" : "Bone.014-chel",
 			"perspectiveShadows" : true,
 			"position" : 
 			{
 				"x" : 0.0,
 				"y" : 0.0,
-				"z" : 1.0
+				"z" : 0.0
 			}
 		},
 		{
@@ -8407,7 +8407,7 @@
 		{
 			"color" : 
 			{
-				"filename" : "assets/textures/\u043e\u0442\u0432\u0430\u043b.png"
+				"filename" : "assets/textures/otval.png"
 			},
 			"emission" : 
 			{
@@ -8423,7 +8423,7 @@
 			"name" : "otval patch",
 			"normal" : 
 			{
-				"filename" : "assets/textures/\u043e\u0442\u0432\u0430\u043b_normal.jpg"
+				"filename" : "assets/textures/otval_normal.jpg"
 			},
 			"opacity" : 
 			{
@@ -9695,9 +9695,9 @@
 			"name" : "footstep4",
 			"position" : 
 			{
-				"x" : -15.180310249328613,
-				"y" : 2.7729642391204834,
-				"z" : -245.70677185058594
+				"x" : -15.180299758911133,
+				"y" : 2.7729599475860596,
+				"z" : -245.70700073242188
 			},
 			"relativeToListener" : false,
 			"volume" : 23.0
@@ -9828,6 +9828,36 @@
 			"loop" : false,
 			"minDistance" : 0.0,
 			"name" : "headshot",
+			"position" : 
+			{
+				"x" : 0.0,
+				"y" : 0.0,
+				"z" : 0.0
+			},
+			"relativeToListener" : false,
+			"volume" : 100.0
+		},
+		{
+			"attenuation" : 0.15000000596046448,
+			"filename" : "assets/sounds/ak-47-reload.mp3",
+			"loop" : false,
+			"minDistance" : 4.0,
+			"name" : "ak47-reload",
+			"position" : 
+			{
+				"x" : 0.0,
+				"y" : 0.0,
+				"z" : 0.0
+			},
+			"relativeToListener" : false,
+			"volume" : 47.0
+		},
+		{
+			"attenuation" : 0.15000000596046448,
+			"filename" : "assets/sounds/deagle-reload.mp3",
+			"loop" : false,
+			"minDistance" : 4.0,
+			"name" : "deagle-reload",
 			"position" : 
 			{
 				"x" : 0.0,
