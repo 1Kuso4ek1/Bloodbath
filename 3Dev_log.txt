@@ -1,300 +1,381 @@
-Sun Jan  7 16:29:53 2024
+Sun Jan  7 16:33:02 2024
 	Info: Texture assets/textures/black.hdr loaded
-Sun Jan  7 16:29:53 2024
+Sun Jan  7 16:33:02 2024
 	Info: Renderer successfully initialized
-Sun Jan  7 16:29:53 2024
+Sun Jan  7 16:33:02 2024
 	Info: Model assets/models/aviator.fbx loaded:
         Meshes: 5
         Bones: 0
         Animations: 0
-Sun Jan  7 16:29:53 2024
+Sun Jan  7 16:33:03 2024
 	Info: Model assets/models/cat_ears.obj loaded:
         Meshes: 1
         Bones: 0
         Animations: 0
-Sun Jan  7 16:29:53 2024
+Sun Jan  7 16:33:03 2024
 	Info: Model assets/models/chel.fbx loaded:
         Meshes: 3
         Bones: 19
         Animations: 1
-Sun Jan  7 16:29:53 2024
+Sun Jan  7 16:33:03 2024
 	Info: Model assets/models/DesertEagle.fbx loaded:
         Meshes: 1
         Bones: 0
         Animations: 0
-Sun Jan  7 16:29:53 2024
+Sun Jan  7 16:33:03 2024
 	Info: Model assets/models/plane.fbx loaded:
         Meshes: 1
         Bones: 0
         Animations: 0
-Sun Jan  7 16:29:53 2024
+Sun Jan  7 16:33:03 2024
 	Info: Model assets/models/plane.fbx loaded:
         Meshes: 1
         Bones: 0
         Animations: 0
-Sun Jan  7 16:29:53 2024
+Sun Jan  7 16:33:03 2024
 	Info: Model assets/models/knife.fbx loaded:
         Meshes: 1
         Bones: 0
         Animations: 0
-Sun Jan  7 16:29:53 2024
+Sun Jan  7 16:33:03 2024
 	Info: Model assets/models/plane.fbx loaded:
         Meshes: 1
         Bones: 0
         Animations: 0
-Sun Jan  7 16:29:54 2024
+Sun Jan  7 16:33:03 2024
 	Info: Model assets/models/ak-47.fbx loaded:
         Meshes: 2
         Bones: 0
         Animations: 0
-Sun Jan  7 16:29:54 2024
+Sun Jan  7 16:33:03 2024
 	Info: Model assets/models/ak-47.fbx loaded:
         Meshes: 2
         Bones: 0
         Animations: 0
-Sun Jan  7 16:29:54 2024
+Sun Jan  7 16:33:03 2024
 	Info: Model assets/models/ushanka.fbx loaded:
         Meshes: 4
         Bones: 0
         Animations: 0
-Sun Jan  7 16:29:54 2024
+Sun Jan  7 16:33:03 2024
 	Info: Model assets/models/what.fbx loaded:
         Meshes: 1
         Bones: 0
         Animations: 0
-Sun Jan  7 16:29:54 2024
+Sun Jan  7 16:33:03 2024
 	Info: Sound "assets/sounds/metal-pipe.mp3" successfully loaded
-Sun Jan  7 16:29:54 2024
+Sun Jan  7 16:33:03 2024
 	Info: Sound "assets/sounds/footstep1.ogg" successfully loaded
-Sun Jan  7 16:29:54 2024
+Sun Jan  7 16:33:03 2024
 	Info: Sound "assets/sounds/footstep2.ogg" successfully loaded
-Sun Jan  7 16:29:54 2024
+Sun Jan  7 16:33:03 2024
 	Info: Sound "assets/sounds/footstep3.ogg" successfully loaded
-Sun Jan  7 16:29:54 2024
+Sun Jan  7 16:33:03 2024
 	Info: Sound "assets/sounds/footstep4.ogg" successfully loaded
-Sun Jan  7 16:29:54 2024
+Sun Jan  7 16:33:03 2024
 	Info: Sound "assets/sounds/jump.mp3" successfully loaded
-Sun Jan  7 16:29:54 2024
+Sun Jan  7 16:33:03 2024
 	Info: Sound "assets/sounds/land.mp3" successfully loaded
-Sun Jan  7 16:29:54 2024
+Sun Jan  7 16:33:03 2024
 	Info: Sound "assets/sounds/ak47-shot.mp3" successfully loaded
-Sun Jan  7 16:29:54 2024
+Sun Jan  7 16:33:03 2024
 	Info: Sound "assets/sounds/I-Cant-Stop-Mastered.mp3" successfully loaded
-Sun Jan  7 16:29:54 2024
+Sun Jan  7 16:33:03 2024
 	Info: Sound "assets/sounds/hit1.ogg" successfully loaded
-Sun Jan  7 16:29:54 2024
+Sun Jan  7 16:33:03 2024
 	Info: Sound "assets/sounds/hit2.ogg" successfully loaded
-Sun Jan  7 16:29:54 2024
+Sun Jan  7 16:33:03 2024
 	Info: Sound "assets/sounds/deagle-shot.mp3" successfully loaded
-Sun Jan  7 16:29:54 2024
+Sun Jan  7 16:33:03 2024
 	Info: Sound "assets/sounds/knife-sound.mp3" successfully loaded
-Sun Jan  7 16:29:54 2024
+Sun Jan  7 16:33:03 2024
 	Info: Sound "assets/sounds/headshot.mp3" successfully loaded
-Sun Jan  7 16:29:54 2024
+Sun Jan  7 16:33:03 2024
 	Info: Sound "assets/sounds/ak-47-reload.mp3" successfully loaded
-Sun Jan  7 16:29:54 2024
+Sun Jan  7 16:33:03 2024
 	Info: Sound "assets/sounds/deagle-reload.mp3" successfully loaded
-Sun Jan  7 16:29:54 2024
+Sun Jan  7 16:33:03 2024
 	Info: /home/kuso4ek/Рабочий стол/projects/Bloodbath/assets/scripts/MainLoop.as (2, 1): Compiling void $mainGameLoop$0()
-Sun Jan  7 16:29:54 2024
+Sun Jan  7 16:33:03 2024
 	Warning: /home/kuso4ek/Рабочий стол/projects/Bloodbath/assets/scripts/MainLoop.as (42, 26): Signed/Unsigned mismatch
-Sun Jan  7 16:29:54 2024
+Sun Jan  7 16:33:03 2024
 	Warning: /home/kuso4ek/Рабочий стол/projects/Bloodbath/assets/scripts/MainLoop.as (450, 26): Variable 'euler' hides another variable of same name in outer scope
-Sun Jan  7 16:29:54 2024
+Sun Jan  7 16:33:03 2024
 	Warning: /home/kuso4ek/Рабочий стол/projects/Bloodbath/assets/scripts/MainLoop.as (518, 33): Variable 'it' hides another variable of same name in outer scope
-Sun Jan  7 16:29:54 2024
+Sun Jan  7 16:33:03 2024
 	Warning: /home/kuso4ek/Рабочий стол/projects/Bloodbath/assets/scripts/MainLoop.as (527, 34): Variable 'pos' hides another variable of same name in outer scope
-Sun Jan  7 16:29:54 2024
+Sun Jan  7 16:33:03 2024
 	Warning: /home/kuso4ek/Рабочий стол/projects/Bloodbath/assets/scripts/MainLoop.as (539, 30): Variable 'pos' hides another variable of same name in outer scope
-Sun Jan  7 16:29:54 2024
+Sun Jan  7 16:33:03 2024
 	Warning: /home/kuso4ek/Рабочий стол/projects/Bloodbath/assets/scripts/MainLoop.as (641, 42): Signed/Unsigned mismatch
-Sun Jan  7 16:29:54 2024
+Sun Jan  7 16:33:03 2024
 	Warning: /home/kuso4ek/Рабочий стол/projects/Bloodbath/assets/scripts/MainLoop.as (648, 42): Signed/Unsigned mismatch
-Sun Jan  7 16:29:54 2024
+Sun Jan  7 16:33:03 2024
 	Warning: /home/kuso4ek/Рабочий стол/projects/Bloodbath/assets/scripts/MainLoop.as (692, 30): Signed/Unsigned mismatch
-Sun Jan  7 16:29:54 2024
+Sun Jan  7 16:33:03 2024
 	Warning: /home/kuso4ek/Рабочий стол/projects/Bloodbath/assets/scripts/MainLoop.as (761, 34): Signed/Unsigned mismatch
-Sun Jan  7 16:29:54 2024
+Sun Jan  7 16:33:03 2024
 	Info: /home/kuso4ek/Рабочий стол/projects/Bloodbath/assets/scripts/MenuLoop.as (4, 1): Compiling void $menuLoop$0()
-Sun Jan  7 16:29:54 2024
+Sun Jan  7 16:33:03 2024
 	Warning: /home/kuso4ek/Рабочий стол/projects/Bloodbath/assets/scripts/MenuLoop.as (28, 26): Signed/Unsigned mismatch
-Sun Jan  7 16:29:54 2024
+Sun Jan  7 16:33:03 2024
 	Warning: /home/kuso4ek/Рабочий стол/projects/Bloodbath/assets/scripts/MenuLoop.as (71, 38): Signed/Unsigned mismatch
-Sun Jan  7 16:29:54 2024
-	Info: Build completed successfully in 0.025423 s
-Sun Jan  7 16:29:54 2024
+Sun Jan  7 16:33:03 2024
+	Info: Build completed successfully in 0.025520 s
+Sun Jan  7 16:33:03 2024
 	Info: Texture assets/textures/black.hdr loaded
-Sun Jan  7 16:29:55 2024
+Sun Jan  7 16:33:04 2024
 	Info: Texture assets/textures/bullet-hole-normal.jpg loaded
-Sun Jan  7 16:29:55 2024
+Sun Jan  7 16:33:04 2024
 	Info: Texture assets/textures/muzzle-flash.png loaded
-Sun Jan  7 16:29:55 2024
+Sun Jan  7 16:33:04 2024
 	Info: Texture assets/textures/cat_ears_albedo.jpg loaded
-Sun Jan  7 16:29:55 2024
-	Info: Texture assets/textures/bloodbath.png loaded
-Sun Jan  7 16:29:55 2024
+Sun Jan  7 16:33:04 2024
 	Info: Texture assets/textures/ushanka_metalness.png loaded
-Sun Jan  7 16:29:55 2024
-	Info: Texture assets/textures/otval_normal.jpg loaded
-Sun Jan  7 16:29:55 2024
-	Info: Texture assets/textures/otval.png loaded
-Sun Jan  7 16:29:55 2024
-	Info: Texture assets/textures/Tiles074_2K-JPG_Roughness.jpg loaded
-Sun Jan  7 16:29:55 2024
-	Info: Texture assets/textures/ushanka_color.png loaded
-Sun Jan  7 16:29:55 2024
-	Info: Texture assets/textures/HeadGear_Metallic.jpg loaded
-Sun Jan  7 16:29:55 2024
-	Info: Texture assets/textures/Tiles074_2K-JPG_NormalGL.jpg loaded
-Sun Jan  7 16:29:55 2024
-	Info: Texture assets/textures/Metall_ak-47_Metallic.png loaded
-Sun Jan  7 16:29:55 2024
-	Info: Texture assets/textures/Wood_ak-47_Base_Color.png loaded
-Sun Jan  7 16:29:55 2024
-	Info: Texture assets/textures/templategrid_albedo.png loaded
-Sun Jan  7 16:29:55 2024
-	Info: Texture assets/textures/Wood_ak-47_Roughness.png loaded
-Sun Jan  7 16:29:55 2024
-	Info: Texture assets/textures/Body_Base_color.jpg loaded
-Sun Jan  7 16:29:55 2024
-	Info: Texture assets/textures/HeadGear_Normal_OpenGL.jpg loaded
-Sun Jan  7 16:29:55 2024
-	Info: Texture assets/textures/roughness.png loaded
-Sun Jan  7 16:29:55 2024
-	Info: Texture assets/textures/Metall_ak-47_Normal_OpenGL.png loaded
-Sun Jan  7 16:29:55 2024
-	Info: Texture assets/textures/DesertEagle_Desert_Eagle_Roughness.png loaded
-Sun Jan  7 16:29:55 2024
-	Info: Texture assets/textures/DesertEagle_Desert_Eagle_BaseColor.png loaded
-Sun Jan  7 16:29:55 2024
-	Info: Texture assets/textures/normal.png loaded
-Sun Jan  7 16:29:55 2024
-	Info: Texture assets/textures/bullet-hole.png loaded
-Sun Jan  7 16:29:55 2024
-	Info: Texture assets/textures/eyelashes01.png loaded
-Sun Jan  7 16:29:55 2024
-	Info: Texture assets/textures/ushanka_roughness.png loaded
-Sun Jan  7 16:29:55 2024
-	Info: Texture assets/textures/HeadGear_Roughness.jpg loaded
-Sun Jan  7 16:29:55 2024
-	Info: Texture assets/textures/Wood_ak-47_Metallic.png loaded
-Sun Jan  7 16:29:55 2024
-	Info: Texture assets/textures/metalness.png loaded
-Sun Jan  7 16:29:55 2024
+Sun Jan  7 16:33:04 2024
 	Info: Texture assets/textures/Body_Roughness.jpg loaded
-Sun Jan  7 16:29:55 2024
-	Info: Texture assets/textures/HeadGear_Base_color.jpg loaded
-Sun Jan  7 16:29:55 2024
-	Info: Texture assets/textures/DesertEagle_Desert_Eagle_Metallic.png loaded
-Sun Jan  7 16:29:55 2024
-	Info: Texture assets/textures/DesertEagle_Desert_Eagle_AO.png loaded
-Sun Jan  7 16:29:55 2024
-	Info: Texture assets/textures/Metall_ak-47_Base_Color.png loaded
-Sun Jan  7 16:29:55 2024
-	Info: Texture assets/textures/muzzle-flash.png loaded
-Sun Jan  7 16:29:55 2024
-	Info: Texture assets/textures/blood.png loaded
-Sun Jan  7 16:29:55 2024
-	Info: Texture assets/textures/ushanka_normal.png loaded
-Sun Jan  7 16:29:55 2024
+Sun Jan  7 16:33:04 2024
+	Info: Texture assets/textures/ushanka_roughness.png loaded
+Sun Jan  7 16:33:04 2024
+	Info: Texture assets/textures/otval_normal.jpg loaded
+Sun Jan  7 16:33:04 2024
+	Info: Texture assets/textures/HeadGear_Metallic.jpg loaded
+Sun Jan  7 16:33:04 2024
+	Info: Texture assets/textures/Tiles074_2K-JPG_Roughness.jpg loaded
+Sun Jan  7 16:33:04 2024
+	Info: Texture assets/textures/HeadGear_Roughness.jpg loaded
+Sun Jan  7 16:33:04 2024
+	Info: Texture assets/textures/ushanka_color.png loaded
+Sun Jan  7 16:33:04 2024
+	Info: Texture assets/textures/Wood_ak-47_Base_Color.png loaded
+Sun Jan  7 16:33:04 2024
+	Info: Texture assets/textures/metalness.png loaded
+Sun Jan  7 16:33:04 2024
 	Info: Texture assets/textures/Tiles074_2K-JPG_Color.jpg loaded
-Sun Jan  7 16:29:55 2024
-	Info: Texture assets/textures/color.png loaded
-Sun Jan  7 16:29:55 2024
-	Info: Texture assets/textures/DesertEagle_Desert_Eagle_Normal.png loaded
-Sun Jan  7 16:29:55 2024
-	Info: Texture assets/textures/bloodbath.png loaded
-Sun Jan  7 16:29:55 2024
+Sun Jan  7 16:33:04 2024
 	Info: Texture assets/textures/Metall_ak-47_Roughness.png loaded
-Sun Jan  7 16:29:55 2024
-	Info: Texture assets/textures/Wood_ak-47_Normal_OpenGL.png loaded
-Sun Jan  7 16:29:55 2024
+Sun Jan  7 16:33:04 2024
+	Info: Texture assets/textures/Wood_ak-47_Roughness.png loaded
+Sun Jan  7 16:33:04 2024
+	Info: Texture assets/textures/HeadGear_Normal_OpenGL.jpg loaded
+Sun Jan  7 16:33:04 2024
+	Info: Texture assets/textures/templategrid_albedo.png loaded
+Sun Jan  7 16:33:04 2024
+	Info: Texture assets/textures/Metall_ak-47_Normal_OpenGL.png loaded
+Sun Jan  7 16:33:04 2024
+	Info: Texture assets/textures/DesertEagle_Desert_Eagle_Roughness.png loaded
+Sun Jan  7 16:33:04 2024
+	Info: Texture assets/textures/DesertEagle_Desert_Eagle_BaseColor.png loaded
+Sun Jan  7 16:33:04 2024
+	Info: Texture assets/textures/normal.png loaded
+Sun Jan  7 16:33:04 2024
+	Info: Texture assets/textures/bullet-hole.png loaded
+Sun Jan  7 16:33:04 2024
+	Info: Texture assets/textures/eyelashes01.png loaded
+Sun Jan  7 16:33:04 2024
+	Info: Texture assets/textures/bloodbath.png loaded
+Sun Jan  7 16:33:04 2024
+	Info: Texture assets/textures/Body_Base_color.jpg loaded
+Sun Jan  7 16:33:04 2024
+	Info: Texture assets/textures/ushanka_normal.png loaded
+Sun Jan  7 16:33:04 2024
 	Info: Texture assets/textures/blood-normal.png loaded
-Sun Jan  7 16:29:55 2024
+Sun Jan  7 16:33:04 2024
+	Info: Texture assets/textures/Wood_ak-47_Metallic.png loaded
+Sun Jan  7 16:33:04 2024
+	Info: Texture assets/textures/HeadGear_Base_color.jpg loaded
+Sun Jan  7 16:33:04 2024
+	Info: Texture assets/textures/roughness.png loaded
+Sun Jan  7 16:33:04 2024
+	Info: Texture assets/textures/DesertEagle_Desert_Eagle_AO.png loaded
+Sun Jan  7 16:33:04 2024
+	Info: Texture assets/textures/Metall_ak-47_Base_Color.png loaded
+Sun Jan  7 16:33:04 2024
+	Info: Texture assets/textures/muzzle-flash.png loaded
+Sun Jan  7 16:33:04 2024
+	Info: Texture assets/textures/otval.png loaded
+Sun Jan  7 16:33:04 2024
+	Info: Texture assets/textures/color.png loaded
+Sun Jan  7 16:33:04 2024
+	Info: Texture assets/textures/Metall_ak-47_Metallic.png loaded
+Sun Jan  7 16:33:04 2024
 	Info: Texture assets/textures/Body_Normal_OpenGL.jpg loaded
-Sun Jan  7 16:29:56 2024
-	Info: Model assets/models/aviator.fbx loaded:
-        Meshes: 5
+Sun Jan  7 16:33:04 2024
+	Info: Texture assets/textures/DesertEagle_Desert_Eagle_Normal.png loaded
+Sun Jan  7 16:33:04 2024
+	Info: Texture assets/textures/bloodbath.png loaded
+Sun Jan  7 16:33:04 2024
+	Info: Texture assets/textures/Tiles074_2K-JPG_NormalGL.jpg loaded
+Sun Jan  7 16:33:04 2024
+	Info: Texture assets/textures/Wood_ak-47_Normal_OpenGL.png loaded
+Sun Jan  7 16:33:04 2024
+	Info: Texture assets/textures/blood.png loaded
+Sun Jan  7 16:33:04 2024
+	Info: Texture assets/textures/DesertEagle_Desert_Eagle_Metallic.png loaded
+Sun Jan  7 16:33:10 2024
+	Info: Texture assets/textures/sky1.hdr loaded
+Sun Jan  7 16:33:10 2024
+	Info: Model assets/models/map.obj loaded:
+        Meshes: 2
         Bones: 0
         Animations: 0
-Sun Jan  7 16:29:56 2024
-	Info: Model assets/models/cat_ears.obj loaded:
+Sun Jan  7 16:33:10 2024
+	Info: Model assets/models/ak-47.fbx loaded:
+        Meshes: 2
+        Bones: 0
+        Animations: 0
+Sun Jan  7 16:33:10 2024
+	Info: Model assets/models/DesertEagle.fbx loaded:
         Meshes: 1
         Bones: 0
         Animations: 0
-Sun Jan  7 16:29:56 2024
-	Info: Texture assets/textures/idn.png loaded
-Sun Jan  7 16:29:56 2024
-	Info: Texture assets/textures/idn.png loaded
-Sun Jan  7 16:29:58 2024
-	Info: Model assets/models/aviator.fbx loaded:
-        Meshes: 5
-        Bones: 0
-        Animations: 0
-Sun Jan  7 16:29:58 2024
-	Info: Model assets/models/cat_ears.obj loaded:
+Sun Jan  7 16:33:10 2024
+	Info: Model assets/models/knife.fbx loaded:
         Meshes: 1
         Bones: 0
         Animations: 0
-Sun Jan  7 16:30:00 2024
-	Info: Model assets/models/aviator.fbx loaded:
-        Meshes: 5
+Sun Jan  7 16:33:11 2024
+	Info: Texture assets/textures/map_roughness.jpg loaded
+Sun Jan  7 16:33:11 2024
+	Info: Texture assets/textures/map_color.jpg loaded
+Sun Jan  7 16:33:11 2024
+	Info: Texture assets/textures/map_metalness.jpg loaded
+Sun Jan  7 16:33:11 2024
+	Info: Texture assets/textures/map_normal.jpg loaded
+Sun Jan  7 16:33:15 2024
+	Info: Texture assets/textures/sky1.hdr loaded
+Sun Jan  7 16:33:15 2024
+	Info: Model assets/models/arena.obj loaded:
+        Meshes: 10
         Bones: 0
         Animations: 0
-Sun Jan  7 16:30:00 2024
-	Info: Model assets/models/cat_ears.obj loaded:
-        Meshes: 1
+Sun Jan  7 16:33:15 2024
+	Info: Texture assets/textures/PaintedMetal016_2K-JPG_Metalness.jpg loaded
+Sun Jan  7 16:33:15 2024
+	Info: Texture assets/textures/DiamondPlate006B_2K-JPG_AmbientOcclusion.jpg loaded
+Sun Jan  7 16:33:15 2024
+	Info: Texture assets/textures/PaintedMetal016_2K-JPG_Roughness.jpg loaded
+Sun Jan  7 16:33:15 2024
+	Info: Texture assets/textures/Concrete031_2K-JPG_Roughness.jpg loaded
+Sun Jan  7 16:33:15 2024
+	Info: Texture assets/textures/DiamondPlate006B_2K-JPG_Color.jpg loaded
+Sun Jan  7 16:33:15 2024
+	Info: Texture assets/textures/Concrete031_2K-JPG_AmbientOcclusion.jpg loaded
+Sun Jan  7 16:33:15 2024
+	Info: Texture assets/textures/PaintedMetal016_2K-JPG_Color.jpg loaded
+Sun Jan  7 16:33:15 2024
+	Info: Texture assets/textures/Concrete031_2K-JPG_NormalGL.jpg loaded
+Sun Jan  7 16:33:16 2024
+	Info: Texture assets/textures/DiamondPlate006B_2K-JPG_Metalness.jpg loaded
+Sun Jan  7 16:33:16 2024
+	Info: Texture assets/textures/DiamondPlate006B_2K-JPG_Roughness.jpg loaded
+Sun Jan  7 16:33:16 2024
+	Info: Texture assets/textures/DiamondPlate006B_2K-JPG_NormalGL.jpg loaded
+Sun Jan  7 16:33:16 2024
+	Info: Texture assets/textures/PaintedMetal016_2K-JPG_NormalGL.jpg loaded
+Sun Jan  7 16:33:16 2024
+	Info: Texture assets/textures/PaintedMetal016_2K-JPG_AmbientOcclusion.jpg loaded
+Sun Jan  7 16:33:16 2024
+	Info: Texture assets/textures/Concrete031_2K-JPG_Color.jpg loaded
+Sun Jan  7 16:33:16 2024
+	Info: Texture assets/textures/ptitsa.png loaded
+Sun Jan  7 16:33:18 2024
+	Info: Texture assets/textures/night.hdr loaded
+Sun Jan  7 16:33:18 2024
+	Info: Model assets/models/newmap.obj loaded:
+        Meshes: 9
         Bones: 0
         Animations: 0
-Sun Jan  7 16:30:02 2024
-	Info: Model assets/models/aviator.fbx loaded:
-        Meshes: 5
+Sun Jan  7 16:33:19 2024
+	Info: Texture assets/textures/ptitsa.png loaded
+Sun Jan  7 16:33:19 2024
+	Info: Texture assets/textures/DiamondPlate006B_2K-JPG_Roughness.jpg loaded
+Sun Jan  7 16:33:19 2024
+	Info: Texture assets/textures/PaintedMetal016_2K-JPG_Metalness.jpg loaded
+Sun Jan  7 16:33:19 2024
+	Info: Texture assets/textures/Planks034B_2K-JPG_Roughness.jpg loaded
+Sun Jan  7 16:33:19 2024
+	Info: Texture assets/textures/DiamondPlate006B_2K-JPG_AmbientOcclusion.jpg loaded
+Sun Jan  7 16:33:19 2024
+	Info: Texture assets/textures/DiamondPlate006B_2K-JPG_Color.jpg loaded
+Sun Jan  7 16:33:19 2024
+	Info: Texture assets/textures/PaintedMetal016_2K-JPG_AmbientOcclusion.jpg loaded
+Sun Jan  7 16:33:19 2024
+	Info: Texture assets/textures/Concrete031_2K-JPG_NormalGL.jpg loaded
+Sun Jan  7 16:33:19 2024
+	Info: Texture assets/textures/Planks034B_2K-JPG_Color.jpg loaded
+Sun Jan  7 16:33:19 2024
+	Info: Texture assets/textures/Planks034B_2K-JPG_NormalGL.jpg loaded
+Sun Jan  7 16:33:19 2024
+	Info: Texture assets/textures/DiamondPlate006B_2K-JPG_Metalness.jpg loaded
+Sun Jan  7 16:33:19 2024
+	Info: Texture assets/textures/Planks034B_2K-JPG_AmbientOcclusion.jpg loaded
+Sun Jan  7 16:33:19 2024
+	Info: Texture assets/textures/Concrete031_2K-JPG_Color.jpg loaded
+Sun Jan  7 16:33:19 2024
+	Info: Texture assets/textures/PaintedMetal016_2K-JPG_Roughness.jpg loaded
+Sun Jan  7 16:33:19 2024
+	Info: Texture assets/textures/PaintedMetal016_2K-JPG_NormalGL.jpg loaded
+Sun Jan  7 16:33:19 2024
+	Info: Texture assets/textures/Concrete031_2K-JPG_Roughness.jpg loaded
+Sun Jan  7 16:33:19 2024
+	Info: Texture assets/textures/DiamondPlate006B_2K-JPG_NormalGL.jpg loaded
+Sun Jan  7 16:33:19 2024
+	Info: Texture assets/textures/Concrete031_2K-JPG_AmbientOcclusion.jpg loaded
+Sun Jan  7 16:33:19 2024
+	Info: Texture assets/textures/PaintedMetal016_2K-JPG_Color.jpg loaded
+Sun Jan  7 16:33:28 2024
+	Info: Texture assets/textures/sky1.hdr loaded
+Sun Jan  7 16:33:28 2024
+	Info: Model assets/models/map.obj loaded:
+        Meshes: 2
         Bones: 0
         Animations: 0
-Sun Jan  7 16:30:02 2024
-	Info: Model assets/models/cat_ears.obj loaded:
-        Meshes: 1
-        Bones: 0
-        Animations: 0
-Sun Jan  7 16:30:04 2024
-	Info: Model assets/models/aviator.fbx loaded:
-        Meshes: 5
-        Bones: 0
-        Animations: 0
-Sun Jan  7 16:30:04 2024
-	Info: Model assets/models/cat_ears.obj loaded:
-        Meshes: 1
-        Bones: 0
-        Animations: 0
-Sun Jan  7 16:30:06 2024
+Sun Jan  7 16:33:28 2024
+	Info: Texture assets/textures/map_roughness.jpg loaded
+Sun Jan  7 16:33:28 2024
+	Info: Texture assets/textures/map_color.jpg loaded
+Sun Jan  7 16:33:28 2024
+	Info: Texture assets/textures/map_metalness.jpg loaded
+Sun Jan  7 16:33:29 2024
+	Info: Texture assets/textures/map_normal.jpg loaded
+Sun Jan  7 16:33:32 2024
 	Warning:  (0, 0): There is an external reference to an object in module 'module', preventing it from being deleted
-Sun Jan  7 16:30:06 2024
+Sun Jan  7 16:33:32 2024
 	Info:  (0, 0): The function in previous message is named '$void Start()$3'. The func type is 1
-Sun Jan  7 16:30:06 2024
+Sun Jan  7 16:33:32 2024
 	Warning:  (0, 0): There is an external reference to an object in module 'module', preventing it from being deleted
-Sun Jan  7 16:30:06 2024
+Sun Jan  7 16:33:32 2024
 	Info:  (0, 0): The function in previous message is named '$void Start()$4'. The func type is 1
-Sun Jan  7 16:30:06 2024
+Sun Jan  7 16:33:32 2024
 	Warning:  (0, 0): There is an external reference to an object in module 'module', preventing it from being deleted
-Sun Jan  7 16:30:06 2024
+Sun Jan  7 16:33:32 2024
 	Info:  (0, 0): The function in previous message is named '$void Start()$5'. The func type is 1
-Sun Jan  7 16:30:06 2024
+Sun Jan  7 16:33:32 2024
 	Warning:  (0, 0): There is an external reference to an object in module 'module', preventing it from being deleted
-Sun Jan  7 16:30:06 2024
+Sun Jan  7 16:33:32 2024
 	Info:  (0, 0): The function in previous message is named '$void Start()$6'. The func type is 1
-Sun Jan  7 16:30:06 2024
+Sun Jan  7 16:33:32 2024
 	Warning:  (0, 0): There is an external reference to an object in module 'module', preventing it from being deleted
-Sun Jan  7 16:30:06 2024
+Sun Jan  7 16:33:32 2024
 	Info:  (0, 0): The function in previous message is named '$void Start()$7'. The func type is 1
-Sun Jan  7 16:30:06 2024
+Sun Jan  7 16:33:32 2024
 	Warning:  (0, 0): There is an external reference to an object in module 'module', preventing it from being deleted
-Sun Jan  7 16:30:06 2024
+Sun Jan  7 16:33:32 2024
 	Info:  (0, 0): The function in previous message is named '$void Start()$8'. The func type is 1
-Sun Jan  7 16:30:06 2024
+Sun Jan  7 16:33:32 2024
 	Warning:  (0, 0): There is an external reference to an object in module 'module', preventing it from being deleted
-Sun Jan  7 16:30:06 2024
+Sun Jan  7 16:33:32 2024
 	Info:  (0, 0): The function in previous message is named '$void Start()$9'. The func type is 1
-Sun Jan  7 16:30:06 2024
+Sun Jan  7 16:33:32 2024
 	Warning:  (0, 0): There is an external reference to an object in module 'module', preventing it from being deleted
-Sun Jan  7 16:30:06 2024
+Sun Jan  7 16:33:32 2024
 	Info:  (0, 0): The function in previous message is named '$void Start()$10'. The func type is 1
+Sun Jan  7 16:33:32 2024
+	Warning:  (0, 0): There is an external reference to an object in module 'module', preventing it from being deleted
+Sun Jan  7 16:33:32 2024
+	Info:  (0, 0): The function in previous message is named '$void $void Start()$10()$0'. The func type is 1
+Sun Jan  7 16:33:32 2024
+	Warning:  (0, 0): There is an external reference to an object in module 'module', preventing it from being deleted
+Sun Jan  7 16:33:32 2024
+	Info:  (0, 0): The function in previous message is named '$void $void Start()$10()$1'. The func type is 1
