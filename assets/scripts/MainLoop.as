@@ -38,8 +38,9 @@ GameLoop@ mainGameLoop = function()
     Game::scene.GetAnimation("HoldPistol-chel").Stop();
     Game::scene.GetAnimation("HoldKnife-chel").Stop();
 
-    if(!hat.isEmpty())
-        Game::scene.GetModel(hat).SetIsDrawable(true);
+    if(hats.length() > 0)
+        for(int i = 0; i < hats.length(); i++)
+            Game::scene.GetModel(hats[i]).SetIsDrawable(true);
     Game::scene.GetBone("Bone.014-chel").SetSize(Vector3(1, 1, 1));
 
     for(uint i = 0; i < weapons.length(); i++)
@@ -249,7 +250,7 @@ GameLoop@ mainGameLoop = function()
 	                        cast<Node>(backPatchModel).SetParent(cast<Node>(Game::scene.GetBone("Body-chel" + to_string(newId))));
                         }
                         p >> tmp;
-                        if(!tmp.isEmpty())
+                        while(tmp != "end")
                         {
                             Model@ hatModel = @Game::scene.CloneModel(Game::scene.GetModel(tmp), true, tmp + to_string(newId));
                             hatModel.Load();
@@ -257,6 +258,7 @@ GameLoop@ mainGameLoop = function()
                             hatModel.SetIsDrawable(true);
                             cast<Node>(Game::scene.GetBone("Bone.014-chel" + to_string(newId))).AddChild(cast<Node>(hatModel));
 	                        cast<Node>(hatModel).SetParent(cast<Node>(Game::scene.GetBone("Bone.014-chel" + to_string(newId))));
+                            p >> tmp;
                         }
 	                    
                         rifle.SetIsDrawable(true);
@@ -373,6 +375,7 @@ GameLoop@ mainGameLoop = function()
                         {
                         	p >> pos.x >> pos.y >> pos.z;
                         	clients[cl].model.SetPosition(pos);
+                            clients[cl].chel.SetPosition(pos - Vector3(0, 0.7, 0));
                         }
                         break;
                     }
@@ -685,8 +688,9 @@ GameLoop@ mainGameLoop = function()
 
 	    Game::scene.GetModel("chel").SetPosition(pos - Vector3(0, 0.7 + offset, 0));
 	    Game::scene.GetModel("chel").SetOrientation(QuaternionFromEuler(Vector3(radians(-90.0), radians(-90.0), 0)));
-	    if(!hat.isEmpty())
-            Game::scene.GetModel(hat).SetIsDrawable(false);
+	    if(hats.length() > 0)
+            for(int i = 0; i < hats.length(); i++)
+                Game::scene.GetModel(hats[i]).SetIsDrawable(false);
         Game::scene.GetBone("Bone.014-chel").SetSize(Vector3(1.0, 1.0, 0.1));
 
         auto euler = EulerFromQuaternion(orient1);
@@ -765,7 +769,6 @@ GameLoop@ mainGameLoop = function()
             buttonTimer.restart();
         }
 
-        // ????????????????
         if(networkTime.getElapsedTime().asMilliseconds() < 15)
             return;
 
@@ -804,6 +807,10 @@ GameLoop@ mainGameLoop = function()
     {
         if(freeCameraFollowPlayer)
             Game::camera.SetOrientation(LookAt(Game::camera.GetPosition(true), follow.GetPosition(), Vector3(0, 1, 0)));
+        if(Keyboard::isKeyPressed(Keyboard::LControl))
+            Game::camera.SetSpeed(Game::camera.GetSpeed() - 0.001);
+        if(Keyboard::isKeyPressed(Keyboard::LShift))
+            Game::camera.SetSpeed(Game::camera.GetSpeed() + 0.001);
         if(Keyboard::isKeyPressed(Keyboard::U))
             Game::dofMinDistance += 0.001;
         if(Keyboard::isKeyPressed(Keyboard::J))

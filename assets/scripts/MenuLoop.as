@@ -14,12 +14,21 @@ GameLoop@ menuLoop = function()
         Game::exposure = lerp(Game::exposure, initialExposure, 0.015);
         Game::blurIterations = int(lerp(Game::blurIterations, 16, 0.8));
         Game::bloomStrength = lerp(Game::bloomStrength, 0.3, 0.002 + Game::exposure / 100.0);
+
+        auto a = Game::camera.ScreenPositionToWorld(true); a.y = -a.y;
+        auto l = EulerFromQuaternion(LookAt(Vector3(0, 2.7, 0), Game::camera.GetPosition() - a * 3.5, Vector3(0, 1, 0)).getConjugate());
+        
+        Game::scene.GetBone("Bone.014-chel").SetOrientation(QuaternionFromEuler(l) * QuaternionFromEuler(Vector3(0.2, 1.57, 0)));
     }
 
     if(!socket.isBlocking() && updateInfo.getElapsedTime().asSeconds() >= 2.0)
     {
         updateInfo.restart();
-        Packet upd; upd << -1; upd << name; upd << password; upd << frontPath; upd << backPath; upd << hat; upd << version;
+        Packet upd; upd << -1; upd << name; upd << password; upd << frontPath; upd << backPath; 
+        for(int i = 0; i < hats.length(); i++)
+            upd << hats[i];
+        upd << "end";
+        // upd << version;
         socket.send(upd);
         socket.setBlocking(true);
         ping.restart();
@@ -34,7 +43,15 @@ GameLoop@ menuLoop = function()
                 upd >> numPlayers; upd >> team; upd >> currentMap; upd >> night; upd >> stats;
                 if(!password.isEmpty())
                 {
-                    upd >> exp; upd >> frontPath; upd >> backPath; upd >> hat;
+                    upd >> exp; upd >> frontPath; upd >> backPath;
+                    string hat;
+                    hats.removeRange(0, hats.length());
+                    upd >> hat;
+                    while(hat != "end")
+                    {
+                        hats.insertLast(hat);
+                        upd >> hat;
+                    }
                 }
             
                 if(!frontPath.isEmpty())
@@ -49,11 +66,14 @@ GameLoop@ menuLoop = function()
                     Game::scene.GetModel("patch1:decals").SetIsDrawable(true);
                 }
 
-                if(!hat.isEmpty())
+                if(hats.length() > 0)
                 {
-                    Game::scene.GetModel(hat).Load();
-                    Game::scene.GetModel(hat).SetShadowBias(0.005);
-                    Game::scene.GetModel(hat).SetIsDrawable(true);
+                    for(int i = 0; i < hats.length(); i++)
+                    {
+                        Game::scene.GetModel(hats[i]).Load();
+                        Game::scene.GetModel(hats[i]).SetShadowBias(0.005);
+                        Game::scene.GetModel(hats[i]).SetIsDrawable(true);
+                    }
                 }
                 
                 if(updateInventory)
@@ -64,7 +84,6 @@ GameLoop@ menuLoop = function()
                     upd >> item;
                     while(item != "end" && !item.isEmpty())
                     {
-                        Log::Write(item);
                         inventory.insertLast(item);
                         menu.getListView("items").addItem(item);
                         upd >> item;

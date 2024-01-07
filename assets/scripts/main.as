@@ -13,11 +13,11 @@ uint64 tabId;
 
 const float initialExposure = 1.5;
 
-const string version = "03.01.23";
+const string version = "07.01.23";
 
 string currentMap = "town";
 
-string name, password, lastIp, frontPath, backPath, hat;
+string name, password, lastIp, frontPath, backPath;
 
 Quaternion tracerOrient;
 
@@ -36,7 +36,7 @@ array<Weapon> weapons;
 array<Model@> tracers;
 
 array<string> mapNames = { "town", "big arena", "$7000$" };
-array<string> inventory;
+array<string> inventory, hats;
 
 funcdef void GameLoop();
 funcdef void lambda();

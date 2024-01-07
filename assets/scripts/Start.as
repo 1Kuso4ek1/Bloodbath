@@ -19,6 +19,9 @@ void Start()
     Game::manageCameraMovement = false;
     Game::mouseCursorVisible = true;
     Game::mouseCursorGrabbed = false;
+    Game::dofFocusDistance = 0.0;
+    Game::dofMinDistance = 1.0;
+    Game::dofMaxDistance = 1.0;
 
     weapons.removeRange(0, weapons.length());
     
@@ -272,15 +275,22 @@ void Start()
 
     menu.getButton("applyHat").onPress(function()
     {
-        auto prev = hat;
-        hat = inventory[menu.getListView("items").getSelectedItemIndex()];
+        auto hat = inventory[menu.getListView("items").getSelectedItemIndex()];
         if(hat.findFirst("hat") >= 0)
         {
-            Game::scene.GetModel(hat).Load();
-            Game::scene.GetModel(hat).SetShadowBias(0.005);
-            Game::scene.GetModel(hat).SetIsDrawable(prev == hat ? false : true);
-            if(prev == hat)
-                hat = "";
+            int it = hats.find(hat);
+            if(it < 0)
+            {
+                Game::scene.GetModel(hat).Load();
+                Game::scene.GetModel(hat).SetShadowBias(0.005);
+                Game::scene.GetModel(hat).SetIsDrawable(true);
+                hats.insertLast(hat);
+            }
+            else
+            {
+                Game::scene.GetModel(hats[it]).SetIsDrawable(false);
+                hats.removeRange(it, 1);
+            }
         }
     });
 
