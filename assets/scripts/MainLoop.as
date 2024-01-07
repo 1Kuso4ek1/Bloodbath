@@ -230,6 +230,9 @@ GameLoop@ mainGameLoop = function()
                         Light@ light = @Game::scene.CloneLight(Game::scene.GetLight("light"), true, "light-copy" + to_string(newId));
                         Light@ light1 = @Game::scene.CloneLight(Game::scene.GetLight("light1"), true, "light1-copy" + to_string(newId));
 
+                        clients.insertLast(Client(newId, newTeam, newName, model, chel));
+                        clients[clients.length() - 1].tabId = hud.getListView("team" + to_string(newTeam) + "tab").addItem({ to_string(newId), newName, "0", "0" });
+
                         string tmp;
                         p >> tmp;
                         if(!tmp.isEmpty())
@@ -252,6 +255,7 @@ GameLoop@ mainGameLoop = function()
                         p >> tmp;
                         while(tmp != "end")
                         {
+                            clients[clients.length() - 1].hats.insertLast(tmp);
                             Model@ hatModel = @Game::scene.CloneModel(Game::scene.GetModel(tmp), true, tmp + to_string(newId));
                             hatModel.Load();
                             hatModel.SetShadowBias(0.005);
@@ -298,8 +302,6 @@ GameLoop@ mainGameLoop = function()
 
                         player.SetGroundGroup(Game::scene.GetModelGroup("ground"));
                         
-	                    clients.insertLast(Client(newId, newTeam, newName, model, chel));
-                        clients[clients.length() - 1].tabId = hud.getListView("team" + to_string(newTeam) + "tab").addItem({ to_string(newId), newName, "0", "0" });
 	                    p.clear();
 	                    p << 0; p << id; p << name; p << team;
 	                    socket.send(p);
@@ -583,6 +585,8 @@ GameLoop@ mainGameLoop = function()
                     Game::scene.RemoveAnimation(Game::scene.GetAnimation("Jump-chel-chel" + to_string(newId)));
                     Game::scene.RemoveAnimation(Game::scene.GetAnimation("Stand-chel-chel" + to_string(newId)));
                     Game::scene.RemoveAnimation(Game::scene.GetAnimation("Armature|Walk-chel-chel" + to_string(newId)));
+                    for(int i = 0; i < clients[cl].hats.length(); i++)
+                        Game::scene.RemoveModel(Game::scene.GetModel(clients[cl].hats[i] + to_string(newId)));
                     hud.getLabel("client" + to_string(newId)).setVisible(false);
                     clients.removeAt(cl);
                     player.SetGroundGroup(Game::scene.GetModelGroup("ground"));

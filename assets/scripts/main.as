@@ -78,6 +78,7 @@ class Client
     Model@ chel;
     Quaternion orient, tracerOrient;
     Clock footsteps;
+    array<string> hats;
 };
 
 array<Client> clients;
