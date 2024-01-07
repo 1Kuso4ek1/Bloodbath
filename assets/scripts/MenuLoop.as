@@ -32,7 +32,10 @@ GameLoop@ menuLoop = function()
                 string stats;
                 upd >> id; upd >> serverConfig.name; upd >> serverConfig.allowBhop; upd >> serverConfig.enableFullGUI; upd >> serverConfig.maxPlayers; upd >> serverConfig.jumpForce; upd >> serverConfig.maxSpeed;
                 upd >> numPlayers; upd >> team; upd >> currentMap; upd >> night; upd >> stats;
-                upd >> exp; upd >> frontPath; upd >> backPath; upd >> hat;
+                if(!password.isEmpty())
+                {
+                    upd >> exp; upd >> frontPath; upd >> backPath; upd >> hat;
+                }
             
                 if(!frontPath.isEmpty())
                 {
@@ -53,16 +56,19 @@ GameLoop@ menuLoop = function()
                     Game::scene.GetModel(hat).SetIsDrawable(true);
                 }
                 
-                string item;
-                inventory.removeRange(0, inventory.length());
-                menu.getListView("items").removeAllItems();
-                upd >> item;
-                while(item != "end" && !item.isEmpty())
+                if(updateInventory)
                 {
-                    Log::Write(item);
-                    inventory.insertLast(item);
-                    menu.getListView("items").addItem(item);
+                    string item;
+                    inventory.removeRange(0, inventory.length());
+                    menu.getListView("items").removeAllItems();
                     upd >> item;
+                    while(item != "end" && !item.isEmpty())
+                    {
+                        Log::Write(item);
+                        inventory.insertLast(item);
+                        menu.getListView("items").addItem(item);
+                        upd >> item;
+                    }
                 }
                 
                 menu.getLabel("info").setText("Connected to " + serverConfig.name + "\n" + to_string(numPlayers - 1) + "/" + to_string(serverConfig.maxPlayers) + " players\n" + "ID: " + to_string(id) + "\nPing: " + to_string(ping.getElapsedTime().asMilliseconds()) + "\nMap: " + currentMap + "\n" + stats);

@@ -19,7 +19,6 @@ void Start()
     Game::manageCameraMovement = false;
     Game::mouseCursorVisible = true;
     Game::mouseCursorGrabbed = false;
-    Game::dofFocusDistance = 0.0;
 
     weapons.removeRange(0, weapons.length());
     
@@ -38,7 +37,7 @@ void Start()
     for(uint i = 0; i < mapNames.length(); i++)
         Game::scene.GetModel(mapNames[i] + ":ground").Unload(false);
 
-    Game::scene.LoadEnvironment("assets/textures/black.jpg");
+    Game::scene.LoadEnvironment("assets/textures/black.hdr");
 
     Game::scene.GetModel("chel").SetShadowBias(0.005);
     Game::scene.GetModel("chel").SetIsDrawable(true);
@@ -150,9 +149,9 @@ void Start()
     {
         if(Keyboard::isKeyPressed(Keyboard::R))
         {
-            if(!weapons[currentWeapon].reloadSound.isEmpty())
-                Game::scene.GetSoundManager().PlayMono(weapons[currentWeapon].reloadSound, id);
             weapons[currentWeapon].Reload();
+            if(weapons[currentWeapon].reloading)
+                Game::scene.GetSoundManager().PlayMono(weapons[currentWeapon].reloadSound, id);
         }
     });
     
@@ -239,6 +238,8 @@ void Start()
 
     menu.getButton("customize").onPress(function()
     {
+        updateInventory = false;
+        
         menu.getChildWindow("inventory").setVisible(true);
         menu.getChildWindow("inventory").setEnabled(true);
     });
@@ -285,6 +286,8 @@ void Start()
 
     menu.getButton("closeInventory").onPress(function()
     {
+        updateInventory = true;
+
         menu.getChildWindow("inventory").setVisible(false);
         menu.getChildWindow("inventory").setEnabled(false);
     });

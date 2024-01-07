@@ -1,5 +1,6 @@
 {
     "scenePath" : "./bloodbath.json",
+    "enableMultithreading" : true,
     "window" :
     {
         "title" : "Bloodbath",
@@ -17,7 +18,7 @@
     "renderer" :
     {
     	"shadersDir" : "assets/shaders/",
-        "hdriPath" : "assets/textures/black.jpg",
+        "hdriPath" : "assets/textures/black.hdr",
         "skyboxSideSize" : 512,
         "irradianceSideSize" : 32,
         "prefilteredSideSize" : 512,

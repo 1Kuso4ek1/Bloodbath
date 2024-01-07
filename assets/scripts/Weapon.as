@@ -21,7 +21,7 @@ class Weapon
 
     void Reload()
     {
-        if(!reloading && currentAmmo != maxAmmo && maxAmmo > 0)
+        if(!reloading && currentAmmo != maxAmmo && maxAmmo > 0 && reserve > 0)
         {
             reloadClock.restart();
             reloading = true;
@@ -32,15 +32,24 @@ class Weapon
     {
         if(reloading && reloadClock.getElapsedTime().asSeconds() >= reloadTime)
         {
-            reserve -= (maxAmmo - currentAmmo);
-            currentAmmo = maxAmmo;
+            if(maxAmmo - currentAmmo > reserve)
+            {
+                currentAmmo += reserve;
+                reserve = 0;
+            }
+            else
+            {
+                reserve -= (maxAmmo - currentAmmo);
+                currentAmmo = maxAmmo;
+            }
+            if(reserve < 0) reserve = 0;
             reloading = false;
         }
     }
 
     bool IsReady()
     {
-        return clock.getElapsedTime().asSeconds() >= delay && currentAmmo > 0 && !reloading;
+        return clock.getElapsedTime().asSeconds() >= delay && ((currentAmmo > 0 && !reloading) || maxAmmo == 0);
     }
 
     Clock clock, reloadClock;

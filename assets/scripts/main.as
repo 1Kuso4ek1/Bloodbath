@@ -28,7 +28,8 @@ Clock physicsTime, networkTime, logoTime, delay, buttonTimer, chatTimer;
 bool pause = false, updatePhysics = true, chatActive = false,
      logo = true, hidden = false, freeCamera = false,
      removeFlash = false, xyNActive = false, enableShadows = false,
-     updateMenu = false, freeCameraFollowPlayer = false, night = false;
+     updateMenu = false, freeCameraFollowPlayer = false, night = false,
+     updateInventory = true;
 
 array<int> score = { 0, 0 };
 array<Weapon> weapons;
@@ -105,8 +106,6 @@ void Loop()
         updatePhysics = true;
         physicsTime.restart();
     }
-
-    Game::scene.UpdatePhysics(updatePhysics);
 
     currentLoop();
 }

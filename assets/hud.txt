@@ -27,7 +27,7 @@ ChatBox.chat {
     LinesStartFromTop = false;
     NewLinesBelowOthers = true;
     Position = (10, 800);
-    Size = (290, 212);
+    Size = (290, 222);
     TextColor = white;
     TextSize = 13;
 
@@ -90,14 +90,14 @@ Picture.Picture1 {
 }
 
 EditBox.chatField {
-    Position = (10, 1020);
+    Position = (10, 1022);
     Size = (290, 22);
     TextSize = 13;
 
     Renderer {
-        BackgroundColor = #F5F5F5;
+        BackgroundColor = #00000096;
         BackgroundColorDisabled = #E6E6E6;
-        BackgroundColorHover = white;
+        BackgroundColorHover = #00000096;
         BorderColor = #3C3C3C;
         BorderColorDisabled = #7D7D7D;
         BorderColorHover = black;
@@ -109,7 +109,7 @@ EditBox.chatField {
         Padding = (0, 0, 0, 0);
         SelectedTextBackgroundColor = #006EFF;
         SelectedTextColor = white;
-        TextColor = #3C3C3C;
+        TextColor = white;
         TextColorDisabled = #7D7D7D;
         Texture = None;
         TextureDisabled = None;
